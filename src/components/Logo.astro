@@ -1,6 +1,26 @@
 ---
----
+export interface Props {
+  title?: string;
+}
 
-<span class="self-center ml-2 text-2xl md:text-xl font-bold text-gray-900 whitespace-nowrap dark:text-white">
-  🚀 AstroWind</span
+const {
+  title = "Gabo's Blog"
+} = Astro.props;
+
+import { Image } from '@astrojs/image/components';
+
+---
+<Image
+  class="mx-auto"
+  src={import('~/assets/images/profile_alpha.svg')}
+  width={50}
+  height={50}
+  sizes="(max-width: 768px) 100vw, 432px"
+  aspectRatio="50:50"
+  format='svg'
+  alt="gabo's logo"
+/>
+
+<span class="self-center ml-2 text-xl font-bold text-gray-900 whitespace-nowrap dark:text-white">
+  {title}</span
 >
