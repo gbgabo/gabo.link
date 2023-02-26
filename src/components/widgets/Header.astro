@@ -32,6 +32,18 @@ export interface Props {
 
 let menuIndex = 1;
 
+const delayClasses = [
+  'animate-delay-0',
+  'animate-delay-1',
+  'animate-delay-2',
+  'animate-delay-3',
+  'animate-delay-4',
+  'animate-delay-5',
+  'animate-delay-6',
+  'animate-delay-7',
+  'animate-delay-8',
+];
+
 const delayClassesMd = [
   'md:animate-delay-0',
   'md:animate-delay-1',
@@ -73,7 +85,7 @@ const {
                     <button
                       class:list={[
                         `menu-item font-medium hover:text-gray-900 dark:hover:text-white px-4 py-3 flex items-center transition duration-150 ease-in-out`,
-                        `animate-delay-${menuIndex + index}`,
+                        `${delayClasses[menuIndex + index]}`,
                         `${delayClassesMd[index]}`,
                       ]}
                     >
@@ -88,7 +100,7 @@ const {
                             <a
                               class:list={[
                                 `menu-item first:rounded-t last:rounded-b md:hover:bg-gray-200 dark:hover:bg-gray-700 py-2 px-5 block whitespace-no-wrap`,
-                                `animate-delay-${menuIndex}`,
+                                `${delayClasses[menuIndex]}`,
                                 `${delayClassesMd[index2]}`,
                               ]}
                               href={href2}
@@ -104,7 +116,7 @@ const {
                   <a
                     class:list={[
                       `menu-item font-medium hover:text-gray-900 dark:hover:text-white px-4 py-3 flex items-center transition duration-150 ease-in-out`,
-                      `animate-delay-${menuIndex + index}`,
+                      `${delayClasses[menuIndex + index]}`,
                       `${delayClassesMd[index]}`,
                     ]}
                     href={href}
