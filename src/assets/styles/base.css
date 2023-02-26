@@ -30,16 +30,59 @@
   .btn-primary {
     @apply font-semibold bg-primary text-white border-primary hover:bg-blue-900 hover:border-blue-900 hover:text-white dark:text-white dark:bg-primary dark:border-primary dark:hover:border-blue-900 dark:hover:bg-blue-900;
   }
+
+  .menu-item {
+  @apply opacity-0 animate-slide-up;
+  animation-fill-mode: forwards;
+}
+
 }
 
 #header.scroll {
-  @apply shadow-md md:shadow-lg bg-white md:bg-white/90 md:backdrop-blur-sm dark:bg-[#19002e] dark:md:bg-slate-900/90;
+  @apply shadow-md md:shadow-lg bg-white md:bg-white/90 md:backdrop-blur-sm dark:bg-[#19002e] dark:md:bg-[#19002e]/90;
 }
 
 .dropdown:hover .dropdown-menu {
   display: block;
 }
 
+@layer utilities {
+.animate-delay-0 {
+  animation-delay: 0s;
+}
+
+.animate-delay-1 {
+  animation-delay: 0.1s;
+}
+
+.animate-delay-2 {
+  animation-delay: 0.2s;
+}
+
+.animate-delay-3 {
+  animation-delay: 0.3s;
+}
+
+.animate-delay-4 {
+  animation-delay: 0.4s;
+}
+
+.animate-delay-5 {
+  animation-delay: 0.5s;
+}
+
+.animate-delay-6 {
+  animation-delay: 0.6s;
+}
+
+.animate-delay-7 {
+  animation-delay: 0.7s;
+}
+
+.animate-delay-8 {
+  animation-delay: 0.8s;
+}
+}
 [astro-icon].icon-light > * {
   stroke-width: 1.2;
 }

@@ -15,6 +15,21 @@ module.exports = {
         serif: ['var(--aw-font-serif)', ...defaultTheme.fontFamily.serif],
         heading: ['var(--aw-font-heading)', ...defaultTheme.fontFamily.sans],
       },
+      keyframes: {
+        'slide-up': {
+          from: {
+            opacity: 0,
+            transform: 'translateY(50%)',
+          },
+          to: {
+            opacity: 1,
+            transform: 'translateY(0%)',
+          },
+        },
+      },
+      animation: {
+        'slide-up': 'slide-up 0.3s',
+      },
     },
   },
   plugins: [require('@tailwindcss/typography')],
