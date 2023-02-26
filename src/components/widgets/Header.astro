@@ -32,6 +32,18 @@ export interface Props {
 
 let menuIndex = 1;
 
+const delayClassesMd = [
+  'md:animate-delay-0',
+  'md:animate-delay-1',
+  'md:animate-delay-2',
+  'md:animate-delay-3',
+  'md:animate-delay-4',
+  'md:animate-delay-5',
+  'md:animate-delay-6',
+  'md:animate-delay-7',
+  'md:animate-delay-8',
+];
+
 const {
   links = [],
   actions = [],
@@ -62,7 +74,7 @@ const {
                       class:list={[
                         `menu-item font-medium hover:text-gray-900 dark:hover:text-white px-4 py-3 flex items-center transition duration-150 ease-in-out`,
                         `animate-delay-${menuIndex + index}`,
-                        `md:animate-delay-${index}`,
+                        `${delayClassesMd[index]}`,
                       ]}
                     >
                       {text}
@@ -75,9 +87,9 @@ const {
                           <li>
                             <a
                               class:list={[
-                                `menu-item first:rounded-t last:rounded-b md:hover:bg-gray-200 md:animate-delay-0 dark:hover:bg-gray-700 py-2 px-5 block whitespace-no-wrap`,
+                                `menu-item first:rounded-t last:rounded-b md:hover:bg-gray-200 dark:hover:bg-gray-700 py-2 px-5 block whitespace-no-wrap`,
                                 `animate-delay-${menuIndex}`,
-                                `md:animate-delay-${index2}`,
+                                `${delayClassesMd[index2]}`,
                               ]}
                               href={href2}
                             >
@@ -93,7 +105,7 @@ const {
                     class:list={[
                       `menu-item font-medium hover:text-gray-900 dark:hover:text-white px-4 py-3 flex items-center transition duration-150 ease-in-out`,
                       `animate-delay-${menuIndex + index}`,
-                      `md:animate-delay-${index}`,
+                      `${delayClassesMd[index]}`,
                     ]}
                     href={href}
                   >
