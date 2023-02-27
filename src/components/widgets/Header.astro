@@ -67,7 +67,7 @@ const {
 ---
 
 <header
-  class:list={['fixed bottom-0 md:top-0 md:sticky z-40 flex-none mx-auto w-full transition-all ease-in duration-100']}
+  class:list={['dark:bg-[#19002e] fixed bottom-0 md:top-0 md:sticky z-40 flex-none mx-auto w-full transition-all ease-in duration-100']}
   id="header"
 >
   <div class="py-3 px-3 md:py-3.5 md:px-4 mx-auto w-full md:flex md:justify-start max-w-7xl">
@@ -75,7 +75,7 @@ const {
       class="overflow-hidden items-center w-full md:w-auto hidden md:flex dark:text-slate-200 h-fit md:h-auto md:overflow-visible md:mx-5"
       aria-label="Main navigation"
     >
-      <ul class="flex flex-col md:flex-row md:pt-0 md:self-center md:text-base md:w-auto text-xl w-full">
+      <ul class="flex flex-col md:items-center md:flex-row md:pt-0 md:self-center md:text-base md:w-auto text-xl w-full">
         {
           links.map(({ text, href, links }, index) => {
             return (
@@ -84,7 +84,7 @@ const {
                   <>
                     <button
                       class:list={[
-                        `menu-item font-medium hover:text-gray-900 dark:hover:text-white px-4 py-3 flex items-center transition duration-150 ease-in-out`,
+                        `menu-item font-medium rounded-md hover:text-gray-900 md:hover:bg-gray-200 md:max-h-[40px] dark:hover:bg-[#900048] dark:hover:text-white px-4 py-3 flex items-center`,
                         `${delayClasses[menuIndex + index]}`,
                         `${delayClassesMd[index]}`,
                       ]}
@@ -99,7 +99,7 @@ const {
                           <li>
                             <a
                               class:list={[
-                                `menu-item first:rounded-t last:rounded-b md:hover:bg-gray-200 dark:hover:bg-gray-700 py-2 px-5 block whitespace-no-wrap`,
+                                `menu-item first:rounded-t last:rounded-b md:hover:bg-gray-200 dark:hover:bg-[#900048] py-2 px-5 block whitespace-no-wrap`,
                                 `${delayClasses[menuIndex]}`,
                                 `${delayClassesMd[index2]}`,
                               ]}
@@ -115,7 +115,7 @@ const {
                 ) : (
                   <a
                     class:list={[
-                      `menu-item font-medium hover:text-gray-900 dark:hover:text-white px-4 py-3 flex items-center transition duration-150 ease-in-out`,
+                      `menu-item font-medium rounded-md hover:text-gray-900 dark:hover:text-white md:max-h-[40px] md:hover:bg-gray-200 dark:hover:bg-[#900048] dark:hover:bg-[#900048] px-4 py-3 flex items-center`,
                       `${delayClasses[menuIndex + index]}`,
                       `${delayClassesMd[index]}`,
                     ]}
@@ -146,7 +146,7 @@ const {
         {
           showRssFeed && (
             <a
-              class="text-muted dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 rounded-lg text-sm p-2.5 inline-flex items-center"
+              class="text-muted dark:text-[#c79bff] hover:bg-gray-100 dark:hover:bg-[#240041] focus:outline-none focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 rounded-lg text-sm p-2.5 inline-flex items-center"
               aria-label="RSS Feed"
               href={getAsset('/rss.xml')}
             >
