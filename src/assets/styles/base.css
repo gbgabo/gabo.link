@@ -32,7 +32,7 @@
   }
 
   .menu-item {
-    @apply opacity-0 animate-slide-up;
+    @apply opacity-0 animate-fade-up;
     animation-fill-mode: forwards;
   }
 
@@ -77,7 +77,7 @@
 }
 
 #header.scroll {
-  @apply shadow-md md:shadow-lg bg-white md:bg-white/90 md:backdrop-blur-sm dark:bg-[#19002e] dark:md:bg-[#19002e]/90;
+  @apply shadow-md md:shadow-lg bg-white md:bg-white/90 md:backdrop-blur-sm dark:bg-[#19002e]/90;
 }
 
 .dropdown:hover .dropdown-menu {

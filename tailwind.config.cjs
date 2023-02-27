@@ -16,7 +16,7 @@ module.exports = {
         heading: ['var(--aw-font-heading)', ...defaultTheme.fontFamily.sans],
       },
       keyframes: {
-        'slide-up': {
+        'fade-up': {
           from: {
             opacity: 0,
             transform: 'translateY(50%)',
@@ -28,7 +28,7 @@ module.exports = {
         },
       },
       animation: {
-        'slide-up': 'slide-up 0.3s',
+        'fade-up': 'fade-up 0.3s',
       },
     },
   },
