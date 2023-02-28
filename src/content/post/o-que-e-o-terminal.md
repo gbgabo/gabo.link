@@ -2,8 +2,8 @@
 publishDate: 2023-01-12T00:00:00Z
 title: O que é o terminal?
 description: Lorem ipsum dolor sit amet
-excerpt: Sint sit cillum pariatur eiusmod nulla pariatur ipsum. Sit laborum anim qui mollit tempor pariatur.
-image: ~/assets/images/do-more.jpg
+excerpt: Desmistificando a tela preta.
+image: ~/assets/images/terminal.png
 category: Articles
 tags:
   - astro
