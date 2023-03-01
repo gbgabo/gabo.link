@@ -35,10 +35,19 @@ import { SITE } from '~/config.mjs';
     let lastKnownScrollPosition = window.scrollY;
     let ticking = true;
 
-    attachEvent('[data-aw-toggle-menu]', 'click', function (_, elem) {
+    attachEvent('[data-aw-toggle-menu]', 'click', function (e, elem) {
       elem.classList.toggle('expanded');
       document.body.classList.toggle('overflow-hidden');
       document.querySelector('#header nav')?.classList.toggle('hidden');
+      e.stopPropagation();
+    });
+
+    attachEvent([document], 'click', function (e) {
+      if (e.target.closest('#header nav')) return;
+
+      document.querySelector('[data-aw-toggle-menu]')?.classList.remove('expanded');
+      document.body.classList.remove('overflow-hidden');
+      document.querySelector('#header nav')?.classList.add('hidden');
     });
 
     attachEvent('[data-aw-toggle-color-scheme]', 'click', function () {
