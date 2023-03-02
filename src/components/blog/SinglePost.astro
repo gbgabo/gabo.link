@@ -73,6 +73,19 @@ const { post, url } = Astro.props;
         )
       }
     </header>
+    <nav class="hidden">
+      <ul class="fixed bottom-16 left-0 md:backdrop-blur-sm dark:bg-[#19002e]/90 p-5">
+          {
+            post.headings &&
+            post.headings.map(heading =>
+              <li>
+                <a href={`#${heading.slug}`}>{heading.text}</a>
+              </li>
+            )
+          }
+      </ul>
+    </nav>
+    <button class="fixed bottom-20 right-3 rounded-xl bg-[#c79bff] h-12 w-12 p-2 dark:text-[#19002e]" data-aw-toggle-toc aria-label="Table of content"><Icon name="tabler:list"/></button>
     <div
       class="mx-auto px-6 sm:px-6 max-w-3xl prose prose-lg lg:prose-xl dark:prose-invert dark:prose-headings:text-slate-300 prose-md prose-headings:font-heading prose-headings:leading-tighter prose-headings:tracking-tighter prose-headings:font-bold prose-a:text-primary dark:prose-a:text-blue-400 prose-img:rounded-md prose-img:shadow-lg mt-8"
     >

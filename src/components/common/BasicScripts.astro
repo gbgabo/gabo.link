@@ -50,6 +50,11 @@ import { SITE } from '~/config.mjs';
       document.querySelector('#header nav')?.classList.add('hidden');
     });
 
+    attachEvent('[data-aw-toggle-toc]', 'click', function (e, elem) {
+      document.querySelector('article nav')?.classList.toggle('hidden');
+      e.stopPropagation();
+    });
+
     attachEvent('[data-aw-toggle-color-scheme]', 'click', function () {
       if (defaultTheme.endsWith(':only')) {
         return;
