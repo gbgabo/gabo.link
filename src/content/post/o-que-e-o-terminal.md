@@ -126,7 +126,7 @@ _Editores de texto - vscodium e nvim_
 
 Não se pode concluir uma forma como _a_ melhor, mas há muitas situações onde de fato o terminal se destaca.
 
-### ⚡Velocidade
+### ⚡ Velocidade
 
 Como já dito, ao se usar o terminal, você se verá navegando muito pelos diretórios do seu sistema. E, sem muito tempo de uso, você já pode estar navegando super rápido. Me acompanha: se você for uma pessoa que já se dá super bem digitando no computador, imagina usar essa velocidade pra navegar por ele.
 
