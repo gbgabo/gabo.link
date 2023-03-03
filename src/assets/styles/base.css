@@ -2,6 +2,12 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer base {
+  a {
+    @apply whitespace-normal;
+  }
+}
+
 @layer components {
   .text-page {
     color: var(--aw-color-text-page);
