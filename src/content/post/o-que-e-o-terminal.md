@@ -168,4 +168,4 @@ Elas se diferenciam pela **densidade de informações** que uma situação deman
 
 ## GUI x CLI/TUI e por que ficamos mais idiotas
 
-- terminal burro: http://www.linfo.org/dumb_terminal.htm
+terminal burro: http://www.linfo.org/dumb_terminal.htm
