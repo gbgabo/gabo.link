@@ -4,7 +4,7 @@
 
 @layer base {
   a {
-    @apply whitespace-normal;
+    @apply break-words;
   }
 }
 
