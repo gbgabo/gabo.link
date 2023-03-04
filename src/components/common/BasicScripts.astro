@@ -55,6 +55,12 @@ import { SITE } from '~/config.mjs';
       e.stopPropagation();
     });
 
+    attachEvent([document], 'click', function (e) {
+      if (e.target.closest('article nav')) return;
+
+      document.querySelector('article nav')?.classList.add('hidden');
+    });
+
     attachEvent('[data-aw-toggle-color-scheme]', 'click', function () {
       if (defaultTheme.endsWith(':only')) {
         return;
