@@ -85,16 +85,24 @@ const { post, url } = Astro.props;
           aria-label="Table of content"
           >
             <Icon class='h-12 w-12 p-2' name="tabler:list" />
-            <p class="hidden md:block m-0">Table of content</p>
+            <p class="hidden md:block m-0 ml-2">Table of content</p>
           </button>
           <nav class="hidden not-prose">
             <ul
-              class="text-[#00ffb7] fixed md:sticky rounded-md h-72 md:h-fit w-full overflow-scroll animate-fade-up bottom-16 left-0 md:backdrop-blur-sm dark:bg-[#240041] p-5"
+              class="text-[#00ffb7] fixed md:sticky rounded-md max-h-96 md:h-fit w-full overflow-auto animate-fade-up bottom-16 left-0 md:backdrop-blur-sm dark:bg-[#240041] p-5"
             >
               {
-                post.headings.map((heading) => (
+                post.headings.map(({slug, text, depth}) => (
                   <li class="px-3 py-1">
-                    <a class="" href={`#${heading.slug}`}><b>{`# ${heading.text}`}</b></a>
+                    <a class="" href={`#${slug}`}>
+                      { 
+                        depth == 1 
+                        ?
+                        <b class="text-xl">{`# ${text}`}</b>
+                        :
+                        <p>{`## ${text}`}</p>
+                      }
+                    </a>
                   </li>
                 ))
               }

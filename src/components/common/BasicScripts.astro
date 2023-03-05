@@ -51,6 +51,7 @@ import { SITE } from '~/config.mjs';
     });
 
     attachEvent('[data-aw-toggle-toc]', 'click', function (e, elem) {
+      elem.classList.toggle('expanded');
       document.querySelector('article nav')?.classList.toggle('hidden');
       e.stopPropagation();
     });
@@ -58,6 +59,7 @@ import { SITE } from '~/config.mjs';
     attachEvent([document], 'click', function (e) {
       if (e.target.closest('article nav')) return;
 
+      document.querySelector('[data-aw-toggle-toc]')?.classList.remove('expanded');
       document.querySelector('article nav')?.classList.add('hidden');
     });
 
