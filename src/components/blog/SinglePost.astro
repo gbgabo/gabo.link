@@ -89,7 +89,7 @@ const { post, url } = Astro.props;
           </button>
           <nav class="hidden not-prose">
             <ul
-              class="text-[#00ffb7] fixed md:sticky rounded-md max-h-96 md:h-fit w-full overflow-auto animate-fade-up bottom-16 left-0 md:backdrop-blur-sm dark:bg-[#240041] p-5"
+              class="text-[#00ffb7] fixed md:sticky rounded-md max-h-96 md:h-fit w-full overscroll-contain overflow-auto animate-fade-up bottom-16 left-0 md:backdrop-blur-sm dark:bg-[#240041] p-5"
             >
               {
                 post.headings.map(({slug, text, depth}) => (
