@@ -33,27 +33,27 @@ export interface Props {
 let menuIndex = 1;
 
 const delayClasses = [
-  'animate-delay-0',
-  'animate-delay-1',
-  'animate-delay-2',
-  'animate-delay-3',
-  'animate-delay-4',
-  'animate-delay-5',
-  'animate-delay-6',
-  'animate-delay-7',
-  'animate-delay-8',
+  'delay-[100ms]',
+  'delay-[200ms]',
+  'delay-[300ms]',
+  'delay-[400ms]',
+  'delay-[500ms]',
+  'delay-[600ms]',
+  'delay-[700ms]',
+  'delay-[800ms]',
+  'delay-[900ms]',
 ];
 
 const delayClassesMd = [
-  'md:animate-delay-0',
-  'md:animate-delay-1',
-  'md:animate-delay-2',
-  'md:animate-delay-3',
-  'md:animate-delay-4',
-  'md:animate-delay-5',
-  'md:animate-delay-6',
-  'md:animate-delay-7',
-  'md:animate-delay-8',
+  'md:delay-[100ms]',
+  'md:delay-[200ms]',
+  'md:delay-[300ms]',
+  'md:delay-[400ms]',
+  'md:delay-[500ms]',
+  'md:delay-[600ms]',
+  'md:delay-[700ms]',
+  'md:delay-[800ms]',
+  'md:delay-[900ms]',
 ];
 
 const {
@@ -72,7 +72,8 @@ const {
 >
   <div class="py-3 px-3 md:py-3.5 md:px-4 mx-auto w-full md:flex md:justify-start max-w-7xl">
     <nav
-      class="overflow-hidden items-center w-full md:w-auto hidden md:flex dark:text-slate-200 h-fit md:h-auto md:overflow-visible md:mx-5"
+      class="menu-list overflow-hidden py-2 mx-auto w-full h-fit max-w-7xl absolute bottom-16 dark:text-slate-200 dark:bg-[#19002e]/90
+      md:justify-start md:static md:dark:bg-inherit md:show md:items-center md:w-auto md:flex md:h-auto md:overflow-visible md:mx-5"
       aria-label="Main navigation"
     >
       <ul class="flex flex-col md:items-center md:flex-row md:pt-0 md:self-center md:text-base md:w-auto text-xl w-full">
@@ -99,7 +100,7 @@ const {
                           <li>
                             <a
                               class:list={[
-                                `menu-item first:rounded-t last:rounded-b md:hover:bg-gray-200 dark:hover:bg-[#240041] py-3 md:py-2 px-5 block whitespace-no-wrap`,
+                                `menu-item md:animate-fade-up first:rounded-t last:rounded-b md:hover:bg-gray-200 dark:hover:bg-[#240041] py-3 md:py-2 px-5 block whitespace-no-wrap`,
                                 `${delayClasses[menuIndex]}`,
                                 `${delayClassesMd[index2]}`,
                               ]}

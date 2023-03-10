@@ -38,7 +38,7 @@ import { SITE } from '~/config.mjs';
     attachEvent('[data-aw-toggle-menu]', 'click', function (e, elem) {
       elem.classList.toggle('expanded');
       document.body.classList.toggle('overflow-hidden');
-      document.querySelector('#header nav')?.classList.toggle('hidden');
+      document.querySelector('#header nav')?.classList.toggle('show');
       e.stopPropagation();
     });
 
@@ -47,7 +47,7 @@ import { SITE } from '~/config.mjs';
 
       document.querySelector('[data-aw-toggle-menu]')?.classList.remove('expanded');
       document.body.classList.remove('overflow-hidden');
-      document.querySelector('#header nav')?.classList.add('hidden');
+      document.querySelector('#header nav')?.classList.remove('show');
     });
 
     attachEvent('[data-aw-toggle-toc]', 'click', function (e, elem) {
@@ -135,6 +135,5 @@ import { SITE } from '~/config.mjs';
     }
     document.body.classList.remove('overflow-hidden');
     document.getElementById('header')?.classList.remove('h-screen');
-    document.querySelector('#header nav')?.classList.add('hidden');
   };
 </script>

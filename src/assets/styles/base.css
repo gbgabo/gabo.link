@@ -37,49 +37,27 @@
     @apply font-semibold bg-primary text-white border-primary hover:bg-blue-900 hover:border-blue-900 hover:text-white dark:text-white dark:bg-primary dark:border-primary dark:hover:border-blue-900 dark:hover:bg-blue-900;
   }
 
+  .menu-list {
+    @apply opacity-0 translate-y-96;
+    transition: transform 0.3s cubic-bezier(0.86, 0, 0.07, 1), opacity 0.1s;
+  }
+
   .menu-item {
-    @apply opacity-0 animate-fade-up;
-    animation-fill-mode: forwards;
+    @apply opacity-0 translate-y-1/2 md:opacity-100 md:translate-y-0;
+    transition: transform 0.3s, opacity 0.3s;
   }
 
 }
 
 @layer utilities {
-  .animate-delay-0 {
-    animation-delay: 0s;
+  .show {
+    @apply opacity-100 translate-y-0;
   }
+}
 
-  .animate-delay-1 {
-    animation-delay: 0.1s;
-  }
-
-  .animate-delay-2 {
-    animation-delay: 0.2s;
-  }
-
-  .animate-delay-3 {
-    animation-delay: 0.3s;
-  }
-
-  .animate-delay-4 {
-    animation-delay: 0.4s;
-  }
-
-  .animate-delay-5 {
-    animation-delay: 0.5s;
-  }
-
-  .animate-delay-6 {
-    animation-delay: 0.6s;
-  }
-
-  .animate-delay-7 {
-    animation-delay: 0.7s;
-  }
-
-  .animate-delay-8 {
-    animation-delay: 0.8s;
-  }
+.menu-list[class$='show'] .menu-item {
+  opacity: 1;
+  transform: translateY(0%);
 }
 
 #header.scroll {

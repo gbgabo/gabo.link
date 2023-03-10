@@ -19,7 +19,7 @@ Bom, não que você não viu um terminal... mas ele é bem mais que isso.
 
 A ideia desse texto é desmistificar e explicar **tudo que você precisa saber para conhecer o `terminal`**, além de mostrar o quanto ele pode ser divertido e útil.
 
-## O que é o terminal, afinal?
+# O que é o terminal, afinal?
 
 Terminal é um equipamento que **lhe permite interagir com um computador por meio de texto**. Bem por isso, é quase sempre constituindo por uma **tela** e **teclado** para essa interface.
 
@@ -73,7 +73,7 @@ Quando um comando é enviado, o sistema retornará a resposta logo embaixo, send
 - **Uma mensagem de erro:**
 - **Nada:**
 
-## Usando o terminal
+# Usando o terminal
 
 O comando do exemplo é o `ls`. Ele serve para `listar os arquivos` e subpastas presentes no diretório que você se encontra.
 
