@@ -66,6 +66,7 @@ export const headerData = {
   links: [
     {
       text: '/blog',
+      href: getBlogPermalink(),
       links: [
         {
           text: '/articles',

@@ -85,13 +85,17 @@ const {
                   <>
                     <button
                       class:list={[
-                        `menu-item font-medium rounded-md hover:text-gray-900 dark:hover:text-white md:hover:bg-gray-200 dark:hover:bg-[#240041] py-3 md:py-2 px-4 flex items-center`,
+                        `menu-item w-full dark:hover:bg-[#240041] py-3 px-4 flex items-center font-medium rounded-md hover:text-gray-900 dark:hover:text-white
+                        md:hover:bg-gray-200 md:p-0`,
                         `${delayClasses[menuIndex + index]}`,
                         `${delayClassesMd[index]}`,
                       ]}
                     >
-                      {text}
-                      <Icon name="tabler:chevron-down" class="w-3.5 h-3.5 ml-0.5 hidden md:inline" />
+                      {
+                        href
+                        ? (<a class="w-full text-left md:py-2 md:px-4" href={href}>{text}<Icon name="tabler:chevron-down" class="w-3.5 h-3.5 ml-0.5 hidden md:inline" /></a>)
+                        : (<span>{text}<Icon name="tabler:chevron-down" class="w-3.5 h-3.5 ml-0.5 hidden md:inline" /></span> )
+                      }
                     </button>
                     <ul class="dropdown-menu md:backdrop-blur-md dark:md:bg-dark rounded md:absolute pl-4 md:pl-0 md:hidden font-medium md:bg-white/90 md:min-w-[200px] drop-shadow-xl">
                       {links.map(({ text: text2, href: href2 }, index2) => {
@@ -100,7 +104,8 @@ const {
                           <li>
                             <a
                               class:list={[
-                                `menu-item md:animate-fade-up first:rounded-t last:rounded-b md:hover:bg-gray-200 dark:hover:bg-[#240041] py-3 md:py-2 px-5 block whitespace-no-wrap`,
+                                `menu-item dark:hover:bg-[#240041] py-3 px-5 block whitespace-no-wrap first:rounded-t last:rounded-b
+                                md:animate-fade-up md:hover:bg-gray-200 md:py-2`,
                                 `${delayClasses[menuIndex]}`,
                                 `${delayClassesMd[index2]}`,
                               ]}
@@ -116,7 +121,8 @@ const {
                 ) : (
                   <a
                     class:list={[
-                      `menu-item font-medium rounded-md hover:text-gray-900 dark:hover:text-white md:hover:bg-gray-200 dark:hover:bg-[#240041] py-3 md:py-2 px-4 flex items-center`,
+                      `menu-item dark:hover:bg-[#240041] py-3 px-4 flex items-center font-medium rounded-md hover:text-gray-900 dark:hover:text-white
+                      md:hover:bg-gray-200 md:py-2`,
                       `${delayClasses[menuIndex + index]}`,
                       `${delayClassesMd[index]}`,
                     ]}
