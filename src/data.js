@@ -69,11 +69,11 @@ export const headerData = {
       links: [
         {
           text: '/articles',
-          href: getBlogPermalink(),
+          href: getPermalink('articles', 'category'),
         },
         {
           text: '/lists',
-          href: getPermalink('/landing/startup'),
+          href: getPermalink('lists', 'category'),
         },
       ],
     },

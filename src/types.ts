@@ -18,6 +18,8 @@ export interface Post {
   tags?: Array<string>;
   author?: string;
 
+  headings: import('astro').MarkdownHeading[];
+
   Content: unknown;
   content?: string;
 

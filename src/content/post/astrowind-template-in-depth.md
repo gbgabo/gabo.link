@@ -5,6 +5,7 @@ description: Lorem ipsum dolor sit amet
 excerpt: Ornare cum cursus laoreet sagittis nunc fusce posuere per euismod dis vehicula a, semper fames lacus maecenas
 image: ~/assets/images/stickers.jpg
 category: Tutorials
+draft: true
 tags:
   - astro
   - tailwind css

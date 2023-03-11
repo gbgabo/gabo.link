@@ -2,6 +2,12 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer base {
+  a {
+    @apply break-words;
+  }
+}
+
 @layer components {
   .text-page {
     color: var(--aw-color-text-page);
@@ -30,15 +36,38 @@
   .btn-primary {
     @apply font-semibold bg-primary text-white border-primary hover:bg-blue-900 hover:border-blue-900 hover:text-white dark:text-white dark:bg-primary dark:border-primary dark:hover:border-blue-900 dark:hover:bg-blue-900;
   }
+
+  .menu-list {
+    @apply opacity-0 translate-y-96;
+    transition: transform 0.3s cubic-bezier(0.86, 0, 0.07, 1), opacity 0.1s;
+  }
+
+  .menu-item {
+    @apply opacity-0 translate-y-1/2 md:opacity-100 md:translate-y-0;
+    transition: transform 0.3s, opacity 0.3s;
+  }
+
+}
+
+@layer utilities {
+  .show {
+    @apply opacity-100 translate-y-0;
+  }
+}
+
+.menu-list[class$='show'] .menu-item {
+  opacity: 1;
+  transform: translateY(0%);
 }
 
 #header.scroll {
-  @apply shadow-md md:shadow-lg bg-white md:bg-white/90 md:backdrop-blur-sm dark:bg-[#19002e] dark:md:bg-slate-900/90;
+  @apply shadow-md md:shadow-lg bg-white md:bg-white/90 md:backdrop-blur-sm dark:bg-[#19002e]/90;
 }
 
 .dropdown:hover .dropdown-menu {
   display: block;
 }
+
 
 [astro-icon].icon-light > * {
   stroke-width: 1.2;
@@ -57,4 +86,8 @@
 
 [data-aw-toggle-menu].expanded g > path:last-child {
   @apply rotate-45 translate-y-[-8px] translate-x-[14px];
+}
+
+[data-aw-toggle-toc].expanded {
+  @apply dark:text-[#900048] bg-[#00ffb7];
 }
