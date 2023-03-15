@@ -156,3 +156,14 @@ export const footerData = {
     Made by <a class="text-blue-600 hover:underline dark:text-gray-200" href="https://onwidget.com/"> onWidget</a> · All rights reserved.
   `,
 };
+
+export const categoryData = {
+  lists: {
+    classes: 'text-[#ff0e82]',
+    icon: 'tabler:list'
+  },
+  articles: {
+    classes: 'text-[#00ffb7]',
+    icon: 'tabler:list'
+  }
+}
