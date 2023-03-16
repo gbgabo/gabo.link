@@ -52,9 +52,10 @@ const image = await findImage(post.image);
   </h3>
   <p class="text-muted dark:text-slate-400 text-lg">{post.excerpt || post.description}</p>
   {
-    post.category && categoryData[post.category] && (
+    (post.category && categoryData[post.category]) && (
       <a class={`capitalize flex p-2 pr-3 w-fit rounded-2xl mt-2 bg-[#240041] ${categoryData[post.category].classes}`} href={`/category/${post.category}`}>
-        <Icon class="py-1 w-6 h-6 mr-1" name={categoryData[post.category].icon} />{post.category}
+        <Icon class="py-1 w-6 h-6 mr-1" name={categoryData[post.category].icon} />
+        {post.category}
       </a>
     )
   }
