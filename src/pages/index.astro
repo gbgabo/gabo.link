@@ -23,10 +23,7 @@ const meta = {
 <Layout {meta}>
   <!-- Hero Widget ******************* -->
 
-  <Hero
-    callToAction={{ text: 'Check out the blog', href: '#posts', icon:'tabler:align-justified' }}
-    callToAction2={{ text: 'About me', href: '#features' }}
-  >
+  <Hero>
     <Fragment slot="title">
       Welcome to my corner on the internet
     </Fragment>
@@ -256,17 +253,7 @@ const meta = {
   <!-- HighlightedPosts Widget ******* -->
 
   <LatestPosts
-    title="Find out more content in our Blog"
-    information={`The blog is used to display AstroWind documentation.
-        Each new article will be an important step that you will need to know to be an expert in creating a website using Astro + Tailwind CSS.
-        Astro is a very interesting technology. Thanks.
-      `}
-    postIds={[
-      'get-started-website-with-astro-tailwind-css.md',
-      'how-to-customize-astrowind-to-your-brand.md',
-      'useful-resources-to-create-websites.md',
-      'astrowind-template-in-depth.md',
-    ]}
+    title="Blog"
   />
 
   <!-- FAQs Widget ******************* -->
