@@ -7,8 +7,11 @@ const { href } = Astro.props;
 ---
 
 <span class="not-prose">
-  <a class="py-2 px-3 dark:bg-[#c79bff] rounded-md dark:text-[#19002e] after:content-['_↗']"
+  <a class="inline-flex flex-row mb-2 items-center w-fit py-2 px-3 dark:bg-[#c79bff] rounded-md dark:text-[#19002e]"
       href={href}>
-    <slot/>
+    <span>
+      <slot/>
+    </span>
+    <span class="ml-3">↗</span>
   </a>
 </span>
