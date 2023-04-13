@@ -1,0 +1,73 @@
+---
+import Layout from '~/layouts/PageLayout.astro';
+import BlogList from '~/components/blog/List.astro';
+import Headline from '~/components/blog/Headline.astro';
+import Item from '~/components/blog/ListItem.astro';
+import PostTags from '~/components/blog/Tags.astro';
+
+
+
+const projects = [
+    {
+        title: "Laundry Symbols",
+        description: "A page that lists most of the so called laundry symbols found on every clothing, indicating the manufacturer's suggestions as to methods of washing, drying, dry-cleaning and ironing clothing.",
+        technologies: ['Astro', 'Typescript', 'Tailwind'],
+        link: "https://laundry-symbols.vercel.app/"
+    },
+    {
+        title: "Wildberries Theme Homepage",
+        description: "Wildberries is a purple dark theme, with additional bright accents, almost in a cyberpunkish way. ",
+        technologies: ['Next.js', 'Typescript', '@vercel/og'],
+        link: "https://wildberries.style/"
+    },
+    {
+        title: "Tinytools",
+        description: "Our projects are designed to improve your productivity in a simple way",
+        technologies: ['Bash', 'Linux'],
+        link: "https://tinytoolsh.github.io/"
+    },
+    {
+        title: "Linky",
+        description: "uahwehawu a hsud asu asu dhd",
+        technologies: ['Bash', 'Linux'],
+        link: "https://wildberries.style/"
+    }
+];
+
+---
+<Layout>
+    <section class="px-6 sm:px-6 py-12 sm:py-16 lg:py-20 mx-auto max-w-4xl">
+    <Headline>
+        Projects
+    </Headline>
+    
+    <ul>
+        {
+        projects.map((project) => (
+        <article class={`max-w-md mx-auto md:max-w-none grid gap-6 md:gap-8`}>
+        <div class="mt-2">
+            <header>
+        
+            <h2 class="text-xl sm:text-2xl font-bold leading-tight mb-2 font-heading dark:text-slate-300">
+                {project.title}
+            </h2>
+            </header>
+
+            {
+                project.description && 
+                <p class="flex-grow text-muted dark:text-slate-400 text-lg">{project.description}</p>
+            }
+            {
+                project.link &&
+                <a href={project.link}>Demo</a> 
+            }
+            <footer class="mt-5">
+            <PostTags tags={project.technologies} />
+            </footer>
+        </div>
+        </article>
+        ))
+        }
+    </ul>
+    </section>
+</Layout>
