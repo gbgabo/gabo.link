@@ -80,7 +80,7 @@ export const headerData = {
     },
     {
       text: '/projects',
-      href: '#',
+      href: getPermalink('projects', 'page'),
     },
     {
       text: '/snippets',
