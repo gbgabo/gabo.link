@@ -15,7 +15,7 @@ export interface Props {
   callToAction?: string | CallToAction;
   callToAction2?: string | CallToAction;
   image?: string | any; // TODO: find HTMLElementProps
-  background?: string | any; 
+  background?: string | any;
 }
 
 const socialLinks = footerData.socialLinks;
@@ -35,21 +35,21 @@ const {
   <div class="absolute inset-0 pointer-events-none" aria-hidden="true">
     {
       background && (
-            <div class="relative m-auto h-full overflow-x-hidden">
-              {typeof background === 'string' ? (
-                <Fragment set:html={background} />
-              ) : (
-                <Image
-                  class="mx-auto max-w-none w-auto h-full"
-                  widths={[400, 768, 1024, 2040]}
-                  sizes="(max-width: 767px) 400px, (max-width: 1023px) 768px, (max-width: 2039px) 1024px, 2040px"
-                  aspectRatio={1860 / 661}
-                  format="svg"
-                  loading="eager"
-                  {...background}
-                />
-              )}
-            </div>
+        <div class="relative m-auto h-full overflow-x-hidden">
+          {typeof background === 'string' ? (
+            <Fragment set:html={background} />
+          ) : (
+            <Image
+              class="mx-auto max-w-none w-auto h-full"
+              widths={[400, 768, 1024, 2040]}
+              sizes="(max-width: 767px) 400px, (max-width: 1023px) 768px, (max-width: 2039px) 1024px, 2040px"
+              aspectRatio={1860 / 661}
+              format="svg"
+              loading="eager"
+              {...background}
+            />
+          )}
+        </div>
       )
     }
   </div>
@@ -65,7 +65,7 @@ const {
             aspectRatio={1 / 1}
             loading="eager"
             src={import('~/assets/images/profile_picture.jpg')}
-            alt='Profile'
+            alt="Profile"
           />
         </div>
         <p class="text-[#00ffb7]">Gabriel Gaboardi AKA Gabo</p>
@@ -92,7 +92,9 @@ const {
           }
         </div>
       </div>
-      <div class="col-span-4 md:col-span-3 dark:bg-[#19002e]/70 rounded-xl p-5 md:p-12 max-w-screen-lg">
+      <div
+        class="col-span-4 md:col-span-3 dark:bg-[#19002e]/70 backdrop-blur-sm rounded-xl px-5 py-7 md:p-12 max-w-screen-lg"
+      >
         {
           title && (
             <h1
@@ -102,7 +104,7 @@ const {
           )
         }
         <div class="max-w-3xl">
-          {subtitle && <p class="text-xl text-muted dark:text-slate-300" set:html={subtitle} />}
+          {subtitle && <p class="text-xl text-muted dark:text-[#c79bff]" set:html={subtitle} />}
           <div class="max-w-xs sm:max-w-md m-auto flex flex-nowrap flex-col sm:flex-row sm:justify-center gap-4">
             {
               callToAction && (
