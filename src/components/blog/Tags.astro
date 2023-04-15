@@ -7,9 +7,10 @@ import type { Post } from '~/types';
 export interface Props {
   tags: Post['tags'];
   class?: string;
+  enableLink?: boolean;
 }
 
-const { tags, class: className = 'text-sm' } = Astro.props;
+const { tags, class: className = 'text-sm', enableLink = true } = Astro.props;
 ---
 
 {
@@ -19,13 +20,15 @@ const { tags, class: className = 'text-sm' } = Astro.props;
         <li class="bg-gray-100 dark:bg-[#c79bff] rounded-md inline-block mr-2 mb-2 py-0.5 px-2 lowercase font-medium">
           {BLOG?.tag?.disabled ? (
             tag
-          ) : (
+          ) : enableLink ? (
             <a
               href={getPermalink(tag, 'tag')}
               class="text-muted dark:text-[#19002e] hover:text-primary dark:hover:text-gray-200"
             >
               {tag}
             </a>
+          ) : (
+            <span class="text-muted dark:text-[#19002e]">{tag}</span>
           )}
         </li>
       ))}
