@@ -10,7 +10,7 @@ import { Picture } from '@astrojs/image/components';
 
 const projects = [
   {
-    image: import('~/assets/images/web.svg'),
+    image: import('~/assets/images/projects/symbols.png'),
     title: 'Laundry Symbols',
     description:
       "A page that lists most of the so called laundry symbols found on every clothing, indicating the manufacturer's suggestions as to methods of washing, drying, dry-cleaning and ironing clothing.",
@@ -18,7 +18,7 @@ const projects = [
     link: 'https://laundry-symbols.vercel.app/',
   },
   {
-    image: import('~/assets/images/web.svg'),
+    image: import('~/assets/images/projects/wildberries.png'),
     title: 'Wildberries Theme Homepage',
     description: 'Wildberries is a purple dark theme, with additional bright accents, almost in a cyberpunkish way. ',
     technologies: ['Next.js', 'Typescript', '@vercel/og'],
@@ -26,61 +26,68 @@ const projects = [
   },
   {
     title: 'Tinytools',
-    description: 'Our projects are designed to improve your productivity in a simple way',
+    description:
+      'A suite of tiny scripts I maintain with <a href="https://github.com/Calebe94">@calebe94</a>. Our projects are designed to improve your productivity in a simple way',
     technologies: ['Bash', 'Linux'],
     link: 'https://tinytoolsh.github.io/',
+    linkText: 'Veja mais',
   },
   {
     title: 'Linky',
-    description: 'My first react project',
+    description:
+      'My first react website. A project with the purpose to create a link and style editor inspired by linktree',
     technologies: ['React', 'MUI'],
-    link: 'https://linky-gbgabo.vercel.app/',
+    link: 'https://linky-gbgabo.vercel.app/edit',
   },
 ];
 ---
 
 <Layout>
-  <section class="px-6 sm:px-6 py-12 sm:py-16 lg:py-20 mx-auto max-w-4xl">
+  <section class="px-6 sm:px-6 py-12 sm:py-16 lg:py-20 mx-auto max-w-7xl">
     <Headline>Projects</Headline>
 
     <ul>
       {
         projects.map((project) => (
-          <article class={`max-w-md mx-auto md:max-w-none bg-[#240041] rounded-xl mb-4 px-6 py-4 grid gap-6 md:gap-8`}>
-            <div class="mt-2">
-              <header>
+          <div class="max-w-md mx-auto md:max-w-none bg-[#240041] rounded-xl mb-4 p-6 grid md:grid-cols-3 gap-6 md:gap-8">
+            {project.image && (
+              <div class="row-span-3 md:col-span-1 place-self-center">
                 <Picture
-                  src={project.image ? project.image : import('~/assets/images/default.png')}
-                  class="md:object-cover w-full md:w-auto md:h-full rounded shadow-lg bg-gray-400 dark:bg-slate-700"
-                  widths={[400, 900]}
+                  src={project.image}
+                  class="md:object-cover w-full rounded shadow-lg bg-gray-400 dark:bg-slate-700"
+                  widths={[400, 1200]}
                   width={400}
                   height={224}
-                  sizes="(max-width: 900px) 400px, 900px"
+                  sizes="(max-width: 1200px) 400px, 1200px"
                   alt={project.title}
-                  aspectRatio="16:9"
                   loading="lazy"
                   decoding="async"
                 />
-                <h2 class="text-xl sm:text-2xl font-bold leading-tight mb-2 font-heading dark:text-slate-300">
-                  {project.title}
-                </h2>
-              </header>
+              </div>
+            )}
+            <div class={project.image ? 'row-span-2 md:col-span-2' : 'row-span-3 md:col-span-3'}>
+              <h2 class="text-xl sm:text-2xl font-bold leading-tight mb-2 font-heading dark:text-slate-300">
+                {project.title}
+              </h2>
               {project.description && (
-                <p class="flex-grow text-muted dark:text-slate-400 mb-4 text-lg">{project.description}</p>
+                <p class="flex-grow text-muted dark:text-slate-400 mb-4 text-lg">
+                  <Fragment set:html={project.description} />
+                </p>
               )}
-              <footer class="mt-5">
+              <footer class="mt-4">
                 <PostTags enableLink={false} tags={project.technologies} />
               </footer>
               {project.link && (
                 <a
-                  class="capitalize font-bold flex py-2 px-4 pr-3 w-fit rounded-2xl my-2 bg-[#900048] text-[#00ffb7]"
+                  class="capitalize font-bold flex py-2 px-4 w-fit rounded-2xl mt-4 bg-[#900048] text-[#00ffb7]"
                   href={project.link}
                 >
-                  <Icon name={'tabler:external-link'} class="w-5 h-5 mr-2" /> Demo
+                  <Icon name={'tabler:external-link'} class="w-5 h-5 mr-2" />
+                  {project.linkText ? project.linkText : 'Acesse'}
                 </a>
               )}
             </div>
-          </article>
+          </div>
         ))
       }
     </ul>
