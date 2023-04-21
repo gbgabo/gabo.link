@@ -1,14 +1,16 @@
 ---
 publishDate: 2023-01-12T00:00:00Z
 title: O que é o terminal?
-description: Lorem ipsum dolor sit amet
+description: Desmistificando a tela preta
 excerpt: Desmistificando a tela preta.
 image: ~/assets/images/terminal.png
 category: Articles
 tags:
-  - astro
-  - tailwind css
-canonical: https://astrowind.vercel.app/o-que-e-o-terminal
+  - linux
+  - terminal
+  - command line
+  - guide
+canonical: https://gabo.link/o-que-e-o-terminal
 ---
 
 Você já deve ter visto aquelas telas pretas, com linhas pequenas pipocando sem parar.
