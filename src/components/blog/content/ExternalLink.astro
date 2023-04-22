@@ -1,4 +1,6 @@
 ---
+import { Icon } from 'astro-icon';
+
 export interface Props {
   href: string;
 }
@@ -7,11 +9,14 @@ const { href } = Astro.props;
 ---
 
 <span class="not-prose">
-  <a class="inline-flex flex-row mb-2 items-center w-fit py-2 px-3 dark:bg-[#c79bff] rounded-md dark:text-[#19002e]"
-      href={href}>
+  <a
+    class="inline-flex flex-row mb-2 items-center w-fit py-2 px-3 dark:bg-[#c79bff] rounded-md dark:text-[#19002e]"
+    href={href}
+  >
     <span>
-      <slot/>
+      <slot />
     </span>
-    <span class="ml-3">↗</span>
+
+    <Icon name={'tabler:external-link'} class="w-5 h-5 ml-2" />
   </a>
 </span>
