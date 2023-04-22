@@ -82,10 +82,10 @@ export const headerData = {
       text: '/projects',
       href: getPermalink('projects', 'page'),
     },
-    {
-      text: '/snippets',
-      href: getBlogPermalink(),
-    },
+    // {
+    //   text: '/uses',
+    //   href: getBlogPermalink('uses', 'page'),
+    // },
     {
       text: '/about',
       href: getBlogPermalink(),
@@ -159,10 +159,10 @@ export const footerData = {
 export const categoryData = {
   lists: {
     classes: 'text-[#ff0e82]',
-    icon: 'tabler:list'
+    icon: 'tabler:list',
   },
   articles: {
     classes: 'text-[#00ffb7]',
-    icon: 'tabler:list'
-  }
-}
+    icon: 'tabler:list',
+  },
+};
