@@ -3,14 +3,23 @@ import { Icon } from 'astro-icon';
 
 export interface Props {
   href: string;
+  class?: string;
+  variant?: 'primary' | 'secondary';
 }
 
-const { href } = Astro.props;
+const variants = {
+  primary: 'bg-[#900048] text-[#00ffb7]',
+  secondary: 'dark:bg-[#c79bff] dark:text-[#19002e]',
+};
+
+const { href, variant, class: className } = Astro.props;
 ---
 
 <span class="not-prose">
   <a
-    class="inline-flex flex-row mb-2 items-center w-fit py-2 px-3 dark:bg-[#c79bff] rounded-md dark:text-[#19002e]"
+    class={`inline-flex flex-row mb-2 items-center w-fit py-2 px-3 rounded-2xl ${className} ${
+      variant ? variants[variant] : variants.primary
+    }`}
     href={href}
   >
     <span>

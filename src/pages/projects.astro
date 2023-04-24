@@ -1,11 +1,9 @@
 ---
 import Layout from '~/layouts/PageLayout.astro';
-import BlogList from '~/components/blog/List.astro';
 import Headline from '~/components/blog/Headline.astro';
-import Item from '~/components/blog/ListItem.astro';
 import PostTags from '~/components/blog/Tags.astro';
+import ExternalLink from '~/components/blog/content/ExternalLink.astro';
 
-import { Icon } from 'astro-icon';
 import { Picture } from '@astrojs/image/components';
 
 const projects = [
@@ -78,13 +76,9 @@ const projects = [
                 <PostTags enableLink={false} tags={project.technologies} />
               </footer>
               {project.link && (
-                <a
-                  class="capitalize font-bold flex py-2 px-4 w-fit rounded-2xl mt-4 bg-[#900048] text-[#00ffb7]"
-                  href={project.link}
-                >
-                  <Icon name={'tabler:external-link'} class="w-5 h-5 mr-2" />
+                <ExternalLink class="font-bold mt-4" href={project.link}>
                   {project.linkText ? project.linkText : 'Acesse'}
-                </a>
+                </ExternalLink>
               )}
             </div>
           </div>
