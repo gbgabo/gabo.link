@@ -7,6 +7,7 @@ import SocialShare from '~/components/common/SocialShare.astro';
 
 import { getPermalink } from '~/utils/permalinks';
 import { getFormattedDate } from '~/utils/utils';
+import { categoryData } from '~/data';
 
 import type { Post } from '~/types';
 
@@ -22,22 +23,18 @@ const { post, url } = Astro.props;
   <article>
     <header class={post.image ? '' : ''}>
       <div class="flex justify-between flex-col sm:flex-row max-w-3xl mx-auto mt-0 mb-2 px-4 sm:px-6 sm:items-center">
-        <p>
-          <Icon name="tabler:clock" class="w-4 h-4 inline-block -mt-0.5 dark:text-gray-400" />
-          <time datetime={String(post.publishDate)}>{getFormattedDate(post.publishDate)}</time>
-          {
-            post.category && (
-              <>
-                {' '}
-                ·{' '}
-                <a class="capitalize hover:underline" href={getPermalink(post.category, 'category')}>
-                  {post.category.replaceAll('-', ' ')}
-                </a>
-              </>
-            )
-          }
-          {post.readingTime && <> · {post.readingTime} min read</>}
-        </p>
+        {
+          post.category && (
+            <p>
+              <a
+                class={`capitalize font-bold ${categoryData[post.category].classes} hover:underline`}
+                href={getPermalink(post.category, 'category')}
+              >
+                {post.category.replaceAll('-', ' ')}
+              </a>
+            </p>
+          )
+        }
       </div>
       <h1
         class="px-4 sm:px-6 max-w-3xl mx-auto text-4xl md:text-5xl font-bold leading-tighter tracking-tighter font-heading"
@@ -70,6 +67,13 @@ const { post, url } = Astro.props;
           </div>
         )
       }
+      <div class="flex justify-between flex-col sm:flex-row max-w-3xl mx-auto mt-0 mb-2 px-4 sm:px-6 sm:items-center">
+        <p>
+          <Icon name="tabler:clock" class="w-4 h-4 inline-block -mt-0.5 dark:text-gray-400" />
+          <time datetime={String(post.publishDate)}>{getFormattedDate(post.publishDate)}</time>
+          {post.readingTime && <> · {post.readingTime} min read</>}
+        </p>
+      </div>
     </header>
 
     <div

@@ -41,19 +41,22 @@ const image = await findImage(post.image);
       BLOG?.post?.disabled ? (
         post.title
       ) : (
-          <a
-            href={getPermalink(post.permalink, 'post')}
-            class="hover:text-primary dark:hover:text-blue-700  transition ease-in duration-200"
-          >
-            {post.title}
-          </a>
+        <a
+          href={getPermalink(post.permalink, 'post')}
+          class="hover:text-primary dark:hover:text-blue-700  transition ease-in duration-200"
+        >
+          {post.title}
+        </a>
       )
     }
   </h3>
   <p class="text-muted dark:text-slate-400 text-lg">{post.excerpt || post.description}</p>
   {
-    (post.category && categoryData[post.category]) && (
-      <a class={`capitalize flex p-2 pr-3 w-fit rounded-2xl mt-2 bg-[#240041] ${categoryData[post.category].classes}`} href={`/category/${post.category}`}>
+    post.category && categoryData[post.category] && (
+      <a
+        class={`capitalize flex p-2 pr-3 w-fit rounded-2xl mt-3 bg-[#240041] ${categoryData[post.category].classes}`}
+        href={`/category/${post.category}`}
+      >
         <Icon class="py-1 w-6 h-6 mr-1" name={categoryData[post.category].icon} />
         <>{post.category}</>
       </a>
