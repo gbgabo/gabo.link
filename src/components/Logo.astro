@@ -3,13 +3,11 @@ export interface Props {
   title?: string;
 }
 
-const {
-  title = "Gabo's Blog"
-} = Astro.props;
+const { title = "Gabo's Link" } = Astro.props;
 
 import { Image } from '@astrojs/image/components';
-
 ---
+
 <Image
   class="mx-auto"
   src={import('~/assets/images/profile_alpha.svg')}
@@ -17,10 +15,8 @@ import { Image } from '@astrojs/image/components';
   height={50}
   sizes="(max-width: 768px) 100vw, 432px"
   aspectRatio="50:50"
-  format='svg'
+  format="svg"
   alt="gabo's logo"
 />
 
-<span class="self-center ml-2 text-xl font-bold text-gray-900 whitespace-nowrap dark:text-white">
-  {title}</span
->
+<span class="self-center ml-2 text-xl font-bold text-gray-900 whitespace-nowrap dark:text-white"> {title}</span>

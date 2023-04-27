@@ -1,14 +1,14 @@
 import defaultImage from './assets/images/default.png';
 
 const CONFIG = {
-  name: "Gabo's Blog",
+  name: "Gabo's Link",
 
-  origin: 'https://astrowind.vercel.app',
+  origin: 'https://gabo.link',
   basePathname: '/',
   trailingSlash: false,
 
-  title: "Gabo's Blog",
-  description: "Gabo's Personal blog",
+  title: "Gabo's Link",
+  description: "Gabo's Corner on the Internet",
   defaultImage: defaultImage,
 
   defaultTheme: 'dark', // Values: "system" | "light" | "dark" | "light:only" | "dark:only"
