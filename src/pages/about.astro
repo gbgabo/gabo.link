@@ -4,17 +4,80 @@ import Headline from '~/components/blog/Headline.astro';
 import ExternalLink from '~/components/blog/content/ExternalLink.astro';
 
 import { Picture } from '@astrojs/image/components';
+import { Icon } from 'astro-icon';
+
+const topics = [
+  {
+    title: 'Free and Open Source Software',
+    description:
+      "The power that moves the modern world is made with free software available to build better tools. I'm an evangelist of free software and love to talk and promote it's benefits to developers and users.",
+    icon: 'ph:hand-fist-bold',
+  },
+  {
+    title: 'Linux Ricing',
+    description:
+      'The term refers to the process of customize a linux enviroment to a more productive or simply aesthetically pleasing setup. There is a plethora of tools the community is constantly sharing, and you have no idea how different, and personal your system can be to fit your needs.',
+    icon: 'mdi:linux',
+  },
+  {
+    title: 'Web development technologies',
+    description:
+      'There is no surprise in web development being bombarded by new frameworks and tools. Beyond just hype, there is real innovation and problems being solved by interesting new approaches.',
+    icon: 'ic:round-code',
+  },
+  {
+    title: 'Electronic Music',
+    description:
+      'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore.',
+    icon: 'ri:headphone-fill',
+  },
+  {
+    title: 'Cool content on the internet',
+    description:
+      'The internet is full of people creating amazing stuff from videos, podcasts and art in general. In my blog lists you may find interesting content I compile from the sites I surf',
+    icon: 'mdi:web',
+  },
+  {
+    title: 'Life, Universe and Everything!',
+    description:
+      'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore.',
+    icon: 'ph:sparkle-fill',
+  },
+];
 ---
 
 <Layout>
-  <section class="px-6 sm:px-6 py-12 sm:py-16 lg:py-20 mx-auto max-w-7xl">
+  <section class="px-6 sm:px-6 py-12 sm:py-16 lg:py-20 mx-auto max-w-3xl">
     <Headline>I'm a developer intrigued by technology shaping society</Headline>
     Chat with me about
     <ul>
-      <li>Free and Open Source Software</li>
-      <li>🐧 Linux Ricing</li>
-      <li>Web development technologies</li>
-      <li>Electronic Music</li>
+      {
+        topics.map(({ title, description, icon }) => (
+          <li>
+            <div class="flex flex-row my-8">
+              <div class="mb-4 mr-4">
+                <div class="flex items-center justify-center w-12 h-12 rounded-full bg-primary dark:bg-[#c79bff]">
+                  {icon && <Icon name={icon} class="w-6 h-6 text-[#19002e] icon-light" />}
+                </div>
+              </div>
+              <div>
+                <h3 class="mb-3 text-xl font-bold">{title}</h3>
+                <p class="text-muted dark:text-slate-400" set:html={description} />
+              </div>
+            </div>
+          </li>
+        ))
+      }
     </ul>
+
+    <div
+      class="relative flex flex-col p-6 bg-white dark:bg-slate-900 rounded shadow-lg hover:shadow-md transition border border-transparent dark:border-slate-800"
+    >
+      <div class="flex items-center">
+        <Icon name="flat-color-icons:template" class="w-10 h-10" />
+        <div class="ml-4 text-xl font-bold">/uses</div>
+      </div>
+      <p class="text-muted dark:text-gray-400 text-md mt-4">The software I use everyday to execute what I need</p>
+    </div>
   </section>
 </Layout>

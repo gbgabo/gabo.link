@@ -88,7 +88,7 @@ export const headerData = {
     // },
     {
       text: '/about',
-      href: getBlogPermalink(),
+      href: getPermalink('about', 'page'),
     },
   ],
 };
