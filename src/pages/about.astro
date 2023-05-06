@@ -26,12 +26,6 @@ const topics = [
     icon: 'ic:round-code',
   },
   {
-    title: 'Electronic Music',
-    description:
-      'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore.',
-    icon: 'ri:headphone-fill',
-  },
-  {
     title: 'Cool content on the internet',
     description:
       'The internet is full of people creating amazing stuff from videos, podcasts and art in general. In my blog lists you may find interesting content I compile from the sites I surf',
@@ -44,20 +38,111 @@ const topics = [
     icon: 'ph:sparkle-fill',
   },
 ];
+
+const skills = [
+  {
+    title: 'Javascript',
+    icon: 'mdi:language-javascript',
+  },
+  {
+    title: 'Typescript',
+    icon: 'mdi:language-typescript',
+  },
+  {
+    title: 'HTML',
+    icon: 'simple-icons:html5',
+  },
+  {
+    title: 'CSS',
+    icon: 'simple-icons:css3',
+  },
+  {
+    title: 'Next.js',
+    icon: 'simple-icons:nextdotjs',
+  },
+  {
+    title: 'Tailwind',
+    icon: 'simple-icons:tailwindcss',
+  },
+  {
+    title: 'Shell Scripting',
+    icon: 'simple-icons:gnubash',
+  },
+  {
+    title: 'Astro',
+    icon: 'simple-icons:astro',
+  },
+  {
+    title: 'Python',
+    icon: 'simple-icons:python',
+  },
+  {
+    title: 'Linux',
+    icon: 'simple-icons:linux',
+  },
+];
 ---
 
 <Layout>
-  <section class="px-6 sm:px-6 py-12 sm:py-16 lg:py-20 mx-auto max-w-3xl">
+  <section class="px-6 sm:px-6 py-12 sm:py-16 lg:py-20 mx-auto max-w-4xl">
     <Headline>I'm a developer intrigued by technology shaping society</Headline>
-    Chat with me about
+    <p class="my-8">
+      Working with Laravel and studying React/Next.js at the moment. Analytical, curious, and frequently fascinated by
+      reality and how we manipulate it through technology. Looking forward to contributing my services to the company in
+      parallel with my evolution as a front-end developer.
+    </p>
+
+    <!-- Skills -->
+    <h2 class="text-base text-primary dark:text-[#c79bff] font-semibold tracking-wide uppercase">Skills</h2>
+    <ul class="grid grid-cols-3 md:grid-cols-4 justify-items-center gap-5 my-8">
+      {
+        skills.map(({ title, icon }) => {
+          return (
+            <li class="flex flex-col items-center">
+              <div class="flex items-center justify-center w-12 h-12 mb-1 rounded-full bg-primary dark:bg-[#240041]">
+                <Icon name={icon} class="w-6 h-6 text-[#c79bff] icon-light" />
+              </div>
+              <p class="text-gray-400">{title}</p>
+            </li>
+          );
+        })
+      }
+    </ul>
+
+    <!-- What I Use -->
+    <h2 class="text-base text-primary dark:text-[#c79bff] font-semibold tracking-wide uppercase">What I use</h2>
+    <div class={`grid gap-6 sm:grid-cols-1 md:grid-cols-2 my-8 dark:text-white items-stretch`}>
+      <div
+        class="relative flex flex-col p-6 h-full bg-white dark:bg-[#240041] rounded shadow-lg hover:shadow-md transition border border-transparent dark:border-[#900048]"
+      >
+        <div class="flex items-center">
+          <Icon name="tabler:app-window" class="w-10 h-10 text-[#00ffb7]" />
+          <div class="ml-4 text-xl font-bold">/uses</div>
+        </div>
+        <p class="text-muted dark:text-gray-400 text-md mt-4">The software I use everyday to execute what I need</p>
+      </div>
+      <a href="https://github.com/gbgabo/dotfiles">
+        <div
+          class="relative flex flex-col p-6 h-full bg-white dark:bg-[#240041] rounded shadow-lg hover:shadow-md transition border border-transparent dark:border-[#900048]"
+        >
+          <div class="flex items-center">
+            <Icon name="tabler:terminal-2" class="w-10 h-10 text-[#00ffb7]" />
+            <div class="ml-4 text-xl font-bold">/dotfiles</div>
+          </div>
+          <p class="text-muted dark:text-gray-400 text-md mt-4">The files to reproduce my linux setup</p>
+        </div>
+      </a>
+    </div>
+
+    <h2 class="text-base text-primary dark:text-[#c79bff] font-semibold tracking-wide uppercase">Chat with me about</h2>
     <ul>
       {
         topics.map(({ title, description, icon }) => (
           <li>
             <div class="flex flex-row my-8">
-              <div class="mb-4 mr-4">
-                <div class="flex items-center justify-center w-12 h-12 rounded-full bg-primary dark:bg-[#c79bff]">
-                  {icon && <Icon name={icon} class="w-6 h-6 text-[#19002e] icon-light" />}
+              <div class="mb-4 mr-5">
+                <div class="flex items-center justify-center w-12 h-12 rounded-full bg-primary dark:bg-[#240041]">
+                  {icon && <Icon name={icon} class="w-6 h-6 text-[#00ffb7] icon-light" />}
                 </div>
               </div>
               <div>
@@ -69,15 +154,5 @@ const topics = [
         ))
       }
     </ul>
-
-    <div
-      class="relative flex flex-col p-6 bg-white dark:bg-slate-900 rounded shadow-lg hover:shadow-md transition border border-transparent dark:border-slate-800"
-    >
-      <div class="flex items-center">
-        <Icon name="flat-color-icons:template" class="w-10 h-10" />
-        <div class="ml-4 text-xl font-bold">/uses</div>
-      </div>
-      <p class="text-muted dark:text-gray-400 text-md mt-4">The software I use everyday to execute what I need</p>
-    </div>
   </section>
 </Layout>
