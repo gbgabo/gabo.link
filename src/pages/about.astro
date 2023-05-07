@@ -15,7 +15,7 @@ const topics = [
   {
     title: 'Linux Ricing',
     description:
-      'The term refers to the process of customize a linux enviroment to a more productive or simply aesthetically pleasing setup. There is a plethora of tools the community is constantly sharing, and you have no idea how different and personal your system can be to fit your needs. Check my <a class="underline text-[#00ffb7]" href="#what-i-use">dotfiles</a>',
+      'The term refers to the process of customize a linux enviroment to a more productive or simply aesthetically pleasing setup. There is a plethora of tools the community is constantly sharing, and you have no idea how different and personal your system can be to fit your needs. Check out my <a class="underline text-[#00ffb7]" href="#what-i-use">dotfiles</a>.',
     icon: 'mdi:linux',
   },
   {
@@ -26,7 +26,7 @@ const topics = [
   },
   {
     title: 'Cool content on the internet',
-    description: `The internet is full of people creating amazing stuff from videos, podcasts and art in general. In my <a class="underline text-[#00ffb7]" href="/category/lists">blog lists</a> you may find interesting content I compile from the sites I surf`,
+    description: `The internet is full of people creating amazing stuff from videos, podcasts and art in general. In my <a class="underline text-[#00ffb7]" href="/category/lists">blog lists</a> you may find interesting content I compile from the sites I surf.`,
     icon: 'mdi:web',
   },
 ];
@@ -76,7 +76,7 @@ const skills = [
 ---
 
 <Layout>
-  <section class="px-6 sm:px-6 py-12 sm:py-16 lg:py-20 mx-auto max-w-4xl">
+  <div class="px-6 sm:px-6 py-12 sm:py-16 lg:py-20 mx-auto max-w-4xl">
     <Headline>I'm a developer intrigued by technology shaping society</Headline>
     <p class="my-8">
       I'm a Front-End Developer working with Laravel and studying current full-stack frameworks like Next.js. Experience
@@ -84,68 +84,77 @@ const skills = [
     </p>
 
     <!-- Skills -->
-    <h2 class="text-base text-primary dark:text-[#c79bff] font-semibold tracking-wide uppercase">Skills</h2>
-    <ul class="grid grid-cols-3 md:grid-cols-4 justify-items-center gap-5 my-8">
-      {
-        skills.map(({ title, icon }) => {
-          return (
-            <li class="flex flex-col items-center">
-              <div class="flex items-center justify-center w-12 h-12 mb-1 rounded-full bg-primary dark:bg-[#240041]">
-                <Icon name={icon} class="w-6 h-6 text-[#c79bff] icon-light" />
+    <section>
+      <h2 class="text-base text-primary dark:text-[#c79bff] font-semibold tracking-wide uppercase">Skills</h2>
+      <ul class="grid grid-cols-3 md:grid-cols-4 justify-items-center gap-5 my-8">
+        {
+          skills.map(({ title, icon }) => {
+            return (
+              <li class="flex flex-col items-center">
+                <div class="flex items-center justify-center w-12 h-12 mb-1 rounded-full bg-primary dark:bg-[#240041]">
+                  <Icon name={icon} class="w-6 h-6 text-[#c79bff] icon-light" />
+                </div>
+                <p class="text-gray-400 text-center">{title}</p>
+              </li>
+            );
+          })
+        }
+      </ul>
+    </section>
+
+    <!-- Topics  -->
+    <section>
+      <h2 class="text-base text-primary dark:text-[#c79bff] font-semibold tracking-wide uppercase">
+        Chat with me about
+      </h2>
+      <ul>
+        {
+          topics.map(({ title, description, icon }) => (
+            <li>
+              <div class="flex flex-row my-8">
+                <div class="mb-4 mr-5">
+                  <div class="flex items-center justify-center w-12 h-12 rounded-full bg-primary dark:bg-[#240041]">
+                    {icon && <Icon name={icon} class="w-6 h-6 text-[#00ffb7] icon-light" />}
+                  </div>
+                </div>
+                <div>
+                  <h3 class="mb-3 text-xl font-bold">{title}</h3>
+                  <p class="text-muted dark:text-slate-400" set:html={description} />
+                </div>
               </div>
-              <p class="text-gray-400 text-center">{title}</p>
             </li>
-          );
-        })
-      }
-    </ul>
+          ))
+        }
+      </ul>
+    </section>
 
     <!-- What I Use -->
-    <h2 id="what-i-use" class="text-base text-primary dark:text-[#c79bff] font-semibold tracking-wide uppercase">
-      What I use
-    </h2>
-    <div class={`grid gap-6 sm:grid-cols-1 md:grid-cols-2 my-8 dark:text-white items-stretch`}>
-      <div
-        class="relative flex flex-col p-6 h-full bg-white dark:bg-[#240041] rounded shadow-lg hover:shadow-md transition border border-transparent dark:border-[#900048]"
-      >
-        <div class="flex items-center">
-          <Icon name="tabler:app-window" class="w-10 h-10 text-[#00ffb7]" />
-          <div class="ml-4 text-xl font-bold">/uses</div>
-        </div>
-        <p class="text-muted dark:text-gray-400 text-md mt-4">A list of the software I use on the daily basis</p>
-      </div>
-      <a href="https://github.com/gbgabo/dotfiles">
+    <section>
+      <h2 id="what-i-use" class="text-base text-primary dark:text-[#c79bff] font-semibold tracking-wide uppercase">
+        What I use
+      </h2>
+      <div class={`grid gap-6 sm:grid-cols-1 md:grid-cols-2 my-8 dark:text-white items-stretch`}>
         <div
           class="relative flex flex-col p-6 h-full bg-white dark:bg-[#240041] rounded shadow-lg hover:shadow-md transition border border-transparent dark:border-[#900048]"
         >
           <div class="flex items-center">
-            <Icon name="tabler:terminal-2" class="w-10 h-10 text-[#00ffb7]" />
-            <div class="ml-4 text-xl font-bold">/dotfiles</div>
+            <Icon name="tabler:app-window" class="w-10 h-10 text-[#00ffb7]" />
+            <div class="ml-4 text-xl font-bold">/uses</div>
           </div>
-          <p class="text-muted dark:text-gray-400 text-md mt-4">The files to reproduce my linux setup</p>
+          <p class="text-muted dark:text-gray-400 text-md mt-4">A list of the software I use on the daily basis</p>
         </div>
-      </a>
-    </div>
-
-    <h2 class="text-base text-primary dark:text-[#c79bff] font-semibold tracking-wide uppercase">Chat with me about</h2>
-    <ul>
-      {
-        topics.map(({ title, description, icon }) => (
-          <li>
-            <div class="flex flex-row my-8">
-              <div class="mb-4 mr-5">
-                <div class="flex items-center justify-center w-12 h-12 rounded-full bg-primary dark:bg-[#240041]">
-                  {icon && <Icon name={icon} class="w-6 h-6 text-[#00ffb7] icon-light" />}
-                </div>
-              </div>
-              <div>
-                <h3 class="mb-3 text-xl font-bold">{title}</h3>
-                <p class="text-muted dark:text-slate-400" set:html={description} />
-              </div>
+        <a href="https://github.com/gbgabo/dotfiles">
+          <div
+            class="relative flex flex-col p-6 h-full bg-white dark:bg-[#240041] rounded shadow-lg hover:shadow-md transition border border-transparent dark:border-[#900048]"
+          >
+            <div class="flex items-center">
+              <Icon name="tabler:terminal-2" class="w-10 h-10 text-[#00ffb7]" />
+              <div class="ml-4 text-xl font-bold">/dotfiles</div>
             </div>
-          </li>
-        ))
-      }
-    </ul>
-  </section>
+            <p class="text-muted dark:text-gray-400 text-md mt-4">The files to reproduce my linux setup</p>
+          </div>
+        </a>
+      </div>
+    </section>
+  </div>
 </Layout>
