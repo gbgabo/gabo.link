@@ -4,6 +4,7 @@ import Headline from '~/components/blog/Headline.astro';
 
 import { Picture } from '@astrojs/image/components';
 import { Icon } from 'astro-icon';
+import { getAsset } from '~/utils/permalinks';
 
 const topics = [
   {
@@ -77,7 +78,7 @@ const skills = [
 const links = [
   {
     title: 'Resume',
-    href: '',
+    href: getAsset('/gabriel-gaboardi.pdf'),
     icon: 'mdi:language-javascript',
   },
   {
@@ -107,7 +108,7 @@ const links = [
     </p>
   </div>
 
-  <div class="grid grid-cols-[1fr_min(65ch,100%)_1fr]">
+  <div class="grid grid-cols-main">
     <div class="col-start-2 col-end-3 px-6">
       <!-- Skills -->
       <section>
@@ -180,6 +181,9 @@ const links = [
           </a>
         </div>
       </section>
+      <h2 class="text-base md:hidden text-primary dark:text-[#c79bff] font-semibold tracking-wide uppercase">
+        Get in touch!
+      </h2>
     </div>
     <aside class="hidden md:block col-start-2 col-end-3 md:col-span-1">
       <ul class="md:sticky md:top-28 text-[#00ffb7]">
@@ -197,7 +201,7 @@ const links = [
       </ul>
     </aside>
   </div>
-  <ul class="sticky flex md:hidden flex-row flex-wrap bottom-20 md:top-28 mx-6">
+  <ul class="sticky flex md:hidden flex-row flex-wrap bottom-20 md:top-28 mx-6 my-8">
     {
       links.map(({ href, title }) => {
         return (
