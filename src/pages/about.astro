@@ -102,7 +102,7 @@ const links = [
 <Layout>
   <div class="px-6 sm:px-6 pt-12 sm:pt-16 md:pb-10 mx-auto max-w-4xl">
     <Headline>I'm a developer intrigued by technology shaping society</Headline>
-    <p class="my-8">
+    <p class="text-lg my-8">
       I'm a Front-End Developer working with Laravel and studying current full-stack frameworks like Next.js. Experience
       with React and Typescript. Big fan of SSG frameworks like Astro.
     </p>
@@ -159,15 +159,17 @@ const links = [
           What I use
         </h2>
         <div class={`grid gap-6 sm:grid-cols-1 md:grid-cols-2 my-8 dark:text-white items-stretch`}>
-          <div
-            class="relative flex flex-col p-6 h-full bg-white dark:bg-[#240041] rounded shadow-lg hover:shadow-md transition border border-transparent dark:border-[#900048]"
-          >
-            <div class="flex items-center">
-              <Icon name="tabler:app-window" class="w-10 h-10 text-[#00ffb7]" />
-              <div class="ml-4 text-xl font-bold">/uses</div>
+          <a href="/uses">
+            <div
+              class="relative flex flex-col p-6 h-full bg-white dark:bg-[#240041] rounded shadow-lg hover:shadow-md transition border border-transparent dark:border-[#900048]"
+            >
+              <div class="flex items-center">
+                <Icon name="tabler:app-window" class="w-10 h-10 text-[#00ffb7]" />
+                <div class="ml-4 text-xl font-bold">/uses</div>
+              </div>
+              <p class="text-muted dark:text-gray-400 text-md mt-4">A list of the software I use on the daily basis</p>
             </div>
-            <p class="text-muted dark:text-gray-400 text-md mt-4">A list of the software I use on the daily basis</p>
-          </div>
+          </a>
           <a href="https://github.com/gbgabo/dotfiles">
             <div
               class="relative flex flex-col p-6 h-full bg-white dark:bg-[#240041] rounded shadow-lg hover:shadow-md transition border border-transparent dark:border-[#900048]"

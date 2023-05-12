@@ -1,0 +1,57 @@
+---
+layout: ../layouts/PageLayout.astro
+---
+
+import Headline from '~/components/blog/Headline.astro';
+import ToBlogLink from '~/components/blog/ToBlogLink.astro';
+import { Picture } from '@astrojs/image/components';
+import { Icon } from 'astro-icon';
+
+<div class="mx-auto px-6 max-w-3xl 
+            prose prose-lg
+            dark:prose-invert dark:prose-headings:text-slate-300 
+            prose-md prose-headings:font-heading prose-headings:leading-tighter prose-headings:tracking-tighter prose-headings:font-bold
+            prose-a:text-primary dark:prose-a:text-blue-400 
+            prose-img:rounded-md prose-img:shadow-lg
+            my-8">
+  <Headline subtitle="A list of software and tools I use as my daily setup">/uses</Headline>
+  <Picture
+    class="mx-auto rounded-md w-full"
+    widths={[400, 768, 1024, 2040]}
+    sizes="(max-width: 767px) 400px, (max-width: 1023px) 768px, (max-width: 2039px) 1024px, 2040px"
+    aspectRatio={16 / 9}
+    loading="eager"
+    src={import('~/assets/images/dotfiles.png')}
+    alt="screenshot"
+  />
+  
+  Currently we have access to tools that enable new and improved ways to create, interact and experience the real and digital world.
+  
+  The level of power current software offer made being creative and productive a matter of mastering the tools we have available right now.
+  
+  This page is created to show the tools I use to code, write and everything included in a web developer cozy setup.
+
+# Applications
+
+## the CLI
+
+- **terminal emulator**: st
+- **shell**: zsh
+- **terminal multiplexer**: tmux
+
+## the GUI
+
+- **Linux Distribution**: Debian Linux
+- **Window Manager**: dwm
+- **general purpose menu launcher**: dmenu
+- **scripts**
+  - tmenu
+  - tsearch
+- **Brain dump and writing journal**: Logseq
+
+# Theming
+
+- **font**: jetbrains-mono through nerd fonts
+- **color scheme**: Wildberries Theme
+
+</div>
