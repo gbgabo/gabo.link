@@ -21,13 +21,14 @@ const meta = {
 ---
 
 <Layout {meta}>
-  <Hero background={{ src: import('~/assets/images/web.svg'), alt: 'Web Background' }}>
+  <Hero
+    background={{ src: import('~/assets/images/web.svg'), alt: 'Web Background' }}
+    callToAction={{ text: 'Check my Blog', href: '/blog' }}
+    callToAction2={{ text: 'About me', href: '/about' }}
+  >
     <Fragment slot="title">Welcome to my corner on the internet</Fragment>
 
-    <Fragment slot="subtitle">
-      Hi, my name is Gabo, a front-end developer and this website is a work in progress, please don't mind if stuff dont
-      make sense for now.
-    </Fragment>
+    <Fragment slot="subtitle">Hey! I'm Gabo and I'm a front-end developer</Fragment>
   </Hero>
 
   <LatestPosts title="Blog" />
