@@ -57,14 +57,16 @@ const {
     <div class="pt-0 md:pt-[76px] pointer-events-none"></div>
     <div class="grid grid-cols-4 gap-4 py-12 md:py-20">
       <div class="col-span-4 md:col-span-1 m-auto relative">
-        <div class="bg-[#19002e] mx-auto border-8 border-[#900048] mb-4 w-60 h-60 rounded-full overflow-hidden">
+        <div
+          class="bg-gradient-to-br from-[#900048] from-0% via-[#240041] via-10% to-[#19002e] to-0% mx-auto border-8 border-[#900048] mb-4 w-60 h-60 rounded-full overflow-hidden"
+        >
           <Picture
             class="mx-auto rounded-md w-full"
             widths={[400, 768, 1024, 2040]}
             sizes="(max-width: 767px) 400px, (max-width: 1023px) 768px, (max-width: 2039px) 1024px, 2040px"
             aspectRatio={1 / 1}
             loading="eager"
-            src={import('~/assets/images/profile_picture.jpg')}
+            src={import('~/assets/images/profile_picture.png')}
             alt="Profile"
           />
         </div>
