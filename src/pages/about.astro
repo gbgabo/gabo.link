@@ -6,6 +6,11 @@ import { Picture } from '@astrojs/image/components';
 import { Icon } from 'astro-icon';
 import { getAsset } from '~/utils/permalinks';
 
+const meta = {
+  title: 'About',
+  description: 'The personal website of Gabo.',
+};
+
 const topics = [
   {
     title: 'Free and Open Source Software',
@@ -99,7 +104,7 @@ const links = [
 ];
 ---
 
-<Layout>
+<Layout {meta}>
   <div class="px-6 sm:px-6 pt-12 sm:pt-16 md:pb-10 mx-auto max-w-4xl">
     <Headline>I'm a developer intrigued by technology shaping society</Headline>
     <p class="text-lg my-8">
