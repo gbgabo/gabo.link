@@ -1,0 +1,233 @@
+---
+import Layout from '~/layouts/PageLayout.astro';
+import Headline from '~/components/blog/Headline.astro';
+
+import { Picture } from '@astrojs/image/components';
+import { Icon } from 'astro-icon';
+import { getAsset } from '~/utils/permalinks';
+
+const meta = {
+  title: 'About',
+  description: 'The personal website of Gabo.',
+};
+
+const topics = [
+  {
+    title: 'Free and Open Source Software',
+    description:
+      "The power that moves the modern world is made with free software available to build better tools. I'm an evangelist of free software and love to talk and promote it's benefits to developers and users.",
+    icon: 'ph:hand-fist-bold',
+  },
+  {
+    title: 'Linux Ricing',
+    description:
+      'The term refers to the process of customize a linux enviroment to a more productive or simply aesthetically pleasing setup. There is a plethora of tools the community is constantly sharing, and you have no idea how different and personal your system can be to fit your needs. Check out my <a class="underline text-[#00ffb7]" href="#what-i-use">dotfiles</a>.',
+    icon: 'mdi:linux',
+  },
+  {
+    title: 'Web development technologies',
+    description:
+      'There is no surprise in web development being bombarded by new frameworks and tools. Beyond just hype, there is real innovation and problems being solved by interesting new approaches.',
+    icon: 'ic:round-code',
+  },
+  {
+    title: 'Cool content on the internet',
+    description: `The internet is full of people creating amazing stuff from videos, podcasts and art in general. In my <a class="underline text-[#00ffb7]" href="/category/lists">blog lists</a> you may find interesting content I compile from the sites I surf.`,
+    icon: 'mdi:web',
+  },
+];
+
+const skills = [
+  {
+    title: 'Javascript',
+    icon: 'mdi:language-javascript',
+  },
+  {
+    title: 'Typescript',
+    icon: 'mdi:language-typescript',
+  },
+  {
+    title: 'HTML',
+    icon: 'simple-icons:html5',
+  },
+  {
+    title: 'CSS',
+    icon: 'simple-icons:css3',
+  },
+  {
+    title: 'Next.js',
+    icon: 'simple-icons:nextdotjs',
+  },
+  {
+    title: 'Tailwind',
+    icon: 'simple-icons:tailwindcss',
+  },
+  {
+    title: 'Shell Scripting',
+    icon: 'simple-icons:gnubash',
+  },
+  {
+    title: 'Astro',
+    icon: 'simple-icons:astro',
+  },
+  {
+    title: 'Python',
+    icon: 'simple-icons:python',
+  },
+  {
+    title: 'Linux',
+    icon: 'simple-icons:linux',
+  },
+];
+
+const links = [
+  {
+    title: 'Resume',
+    href: getAsset('/gabriel-gaboardi.pdf'),
+    icon: 'mdi:language-javascript',
+  },
+  {
+    title: 'contact@gabo.link',
+    href: 'mailto:contact@gabo.link',
+    icon: 'mdi:language-javascript',
+  },
+  {
+    title: 'LinkedIn',
+    href: 'https://www.linkedin.com/in/gabriel-gaboardi/',
+    icon: 'mdi:language-javascript',
+  },
+  {
+    title: 'Github',
+    href: 'https://github.com/gbgabo',
+    icon: 'mdi:language-javascript',
+  },
+];
+---
+
+<Layout {meta}>
+  <Picture
+    class="mx-auto rounded-md w-full max-w-4xl"
+    widths={[400, 768, 1024, 2040]}
+    sizes="(max-width: 767px) 400px, (max-width: 1023px) 768px, (max-width: 2039px) 1024px, 2040px"
+    aspectRatio={21 / 9}
+    loading="eager"
+    src={import('~/assets/images/about.jpg')}
+    alt="screenshot"
+  />
+  <div class="px-6 sm:px-6 pt-12 sm:pt-16 md:pb-10 mx-auto max-w-4xl">
+    <Headline>I'm a developer intrigued by technology shaping society</Headline>
+    <p class="text-lg my-8">
+      I'm a Front-End Developer working with Laravel and studying current full-stack frameworks like Next.js. Experience
+      with React and Typescript. Big fan of SSG frameworks like Astro.
+    </p>
+  </div>
+
+  <div class="grid grid-cols-main">
+    <div class="col-start-2 col-end-3 px-6">
+      <!-- Skills -->
+      <section>
+        <h2 class="text-base text-primary dark:text-[#c79bff] font-semibold tracking-wide uppercase">Skills</h2>
+        <ul class="grid grid-cols-3 md:grid-cols-4 justify-items-center gap-5 my-8">
+          {
+            skills.map(({ title, icon }) => {
+              return (
+                <li class="flex flex-col items-center">
+                  <div class="flex items-center justify-center w-12 h-12 mb-1 rounded-full bg-primary dark:bg-[#240041]">
+                    <Icon name={icon} class="w-6 h-6 text-[#c79bff] icon-light" />
+                  </div>
+                  <p class="text-gray-400 text-center">{title}</p>
+                </li>
+              );
+            })
+          }
+        </ul>
+      </section>
+      <!-- Topics  -->
+      <section>
+        <h2 class="text-base text-primary dark:text-[#c79bff] font-semibold tracking-wide uppercase">
+          Chat with me about
+        </h2>
+        <ul>
+          {
+            topics.map(({ title, description, icon }) => (
+              <li>
+                <div class="flex flex-row my-8">
+                  <div class="mb-4 mr-5">
+                    <div class="flex items-center justify-center w-12 h-12 rounded-full bg-primary dark:bg-[#240041]">
+                      {icon && <Icon name={icon} class="w-6 h-6 text-[#00ffb7] icon-light" />}
+                    </div>
+                  </div>
+                  <div>
+                    <h3 class="mb-3 text-xl font-bold">{title}</h3>
+                    <p class="text-muted dark:text-slate-400" set:html={description} />
+                  </div>
+                </div>
+              </li>
+            ))
+          }
+        </ul>
+      </section>
+      <!-- What I Use -->
+      <section>
+        <h2 id="what-i-use" class="text-base text-primary dark:text-[#c79bff] font-semibold tracking-wide uppercase">
+          What I use
+        </h2>
+        <div class={`grid gap-6 sm:grid-cols-1 md:grid-cols-2 my-8 dark:text-white items-stretch`}>
+          <a href="/uses">
+            <div
+              class="relative flex flex-col p-6 h-full bg-white dark:bg-[#240041] rounded shadow-lg hover:shadow-md transition border border-transparent dark:border-[#900048]"
+            >
+              <div class="flex items-center">
+                <Icon name="tabler:app-window" class="w-10 h-10 text-[#00ffb7]" />
+                <div class="ml-4 text-xl font-bold">/uses</div>
+              </div>
+              <p class="text-muted dark:text-gray-400 text-md mt-4">A list of the software I use on the daily basis</p>
+            </div>
+          </a>
+          <a href="https://github.com/gbgabo/dotfiles">
+            <div
+              class="relative flex flex-col p-6 h-full bg-white dark:bg-[#240041] rounded shadow-lg hover:shadow-md transition border border-transparent dark:border-[#900048]"
+            >
+              <div class="flex items-center">
+                <Icon name="tabler:terminal-2" class="w-10 h-10 text-[#00ffb7]" />
+                <div class="ml-4 text-xl font-bold">/dotfiles</div>
+              </div>
+              <p class="text-muted dark:text-gray-400 text-md mt-4">The files to reproduce my linux setup</p>
+            </div>
+          </a>
+        </div>
+      </section>
+      <h2 class="text-base md:hidden text-primary dark:text-[#c79bff] font-semibold tracking-wide uppercase">
+        Get in touch!
+      </h2>
+    </div>
+    <aside class="hidden md:block col-start-2 col-end-3 md:col-span-1">
+      <ul class="md:sticky md:top-28 lg:ml-8 text-[#00ffb7]">
+        {
+          links.map(({ href, title }) => {
+            return (
+              <li class="bg-gray-100 dark:bg-[#c79bff] rounded-md w-fit mr-2 mb-2 py-0.5 px-2 lowercase font-medium">
+                <a class="text-muted dark:text-[#19002e] hover:text-primary dark:hover:text-gray-200" href={href}>
+                  {title}
+                </a>
+              </li>
+            );
+          })
+        }
+      </ul>
+    </aside>
+  </div>
+  <ul class="sticky flex md:hidden flex-row flex-wrap bottom-20 md:top-28 mx-6 my-8">
+    {
+      links.map(({ href, title }) => {
+        return (
+          <li class="bg-gray-100 dark:bg-[#c79bff] rounded-md inline-block mr-2 mb-2 py-0.5 px-2 lowercase font-medium">
+            <a class="text-muted dark:text-[#19002e] hover:text-primary dark:hover:text-gray-200" href={href}>
+              {title}
+            </a>
+          </li>
+        );
+      })
+    }
+  </ul>
+</Layout>

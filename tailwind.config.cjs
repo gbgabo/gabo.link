@@ -30,6 +30,9 @@ module.exports = {
       animation: {
         'fade-up': 'fade-up 0.3s',
       },
+      gridTemplateColumns: {
+        main: '1fr min(65ch, 100%) 1fr',
+      },
     },
   },
   plugins: [require('@tailwindcss/typography')],

@@ -56,41 +56,22 @@ const {
   <div class="relative max-w-7xl mx-auto px-4 sm:px-6">
     <div class="pt-0 md:pt-[76px] pointer-events-none"></div>
     <div class="grid grid-cols-4 gap-4 py-12 md:py-20">
-      <div class="col-span-4 md:col-span-1 m-auto">
-        <div class="bg-[#19002e] mx-auto border-8 border-[#900048] mb-4 w-52 h-52 rounded-full overflow-hidden">
+      <div class="col-span-4 md:col-span-1 m-auto relative">
+        <div
+          class="bg-gradient-to-br from-[#900048] from-0% via-[#240041] via-50% to-[#19002e] to-100% mx-auto border-8 border-[#900048] mb-4 w-60 h-60 rounded-full overflow-hidden"
+        >
           <Picture
             class="mx-auto rounded-md w-full"
             widths={[400, 768, 1024, 2040]}
             sizes="(max-width: 767px) 400px, (max-width: 1023px) 768px, (max-width: 2039px) 1024px, 2040px"
             aspectRatio={1 / 1}
             loading="eager"
-            src={import('~/assets/images/profile_picture.jpg')}
+            src={import('~/assets/images/profile_picture.png')}
             alt="Profile"
           />
         </div>
-        <p class="text-[#00ffb7]">Gabriel Gaboardi AKA Gabo</p>
-        <div>
-          {
-            socialLinks?.length ? (
-              <ul class="flex w-fit m-auto">
-                {socialLinks.map(({ ariaLabel, href, text, icon }) => (
-                  <li>
-                    <a
-                      class="text-muted dark:text-[#00ffb7] hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 rounded-lg text-sm p-2.5 inline-flex items-center"
-                      aria-label={ariaLabel}
-                      href={href}
-                    >
-                      {icon && <Icon name={icon} class="w-5 h-5" />}
-                      <Fragment set:html={text} />
-                    </a>
-                  </li>
-                ))}
-              </ul>
-            ) : (
-              ''
-            )
-          }
-        </div>
+        <p class="bg-[#c79bff] text-[#19002e] px-2 w-fit absolute top-0 left-0 rounded">Gabriel Gaboardi</p>
+        <p class="bg-[#c79bff] text-[#19002e] px-2 w-fit absolute bottom-0 right-0 rounded">AKA Gabo</p>
       </div>
       <div
         class="col-span-4 md:col-span-3 dark:bg-[#19002e]/70 backdrop-blur-sm rounded-xl px-5 py-7 md:p-12 max-w-screen-lg"
@@ -98,21 +79,21 @@ const {
         {
           title && (
             <h1
-              class="text-5xl md:text-6xl font-bold leading-tighter tracking-tighter mb-4 font-heading dark:text-gray-200"
+              class="text-4xl md:text-6xl font-bold leading-tighter tracking-tighter mb-4 font-heading dark:text-gray-200"
               set:html={title}
             />
           )
         }
         <div class="max-w-3xl">
-          {subtitle && <p class="text-xl text-muted dark:text-[#c79bff]" set:html={subtitle} />}
-          <div class="max-w-xs sm:max-w-md m-auto flex flex-nowrap flex-col sm:flex-row sm:justify-center gap-4">
+          {subtitle && <p class="text-xl mb-6 text-muted dark:text-[#c79bff]" set:html={subtitle} />}
+          <div class="flex flex-nowrap items-center flex-col sm:flex-row gap-4">
             {
               callToAction && (
                 <div class="flex w-full sm:w-auto">
                   {typeof callToAction === 'string' ? (
                     <Fragment set:html={callToAction} />
                   ) : (
-                    <a class="btn btn-primary sm:mb-0 w-full" href={callToAction?.href} target="_blank" rel="noopener">
+                    <a class="btn btn-primary sm:mb-0 w-full" href={callToAction?.href} rel="noopener">
                       {callToAction?.icon && (
                         <>
                           <Icon name={callToAction.icon} class="w-5 h-5 mr-2 -ml-1.5" />
@@ -142,6 +123,28 @@ const {
                 </div>
               )
             }
+            <div>
+              {
+                socialLinks?.length ? (
+                  <ul class="flex w-fit m-auto">
+                    {socialLinks.map(({ ariaLabel, href, text, icon }) => (
+                      <li>
+                        <a
+                          class="text-muted dark:text-[#00ffb7] hover:bg-gray-100 dark:hover:bg-[#240041] focus:outline-none focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 rounded-lg text-sm p-2.5 inline-flex items-center"
+                          aria-label={ariaLabel}
+                          href={href}
+                        >
+                          {icon && <Icon name={icon} class="w-6 h-6" />}
+                          <Fragment set:html={text} />
+                        </a>
+                      </li>
+                    ))}
+                  </ul>
+                ) : (
+                  ''
+                )
+              }
+            </div>
           </div>
         </div>
         {content && <Fragment set:html={content} />}
