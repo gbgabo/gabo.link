@@ -17,11 +17,15 @@ Você já deve ter visto aquelas telas pretas, com linhas pequenas pipocando sem
 
 A ideia desse texto é desmistificar e explicar **tudo que você precisa saber para conhecer o `terminal`**, além de mostrar o quanto ele pode ser divertido e útil.
 
-# O que é o terminal, afinal?
+# O que é o terminal
+
+## O hardware
 
 Terminal é um equipamento que **lhe permite interagir com um computador por meio de texto**. Bem por isso, é quase sempre constituindo por uma **tela** e **teclado** para essa interface.
 
 Mais especificamente, neste texto falaremos sobre o `vídeo terminal`, que **possui uma tela além do teclado**, em contraste com terminais mais antigos, que **interfaciavam com o computador por impressão do texto** (semelhante ao fax). Um exemplo de video terminal é o [VT100](https://pt.wikipedia.org/wiki/VT100).
+
+#### Foto de ASR-33 e VT-100 ------------
 
 E se logo de cara você está com medo, ou acha que deve ser muito difícil mexer em um terminal, quero que você me diga quão dificil é mexer nesse cara:
 
@@ -31,7 +35,9 @@ E se logo de cara você está com medo, ou acha que deve ser muito difícil mexe
 
 E antigamente isso fazia mais sentido ainda. Visto que os computadores eram caros (e enormes), a melhor solução era ter vários equipamentos menores que só pedem coisas para o único computador do local. Esses equipamentos eram literalmente os terminais, também chamados de terminais burros. Burro porque fazer algo sozinho ele não fazia. Não possuía memória, nem processador dedicado. Ele só pedia para o servidor, e o servidor devolvia na tela o que lhe foi pedido.
 
-E hoje ainda é assim. Claro, já não precisamos de dois equipamentos, temos um só. Mas ainda falamos com o computador por um terminal, com uma pequena mudança: agora o terminal é um programa, também conhecido como `emulador de terminal`, não sendo mais aquele monitor de tubo com comunicação serial.
+## O software
+
+Ter um computador em casa descarta a necessidade de ter um equipamento a mais pra falar com ele, mas falar por texto não deixou de ser útil. Ainda se usa muito o terminal, porém agora ele é um programa, também conhecido como `emulador de terminal`. Agora sim, se tornando aquela janelinha preta, ele deixa de ser aquele monitor de tubo com comunicação serial.
 
 ![terminal history](https://cdn.hashnode.com/res/hashnode/image/upload/v1620269974602/1UrRBhHnE.png)
 
@@ -39,7 +45,7 @@ E hoje ainda é assim. Claro, já não precisamos de dois equipamentos, temos um
 
 E por meio de uma das interfaces mais antigas de computador, que ainda hoje vemos uma infinidade de usos e aplicações para o ambiente de desenvolvimento.
 
-## O que o terminal tem:
+## O que o terminal tem
 
 Diga oi para o meu terminal.
 
