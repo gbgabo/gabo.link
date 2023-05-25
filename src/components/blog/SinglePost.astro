@@ -27,7 +27,7 @@ const { post, url } = Astro.props;
           post.category && (
             <p>
               <a
-                class={`capitalize font-bold ${categoryData[post.category].classes} hover:underline`}
+                class={`capitalize font-bold ${categoryData[post.category].classes.outline} hover:underline `}
                 href={getPermalink(post.category, 'category')}
               >
                 {post.category.replaceAll('-', ' ')}
@@ -79,13 +79,13 @@ const { post, url } = Astro.props;
     <div
       class={`mx-auto ${
         post.category !== 'lists' && 'px-6'
-      } sm:px-6 max-w-3xl prose prose-lg lg:prose-xl dark:prose-invert dark:prose-headings:text-slate-300 prose-md prose-headings:font-heading prose-headings:leading-tighter prose-headings:tracking-tighter prose-headings:font-bold prose-a:text-primary dark:prose-a:text-blue-400 prose-img:rounded-md prose-img:shadow-lg mt-8`}
+      } sm:px-6 max-w-3xl prose prose-lg dark:prose-invert dark:prose-headings:text-slate-300 prose-md prose-headings:font-heading prose-headings:leading-tighter prose-headings:tracking-tighter prose-headings:font-bold prose-a:text-primary dark:prose-a:text-blue-400 prose-img:rounded-md prose-img:shadow-lg mt-8`}
     >
       {
         post.headings.length > 0 && (
           <div class="fixed z-10 bottom-24 right-3 md:sticky md:top-24">
             <button
-              class="my-0 z-10 fixed md:sticky not-prose bottom-20 rounded-xl h-fit right-3  md:w-full md:mx-auto md:flex items-center md:p-2 bg-[#900048] dark:text-[#00ffb7]"
+              class="my-0 z-10 fixed md:sticky bottom-20 rounded-xl h-fit right-3 md:w-full md:mx-auto md:flex items-center md:p-2 bg-[#900048] dark:text-[#00ffb7]"
               data-aw-toggle-toc
               aria-label="Table of content"
             >
