@@ -13,19 +13,19 @@ tags:
 canonical: https://gabo.link/o-que-e-o-terminal
 ---
 
-Você já deve ter visto aquelas telas pretas, com linhas pequenas pipocando sem parar.
-
-Possivelmente você viu isso em contextos de filme, onde há um super hacker escrevendo dezenas de letras por segundo com o objetivo de quebrar todas as senhas e acessar o sistema secreto do pentágono.
-
-Bom, não que você não viu um terminal... mas ele é bem mais que isso.
+Você já deve ter visto aquelas telas pretas, com linhas pequenas pipocando sem parar. Possivelmente em um filme, onde há um super hacker escrevendo dezenas de letras por segundo com o objetivo de quebrar todas as senhas e acessar um sistema secreto do pentágono. Essa janela preta é um **terminal**.
 
 A ideia desse texto é desmistificar e explicar **tudo que você precisa saber para conhecer o `terminal`**, além de mostrar o quanto ele pode ser divertido e útil.
 
-# O que é o terminal, afinal?
+# O que é o terminal
+
+## O hardware
 
 Terminal é um equipamento que **lhe permite interagir com um computador por meio de texto**. Bem por isso, é quase sempre constituindo por uma **tela** e **teclado** para essa interface.
 
 Mais especificamente, neste texto falaremos sobre o `vídeo terminal`, que **possui uma tela além do teclado**, em contraste com terminais mais antigos, que **interfaciavam com o computador por impressão do texto** (semelhante ao fax). Um exemplo de video terminal é o [VT100](https://pt.wikipedia.org/wiki/VT100).
+
+#### Foto de ASR-33 e VT-100 ------------
 
 E se logo de cara você está com medo, ou acha que deve ser muito difícil mexer em um terminal, quero que você me diga quão dificil é mexer nesse cara:
 
@@ -35,7 +35,9 @@ E se logo de cara você está com medo, ou acha que deve ser muito difícil mexe
 
 E antigamente isso fazia mais sentido ainda. Visto que os computadores eram caros (e enormes), a melhor solução era ter vários equipamentos menores que só pedem coisas para o único computador do local. Esses equipamentos eram literalmente os terminais, também chamados de terminais burros. Burro porque fazer algo sozinho ele não fazia. Não possuía memória, nem processador dedicado. Ele só pedia para o servidor, e o servidor devolvia na tela o que lhe foi pedido.
 
-E hoje ainda é assim. Claro, já não precisamos de dois equipamentos, temos um só. Mas ainda falamos com o computador por um terminal, com uma pequena mudança: agora o terminal é um programa, também conhecido como `emulador de terminal`, não sendo mais aquele monitor de tubo com comunicação serial.
+## O software
+
+Ter um computador em casa descarta a necessidade de ter um equipamento a mais pra falar com ele, mas falar por texto não deixou de ser útil. Ainda se usa muito o terminal, porém agora ele é um programa, também conhecido como `emulador de terminal`. Agora sim, se tornando aquela janelinha preta, ele deixa de ser aquele monitor de tubo com comunicação serial.
 
 ![terminal history](https://cdn.hashnode.com/res/hashnode/image/upload/v1620269974602/1UrRBhHnE.png)
 
@@ -43,7 +45,7 @@ E hoje ainda é assim. Claro, já não precisamos de dois equipamentos, temos um
 
 E por meio de uma das interfaces mais antigas de computador, que ainda hoje vemos uma infinidade de usos e aplicações para o ambiente de desenvolvimento.
 
-## O que o terminal tem:
+## O que o terminal tem
 
 Diga oi para o meu terminal.
 
@@ -71,9 +73,9 @@ Mais estiloso, né. E sim, eu curto roxo.
 
 Quando um comando é enviado, o sistema retornará a resposta logo embaixo, sendo possível 3 opções:
 
-- **As informações solicitadas:** Quando o seu comando solicita alguma informação, isso aparecerá logo abaixo a linha de comando;
-- **Uma mensagem de erro:**
-- **Nada:**
+- **o que você pediu:** Quando o seu comando solicita alguma informação, isso aparecerá logo abaixo a linha de comando;
+- **Uma mensagem de erro:** Para quando o comando feito não for executado corretamente. Seja por erro do programa ou por erro do usuário ao digitar o que precisava;
+- **Nada:** Nos casos que o computador executa o comando e nada precisa ser devolvido;
 
 # Usando o terminal
 
@@ -115,7 +117,7 @@ E não, eles não podem competir em tudo com aplicações GUI (Graphical User In
 
 Recaptulando, há duas formas principais de se interagir com o computador:
 
-- ** Por aplicações gráficas (GUI)**, que desenham e processam livremente os pixels na tela, esperando que você navegue pela tela com o mouse;
+- **Por aplicações gráficas (GUI)**, que desenham e processam livremente os pixels na tela, esperando que você navegue pela tela com o mouse;
 - **Por aplicações de terminal (CLI, TUI)**, apresentando informações basedas em texto;
 
 Muitos dos programas que se usa por interface gráfica também tem para o terminal.
@@ -130,44 +132,40 @@ Não se pode concluir uma forma como _a_ melhor, mas há muitas situações onde
 
 ### ⚡ Velocidade
 
-Como já dito, ao se usar o terminal, você se verá navegando muito pelos diretórios do seu sistema. E, sem muito tempo de uso, você já pode estar navegando super rápido. Me acompanha: se você for uma pessoa que já se dá super bem digitando no computador, imagina usar essa velocidade pra navegar por ele.
+Como já dito, ao se usar o terminal, você se verá navegando muito pelos diretórios do seu sistema. E, sem muito tempo de uso, você já pode estar navegando super rápido. Me acompanha: se você for uma pessoa que já se dá bem digitando no computador, imagina usar essa velocidade pra navegar por ele. Essa velocidade não precisa ficar só na navegação de arquivos e não se resume à digitação de palavras. Ter macros e comandos no teclado para controlar o programa é comum. **Para uma aplicação com bom suporte ao teclado, toda interação pode ser feita na velocidade que sua digitação alcançar**, e isso lhe permite ir melhorando com a prática.
 
-Essa velocidade não precisa ficar só na navegação de arquivos e não se resume à digitação de palavras. Ter macros e comandos no teclado para controlar o programa é comum. **Para uma aplicação com bom suporte ao teclado, toda interação pode ser feita na velocidade que sua digitação alcançar**, e isso lhe permite ir melhorando com a pratica.
-
-Os benefícios são claros também pra quem não digita rápido. Entre **navegar mais de uma tela**/menu ou digitar/**copiar uma única frase** no seu terminal, você pode ganhar tempo com a segunda opção. **Você não está refém ao que a tela lhe mostra para clicar.**
+Os benefícios são claros também pra quem não digita rápido. Entre **navegar mais de uma tela**/menu ou digitar/**copiar uma única frase** no seu terminal, você pode ganhar tempo com a segunda opção. **Você não está refém do que a tela lhe mostra para clicar.** Como exemplo, pense o caminho que você faz para instalar um programa novo: você pesquisa o nome dele na internet, acha o site correto, segue os passos para baixar algum arquivo para aí então clicá-lo para instalar. Um jeito mais rápido é caso já se procure numa loja de aplicativos do sistema, mas mesmo assim, como isso se compara com apenas digitar no terminal "apt install _nome-do-programa_" ou semelhante?
 
 ### 🎯 Precisão
 
-Uma coisa que a linha de comando permite de forma natural é a chance de lidarmos com o computador de forma MUITO específica. Sabe quando você pede uma pizza num aplicativo, **clicando** em cada sabor, sem problema algum? Se você quiser que escrevam uma mensagem de aniversário na caixa, como faria? Se tiver essa opção, **escrever uma mensagem** no fim do pedido salva, né?
+Uma coisa que a linha de comando permite de forma natural é a chance de lidarmos com o computador de forma muito específica. Sabe quando você pede uma pizza num aplicativo, **clicando** em cada sabor, sem muito problema? Se você quer pedir para tirar algum ingrediente específico de algum sabor, uma área para escrever um comentário resolveria, né?
 
-Você nunca terá **todas** as opções possíveis de pedido numa tela, por isso há disponível o que é mais comum. Qualquer outra coisa específica, há uma forma livre: escrever. Assim você será mais específico. Desta forma, interface gráfica e linha de comando se completam.
+Você nunca terá **todas** as opções possíveis de pedido numa tela, por isso há disponível o que é mais comum. Mas para qualquer outra opção mais específica, há uma forma mais aberta para você definir: escrevendo.
 
-Elas se diferenciam pela **densidade de informações** que uma situação demanda:
+É dessa forma que interface gráfica e linha de comando se completam. Elas se diferenciam pela **densidade de informações** que uma situação demanda. O quanto é possível dar de informações ao dar um comando:
 
 - Em GUI recebemos informações mais bem apresentadas, mas o _input_ do usuário é mais simples e menos denso, como um prato _a la carte_ no cardápio.
 - Em CLI você possui uma gama de opções disponíveis que podem ser declaradas todas de uma vez, do seu jeito. Como seu prato do _buffet_, que tem muito mais batata frita que deveria.
 
-### 🤖 Automação
-
 ### 🔗 Integração
 
-- Ele permite integrar e extender os programas
-- Como ele trabalha com lihas de entrada e saidas que o programa cospe, a regra sempre se baseia por texto. Uma saida entra na entrada da outra.
+Lembre-se que nessa conversa com o computador, as palavras são literalmente programas ou dados para programas. Um comando no terminal pode ser só uma palavra, mas também uma frase. A informação que um comando devolve pode ser usada para o próximo comando, e assim por diante. Visto que tudo é baseado em texto, montar comandos obedecendo uma sintaxe simples faz com que natualmente integrações sejam feitas.
+
+```bash
+$ ls | grep
+```
+
+Uma coisa se conecta na outra tomando consideração de relativamente poucas coisas. A natureza baseada em texto dos programas de terminal permitem uma consistência na forma que se mexe no computador, criando uma experiência unificada. Até para programas de interface gráfica, é possivel chamar comandos que fazem o mesmo que se faz clicando, e vocẽ acaba estendendo os programas do dia a dia para a sua necessidade.
+
+### 🤖 Automação
 
 - muitas dessas coisas vem por meio de scripts, imagine como uma carta, uma receita que vc já fala tudo que tem que pedir
 
-## terminal: MONSTRO ou MELHOR AMIGO?
+## Não tenha medo do terminal
 
 - Não é dificil, é diferente
-  - uma questao de densidade de informações
-  - Em GUI, recebemos informações mais bem apresentadas, mas o input do usuário é mais simples e menos denso
 - TUI não precisa ser feio
 - Não tem oq temer pois ele faz apenas o que vc manda, e não é tão facil fazer algo que faça mal
 - novos comandos, como girias, que lhe permitem fazer coisas diferentes
-  - como um chat, que vc escreve e conversa com a maquina, vc pede coisas e ela responde, lhe mostra coisas que vc quer
-- Ele é consistente, unificado
-  - Não importa em qual computador você vá, a maioria das coisa que você faz podem ser feitas em todos os lugares. Basta haver um terminal, e suas palavras pra serem escritas
-
-## GUI x CLI/TUI e por que ficamos mais idiotas
 
 terminal burro: http://www.linfo.org/dumb_terminal.htm

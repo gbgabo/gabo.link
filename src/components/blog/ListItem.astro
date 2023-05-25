@@ -50,7 +50,7 @@ const link = !BLOG?.post?.disabled ? getPermalink(post.permalink, 'post') : '';
             post.category && (
               <>
                 <a
-                  class={`capitalize hover:underline ${categoryData[post.category].classes}`}
+                  class={`capitalize hover:underline ${categoryData[post.category].classes.outline}`}
                   href={getPermalink(post.category, 'category')}
                 >
                   {post.category.replaceAll('-', ' ')}
