@@ -22,7 +22,7 @@ const image = await findImage(post.image);
     {
       post.category && categoryData[post.category] && (
         <a
-          class={`absolute -left-2 -bottom-3 text-sm capitalize flex items-center p-1 pr-3 w-fit rounded-lg ${
+          class={`absolute left-2 -bottom-3 text-sm capitalize flex items-center p-1 pr-3 w-fit rounded-lg z-10 ${
             categoryData[post.category].classes.filled
           }`}
           href={`/category/${post.category}`}
