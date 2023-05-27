@@ -15,23 +15,26 @@ export interface Props {
 
 const { post } = Astro.props;
 const image = await findImage(post.image);
+const category = categoryData[post.category]
+  ? categoryData[post.category]
+  : {
+      classes: {
+        filled: 'text-[#19002e] bg-[#c79bff]',
+        outline: 'text-[#ff0e82]',
+      },
+      icon: 'tabler:file-text',
+    };
 ---
 
 <article class="mb-6 transition">
   <div class="relative md:h-64 bg-gray-400 dark:bg-slate-700 rounded shadow-lg mb-5">
-    {
-      post.category && categoryData[post.category] && (
-        <a
-          class={`absolute -left-2 -bottom-3 text-sm capitalize flex items-center p-1 pr-3 w-fit rounded-lg ${
-            categoryData[post.category].classes.filled
-          }`}
-          href={`/category/${post.category}`}
-        >
-          <Icon class="py-1 w-6 h-6 mr-1" name={categoryData[post.category].icon} />
-          <>{post.category}</>
-        </a>
-      )
-    }
+    <a
+      class={`absolute left-2 -bottom-3 text-sm capitalize shadow-lg flex items-center p-1 pr-3 w-fit rounded-lg z-10 ${category.classes.filled}`}
+      href={`/category/${post.category}`}
+    >
+      <Icon class="py-1 w-6 h-6 mr-1" name={category.icon} />
+      <>{post.category}</>
+    </a>
     {
       image && (
         <Picture

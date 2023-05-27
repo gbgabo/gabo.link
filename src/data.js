@@ -164,14 +164,13 @@ export const categoryData = {
       filled: 'text-[#19002e] bg-[#ff0e82]',
       outline: 'text-[#ff0e82]',
     },
-
-    icon: 'tabler:list',
+    icon: 'tabler:list-details',
   },
   articles: {
     classes: {
       filled: 'text-[#19002e] bg-[#00ffb7]',
       outline: 'text-[#00ffb7]',
     },
-    icon: 'tabler:list',
+    icon: 'tabler:news',
   },
 };
