@@ -25,7 +25,7 @@ Terminal é um equipamento que **lhe permite interagir com um computador por mei
 
 Mais especificamente, neste texto falaremos sobre o `vídeo terminal`, que **possui uma tela além do teclado**, em contraste com terminais mais antigos, que **interfaciavam com o computador por impressão do texto** (semelhante ao fax). Um exemplo de video terminal é o [VT100](https://pt.wikipedia.org/wiki/VT100).
 
-#### Foto de ASR-33 e VT-100 ------------
+![terminals](/assets/images/posts/terminals.png)
 
 E se logo de cara você está com medo, ou acha que deve ser muito difícil mexer em um terminal, quero que você me diga quão dificil é mexer nesse cara:
 
@@ -47,11 +47,11 @@ E por meio de uma das interfaces mais antigas de computador, que ainda hoje vemo
 
 ## O que o terminal tem
 
-Diga oi para o meu terminal.
+Diga oi para o meu terminal. Nesse texto mostrarei um terminal num sistema com Linux. Ele é muito parecido com o Mac. Para o Windows os conceitos abordados aqui também valem, porém há mudanças para os nomes dos comandos mais comuns.
 
 ![2021-08-22-12_14_26.png](https://cdn.hashnode.com/res/hashnode/image/upload/v1629648793583/kAopJQuOY.png)
 
-Ele é bem vazio de cara, porque ele é só um monitor. Ele só mostra um programa alí no topo. O `shell`!
+O terminal é bem vazio de cara, porque ele é só um monitor. Ele só mostra um programa alí no topo. O `shell`!
 
 **O shell é o interpetador de comandos do terminal**, eu vou digitar nosso primeiro comando. O `ls`.
 
@@ -73,7 +73,7 @@ Mais estiloso, né. E sim, eu curto roxo.
 
 Quando um comando é enviado, o sistema retornará a resposta logo embaixo, sendo possível 3 opções:
 
-- **o que você pediu:** Quando o seu comando solicita alguma informação, isso aparecerá logo abaixo a linha de comando;
+- **O que você pediu:** Quando o seu comando solicita alguma informação, isso aparecerá logo abaixo a linha de comando;
 - **Uma mensagem de erro:** Para quando o comando feito não for executado corretamente. Seja por erro do programa ou por erro do usuário ao digitar o que precisava;
 - **Nada:** Nos casos que o computador executa o comando e nada precisa ser devolvido;
 
@@ -109,7 +109,7 @@ Como por exemplo o `vim` e `nvim` (editores de texto), `htop` e `bpytop` (gerenc
 
 ![2021-08-22-20_29_04.png](https://cdn.hashnode.com/res/hashnode/image/upload/v1629674966105/4kky1z0-7.png)
 
-[O projeto awesome-cli-apps](https://github.com/agarrharr/awesome-cli-apps) tem uma lista enorme de programas interssantes para o terminal.
+[O projeto awesome-cli-apps](https://github.com/agarrharr/awesome-cli-apps) tem uma lista enorme de programas interessantes para o terminal.
 
 E não, eles não podem competir em tudo com aplicações GUI (Graphical User Interface). Quando você entende as utilidades do terminal, você tira o melhor proveito dele.
 
@@ -128,7 +128,7 @@ _Gerenciador de arquivos - pcmanfm e nnn_
 ![2021-08-22-20_18_54.png](https://cdn.hashnode.com/res/hashnode/image/upload/v1629674379234/rna1AtHZP.png)
 _Editores de texto - vscodium e nvim_
 
-Não se pode concluir uma forma como _a_ melhor, mas há muitas situações onde de fato o terminal se destaca.
+Não se pode concluir uma forma como _a_ melhor, mas há muitas situações onde de fato o terminal se destaca:
 
 ### ⚡ Velocidade
 
