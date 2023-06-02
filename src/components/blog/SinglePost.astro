@@ -85,11 +85,11 @@ const { post, url } = Astro.props;
         post.headings.length > 0 && (
           <div class="fixed z-10 bottom-24 right-3 md:sticky md:top-24">
             <button
-              class="my-0 z-10 fixed md:sticky bottom-20 rounded-xl h-fit right-3 md:w-full md:mx-auto md:flex items-center md:p-2 bg-[#900048] dark:text-[#00ffb7]"
+              class="my-0 z-10 fixed md:sticky bottom-20 rounded-[14px] h-fit right-3 md:w-full md:mx-auto md:flex items-center md:p-2 bg-[#900048] dark:text-[#00ffb7]"
               data-aw-toggle-toc
               aria-label="Table of content"
             >
-              <Icon class="h-12 w-12 p-2" name="tabler:list" />
+              <Icon class="h-12 w-12 md:h-10 md:w-10 p-2" name="tabler:list" />
               <p class="hidden md:block m-0 ml-2">Table of content</p>
             </button>
             <nav class="hidden not-prose">
