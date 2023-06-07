@@ -73,9 +73,9 @@ Mais estiloso, né. E sim, eu curto roxo.
 
 Quando um comando é enviado, o sistema retornará a resposta logo embaixo, sendo possível 3 opções:
 
-- **O que você pediu:** Quando o seu comando solicita alguma informação, isso aparecerá logo abaixo a linha de comando;
+- **O que você pediu:** Quando o seu comando solicita alguma informação, essa informação aparecerá logo abaixo da linha de comando;
 - **Uma mensagem de erro:** Para quando o comando feito não for executado corretamente. Seja por erro do programa ou por erro do usuário ao digitar o que precisava;
-- **Nada:** Nos casos que o computador executa o comando e nada precisa ser devolvido;
+- **Nada:** Nos casos que o computador executa o comando e nada precisa ser devolvido. Tudo ok 👌;
 
 # Usando o terminal
 
@@ -97,11 +97,16 @@ Os comandos por texto podem receber `parâmetros`, mensagens a mais que informam
 
 Isso pode parecer lento, mas é exatamente o contrário. Em grande parte das vezes, o ambiente de linha de comando será muito mais rápido que com mouse (e já descorrerei mais sobre isso).
 
-Esse estilo por "chat" de interação é chamado de `CLI` (do inglês, `interface de linha de comando`).
-
-![man.png](https://cdn.hashnode.com/res/hashnode/image/upload/v1629855694681/qBx3q_EsC.png)
-
 ![cat.png](https://cdn.hashnode.com/res/hashnode/image/upload/v1629855512180/vteLN-dqt.png)
+
+- find
+- curl
+- less
+- pwd
+- rm
+- echo
+
+Esse estilo por "chat" de interação é chamado de `CLI` (do inglês, `interface de linha de comando`).
 
 E por interagir por texto, não quer dizer que tudo se resume à essa troca de mensagem. Aplicações para o terminal também podem ter interfaces visuais próprias bem ricas.
 
@@ -112,6 +117,13 @@ Como por exemplo o `vim` e `nvim` (editores de texto), `htop` e `bpytop` (gerenc
 [O projeto awesome-cli-apps](https://github.com/agarrharr/awesome-cli-apps) tem uma lista enorme de programas interessantes para o terminal.
 
 E não, eles não podem competir em tudo com aplicações GUI (Graphical User Interface). Quando você entende as utilidades do terminal, você tira o melhor proveito dele.
+
+## Pra que serve comando X?
+
+Descorrer formas de se virar
+
+- man
+- -h, --help
 
 ## Por que usar o terminal
 
@@ -144,12 +156,12 @@ Você nunca terá **todas** as opções possíveis de pedido numa tela, por isso
 
 É dessa forma que interface gráfica e linha de comando se completam. Elas se diferenciam pela **densidade de informações** que uma situação demanda. O quanto é possível dar de informações ao dar um comando:
 
-- Em GUI recebemos informações mais bem apresentadas, mas o _input_ do usuário é mais simples e menos denso, como um prato _a la carte_ no cardápio.
-- Em CLI você possui uma gama de opções disponíveis que podem ser declaradas todas de uma vez, do seu jeito. Como seu prato do _buffet_, que tem muito mais batata frita que deveria.
+- Em **GUI** recebemos informações mais bem apresentadas, mas o _input_ do usuário é mais simples e menos denso, como um prato _a la carte_ no cardápio.
+- Em **CLI** você possui uma gama de opções disponíveis que podem ser declaradas todas de uma vez, do seu jeito. Como seu prato do _buffet_, que tem muito mais batata frita que deveria.
 
 ### 🔗 Integração
 
-Lembre-se que nessa conversa com o computador, as palavras são literalmente programas ou dados para programas. Um comando no terminal pode ser só uma palavra, mas também uma frase. A informação que um comando devolve pode ser usada para o próximo comando, e assim por diante. Visto que tudo é baseado em texto, montar comandos obedecendo uma sintaxe simples faz com que natualmente integrações sejam feitas.
+Lembre-se que nessa conversa com o computador, as palavras são literalmente programas ou dados para programas. Um comando no terminal pode ser só uma **palavra**, mas também uma **frase**. A informação que um comando devolve pode ser usada para o próximo comando, e assim por diante. Visto que tudo é baseado em **texto**, montar comandos obedecendo uma sintaxe simples faz com que natualmente integrações sejam feitas.
 
 ```bash
 $ ls | grep
