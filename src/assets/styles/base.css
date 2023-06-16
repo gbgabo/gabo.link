@@ -81,7 +81,7 @@ dialog::backdrop {
 
   .slider-container {
     overflow: auto;
-    background-color: #19002e;
+    background-color: #240041;
     position: relative;
     border-radius: 10px;
     color: #c79bff;
@@ -113,11 +113,11 @@ dialog::backdrop {
   
   .slider-grid > * {
     flex-shrink: 0;
-    width: 80%;
+    width: 90%;
     scroll-snap-align: center;
     display: flex;
     flex-direction: column;
-    padding: 0px 10px;
+    padding: 0px 5px;
   }
   
   .slider-grid > * > p {

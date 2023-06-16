@@ -100,11 +100,11 @@ import { SITE } from '~/config.mjs';
       const grid = slider.querySelector('.slider-grid');
 
       nextButton.addEventListener('click', () => {
-        grid.scrollLeft += 400;
+        grid.scrollLeft += slider.offsetWidth;
       });
 
       previewButton.addEventListener('click', () => {
-        grid.scrollLeft -= 400;
+        grid.scrollLeft -= slider.offsetWidth;
       });
     });
 
