@@ -47,6 +47,88 @@
     transition: transform 0.3s, opacity 0.3s;
   }
 
+  /* Modal/Dialog */
+
+dialog > img {
+  max-width: 1200px;
+  max-height: 100%;
+}
+
+dialog::backdrop {
+  background-color: #19002edb;
+}
+
+:modal {
+  padding: 0;
+  height: 100%;
+  border: 0;
+  background-color: transparent;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+:modal > button {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  height: 50px;
+  width: 50px;
+  background-color: #900048;
+  color: #00ffb7;
+  border-radius: 50%;
+}
+
+  .slider-container {
+    overflow: auto;
+    background-color: #19002e;
+    position: relative;
+    border-radius: 10px;
+    color: #c79bff;
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32' width='32' height='32' fill='none' stroke='rgb(51 65 85 / 0.25)'%3e%3cpath d='M0 .5H31.5V32'/%3e%3c/svg%3e");
+    padding-top: 30px;
+  }
+  
+  .slider-grid {
+    position: relative;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    scrollbar-color: #00ffb7 #240041ee;
+    scrollbar-width: thin;
+  }
+  
+  /* slider items */
+  
+  .slider-grid > :last-child {
+    padding-right: 10%;
+  }
+  
+  .slider-grid > :first-child {
+    padding-left: 10%;
+  }
+  
+  .slider-grid > * {
+    flex-shrink: 0;
+    width: 80%;
+    scroll-snap-align: center;
+    display: flex;
+    flex-direction: column;
+    padding: 0px 10px;
+  }
+  
+  .slider-grid > * > p {
+    padding: 0px 10px;
+    margin: 8px;
+  }
+  
+  .slider-grid > * > img {
+    box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+  }
+
 }
 
 @layer utilities {
