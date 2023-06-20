@@ -6,6 +6,14 @@
   a {
     @apply break-words;
   }
+
+  dialog::backdrop {
+    @apply bg-[#19002edb];
+  }
+
+  :modal {
+    @apply p-0 border-0 h-full bg-transparent flex flex-col justify-center;
+  }
 }
 
 @layer components {
@@ -47,80 +55,8 @@
     transition: transform 0.3s, opacity 0.3s;
   }
 
-  /* Modal/Dialog */
-
-dialog > img {
-  max-width: 1200px;
-  max-height: 100%;
-}
-
-dialog::backdrop {
-  background-color: #19002edb;
-}
-
-:modal {
-  padding: 0;
-  height: 100%;
-  border: 0;
-  background-color: transparent;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
-
-:modal > button {
-  position: absolute;
-  bottom: 10px;
-  right: 10px;
-  height: 50px;
-  width: 50px;
-  background-color: #900048;
-  color: #00ffb7;
-  border-radius: 50%;
-}
-
-  .slider-container {
-    overflow: auto;
-    background-color: #240041;
-    position: relative;
-    border-radius: 10px;
-    color: #c79bff;
-    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32' width='32' height='32' fill='none' stroke='rgb(144 0 72 / 0.25)'%3e%3cpath d='M0 .5H31.5V32'/%3e%3c/svg%3e");
-  }
-  
-  .slider-grid {
-    position: relative;
-    display: flex;
-    align-items: center;
-    width: 100%;
-    overflow-x: auto;
-    scroll-snap-type: x mandatory;
-    scroll-behavior: smooth;
-    scrollbar-color: #00ffb7 #240041ee;
-    scrollbar-width: thin;
-  }
-  
-  /* slider items */
-  
-  .slider-grid > :last-child {
-    padding-right: 10%;
-  }
-  
-  .slider-grid > :first-child {
-    padding-left: 10%;
-  }
-  
-  .slider-grid > * {
-    flex-shrink: 0;
-    width: 90%;
-    scroll-snap-align: center;
-    display: flex;
-    flex-direction: column;
-    padding: 0px 5px;
-  }
-  
-  .slider-grid > * > img {
-    @apply drop-shadow-xl;
+  #closeDialog {
+    @apply absolute bottom-3 right-3 h-12 w-12 bg-[#900048] text-[#00ffb7] rounded-full;
   }
 }
 
@@ -143,6 +79,9 @@ dialog::backdrop {
   display: block;
 }
 
+.slider-grid > * {
+  @apply flex-shrink-0 w-full snap-center flex flex-col;
+}
 
 [astro-icon].icon-light > * {
   stroke-width: 1.2;
