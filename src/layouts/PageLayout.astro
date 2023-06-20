@@ -3,6 +3,7 @@ import Layout from '~/layouts/BaseLayout.astro';
 import Header from '~/components/widgets/Header.astro';
 import Footer from '~/components/widgets/Footer.astro';
 import Announcement from '~/components/widgets/Announcement.astro';
+import ImageModal from '~/components/blog/ImageModal.astro';
 
 import { headerData, footerData } from '~/data';
 
@@ -23,6 +24,7 @@ const { meta } = Astro.props;
     <Header {...headerData} isSticky showRssFeed showToggleTheme />
   </slot>
   <main>
+    <ImageModal />
     <slot />
   </main>
   <slot name="footer">
