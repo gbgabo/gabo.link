@@ -73,10 +73,12 @@ import { SITE } from '~/config.mjs';
 
     const mainDialog = document.getElementById('imageDialog');
     const dialogImage = document.querySelector('#imageDialog > img');
+    const dialogText = document.querySelector('#imageDialog > p');
     const closeButton = document.getElementById('closeDialog');
 
-    const showImage = (src) => {
-      dialogImage.src = src;
+    const showImage = (image) => {
+      dialogImage.src = image.src;
+      dialogText.textContent = image.alt;
       mainDialog.showModal();
     };
 
@@ -88,7 +90,7 @@ import { SITE } from '~/config.mjs';
 
     images.forEach((image) => {
       image.addEventListener('click', () => {
-        showImage(image.src);
+        showImage(image);
       });
     });
 

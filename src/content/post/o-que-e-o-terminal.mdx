@@ -14,6 +14,9 @@ canonical: https://gabo.link/o-que-e-o-terminal
 ---
 
 import Slider from '~/components/blog/content/Slider.astro';
+import Image from '~/components/blog/content/Image.astro';
+
+export const components = { img: Image };
 
 Você já deve ter visto aquelas telas pretas, com linhas pequenas pipocando sem parar. Possivelmente em um filme, onde há um super hacker escrevendo dezenas de letras por segundo com o objetivo de quebrar todas as senhas e acessar um sistema secreto do pentágono. Essa janela preta é um **terminal**.
 
@@ -42,24 +45,6 @@ E antigamente isso fazia mais sentido ainda. Visto que os computadores eram caro
 Ter um computador em casa descarta a necessidade de ter um equipamento a mais pra falar com ele, mas falar por texto não deixou de ser útil. Ainda se usa muito o terminal, porém agora ele é um programa, também conhecido como `emulador de terminal`. Agora sim, se tornando aquela janelinha preta, ele deixa de ser aquele monitor de tubo com comunicação serial.
 
 ![terminal history](https://cdn.hashnode.com/res/hashnode/image/upload/v1620269974602/1UrRBhHnE.png)
-
-<Slider>
-  <div>
-    <img class="showImage" src="https://cdn.hashnode.com/res/hashnode/image/upload/v1629856068335/GS4CzRHud.png" />
-  </div>
-  <div>
-    <img class="showImage" src="https://cdn.hashnode.com/res/hashnode/image/upload/v1629860866026/IGjri2orv.png" />
-    <p class="px-1">terminal shells</p>
-  </div>
-  <div>
-    <img class="showImage" src="https://cdn.hashnode.com/res/hashnode/image/upload/v1629665683655/qhvBHCWbq.png" />
-    <p class="px-1">ls command</p>
-  </div>
-  <div>
-    <img class="showImage" src="https://cdn.hashnode.com/res/hashnode/image/upload/v1629674966105/4kky1z0-7.png" />
-    <p class="px-1">TUI applications</p>
-  </div>
-</Slider>
 
 **O terminal agora vive dentro do próprio computador, se tornando apenas uma abstração digital mantida unicamente pela conveniência de comunicação dos humanos para com as máquinas.**
 
@@ -117,14 +102,24 @@ Os comandos por texto podem receber `parâmetros`, mensagens a mais que informam
 
 Isso pode parecer lento, mas é exatamente o contrário. Em grande parte das vezes, o ambiente de linha de comando será muito mais rápido que com mouse (e já descorrerei mais sobre isso).
 
-![cat.png](https://cdn.hashnode.com/res/hashnode/image/upload/v1629855512180/vteLN-dqt.png)
+<Slider>
+  ![cat command](/assets/images/posts/cat-command.png)
+  
+  ![cat command](/assets/images/posts/cat-command.png)
+  
+  find
+  
+  curl
 
-- find
-- curl
-- less
-- pwd
-- rm
-- echo
+less
+
+pwd
+
+rm
+
+echo
+
+</Slider>
 
 Esse estilo por "chat" de interação é chamado de `CLI` (do inglês, `interface de linha de comando`).
 
