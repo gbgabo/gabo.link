@@ -1,0 +1,25 @@
+---
+export interface Props {
+  title: string;
+  examples: {
+    description: string;
+    command: string;
+  }[];
+}
+
+const { title, examples } = Astro.props;
+---
+
+<div>
+  <h1>{title}</h1>
+  <ul>
+    {
+      examples.map((example) => {
+        <li>
+          <p>{example.description}</p>
+          <p>{example.command}</p>
+        </li>;
+      })
+    }
+  </ul>
+</div>

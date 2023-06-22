@@ -15,6 +15,7 @@ canonical: https://gabo.link/o-que-e-o-terminal
 
 import Slider from '~/components/blog/content/Slider.astro';
 import Image from '~/components/blog/content/Image.astro';
+import Card from '~/components/blog/content/Card.astro';
 
 export const components = { img: Image };
 
@@ -105,19 +106,19 @@ Isso pode parecer lento, mas é exatamente o contrário. Em grande parte das vez
 <Slider>
   ![cat command](/assets/images/posts/cat-command.png)
   
-  ![cat command](/assets/images/posts/cat-command.png)
-  
-  find
-  
-  curl
-
-less
-
-pwd
-
-rm
-
-echo
+  <Card 
+    title="cat" 
+    examples={[
+      {
+        description: 'apresenta arquivo em tela',
+        command: "cat arquivo"
+      },
+      {
+        description: "apresenta arquivo em tela",
+        command: "cat arquivo"
+      }
+    ]}
+  />
 
 </Slider>
 
