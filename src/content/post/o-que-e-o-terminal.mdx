@@ -103,23 +103,127 @@ Os comandos por texto podem receber `parâmetros`, mensagens a mais que informam
 
 Isso pode parecer lento, mas é exatamente o contrário. Em grande parte das vezes, o ambiente de linha de comando será muito mais rápido que com mouse (e já descorrerei mais sobre isso).
 
-<Slider>
-  ![cat command](/assets/images/posts/cat-command.png)
-  
-  <Card 
-    title="cat" 
+<Slider>  
+<Card 
+    title="ls"
+    description="Lista todos os items presentes no diretório atual"
     examples={[
       {
-        description: 'apresenta arquivo em tela',
-        command: "cat arquivo"
+        description: "Lista todos os arquivos e diretórios do diretório atual",
+        command: "ls"
       },
       {
-        description: "apresenta arquivo em tela",
-        command: "cat arquivo"
+        description: "Lista todos os conteúdos, incluindo arquivos secretos (a) e em lista vertical (l) " ,
+        command: "ls -la"
       }
     ]}
   />
 
+<Card 
+    title="cd"
+    description="(Change Directory) Use para navegar entre diretórios"
+    examples={[
+      {
+        description: "Ir para o diretório 'user'",
+        command: "cd /home/user"
+      },
+      {
+        description: "Ir para o diretório pai",
+        command: "cd .."
+      }
+    ]}
+  />
+  <Card 
+    title="cat"
+    description="Concatena e mostra conteúdos de arquivos de texto"
+    examples={[
+      {
+        description: 'Apresenta o arquivo.txt em tela',
+        command: "cat <arquivo.txt>"
+      },
+      {
+        description: "Concatena dois arquivos e gera um novo como resultado",
+        command: "cat arq1 arq2 > novo_arq"
+      }
+    ]}
+  />
+
+  <Card 
+    title="find"
+    description="Encontra conteúdos dentro de um dado diretório, recursivamente"
+    examples={[
+      {
+        description: 'Encontrar arquivos .txt, no diretório downloads',
+        command: "find downloads -name '*.txt'"
+      },
+      {
+        description: "Procurar apenas por diretórios no diretório atual",
+        command: "find . -type d"
+      }
+    ]}
+  />
+
+ {/* <Card 
+    title="curl"
+    description="Usado para fazer requisições e obter dados de URLs"
+    examples={[
+      {
+        description: 'Encontrar arquivos .txt, no diretório downloads',
+        command: "find donwloads -name '*.txt'"
+      },
+      {
+        description: "Procurar apenas por diretórios",
+        command: "find . -type d"
+      }
+    ]}
+  />
+  
+  
+  
+  <Card 
+    title="pwd"
+    description="Encontra conteúdos dentro de um dado diretório, recursivamente"
+    examples={[
+      {
+        description: 'Encontrar arquivos .txt, no diretório declarado',
+        command: "find root_path -name '*.txt'"
+      },
+      {
+        description: "Procurar apenas por diretórios",
+        command: "find . -type d"
+      }
+    ]}
+  />
+  
+  <Card 
+    title="rm"
+    description="Utilizado para remover arquivos"
+    examples={[
+      {
+        description: 'Encontrar arquivos .txt, no diretório declarado',
+        command: "find root_path -name '*.txt'"
+      },
+      {
+        description: "Procurar apenas por diretórios",
+        command: "find . -type d"
+      }
+    ]}
+  />
+ 
+  <Card 
+    title="echo"
+    description="Encontra conteúdos dentro de um dado diretório, recursivamente"
+    examples={[
+      {
+        description: 'Encontrar arquivos .txt, no diretório declarado',
+        command: "find root_path -name '*.txt'"
+      },
+      {
+        description: "Procurar apenas por diretórios",
+        command: "find . -type d"
+      }
+    ]}
+  />*/}
 </Slider>
 
 Esse estilo por "chat" de interação é chamado de `CLI` (do inglês, `interface de linha de comando`).

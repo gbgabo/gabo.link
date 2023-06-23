@@ -1,25 +1,29 @@
 ---
 export interface Props {
   title: string;
+  description: string;
   examples: {
-    description: string;
     command: string;
+    description: string;
   }[];
 }
 
-const { title, examples } = Astro.props;
+const { title, description, examples } = Astro.props;
 ---
 
-<div>
-  <h1>{title}</h1>
-  <ul>
+<div class="p-1">
+  <h1 class="text-[#00ffb7] bg-[#900048] rounded-md w-fit px-2 py-1 text-2xl m-2">{title}</h1>
+  <h2 class="text-[#19002e] bg-[#c79bff] px-3 py-1 w-fit rounded-tr-md rounded-br-md mb-2 leading-snug">
+    {description}
+  </h2>
+  <ul class="text-[#00ffb7] bg-[#900048] rounded-md py-3 px-3">
     {
-      examples.map((example) => {
+      examples.map((example) => (
         <li>
-          <p>{example.description}</p>
-          <p>{example.command}</p>
-        </li>;
-      })
+          <p class="text-sm mb-1 ml-1 leading-tight">{example.description}</p>
+          <p class="bg-[#19002e] p-1 text-white rounded-md pl-3 mb-2 font-normal leading-snug">{example.command}</p>
+        </li>
+      ))
     }
   </ul>
 </div>
