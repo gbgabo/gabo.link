@@ -82,7 +82,7 @@ const { post, url } = Astro.props;
         prose-headings:font-heading prose-headings:leading-tighter prose-headings:tracking-tighter prose-headings:font-bold 
         prose-a:text-primary dark:prose-a:text-[#399ee6] 
         prose-img:rounded-md prose-img:shadow-lg mt-8 
-      prose-code:bg-[#240041] prose-code:after:content-[''] prose-code:before:content-[''] prose-code:text-[#00ffb7] prose-code:px-2 prose-code:py-1 prose-code:rounded-md`}
+      prose-code:bg-[#240041] prose-code:after:content-[''] prose-code:before:content-[''] prose-code:text-[#c79bff] prose-code:px-2 prose-code:py-1 prose-code:rounded-md`}
     >
       {
         post.headings.length > 0 && (
@@ -100,7 +100,11 @@ const { post, url } = Astro.props;
                 {post.headings.map(({ slug, text, depth }) => (
                   <li class="px-3 py-1">
                     <a class="" href={`#${slug}`}>
-                      {depth == 1 ? <b class="text-xl font-bold">{`${text}`}</b> : <p class="ml-3">{`${text}`}</p>}
+                      {depth == 1 ? (
+                        <b class="text-xl font-bold">{`${text}`}</b>
+                      ) : (
+                        <p style={{ 'margin-left': `${depth * 0.45}rem` }}>{`${text}`}</p>
+                      )}
                     </a>
                   </li>
                 ))}
