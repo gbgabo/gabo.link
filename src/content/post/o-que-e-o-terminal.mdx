@@ -121,34 +121,34 @@ Isso pode parecer lento, mas é exatamente o contrário. Em grande parte das vez
     ]}
   />
 
-<Card 
-    title="cd"
-    description="(Change Directory) Use para navegar entre diretórios"
-    examples={[
-      {
-        description: "Ir para o diretório 'user'",
-        command: "cd /home/user"
-      },
-      {
-        description: "Ir para o diretório pai",
-        command: "cd .."
-      }
-    ]}
-  />
-  <Card 
-    title="cat"
-    description="Concatena e mostra conteúdos de arquivos de texto"
-    examples={[
-      {
-        description: 'Apresenta o arquivo.txt em tela',
-        command: "cat <arquivo.txt>"
-      },
-      {
-        description: "Concatena dois arquivos e gera um novo como resultado",
-        command: "cat arq1 arq2 > novo_arq"
-      }
-    ]}
-  />
+<Card
+  title="cd"
+  description="(Change Directory) Use para navegar entre diretórios"
+  examples={[
+    {
+      description: "Ir para o diretório 'user'",
+      command: 'cd /home/user',
+    },
+    {
+      description: 'Ir para o diretório pai',
+      command: 'cd ..',
+    },
+  ]}
+/>
+<Card
+  title="cat"
+  description="Concatena e mostra conteúdos de arquivos de texto"
+  examples={[
+    {
+      description: 'Apresenta o arquivo.txt em tela',
+      command: 'cat arquivo.txt',
+    },
+    {
+      description: 'Concatena dois arquivos e gera um novo como resultado',
+      command: 'cat arq1 arq2 > novo_arq',
+    },
+  ]}
+/>
 
   <Card 
     title="find"
@@ -164,23 +164,6 @@ Isso pode parecer lento, mas é exatamente o contrário. Em grande parte das vez
       }
     ]}
   />
-
- {/* <Card 
-    title="curl"
-    description="Usado para fazer requisições e obter dados de URLs"
-    examples={[
-      {
-        description: 'Encontrar arquivos .txt, no diretório downloads',
-        command: "find donwloads -name '*.txt'"
-      },
-      {
-        description: "Procurar apenas por diretórios",
-        command: "find . -type d"
-      }
-    ]}
-  />
-  
-  
   
   <Card 
     title="pwd"
@@ -211,21 +194,6 @@ Isso pode parecer lento, mas é exatamente o contrário. Em grande parte das vez
       }
     ]}
   />
- 
-  <Card 
-    title="echo"
-    description="Encontra conteúdos dentro de um dado diretório, recursivamente"
-    examples={[
-      {
-        description: 'Encontrar arquivos .txt, no diretório declarado',
-        command: "find root_path -name '*.txt'"
-      },
-      {
-        description: "Procurar apenas por diretórios",
-        command: "find . -type d"
-      }
-    ]}
-  />*/}
 </Slider>
 
 Esse estilo por "chat" de interação é chamado de `CLI` (do inglês, `interface de linha de comando`).
@@ -244,8 +212,46 @@ E não, eles não podem competir em tudo com aplicações GUI (Graphical User In
 
 É bom lembrar que ninguém começa sabendo, e sempre haverá novos comandos que você pode aprender dependendo da sua necessidade. Afinal são apenas programas novos. É normal você precisar entender como usar um comando, e um comando decente terá no mínimo um desses dois recursos para você aprender como usá-lo:
 
-- Argumentos -h e/ou --help:
-- Uma página man:
+### --help e/ou -h
+
+Não sabe como usar um certo comando? Tente chamá-lo com um -h ou --help logo depois. Nem sempre -h funcionará para ajuda, pois o comando já o usa pra outro intuito. Na dúvida, tente os dois.
+
+<Slider>
+  <div>
+    ![curl -h calling](/assets/images/posts/curl-h.png)
+    Ao chamar curl -h, é apresentado:
+
+     -como a estrutura do comando deve ser (curl [opções] url)
+     -quais são as opções disponíveis para utilizar com o comando (-)
+
+
+  </div>
+  <div>
+    ![mkdir -h calling](/assets/images/posts/mkdir-h.png)
+    Em casos como para o mkdir, é necessário utilizar --help
+  </div>
+</Slider>
+
+Você pode esperar no mínimo **instruções de uso** com esses argumentos. Caso queira compreender mais a função/intuito do comando, a próxima opção fará mais sentido.
+
+### Página man
+
+Se você precisa entender **para que serve** um certo comando, as **páginas man** servirão como um **man**ual. Páginas man são páginas em texto que decrevem tudo o que é possível sobre um determinado comando. Eles são arquivos que você chama digitando `man nome-do-comando`
+
+<Card
+  title="man"
+  description="Uma apresentador dos manuais do sistema"
+  examples={[
+    {
+      description: 'Apresenta o manual do comando cat',
+      command: 'man cat',
+    },
+    {
+      description: 'Apresenta manual do comando, na seção 7',
+      command: 'man cat.7',
+    },
+  ]}
+/>
 
 ## Por que usar o terminal
 
