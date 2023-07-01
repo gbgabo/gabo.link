@@ -31,11 +31,11 @@ Terminal é um equipamento que **lhe permite interagir com um computador por mei
 
 Mais especificamente, neste texto falaremos sobre o `vídeo terminal`, que **possui uma tela além do teclado**, em contraste com terminais mais antigos, que **interfaciavam com o computador por impressão do texto** (semelhante ao fax). Um exemplo de video terminal é o [VT100](https://pt.wikipedia.org/wiki/VT100).
 
-![terminals](/assets/images/posts/terminals.png)
+![TI Silent 700 e VT100](/assets/images/posts/terminals.png)
 
 E se logo de cara você está com medo, ou acha que deve ser muito difícil mexer em um terminal, quero que você me diga quão dificil é mexer nesse cara:
 
-![2021-05-03-21_29_17.jpg](https://cdn.hashnode.com/res/hashnode/image/upload/v1620088181906/hviJ5cKG4.jpeg)
+![Tela de chat](https://cdn.hashnode.com/res/hashnode/image/upload/v1620088181906/hviJ5cKG4.jpeg)
 
 É isso mesmo, um chat. Você sabe usar ele? Então você já tem metade do que precisa, acredite. De forma bem simples, o terminal é um chat... com o seu computador! Nele você escreverá algo para o computador, e ele vai lhe responder. **As mensagens que mandamos para o computador serão sempre `comandos` para ele executar.**
 
@@ -45,7 +45,7 @@ E antigamente isso fazia mais sentido ainda. Visto que os computadores eram caro
 
 Ter um computador em casa descarta a necessidade de ter um equipamento a mais pra falar com ele, mas falar por texto não deixou de ser útil. Ainda se usa muito o terminal, porém agora ele é um programa, também conhecido como `emulador de terminal`. Agora sim, se tornando aquela janelinha preta, ele deixa de ser aquele monitor de tubo com comunicação serial.
 
-![terminal history](https://cdn.hashnode.com/res/hashnode/image/upload/v1620269974602/1UrRBhHnE.png)
+![O terminal como hardware e atualmente como software](https://cdn.hashnode.com/res/hashnode/image/upload/v1620269974602/1UrRBhHnE.png)
 
 **O terminal agora vive dentro do próprio computador, se tornando apenas uma abstração digital mantida unicamente pela conveniência de comunicação dos humanos para com as máquinas.**
 
@@ -55,7 +55,7 @@ E por meio de uma das interfaces mais antigas de computador, que ainda hoje vemo
 
 Diga oi para o meu terminal. Nesse texto mostrarei um terminal num sistema com Linux. Ele é muito parecido com o Mac. Para o Windows os conceitos abordados aqui também valem, porém há mudanças para os nomes dos comandos mais comuns.
 
-![2021-08-22-12_14_26.png](https://cdn.hashnode.com/res/hashnode/image/upload/v1629648793583/kAopJQuOY.png)
+![Tela de um emulador de terminal](https://cdn.hashnode.com/res/hashnode/image/upload/v1629648793583/kAopJQuOY.png)
 
 O terminal é bem vazio de cara, porque ele é só um monitor. Ele só mostra um programa alí no topo. O `shell`!
 
@@ -95,13 +95,13 @@ Para irmos numa pasta especifica, o comando `cd` (_change directory_) servirá p
 
 Note que ao mudarmos onde estamos, o prompt atualizará o caminho do diretório atual.
 
-![Comando cd](https://cdn.hashnode.com/res/hashnode/image/upload/v1629665683655/qhvBHCWbq.png)
+![Comando ls e cd](https://cdn.hashnode.com/res/hashnode/image/upload/v1629665683655/qhvBHCWbq.png)
 
 Para voltarmos para o diretório anterior, podemos escrever `cd ..`, onde `..` sempre se refere ao diretório pai do que você se encontra.
 
 Os comandos por texto podem receber `parâmetros`, mensagens a mais que informam formas específicas que o comando deve ser executado. No comando `ls` por exemplo, podemos informar o parâmetro `--colors` para termos uma lista formatada por cor, diferenciando pastas, arquivos e atalhos.
 
-![2021-08-22-18_12_10.png](https://cdn.hashnode.com/res/hashnode/image/upload/v1629666757550/w4etREUEn.png)
+![Comando cd e ls --color](https://cdn.hashnode.com/res/hashnode/image/upload/v1629666757550/w4etREUEn.png)
 
 Isso pode parecer lento, mas é exatamente o contrário. Em grande parte das vezes, o ambiente de linha de comando será muito mais rápido que com mouse (e já descorrerei mais sobre isso).
 
@@ -167,16 +167,12 @@ Isso pode parecer lento, mas é exatamente o contrário. Em grande parte das vez
   
   <Card 
     title="pwd"
-    description="Encontra conteúdos dentro de um dado diretório, recursivamente"
+    description="Retorna o nome do diretório atual"
     examples={[
       {
-        description: 'Encontrar arquivos .txt, no diretório declarado',
-        command: "find root_path -name '*.txt'"
+        description: 'Apresenta nome do diretório atual',
+        command: "pwd"
       },
-      {
-        description: "Procurar apenas por diretórios",
-        command: "find . -type d"
-      }
     ]}
   />
   
@@ -185,12 +181,12 @@ Isso pode parecer lento, mas é exatamente o contrário. Em grande parte das vez
     description="Utilizado para remover arquivos"
     examples={[
       {
-        description: 'Encontrar arquivos .txt, no diretório declarado',
-        command: "find root_path -name '*.txt'"
+        description: 'Remove o arquivo favicon.ico, mas pede confirmação da ação antes',
+        command: "rm -i favicon.icon"
       },
       {
-        description: "Procurar apenas por diretórios",
-        command: "find . -type d"
+        description: "Remove a pasta Downloads, e todos os seus arquvivos e pastas dentro (-r de recursivo)",
+        command: "rm -r Downloads"
       }
     ]}
   />
@@ -202,7 +198,7 @@ E por interagir por texto, não quer dizer que tudo se resume à essa troca de m
 
 Como por exemplo o `vim` e `nvim` (editores de texto), `htop` e `bpytop` (gerenciadores de tarefas), players de música como `moc`, entre outros vários para email, calendário e até navegar pela web. Se usa muito o termo TUI (Text User Interface) para descrever esse tipo de programa.
 
-![2021-08-22-20_29_04.png](https://cdn.hashnode.com/res/hashnode/image/upload/v1629674966105/4kky1z0-7.png)
+![Aplicações de terminal](https://cdn.hashnode.com/res/hashnode/image/upload/v1629674966105/4kky1z0-7.png)
 
 [O projeto awesome-cli-apps](https://github.com/agarrharr/awesome-cli-apps) tem uma lista enorme de programas interessantes para o terminal.
 
@@ -218,16 +214,15 @@ Não sabe como usar um certo comando? Tente chamá-lo com um -h ou --help logo d
 
 <Slider>
   <div>
-    ![curl -h calling](/assets/images/posts/curl-h.png)
+    ![Chamada do comando curl -h](/assets/images/posts/curl-h.png)
     Ao chamar curl -h, é apresentado:
 
      -como a estrutura do comando deve ser (curl [opções] url)
      -quais são as opções disponíveis para utilizar com o comando (-)
 
-
   </div>
   <div>
-    ![mkdir -h calling](/assets/images/posts/mkdir-h.png)
+    ![Chamada do comando mkdir -h](/assets/images/posts/mkdir-h.png)
     Em casos como para o mkdir, é necessário utilizar --help
   </div>
 </Slider>
@@ -262,10 +257,10 @@ Recaptulando, há duas formas principais de se interagir com o computador:
 
 Muitos dos programas que se usa por interface gráfica também tem para o terminal.
 
-![2021-08-22-01_47_19.png](https://cdn.hashnode.com/res/hashnode/image/upload/v1629669618913/qeANutksd.png)
-_Gerenciador de arquivos - pcmanfm e nnn_
+![Gerenciadores de arquivos - pcmanfm e nnn](https://cdn.hashnode.com/res/hashnode/image/upload/v1629669618913/qeANutksd.png)
+_Gerenciadores de arquivos - pcmanfm e nnn_
 
-![2021-08-22-20_18_54.png](https://cdn.hashnode.com/res/hashnode/image/upload/v1629674379234/rna1AtHZP.png)
+![Editores de texto - vscodium e nvim](https://cdn.hashnode.com/res/hashnode/image/upload/v1629674379234/rna1AtHZP.png)
 _Editores de texto - vscodium e nvim_
 
 Não se pode concluir uma forma como _a_ melhor, mas há muitas situações onde de fato o terminal se destaca:
@@ -289,19 +284,21 @@ Você nunca terá **todas** as opções possíveis de pedido numa tela, por isso
 
 ### 🔗 Integração
 
-Lembre-se que nessa conversa com o computador, as palavras são literalmente programas ou dados para programas. Um comando no terminal pode ser só uma **palavra**, mas também uma **frase**. A informação que um comando devolve pode ser usada para o próximo comando, e assim por diante. Visto que tudo é baseado em **texto**, montar comandos obedecendo uma sintaxe simples faz com que natualmente integrações sejam feitas.
+Lembre-se que nessa conversa com o computador, as palavras são literalmente programas ou dados para programas. Um comando no terminal pode ser só uma **palavra**, mas também uma **frase**. Com o charactere `|`, também conhecdo como pipe, a informação que um comando retorna pode ser usada para o próximo comando, e assim por diante. Montar comandos obedecendo essa sintaxe simples faz com que naturalmente integrações sejam feitas.
+
+No exemplo abaixo, a lista de itens que o ls retornará será filtrada pelo grep, resultando apenas as linhas que incluem .png, ou seja, os arquivos .png listados.
 
 ```bash
-$ ls | grep
+$ ls -l Downloads | grep .png
 ```
 
-Uma coisa se conecta na outra tomando consideração de relativamente poucas coisas. A natureza baseada em texto dos programas de terminal permitem uma consistência na forma que se mexe no computador, criando uma experiência unificada. Até para programas de interface gráfica, é possivel chamar comandos que fazem o mesmo que se faz clicando, e vocẽ acaba estendendo os programas do dia a dia para a sua necessidade.
+A natureza baseada em texto dos programas de terminal permitem uma consistência na forma que se mexe no computador, criando uma experiência unificada. Até para programas de interface gráfica, é possivel chamar comandos que fazem o mesmo que se faz clicando, e você acaba estendendo os programas do dia a dia para a sua necessidade.
 
 ### 🤖 Automação
 
 - muitas dessas coisas vem por meio de scripts, imagine como uma carta, uma receita que vc já fala tudo que tem que pedir
 
-## Não tenha medo do terminal
+## Não tenha medo do terminal (e dicas pra facilitar a vida)
 
 - Não é dificil, é diferente
 - TUI não precisa ser feio
