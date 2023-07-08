@@ -12,10 +12,26 @@ const { title, description, examples } = Astro.props;
 ---
 
 <div class="p-1 not-prose">
-  <h1 class="text-[#00ffb7] bg-[#900048] rounded-md w-fit px-2 py-1 text-2xl m-2">{title}</h1>
-  <h2 class="text-[#19002e] bg-[#c79bff] px-3 py-1 w-fit rounded-tr-md rounded-br-md mb-2 leading-snug">
-    {description}
-  </h2>
+  <div class="relative">
+    <pre
+      class="prose bg-black text-green-500 h-full w-full max-h-72 max-w-none overflow-scroll pb-20 rounded-tl-md rounded-tr-md px-5">
+        <slot>
+<code>
+gabo@book:~$ ls                                                            22:28:04
+Applications  Documents  logseq  packages  projects  Sync       tmenus
+Desktop       Downloads  Music   Pictures  Public    Templates  Videos
+</code>
+        </slot>
+    </pre>
+    <div class="absolute bottom-1 left-1">
+      <h1 class="text-[#00ffb7] bg-[#900048] rounded-md w-fit px-2 py-1 text-2xl m-2">
+        {title}
+      </h1>
+      <h2 class="text-[#19002e] bg-[#c79bff] px-3 py-1 w-fit rounded-tr-md rounded-br-md mb-2 leading-snug">
+        {description}
+      </h2>
+    </div>
+  </div>
   <ul class="text-[#00ffb7] bg-[#900048] rounded-md py-3 px-3">
     {
       examples.map((example) => (

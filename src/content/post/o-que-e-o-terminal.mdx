@@ -216,9 +216,8 @@ Não sabe como usar um certo comando? Tente chamá-lo com um -h ou --help logo d
   <div>
     ![Chamada do comando curl -h](/assets/images/posts/curl-h.png)
     Ao chamar curl -h, é apresentado:
-
-     -como a estrutura do comando deve ser (curl [opções] url)
-     -quais são as opções disponíveis para utilizar com o comando (-)
+     - como a estrutura do comando deve ser (curl [opções] url)
+     - quais são as opções disponíveis para utilizar com o comando (-)
 
   </div>
   <div>
@@ -235,7 +234,7 @@ Se você precisa entender **para que serve** um certo comando, as **páginas man
 
 <Card
   title="man"
-  description="Uma apresentador dos manuais do sistema"
+  description="Um apresentador dos manuais do sistema"
   examples={[
     {
       description: 'Apresenta o manual do comando cat',
@@ -246,7 +245,34 @@ Se você precisa entender **para que serve** um certo comando, as **páginas man
       command: 'man cat.7',
     },
   ]}
-/>
+>
+```bash
+FIND(1)                     General Commands Manual                    FIND(1)
+
+NAME
+       find - search for files in a directory hierarchy
+
+SYNOPSIS
+       find  [-H]  [-L] [-P] [-D debugopts] [-Olevel] [starting-point...] [ex‐
+       pression]
+
+DESCRIPTION
+       This manual page documents the GNU version of find.  GNU find  searches
+       the  directory  tree  rooted at each given starting-point by evaluating
+       the given expression from left to right,  according  to  the  rules  of
+       precedence  (see  section  OPERATORS),  until the outcome is known (the
+       left hand side is false for and operations,  true  for  or),  at  which
+       point  find  moves  on  to the next file name.  If no starting-point is
+       specified, `.' is assumed.
+
+       If you are using find in an environment  where  security  is  important
+       (for  example  if  you  are  using  it  to  search directories that are
+       writable by other users), you should read the `Security Considerations'
+       chapter  of  the findutils documentation, which is called Finding Files
+ Manual page find(1) line 1 (press h for help or q to quit)
+
+```
+</Card>
 
 ## Por que usar o terminal
 
