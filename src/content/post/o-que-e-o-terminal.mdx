@@ -106,7 +106,7 @@ Os comandos por texto podem receber `parâmetros`, mensagens a mais que informam
 Isso pode parecer lento, mas é exatamente o contrário. Em grande parte das vezes, o ambiente de linha de comando será muito mais rápido que com mouse (e já descorrerei mais sobre isso).
 
 <Slider>  
-<Card 
+  <Card 
     title="ls"
     description="Lista todos os items presentes no diretório atual"
     examples={[
@@ -119,51 +119,56 @@ Isso pode parecer lento, mas é exatamente o contrário. Em grande parte das vez
         command: "ls -la"
       }
     ]}
-  />
-
-<Card
-  title="cd"
-  description="(Change Directory) Use para navegar entre diretórios"
-  examples={[
-    {
-      description: "Ir para o diretório 'user'",
-      command: 'cd /home/user',
-    },
-    {
-      description: 'Ir para o diretório pai',
-      command: 'cd ..',
-    },
-  ]}
   >
-  gabo@book:~$ cd study  
-  gabo@book:~/study$
+  gabo@book:&#126;$ ls
+  Applications  Documents  logseq  packages  projects  Sync       tmenus
+  Desktop       Downloads  Music   Pictures  Public    Templates  Videos
   </Card>
 
-<Card
-  title="cat"
-  description="Concatena e mostra conteúdos de arquivos de texto"
-  examples={[
-    {
-      description: 'Apresenta o arquivo.txt em tela',
-      command: 'cat arquivo.txt',
-    },
-    {
-      description: 'Concatena dois arquivos e gera um novo como resultado',
-      command: 'cat arq1 arq2 > novo_arq',
-    },
-  ]}
->
-gabo@book:~$ cat free
-The four essential freedoms
+  <Card
+    title="cd"
+    description="(Change Directory) Use para navegar entre diretórios"
+    examples={[
+      {
+        description: "Ir para o diretório 'user'",
+        command: 'cd /home/user',
+      },
+      {
+        description: 'Ir para o diretório pai',
+        command: 'cd ..',
+      },
+    ]}
+    >
+      gabo@book:&#126;$ cd study
+      gabo@book:&#126;/study$
 
-A program is free software if the program's users have the four essential freedoms: [1]
+  </Card>
 
-The freedom to run the program as you wish, for any purpose (freedom 0).
-The freedom to study how the program works, and change it so it does your computing as you wish (freedom 1). Access to the source code is a precondition for this.
-The freedom to redistribute copies so you can help others (freedom 2).
-The freedom to distribute copies of your modified versions to others (freedom 3). By doing this you can give the whole community a chance to benefit from your changes. Access to the source code is a precondition for this.
+  <Card
+    title="cat"
+    description="Concatena e mostra conteúdos de arquivos de texto"
+    examples={[
+      {
+        description: 'Apresenta o arquivo.txt em tela',
+        command: 'cat arquivo.txt',
+      },
+      {
+        description: 'Concatena dois arquivos e gera um novo como resultado',
+        command: 'cat arq1 arq2 > novo_arq',
+      },
+    ]}
+  >
+    gabo@book:&#126;$ cat free.md
+    The four essential freedoms
 
-</Card>
+    A program is free software if the program's users have the four essential freedoms: [1]
+
+    The freedom to run the program as you wish, for any purpose (freedom 0).
+    The freedom to study how the program works, and change it so it does your computing as you wish (freedom 1). Access to the source code is a precondition for this.
+    The freedom to redistribute copies so you can help others (freedom 2).
+    The freedom to distribute copies of your modified versions to others (freedom 3). By doing this you can give the whole community a chance to benefit from your changes. Access to the source code is a precondition for this.
+
+  </Card>
 
   <Card 
     title="find"
@@ -178,7 +183,25 @@ The freedom to distribute copies of your modified versions to others (freedom 3)
         command: "find . -type d"
       }
     ]}
-  />
+  >
+  gabo@book:&#126;/project$ find . -name "*.png"
+  ./public/assets/images/posts/ls.png
+  ./public/assets/images/posts/curl-h.png
+  ./public/assets/images/posts/mkdir-h.png
+  ./public/assets/images/posts/terminals.png
+  ./node_modules/@astrojs/webapi/node_modules/undici/docs/assets/lifecycle-diagram.png
+  ./node_modules/undici/docs/assets/lifecycle-diagram.png
+  ./src/assets/images/terminal.png
+  ./src/assets/images/dotfiles.png
+  ./src/assets/images/video.png
+  ./src/assets/images/hero.png
+  ./src/assets/images/default.png
+  ./src/assets/images/profile_picture.png
+  ./src/assets/images/projects/wildberries.png
+  ./src/assets/images/projects/symbols.png
+  ./src/assets/images/cli-dark.png
+  gabo@book:&#126;/project$
+  </Card>
   
   <Card 
     title="pwd"
@@ -189,7 +212,11 @@ The freedom to distribute copies of your modified versions to others (freedom 3)
         command: "pwd"
       },
     ]}
-  />
+  >
+  gabo@book:&#126;/project$ pwd
+  /home/gabo/projects
+  gabo@book:&#126;/project$
+  </Card>
   
   <Card 
     title="rm"
@@ -204,7 +231,10 @@ The freedom to distribute copies of your modified versions to others (freedom 3)
         command: "rm -r Downloads"
       }
     ]}
-  />
+  >
+  gabo@book:&#126;/project$ rm -rf personal-blog
+  gabo@book:&#126;/project$ 
+  </Card>
 </Slider>
 
 Esse estilo por "chat" de interação é chamado de `CLI` (do inglês, `interface de linha de comando`).
