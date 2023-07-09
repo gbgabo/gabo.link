@@ -134,7 +134,11 @@ Isso pode parecer lento, mas é exatamente o contrário. Em grande parte das vez
       command: 'cd ..',
     },
   ]}
-/>
+  >
+  gabo@book:~$ cd study  
+  gabo@book:~/study$
+  </Card>
+
 <Card
   title="cat"
   description="Concatena e mostra conteúdos de arquivos de texto"
@@ -148,7 +152,18 @@ Isso pode parecer lento, mas é exatamente o contrário. Em grande parte das vez
       command: 'cat arq1 arq2 > novo_arq',
     },
   ]}
-/>
+>
+gabo@book:~$ cat free
+The four essential freedoms
+
+A program is free software if the program's users have the four essential freedoms: [1]
+
+The freedom to run the program as you wish, for any purpose (freedom 0).
+The freedom to study how the program works, and change it so it does your computing as you wish (freedom 1). Access to the source code is a precondition for this.
+The freedom to redistribute copies so you can help others (freedom 2).
+The freedom to distribute copies of your modified versions to others (freedom 3). By doing this you can give the whole community a chance to benefit from your changes. Access to the source code is a precondition for this.
+
+</Card>
 
   <Card 
     title="find"
@@ -246,32 +261,31 @@ Se você precisa entender **para que serve** um certo comando, as **páginas man
     },
   ]}
 >
-```bash
 FIND(1)                     General Commands Manual                    FIND(1)
 
 NAME
-       find - search for files in a directory hierarchy
+find - search for files in a directory hierarchy
 
 SYNOPSIS
-       find  [-H]  [-L] [-P] [-D debugopts] [-Olevel] [starting-point...] [ex‐
-       pression]
+find [-H] [-L] [-P] [-D debugopts] [-Olevel] [starting-point...] [ex‐
+pression]
 
 DESCRIPTION
-       This manual page documents the GNU version of find.  GNU find  searches
-       the  directory  tree  rooted at each given starting-point by evaluating
-       the given expression from left to right,  according  to  the  rules  of
-       precedence  (see  section  OPERATORS),  until the outcome is known (the
-       left hand side is false for and operations,  true  for  or),  at  which
-       point  find  moves  on  to the next file name.  If no starting-point is
-       specified, `.' is assumed.
+This manual page documents the GNU version of find. GNU find searches
+the directory tree rooted at each given starting-point by evaluating
+the given expression from left to right, according to the rules of
+precedence (see section OPERATORS), until the outcome is known (the
+left hand side is false for and operations, true for or), at which
+point find moves on to the next file name. If no starting-point is
+specified, `.' is assumed.
 
        If you are using find in an environment  where  security  is  important
        (for  example  if  you  are  using  it  to  search directories that are
        writable by other users), you should read the `Security Considerations'
        chapter  of  the findutils documentation, which is called Finding Files
- Manual page find(1) line 1 (press h for help or q to quit)
 
-```
+Manual page find(1) line 1 (press h for help or q to quit)
+
 </Card>
 
 ## Por que usar o terminal
