@@ -71,6 +71,45 @@ import { SITE } from '~/config.mjs';
       localStorage.theme = document.documentElement.classList.contains('dark') ? 'dark' : 'light';
     });
 
+    const mainDialog = document.getElementById('imageDialog');
+    const dialogImage = document.querySelector('#imageDialog > img');
+    const dialogText = document.querySelector('#imageDialog > p');
+    const closeButton = document.getElementById('closeDialog');
+
+    const showImage = (image) => {
+      dialogImage.src = image.src;
+      dialogText.textContent = image.alt;
+      mainDialog.showModal();
+    };
+
+    closeButton.addEventListener('click', () => {
+      mainDialog.close();
+    });
+
+    const images = document.querySelectorAll('.showImage');
+
+    images.forEach((image) => {
+      image.addEventListener('click', () => {
+        showImage(image);
+      });
+    });
+
+    const sliders = document.querySelectorAll('.slider-container');
+
+    sliders.forEach((slider) => {
+      const nextButton = slider.querySelector('.next');
+      const previewButton = slider.querySelector('.preview');
+      const grid = slider.querySelector('.slider-grid');
+
+      nextButton.addEventListener('click', () => {
+        grid.scrollLeft += slider.offsetWidth;
+      });
+
+      previewButton.addEventListener('click', () => {
+        grid.scrollLeft -= slider.offsetWidth;
+      });
+    });
+
     attachEvent('[data-aw-social-share]', 'click', function (_, elem) {
       const network = elem.getAttribute('data-aw-social-share');
       const url = encodeURIComponent(elem.getAttribute('data-aw-url'));

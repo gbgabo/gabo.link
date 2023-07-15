@@ -6,6 +6,14 @@
   a {
     @apply break-words;
   }
+
+  dialog::backdrop {
+    @apply bg-[#19002edb];
+  }
+
+  :modal {
+    @apply p-0 border-0 h-full bg-transparent flex flex-col justify-center;
+  }
 }
 
 @layer components {
@@ -47,6 +55,9 @@
     transition: transform 0.3s, opacity 0.3s;
   }
 
+  #closeDialog {
+    @apply absolute bottom-3 right-3 h-12 w-12 bg-[#900048] text-[#00ffb7] rounded-full;
+  }
 }
 
 @layer utilities {
@@ -68,6 +79,9 @@
   display: block;
 }
 
+.slider-grid > * {
+  @apply flex-shrink-0 w-full snap-center flex flex-col;
+}
 
 [astro-icon].icon-light > * {
   stroke-width: 1.2;
