@@ -25,6 +25,10 @@ export default defineConfig({
 
   output: 'static',
 
+  experimental: {
+    assets: true,
+  },
+
   markdown: {
     remarkPlugins: [readingTimeRemarkPlugin],
     // Can be 'shiki' (default), 'prism' or false to disable highlighting
