@@ -1,6 +1,6 @@
 ---
 import { Icon } from 'astro-icon';
-import { Picture } from '@astrojs/image/components';
+import { Image } from 'astro:assets';
 
 import PostTags from '~/components/blog/Tags.astro';
 import SocialShare from '~/components/common/SocialShare.astro';
@@ -47,20 +47,15 @@ const { post, url } = Astro.props;
       <PostTags tags={post.tags} class="px-4 sm:px-6 mb-6 max-w-3xl mx-auto" />
       {
         post.image ? (
-          <Picture
-            src={post.image}
-            class="max-w-full lg:max-w-6xl mx-auto mb-6 sm:rounded-md bg-gray-400 dark:bg-slate-700"
-            widths={[400, 900]}
-            sizes="(max-width: 900px) 400px, 900px"
-            alt={post.description || ''}
-            loading="eager"
-            aspectRatio={16 / 9}
-            width={900}
-            height={506}
-            loading="eager"
-            decoding="async"
-            background={undefined}
-          />
+          <>
+            <Image
+              class="max-w-full lg:max-w-6xl mx-auto mb-6 sm:rounded-md bg-gray-400 dark:bg-slate-700"
+              width={900}
+              height={506}
+              src={post.image}
+              alt={post.title}
+            />
+          </>
         ) : (
           <div class="max-w-3xl mx-auto px-4 sm:px-6">
             <div class="border-t dark:border-slate-700" />
