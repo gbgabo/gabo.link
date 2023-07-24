@@ -112,20 +112,18 @@ import { SITE } from '~/config.mjs';
 
     const youtubeVideos = [...document.querySelectorAll('[data-youtube]')];
 
-    const createIframe = (event) => {
-      const url = event.target.dataset.youtubeButton;
-      console.log(event.target);
-      const youtubePlaceholder = event.target.parentNode;
+    const createIframe = (url, frame) => {
       const htmlString = `<iframe class="absolute top-0 left-0 bottom-0 right-0 w-full h-full" src="${url}?autoplay=1" frameborder="0" allowfullscreen></iframe>`;
 
-      youtubePlaceholder.style.display = 'none';
-      youtubePlaceholder.insertAdjacentHTML('beforebegin', htmlString);
-      youtubePlaceholder.parentNode.removeChild(youtubePlaceholder);
+      frame.style.display = 'none';
+      frame.insertAdjacentHTML('beforebegin', htmlString);
+      frame.parentNode.removeChild(frame);
     };
 
     youtubeVideos.forEach((element) => {
       const button = element.querySelector('[data-youtube-button]');
-      button.addEventListener('click', (e) => createIframe(e));
+      const url = button.dataset.youtubeButton;
+      button.addEventListener('click', () => createIframe(url, element));
     });
 
     attachEvent('[data-aw-social-share]', 'click', function (_, elem) {
