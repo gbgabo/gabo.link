@@ -1,12 +1,38 @@
 ---
+import { Icon } from 'astro-icon';
 export interface Props {
-  src: string;
+  id: string;
   title: string;
 }
 
-const { src, title } = Astro.props;
+const { id, title } = Astro.props;
 ---
 
 <div class="relative overflow-hidden rounded-sm w-full pt-[56.25%]">
-  <iframe class="absolute top-0 left-0 bottom-0 right-0 w-full h-full" src={src} title={title}></iframe>
+  <div data-youtube>
+    <img
+      class="absolute top-0 left-0 bottom-0 right-0 w-full h-full m-0"
+      src={`https://i.ytimg.com/vi/${id}/maxresdefault.jpg`}
+      alt="Video thumbnail"
+      width="820"
+      height="461"
+    />
+    <div class="absolute top-0 left-0 bottom-0 right-0 w-full h-full flex flex-col justify-center items-center">
+      <button
+        class="w-14 h-14 rounded-full align-middle text-[#00ffb7] bg-[#900048] shadow-lg"
+        data-youtube-button={`https://www.youtube.com/embed/${id}`}
+        aria-label="play youtube video on page"
+      >
+        <Icon name="fluent:play-32-filled" class="h-10 w-10 p-2 m-auto" />
+      </button>
+      <a
+        class="absolute bottom-0 right-0 bg-[#19002e] text-[#c79bff] p-2 text-sm rounded-tl-md no-underline shadow-lg"
+        href={`https://www.youtube.com/watch?v=${id}`}
+        target="_blank"
+      >
+        Play on Youtube
+        <Icon name={'tabler:external-link'} class="w-4 h-4 inline-block" />
+      </a>
+    </div>
+  </div>
 </div>
