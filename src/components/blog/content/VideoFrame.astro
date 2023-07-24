@@ -28,8 +28,11 @@ const { id, title } = Astro.props;
       <a
         class="absolute bottom-0 right-0 bg-[#19002e] text-[#c79bff] p-2 text-sm rounded-tl-md no-underline shadow-lg"
         href={`https://www.youtube.com/watch?v=${id}`}
-        target="_blank">Play on Youtube ↗</a
+        target="_blank"
       >
+        Play on Youtube
+        <Icon name={'tabler:external-link'} class="w-4 h-4 inline-block" />
+      </a>
     </div>
   </div>
 </div>
