@@ -105,3 +105,48 @@
 [data-aw-toggle-toc].expanded {
   @apply dark:text-[#900048] bg-[#00ffb7];
 }
+
+#imageDialog[open] {
+  animation: show-dialog .5s ease normal;
+}
+#imageDialog.hide {
+  animation: hide-dialog .5s ease normal;
+}
+
+#imageDialog[open]::backdrop {
+  animation: show-backdrop 0.5s ease 0.2s normal;
+}
+#imageDialog.hide::backdrop {
+  animation: hide-backdrop 0.5s ease 0.2s normal;
+}
+
+@keyframes show-dialog {
+  from {
+      opacity: 0;
+      transform: translateY(-100%);
+  }
+  to {
+      opacity: 1;
+      transform: translateY(0%);
+  }
+}
+@keyframes hide-dialog{
+  to {
+      opacity: 0;
+      transform: translateY(-100%);
+  }
+}
+
+@keyframes show-backdrop {
+  from {
+      opacity: 0;
+  }
+  to {
+      opacity: 1;
+  }
+}
+@keyframes hide-backdrop{
+  to {
+      opacity: 0;
+  }
+}

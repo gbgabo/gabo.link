@@ -83,7 +83,16 @@ import { SITE } from '~/config.mjs';
     };
 
     closeButton.addEventListener('click', () => {
-      mainDialog.close();
+      mainDialog.classList.add('hide');
+      mainDialog.addEventListener(
+        'animationend',
+        function listener() {
+          mainDialog.classList.remove('hide');
+          mainDialog.close();
+          mainDialog.removeEventListener('animationend', listener, false);
+        },
+        false
+      );
     });
 
     const images = document.querySelectorAll('.showImage');
