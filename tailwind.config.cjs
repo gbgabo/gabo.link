@@ -60,7 +60,7 @@ module.exports = {
         'fade-up': 'fade-up 0.3s',
         'show-dialog': 'show-dialog 0.5s ease normal',
         'hide-dialog': 'hide-dialog 0.5s ease normal',
-        'show-backdrop': 'show-backdrop 0.5s ease 0.2s normal',
+        'show-backdrop': 'show-backdrop 0.5s ease normal',
         'hide-backdrop': 'hide-backdrop 0.5s ease 0.2s normal',
       },
       gridTemplateColumns: {
