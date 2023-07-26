@@ -54,10 +54,6 @@
     @apply opacity-0 translate-y-1/2 md:opacity-100 md:translate-y-0;
     transition: transform 0.3s, opacity 0.3s;
   }
-
-  #closeDialog {
-    @apply absolute bottom-3 right-3 h-12 w-12 bg-[#900048] text-[#00ffb7] rounded-full;
-  }
 }
 
 @layer utilities {
