@@ -26,9 +26,42 @@ module.exports = {
             transform: 'translateY(0%)',
           },
         },
+        'show-dialog': {
+          from: {
+            opacity: 0,
+            transform: 'translateY(-100%)',
+          },
+          to: {
+            opacity: 1,
+            transform: 'translateY(0%)',
+          },
+        },
+        'hide-dialog': {
+          to: {
+            opacity: 0,
+            transform: 'translateY(-100%)',
+          },
+        },
+        'show-backdrop': {
+          from: {
+            opacity: 0,
+          },
+          to: {
+            opacity: 1,
+          },
+        },
+        'hide-backdrop': {
+          to: {
+            opacity: 0,
+          },
+        },
       },
       animation: {
         'fade-up': 'fade-up 0.3s',
+        'show-dialog': 'show-dialog 0.5s ease normal',
+        'hide-dialog': 'hide-dialog 0.5s ease normal',
+        'show-backdrop': 'show-backdrop 0.5s ease 0.2s normal',
+        'hide-backdrop': 'hide-backdrop 0.5s ease 0.2s normal',
       },
       gridTemplateColumns: {
         main: '1fr min(65ch, 100%) 1fr',
