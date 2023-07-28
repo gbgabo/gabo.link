@@ -35,12 +35,12 @@ const {
   <div class="absolute inset-0 pointer-events-none" aria-hidden="true">
     {
       background && (
-        <div class="relative m-auto h-full overflow-x-hidden">
+        <div class="relative m-auto h-full overflow-x-hidden" style="clip-path: inset(0);">
           {typeof background === 'string' ? (
             <Fragment set:html={background} />
           ) : (
             <Image
-              class="mx-auto max-w-none w-auto h-full"
+              class="fixed object-cover mx-auto max-w-none w-auto h-full md:h-3/4"
               widths={[400, 768, 1024, 2040]}
               sizes="(max-width: 767px) 400px, (max-width: 1023px) 768px, (max-width: 2039px) 1024px, 2040px"
               aspectRatio={1860 / 661}
