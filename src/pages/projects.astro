@@ -8,11 +8,20 @@ import { Picture } from '@astrojs/image/components';
 
 const projects = [
   {
+    title: 'gabo.link personal blog',
+    description:
+      "It's this very website. It's a fork of an Astro + Tailwind template called Astrowind. It's now implemennted with extra features such as bottom navigation, better handling of YT iframes, optimization of images on md files, and many others",
+    technologies: ['Astro', 'Tailwind', 'Typescript', 'Progressive Enhancent', 'mdx'],
+    link: 'https://github.com/gbgabo/gabo.link',
+    linkText: 'Accese o projeto',
+    image: import('~/assets/images/default.png'),
+  },
+  {
     image: import('~/assets/images/projects/symbols.png'),
     title: 'Laundry Symbols',
     description:
       "A page that lists most of the so called laundry symbols found on every clothing, indicating the manufacturer's suggestions as to methods of washing, drying, dry-cleaning and ironing clothing.",
-    technologies: ['Astro', 'Typescript', 'Tailwind'],
+    technologies: ['Astro', 'Tailwind', 'Typescript', 'Progressive Enhancement'],
     link: 'https://laundry-symbols.vercel.app/',
   },
   {
@@ -34,13 +43,18 @@ const projects = [
     title: 'Linky',
     description:
       'My first react website. A project with the purpose to create a link and style editor inspired by linktree',
-    technologies: ['React', 'MUI'],
+    technologies: ['React', 'MUI', 'React Context'],
     link: 'https://linky-gbgabo.vercel.app/edit',
   },
 ];
+
+const meta = {
+  title: 'Projects',
+  description: 'Projects ',
+};
 ---
 
-<Layout>
+<Layout meta={meta}>
   <section class="px-6 sm:px-6 py-12 sm:py-16 lg:py-20 mx-auto max-w-7xl">
     <Headline>Projects</Headline>
 
