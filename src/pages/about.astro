@@ -5,6 +5,7 @@ import Headline from '~/components/blog/Headline.astro';
 import { Picture } from '@astrojs/image/components';
 import { Icon } from 'astro-icon';
 import { getAsset } from '~/utils/permalinks';
+import ExternalLink from '~/components/blog/content/ExternalLink.astro';
 
 const meta = {
   title: 'About',
@@ -63,7 +64,7 @@ const skills = [
     icon: 'simple-icons:tailwindcss',
   },
   {
-    title: 'Shell Scripting',
+    title: 'Shell Script',
     icon: 'simple-icons:gnubash',
   },
   {
@@ -118,9 +119,9 @@ const links = [
   />
   <div class="px-6 sm:px-6 pt-12 sm:pt-16 md:pb-10 mx-auto max-w-4xl">
     <Headline>I'm a developer intrigued by technology shaping society</Headline>
-    <p class="text-lg my-8">
-      I'm a Front-End Developer working with Laravel and studying current full-stack frameworks like Next.js. Experience
-      with React and Typescript. Big fan of SSG frameworks like Astro.
+    <p class="text-center text-lg my-8">
+      I'm a Front-End Developer from Brazil, working with Laravel and studying current full-stack frameworks like
+      Next.js. Experience with React and Typescript. Big fan of SSG frameworks such as Astro.
     </p>
   </div>
 
@@ -128,25 +129,24 @@ const links = [
     <div class="col-start-2 col-end-3 px-6">
       <!-- Skills -->
       <section>
-        <h2 class="text-base text-primary dark:text-[#c79bff] font-semibold tracking-wide uppercase">Skills</h2>
-        <ul class="grid grid-cols-3 md:grid-cols-4 justify-items-center gap-5 my-8">
+        <h2 class="text-lg text-primary dark:text-[#c79bff] font-semibold tracking-wide uppercase">Skills</h2>
+        <ul class="grid grid-cols-2 md:grid-cols-3 gap-y-5 gap-x-3 my-8">
           {
             skills.map(({ title, icon }) => {
               return (
-                <li class="flex flex-col items-center">
-                  <div class="flex items-center justify-center w-12 h-12 mb-1 rounded-full bg-primary dark:bg-[#240041]">
-                    <Icon name={icon} class="w-6 h-6 text-[#c79bff] icon-light" />
-                  </div>
-                  <p class="text-gray-400 text-center">{title}</p>
+                <li class="inline-flex items-center">
+                  <Icon name={icon} class="w-7 h-7 m-2 text-[#c79bff] icon-light" />
+                  <p class="text-gray-400 ml-2">{title}</p>
                 </li>
               );
             })
           }
         </ul>
+        <ExternalLink class="mb-8" variant="secondary" href="projects">See my projects</ExternalLink>
       </section>
       <!-- Topics  -->
       <section>
-        <h2 class="text-base text-primary dark:text-[#c79bff] font-semibold tracking-wide uppercase">
+        <h2 class="text-lg text-primary dark:text-[#c79bff] font-semibold tracking-wide uppercase">
           Chat with me about
         </h2>
         <ul>
@@ -168,10 +168,11 @@ const links = [
             ))
           }
         </ul>
+        <ExternalLink class="mb-8" variant="secondary" href="blog">See my blog posts</ExternalLink>
       </section>
       <!-- What I Use -->
       <section>
-        <h2 id="what-i-use" class="text-base text-primary dark:text-[#c79bff] font-semibold tracking-wide uppercase">
+        <h2 id="what-i-use" class="text-lg text-primary dark:text-[#c79bff] font-semibold tracking-wide uppercase">
           What I use
         </h2>
         <div class={`grid gap-6 sm:grid-cols-1 md:grid-cols-2 my-8 dark:text-white items-stretch`}>
@@ -192,7 +193,9 @@ const links = [
             >
               <div class="flex items-center">
                 <Icon name="tabler:terminal-2" class="w-10 h-10 text-[#00ffb7]" />
-                <div class="ml-4 text-xl font-bold">/dotfiles</div>
+                <div class="ml-4 text-xl font-bold">
+                  /dotfiles<Icon name={'eva:diagonal-arrow-right-up-fill'} class="inline ml-1 pb-1 w-6 h-6" />
+                </div>
               </div>
               <p class="text-muted dark:text-gray-400 text-md mt-4">The files to reproduce my linux setup</p>
             </div>
