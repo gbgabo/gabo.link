@@ -135,8 +135,8 @@ const links = [
             skills.map(({ title, icon }) => {
               return (
                 <li class="inline-flex items-center">
-                  <Icon name={icon} class="w-7 h-7 m-2 text-[#c79bff] icon-light" />
-                  <p class="text-gray-400 ml-2">{title}</p>
+                  <Icon name={icon} class="w-7 h-7 m-2 text-[#19002e] dark:text-[#c79bff] icon-light" />
+                  <p class="ml-2">{title}</p>
                 </li>
               );
             })
@@ -211,8 +211,8 @@ const links = [
         {
           links.map(({ href, title }) => {
             return (
-              <li class="bg-gray-100 dark:bg-[#c79bff] rounded-md w-fit mr-2 mb-2 py-0.5 px-2 lowercase font-medium">
-                <a class="text-muted dark:text-[#19002e] hover:text-primary dark:hover:text-gray-200" href={href}>
+              <li class="bg-[#752dce] dark:bg-[#900048] rounded-md w-fit mr-2 mb-2 py-0.5 px-2 lowercase font-medium">
+                <a class="text-white dark:text-[#00ffb7] hover:text-primary dark:hover:text-gray-200" href={href}>
                   {title}
                 </a>
               </li>
@@ -226,8 +226,8 @@ const links = [
     {
       links.map(({ href, title }) => {
         return (
-          <li class="bg-gray-100 dark:bg-[#c79bff] rounded-md inline-block mr-2 mb-2 py-0.5 px-2 lowercase font-medium">
-            <a class="text-muted dark:text-[#19002e] hover:text-primary dark:hover:text-gray-200" href={href}>
+          <li class="bg-[#752dce] dark:bg-[#900048] rounded-md inline-block mr-2 mb-2 py-0.5 px-2 lowercase font-medium">
+            <a class="text-white dark:text-[#00ffb7] hover:text-primary dark:hover:text-gray-200" href={href}>
               {title}
             </a>
           </li>

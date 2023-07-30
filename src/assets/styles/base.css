@@ -34,7 +34,7 @@
   }
   
   .btn {
-    @apply inline-flex items-center justify-center rounded-full shadow-md border-gray-400 border bg-transparent font-medium text-center text-base text-page leading-snug transition py-3.5 px-6 md:px-8 ease-in duration-200 focus:ring-blue-500 focus:ring-offset-blue-200 focus:ring-2 focus:ring-offset-2 hover:bg-gray-100 hover:border-gray-600 dark:text-[#c79bff] dark:border-[#c79bff] dark:hover:text-[#19002e] dark:hover:bg-[#c79bff] dark:hover:border-[#c79bff];
+    @apply inline-flex items-center justify-center rounded-full shadow-md bg-[#ffff]/20 dark:bg-[#ffff]/10 font-medium text-center text-base text-page leading-snug transition py-3.5 px-6 md:px-8 ease-in duration-200 focus:ring-blue-500 focus:ring-offset-blue-200 focus:ring-2 focus:ring-offset-2 hover:bg-gray-100 hover:border-gray-600 dark:text-[#c79bff] dark:border-[#c79bff] dark:hover:text-[#19002e] dark:hover:bg-[#c79bff] dark:hover:border-[#c79bff];
   }
 
   .btn-ghost {
@@ -42,7 +42,7 @@
   }
 
   .btn-primary {
-    @apply font-semibold bg-primary text-white border-primary hover:bg-blue-900 hover:border-blue-900 hover:text-white dark:text-[#00ffb7] dark:bg-primary dark:border-primary dark:hover:border-[#00ffb7] dark:hover:bg-[#00ffb7] dark:hover:text-[#900048];
+    @apply font-semibold bg-[#752dce] text-white hover:bg-[#c79bff] hover:text-[#19002e] dark:text-[#00ffb7] dark:bg-primary dark:border-primary dark:hover:border-[#00ffb7] dark:hover:bg-[#00ffb7] dark:hover:text-[#900048];
   }
 
   .menu-list {
@@ -92,7 +92,7 @@
 
 svg {
   --web-node-color: #d4bbf4;
-  --web-node-bg-color: #ff05922e;
+  --web-node-bg-color: #c69bffd3;
   --logo-up-color: #c79bff;
   --logo-down-color: #c79bff; 
 }
@@ -118,5 +118,5 @@ svg {
 }
 
 [data-aw-toggle-toc].expanded {
-  @apply text-[#900048] bg-[#00ffb7];
+  @apply text-[#240041] bg-[#c79bff] dark:text-[#900048] dark:bg-[#00ffb7];
 }
