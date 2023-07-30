@@ -83,6 +83,17 @@
   @apply flex-shrink-0 w-full snap-center flex flex-col;
 }
 
+.dark svg {
+  --web-node-color: #240041;
+  --web-node-bg-color: #900048;
+}
+
+svg {
+  --web-node-color: #d4bbf4;
+  --web-node-bg-color: #ff05922e;
+}
+
+
 [astro-icon].icon-light > * {
   stroke-width: 1.2;
 }
