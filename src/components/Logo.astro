@@ -8,15 +8,17 @@ const { title = "Gabo's Link" } = Astro.props;
 import { Image } from '@astrojs/image/components';
 ---
 
-<Image
-  class="mx-auto w-11 h-11"
-  src={import('~/assets/images/profile_alpha.svg')}
-  width={40}
-  height={40}
-  sizes="(max-width: 768px) 100vw, 432px"
-  aspectRatio="1:1"
-  format="svg"
-  alt="gabo's logo"
-/>
+<div class="bg-[#240041] dark:bg-transparent">
+  <Image
+    class="mx-auto w-11 h-11"
+    src={import('~/assets/images/profile_alpha.svg')}
+    width={40}
+    height={40}
+    sizes="(max-width: 768px) 100vw, 432px"
+    aspectRatio="1:1"
+    format="svg"
+    alt="gabo's logo"
+  />
+</div>
 
 <span class="self-center ml-2 text-xl font-bold text-gray-900 whitespace-nowrap dark:text-white"> {title}</span>

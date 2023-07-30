@@ -72,7 +72,7 @@
 }
 
 #header.scroll {
-  @apply shadow-md md:shadow-lg bg-white md:bg-white/90 md:backdrop-blur-sm dark:bg-[#19002e]/90;
+  @apply shadow-md md:shadow-lg bg-[#e7d4ff]/90 md:backdrop-blur-sm dark:bg-[#19002e]/90;
 }
 
 .dropdown:hover .dropdown-menu {
@@ -103,5 +103,5 @@
 }
 
 [data-aw-toggle-toc].expanded {
-  @apply dark:text-[#900048] bg-[#00ffb7];
+  @apply text-[#900048] bg-[#00ffb7];
 }

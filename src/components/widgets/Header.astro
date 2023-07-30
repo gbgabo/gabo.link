@@ -68,13 +68,13 @@ const {
 
 <header
   class:list={[
-    'dark:bg-[#19002e] fixed bottom-0 md:top-0 md:sticky z-40 flex-none mx-auto w-full transition-all ease-in duration-100',
+    'bg-[#e7d4ff] dark:bg-[#19002e] fixed bottom-0 md:top-0 md:sticky z-40 flex-none mx-auto w-full transition-all ease-in duration-100',
   ]}
   id="header"
 >
   <div class="py-3 px-3 md:py-3.5 md:px-4 mx-auto w-full md:flex md:justify-start max-w-7xl">
     <nav
-      class="menu-list overflow-hidden p-2 mx-auto w-full h-fit max-w-7xl absolute bottom-16 left-0 dark:text-slate-200 dark:bg-[#19002e]/90 md:justify-start md:static md:dark:bg-inherit md:show md:items-center md:w-auto md:flex md:h-auto md:overflow-visible md:mx-5"
+      class="menu-list overflow-hidden p-2 mx-auto w-full h-fit max-w-7xl absolute bottom-16 left-0 dark:text-slate-200 bg-[#e7d4ff]/90 md:bg-inherit dark:bg-[#19002e]/90 md:justify-start md:static md:dark:bg-inherit md:show md:items-center md:w-auto md:flex md:h-auto md:overflow-visible md:mx-5"
       aria-label="Main navigation"
     >
       <ul
@@ -106,14 +106,14 @@ const {
                         </span>
                       )}
                     </button>
-                    <ul class="dropdown-menu md:backdrop-blur-md dark:md:bg-dark rounded md:absolute pl-4 md:pl-0 md:hidden font-medium md:bg-white/90 md:min-w-[200px] drop-shadow-xl">
+                    <ul class="dropdown-menu md:backdrop-blur-md dark:md:bg-[#240041] rounded md:absolute pl-4 md:pl-0 md:hidden font-medium md:bg-white/90 md:min-w-[200px] drop-shadow-xl">
                       {links.map(({ text: text2, href: href2 }, index2) => {
                         menuIndex = index2 === 0 ? menuIndex + 1 : menuIndex + index2;
                         return (
                           <li>
                             <a
                               class:list={[
-                                `menu-item dark:hover:bg-[#240041] py-3 px-5 block whitespace-no-wrap first:rounded-t last:rounded-b
+                                `menu-item dark:hover:bg-[#19002e] py-3 px-5 block whitespace-no-wrap first:rounded-t last:rounded-b
                                 md:animate-fade-up md:hover:bg-gray-200 md:py-2`,
                                 `${delayClasses[menuIndex]}`,
                                 `${delayClassesMd[index2]}`,
@@ -162,7 +162,7 @@ const {
         {
           showRssFeed && (
             <a
-              class="text-muted dark:text-[#c79bff] hover:bg-gray-100 dark:hover:bg-[#240041] focus:outline-none focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 rounded-lg text-sm p-2.5 inline-flex items-center"
+              class="dark:text-[#c79bff] hover:bg-gray-100 dark:hover:bg-[#240041] focus:outline-none focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 rounded-lg text-sm p-2.5 inline-flex items-center"
               aria-label="RSS Feed"
               href={getAsset('/rss.xml')}
             >

@@ -8,8 +8,8 @@ export interface Props {
 }
 
 const variants = {
-  primary: 'bg-[#900048] text-[#00ffb7]',
-  secondary: 'dark:bg-[#c79bff] dark:text-[#19002e]',
+  primary: 'bg-[#240041] text-white dark:bg-[#900048] dark:text-[#00ffb7]',
+  secondary: 'bg-[#c79bff] text-white dark:bg-[#c79bff] dark:text-[#19002e]',
 };
 
 const { href, variant, class: className } = Astro.props;
@@ -17,7 +17,7 @@ const { href, variant, class: className } = Astro.props;
 
 <span class="not-prose">
   <a
-    class={`inline-flex flex-row mb-2 items-center w-fit py-2 px-3 rounded-2xl ${className} ${
+    class={`inline-flex flex-row mb-2 items-center w-fit py-2 px-3 rounded-2xl shadow-sm ${className} ${
       variant ? variants[variant] : variants.primary
     }`}
     href={href}
