@@ -9,6 +9,7 @@ import Features2 from '~/components/widgets/Features2.astro';
 import Steps from '~/components/widgets/Steps.astro';
 import Content from '~/components/widgets/Content.astro';
 import LatestPosts from '~/components/blog/LatestPosts.astro';
+import Web from '~/components/WebBackground.astro';
 import FAQs from '~/components/widgets/FAQs.astro';
 import Stats from '~/components/widgets/Stats.astro';
 import CallToAction from '~/components/widgets/CallToAction.astro';
@@ -21,13 +22,9 @@ const meta = {
 ---
 
 <Layout {meta}>
-  <Hero
-    background={{ src: import('~/assets/images/web.svg'), alt: 'Web Background' }}
-    callToAction={{ text: 'Read the blog', href: '/blog' }}
-    callToAction2={{ text: 'About me', href: '/about' }}
-  >
+  <Hero callToAction={{ text: 'Read the blog', href: '/blog' }} callToAction2={{ text: 'About me', href: '/about' }}>
+    <Fragment slot="background"><Web /></Fragment>
     <Fragment slot="title">Welcome to my corner on the web</Fragment>
-
     <Fragment slot="subtitle">Hey! I'm Gabo and I'm a front-end developer</Fragment>
   </Hero>
 
