@@ -86,11 +86,15 @@
 .dark svg {
   --web-node-color: #240041;
   --web-node-bg-color: #900048;
+  --logo-up-color: #00ffb7;
+  --logo-down-color: #ff0e82; 
 }
 
 svg {
   --web-node-color: #d4bbf4;
   --web-node-bg-color: #ff05922e;
+  --logo-up-color: #c79bff;
+  --logo-down-color: #c79bff; 
 }
 
 
