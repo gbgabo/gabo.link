@@ -17,7 +17,7 @@ const { tags, class: className = 'text-sm', enableLink = true } = Astro.props;
   tags && Array.isArray(tags) && (
     <ul class={className}>
       {tags.map((tag) => (
-        <li class="text-[#c79bff] bg-[#19002e] dark:bg-[#c79bff] rounded-md inline-block mr-2 mb-2 py-0.5 px-2 lowercase font-medium">
+        <li class="text-[#19002e] bg-[#c79bff]/30 dark:bg-[#c79bff] rounded-md inline-block mr-2 mb-2 py-0.5 px-2 lowercase font-medium">
           {BLOG?.tag?.disabled ? (
             tag
           ) : enableLink ? (
