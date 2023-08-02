@@ -161,8 +161,8 @@ export const footerData = {
 export const categoryData = {
   lists: {
     classes: {
-      filled: 'text-darker-purple bg-[#ff0e82]',
-      outline: 'text-[#ff0e82]',
+      filled: 'text-darker-purple bg-pink',
+      outline: 'text-pink',
     },
     icon: 'tabler:list-details',
   },
