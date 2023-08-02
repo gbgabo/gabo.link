@@ -34,7 +34,7 @@
   }
   
   .btn {
-    @apply inline-flex items-center justify-center rounded-full shadow-md bg-[#ffff]/20 dark:bg-[#ffff]/10 font-medium text-center text-base text-page leading-snug transition py-3.5 px-6 md:px-8 ease-in duration-200 focus:ring-blue-500 focus:ring-offset-blue-200 focus:ring-2 focus:ring-offset-2 hover:bg-gray-100 hover:border-gray-600 dark:text-light-purple dark:border-light-purple dark:hover:text-darker-purple dark:hover:bg-light-purple dark:hover:border-light-purple;
+    @apply inline-flex items-center justify-center rounded-full shadow-md bg-white/20 dark:bg-white/10 font-medium text-center text-base text-page leading-snug transition py-3.5 px-6 md:px-8 ease-in duration-200 focus:ring-blue-500 focus:ring-offset-blue-200 focus:ring-2 focus:ring-offset-2 hover:bg-gray-100 hover:border-gray-600 dark:text-light-purple dark:border-light-purple dark:hover:text-darker-purple dark:hover:bg-light-purple dark:hover:border-light-purple;
   }
 
   .btn-ghost {
