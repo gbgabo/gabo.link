@@ -34,15 +34,15 @@
   }
   
   .btn {
-    @apply inline-flex items-center justify-center rounded-full shadow-md bg-[#ffff]/20 dark:bg-[#ffff]/10 font-medium text-center text-base text-page leading-snug transition py-3.5 px-6 md:px-8 ease-in duration-200 focus:ring-blue-500 focus:ring-offset-blue-200 focus:ring-2 focus:ring-offset-2 hover:bg-gray-100 hover:border-gray-600 dark:text-[#c79bff] dark:border-[#c79bff] dark:hover:text-darker-purple dark:hover:bg-[#c79bff] dark:hover:border-[#c79bff];
+    @apply inline-flex items-center justify-center rounded-full shadow-md bg-[#ffff]/20 dark:bg-[#ffff]/10 font-medium text-center text-base text-page leading-snug transition py-3.5 px-6 md:px-8 ease-in duration-200 focus:ring-blue-500 focus:ring-offset-blue-200 focus:ring-2 focus:ring-offset-2 hover:bg-gray-100 hover:border-gray-600 dark:text-light-purple dark:border-light-purple dark:hover:text-darker-purple dark:hover:bg-light-purple dark:hover:border-light-purple;
   }
 
   .btn-ghost {
-    @apply border-none shadow-none text-muted hover:text-gray-900 dark:text-[#c79bff] dark:hover:text-darker-purple;
+    @apply border-none shadow-none text-muted hover:text-gray-900 dark:text-light-purple dark:hover:text-darker-purple;
   }
 
   .btn-primary {
-    @apply font-semibold bg-[#752dce] text-white hover:bg-[#c79bff] hover:text-darker-purple dark:text-acid-green dark:bg-primary dark:border-primary dark:hover:border-acid-green dark:hover:bg-acid-green dark:hover:text-cherry;
+    @apply font-semibold bg-[#752dce] text-white hover:bg-light-purple hover:text-darker-purple dark:text-acid-green dark:bg-primary dark:border-primary dark:hover:border-acid-green dark:hover:bg-acid-green dark:hover:text-cherry;
   }
 
   .menu-list {
@@ -118,5 +118,5 @@ svg {
 }
 
 [data-aw-toggle-toc].expanded {
-  @apply text-dark-purple bg-[#c79bff] dark:text-cherry dark:bg-acid-green;
+  @apply text-dark-purple bg-light-purple dark:text-cherry dark:bg-acid-green;
 }
