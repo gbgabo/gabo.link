@@ -9,6 +9,12 @@ module.exports = {
         primary: 'var(--aw-color-primary)',
         secondary: 'var(--aw-color-secondary)',
         accent: 'var(--aw-color-accent)',
+        'dark-purple': 'rgb(36, 0, 65)',
+        'darker-purple': 'rgb(25, 0, 46)',
+        'acid-green': 'rgb(0, 255, 183)',
+        cherry: 'rgb(144, 0, 72)',
+        pink: 'rgb(255, 14, 130)',
+        'light-purple': 'rgb(199, 155, 255)',
       },
       fontFamily: {
         sans: ['var(--aw-font-sans)', ...defaultTheme.fontFamily.sans],
