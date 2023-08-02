@@ -168,8 +168,8 @@ export const categoryData = {
   },
   articles: {
     classes: {
-      filled: 'text-[#19002e] bg-[#00ffb7]',
-      outline: 'text-[#00ffb7]',
+      filled: 'text-[#19002e] bg-acid-green',
+      outline: 'text-acid-green',
     },
     icon: 'tabler:news',
   },

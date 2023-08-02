@@ -90,7 +90,7 @@ const { post, url } = Astro.props;
         post.headings.length > 0 && (
           <div class="not-prose fixed z-10 bottom-24 right-3 md:sticky md:top-24">
             <button
-              class="my-0 z-10 fixed md:sticky bottom-20 rounded-[14px] h-fit right-3 shadow-md md:w-fit md:mx-auto md:mb-2 md:flex items-center md:p-2 bg-[#752dce] text-white dark:bg-[#900048] dark:text-[#00ffb7]"
+              class="my-0 z-10 fixed md:sticky bottom-20 rounded-[14px] h-fit right-3 shadow-md md:w-fit md:mx-auto md:mb-2 md:flex items-center md:p-2 bg-[#752dce] text-white dark:bg-[#900048] dark:text-acid-green"
               data-aw-toggle-toc
               aria-label="Table of content"
             >
@@ -98,7 +98,7 @@ const { post, url } = Astro.props;
               <p class="hidden md:block m-0 mx-2">Table of content</p>
             </button>
             <nav class="hidden not-prose">
-              <ul class="border-2 border-[#240041] dark:border-[#900048] shadow-md text-[#19002e] dark:text-[#00ffb7] fixed md:sticky rounded-md max-h-96 md:h-fit w-full overscroll-contain overflow-auto animate-fade-up bottom-24 left-0 md:backdrop-blur-sm bg-[#e6c8ff] dark:bg-[#19002e] p-5">
+              <ul class="border-2 border-[#240041] dark:border-[#900048] shadow-md text-[#19002e] dark:text-acid-green fixed md:sticky rounded-md max-h-96 md:h-fit w-full overscroll-contain overflow-auto animate-fade-up bottom-24 left-0 md:backdrop-blur-sm bg-[#e6c8ff] dark:bg-[#19002e] p-5">
                 {post.headings.map(({ slug, text, depth }) => (
                   <li class="px-3 py-1">
                     <a class="" href={`#${slug}`}>

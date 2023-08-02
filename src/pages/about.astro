@@ -22,7 +22,7 @@ const topics = [
   {
     title: 'Linux Ricing',
     description:
-      'The term refers to the process of customize a linux enviroment to a more productive or simply aesthetically pleasing setup. There is a plethora of tools the community is constantly sharing, and you have no idea how different and personal your system can be to fit your needs. Check out my <a class="underline text-[#00ffb7]" href="#what-i-use">dotfiles</a>.',
+      'The term refers to the process of customize a linux enviroment to a more productive or simply aesthetically pleasing setup. There is a plethora of tools the community is constantly sharing, and you have no idea how different and personal your system can be to fit your needs. Check out my <a class="underline text-acid-green" href="#what-i-use">dotfiles</a>.',
     icon: 'mdi:linux',
   },
   {
@@ -33,7 +33,7 @@ const topics = [
   },
   {
     title: 'Cool content on the internet',
-    description: `The internet is full of people creating amazing stuff from videos, podcasts and art in general. In my <a class="underline text-[#00ffb7]" href="/category/lists">blog lists</a> you may find interesting content I compile from the sites I surf.`,
+    description: `The internet is full of people creating amazing stuff from videos, podcasts and art in general. In my <a class="underline text-acid-green" href="/category/lists">blog lists</a> you may find interesting content I compile from the sites I surf.`,
     icon: 'mdi:web',
   },
 ];
@@ -156,7 +156,7 @@ const links = [
                 <div class="flex flex-row my-8">
                   <div class="mb-4 mr-5">
                     <div class="flex items-center justify-center w-12 h-12 rounded-full bg-primary dark:bg-[#240041]">
-                      {icon && <Icon name={icon} class="w-6 h-6 text-[#00ffb7] icon-light" />}
+                      {icon && <Icon name={icon} class="w-6 h-6 text-acid-green icon-light" />}
                     </div>
                   </div>
                   <div>
@@ -181,7 +181,7 @@ const links = [
               class="relative flex flex-col p-6 h-full bg-white dark:bg-[#240041] rounded shadow-lg hover:shadow-md transition border border-transparent dark:border-[#900048]"
             >
               <div class="flex items-center">
-                <Icon name="tabler:app-window" class="w-10 h-10 text-[#00ffb7]" />
+                <Icon name="tabler:app-window" class="w-10 h-10 text-acid-green" />
                 <div class="ml-4 text-xl font-bold">/uses</div>
               </div>
               <p class="text-muted dark:text-gray-400 text-md mt-4">A list of the software I use on the daily basis</p>
@@ -192,7 +192,7 @@ const links = [
               class="relative flex flex-col p-6 h-full bg-white dark:bg-[#240041] rounded shadow-lg hover:shadow-md transition border border-transparent dark:border-[#900048]"
             >
               <div class="flex items-center">
-                <Icon name="tabler:terminal-2" class="w-10 h-10 text-[#00ffb7]" />
+                <Icon name="tabler:terminal-2" class="w-10 h-10 text-acid-green" />
                 <div class="ml-4 text-xl font-bold">
                   /dotfiles<Icon name={'eva:diagonal-arrow-right-up-fill'} class="inline ml-1 pb-1 w-6 h-6" />
                 </div>
@@ -207,12 +207,12 @@ const links = [
       </h2>
     </div>
     <aside class="hidden md:block col-start-2 col-end-3 md:col-span-1">
-      <ul class="md:sticky md:top-28 lg:ml-8 text-[#00ffb7]">
+      <ul class="md:sticky md:top-28 lg:ml-8 text-acid-green">
         {
           links.map(({ href, title }) => {
             return (
               <li class="bg-[#752dce] dark:bg-[#900048] rounded-md w-fit mr-2 mb-2 py-0.5 px-2 lowercase font-medium">
-                <a class="text-white dark:text-[#00ffb7] hover:text-primary dark:hover:text-gray-200" href={href}>
+                <a class="text-white dark:text-acid-green hover:text-primary dark:hover:text-gray-200" href={href}>
                   {title}
                 </a>
               </li>
@@ -227,7 +227,7 @@ const links = [
       links.map(({ href, title }) => {
         return (
           <li class="bg-[#752dce] dark:bg-[#900048] rounded-md inline-block mr-2 mb-2 py-0.5 px-2 lowercase font-medium">
-            <a class="text-white dark:text-[#00ffb7] hover:text-primary dark:hover:text-gray-200" href={href}>
+            <a class="text-white dark:text-acid-green hover:text-primary dark:hover:text-gray-200" href={href}>
               {title}
             </a>
           </li>
