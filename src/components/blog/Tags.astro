@@ -17,15 +17,18 @@ const { tags, class: className = 'text-sm', enableLink = true } = Astro.props;
   tags && Array.isArray(tags) && (
     <ul class={className}>
       {tags.map((tag) => (
-        <li class="text-[#19002e] bg-[#c79bff]/30 dark:bg-[#c79bff] rounded-md inline-block mr-2 mb-2 py-0.5 px-2 lowercase font-medium">
+        <li class="text-darker-purple bg-[#c79bff]/30 dark:bg-[#c79bff] rounded-md inline-block mr-2 mb-2 py-0.5 px-2 lowercase font-medium">
           {BLOG?.tag?.disabled ? (
             tag
           ) : enableLink ? (
-            <a href={getPermalink(tag, 'tag')} class="dark:text-[#19002e] hover:text-primary dark:hover:text-gray-200">
+            <a
+              href={getPermalink(tag, 'tag')}
+              class="dark:text-darker-purple hover:text-primary dark:hover:text-gray-200"
+            >
               {tag}
             </a>
           ) : (
-            <span class="dark:text-[#19002e]">{tag}</span>
+            <span class="dark:text-darker-purple">{tag}</span>
           )}
         </li>
       ))}

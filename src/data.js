@@ -161,14 +161,14 @@ export const footerData = {
 export const categoryData = {
   lists: {
     classes: {
-      filled: 'text-[#19002e] bg-[#ff0e82]',
+      filled: 'text-darker-purple bg-[#ff0e82]',
       outline: 'text-[#ff0e82]',
     },
     icon: 'tabler:list-details',
   },
   articles: {
     classes: {
-      filled: 'text-[#19002e] bg-acid-green',
+      filled: 'text-darker-purple bg-acid-green',
       outline: 'text-acid-green',
     },
     icon: 'tabler:news',
