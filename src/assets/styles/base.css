@@ -42,7 +42,7 @@
   }
 
   .btn-primary {
-    @apply font-semibold bg-[#752dce] text-white hover:bg-[#c79bff] hover:text-darker-purple dark:text-acid-green dark:bg-primary dark:border-primary dark:hover:border-acid-green dark:hover:bg-acid-green dark:hover:text-[#900048];
+    @apply font-semibold bg-[#752dce] text-white hover:bg-[#c79bff] hover:text-darker-purple dark:text-acid-green dark:bg-primary dark:border-primary dark:hover:border-acid-green dark:hover:bg-acid-green dark:hover:text-cherry;
   }
 
   .menu-list {
@@ -56,7 +56,7 @@
   }
 
   #closeDialog {
-    @apply absolute bottom-3 right-3 h-12 w-12 bg-[#900048] text-acid-green rounded-full;
+    @apply absolute bottom-3 right-3 h-12 w-12 bg-cherry text-acid-green rounded-full;
   }
 }
 
@@ -118,5 +118,5 @@ svg {
 }
 
 [data-aw-toggle-toc].expanded {
-  @apply text-[#240041] bg-[#c79bff] dark:text-[#900048] dark:bg-acid-green;
+  @apply text-[#240041] bg-[#c79bff] dark:text-cherry dark:bg-acid-green;
 }
