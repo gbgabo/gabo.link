@@ -88,7 +88,7 @@ const {
                   <>
                     <button
                       class:list={[
-                        `menu-item w-full dark:hover:bg-[#240041] py-3 px-4 flex items-center font-medium rounded-md hover:text-gray-900 dark:hover:text-white
+                        `menu-item w-full dark:hover:bg-dark-purple py-3 px-4 flex items-center font-medium rounded-md hover:text-gray-900 dark:hover:text-white
                         md:hover:bg-gray-200 md:p-0`,
                         `${delayClasses[menuIndex + index]}`,
                         `${delayClassesMd[index]}`,
@@ -106,7 +106,7 @@ const {
                         </span>
                       )}
                     </button>
-                    <ul class="dropdown-menu md:backdrop-blur-md dark:md:bg-[#240041] rounded md:absolute pl-4 md:pl-0 md:hidden font-medium md:bg-white/90 md:min-w-[200px] drop-shadow-xl">
+                    <ul class="dropdown-menu md:backdrop-blur-md dark:md:bg-dark-purple rounded md:absolute pl-4 md:pl-0 md:hidden font-medium md:bg-white/90 md:min-w-[200px] drop-shadow-xl">
                       {links.map(({ text: text2, href: href2 }, index2) => {
                         menuIndex = index2 === 0 ? menuIndex + 1 : menuIndex + index2;
                         return (
@@ -130,7 +130,7 @@ const {
                 ) : (
                   <a
                     class:list={[
-                      `menu-item dark:hover:bg-[#240041] py-3 px-4 flex items-center font-medium rounded-md hover:text-gray-900 dark:hover:text-white
+                      `menu-item dark:hover:bg-dark-purple py-3 px-4 flex items-center font-medium rounded-md hover:text-gray-900 dark:hover:text-white
                       md:hover:bg-gray-200 md:py-2`,
                       `${delayClasses[menuIndex + index]}`,
                       `${delayClassesMd[index]}`,
@@ -162,7 +162,7 @@ const {
         {
           showRssFeed && (
             <a
-              class="dark:text-[#c79bff] hover:bg-gray-100 dark:hover:bg-[#240041] focus:outline-none focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 rounded-lg text-sm p-2.5 inline-flex items-center"
+              class="dark:text-[#c79bff] hover:bg-gray-100 dark:hover:bg-dark-purple focus:outline-none focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 rounded-lg text-sm p-2.5 inline-flex items-center"
               aria-label="RSS Feed"
               href={getAsset('/rss.xml')}
             >

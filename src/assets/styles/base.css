@@ -118,5 +118,5 @@ svg {
 }
 
 [data-aw-toggle-toc].expanded {
-  @apply text-[#240041] bg-[#c79bff] dark:text-cherry dark:bg-acid-green;
+  @apply text-dark-purple bg-[#c79bff] dark:text-cherry dark:bg-acid-green;
 }
