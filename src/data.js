@@ -174,3 +174,81 @@ export const categoryData = {
     icon: 'tabler:news',
   },
 };
+
+export const bentoGrids = {
+  uses: [
+    {
+      icon: 'tabler:app-window',
+      title: 'The GUI',
+      span: 'md:row-span-3 md:col-span-2',
+      items: [
+        { type: 'Linux Distribution', value: ['Debian', 'Manjaro'] },
+        { type: 'Window Manager', value: 'dwm' },
+        { type: 'general purpose menu launcher', value: 'dmenu' },
+        { type: 'Brain dump and writing journal', value: 'Logseq' },
+        { type: 'File sync', value: 'Syncthing' },
+        { type: 'Web Browser', value: 'Firefox' },
+        { type: 'Text editor', value: 'vscodium' },
+      ],
+    },
+    {
+      icon: 'tabler:terminal',
+      title: 'The CLI',
+      items: [
+        { type: 'Terminal Emulator', value: 'st' },
+        { type: 'shell', value: 'zsh' },
+        { type: 'Terminal multiplexer', value: 'tmux' },
+      ],
+    },
+    {
+      title: 'Scripts',
+      items: [{ value: 'tmenu' }, { value: 'tsearch' }],
+    },
+    {
+      title: 'Reproduce my setup:',
+      items: [{ value: 'Check my dotfiles', href: 'https://github.com/gbgabo/dotfiles' }],
+    },
+    {
+      icon: 'tabler:settings',
+      title: 'Services',
+      items: [
+        { type: 'Password Manager', value: 'KeePassXC' },
+        { type: 'Email Provider', value: 'Tutanota' },
+        { type: 'Login Manager', value: 'Simple Login' },
+        { type: 'File Sync', value: 'Syncthing' },
+      ],
+    },
+    {
+      icon: 'tabler:device-mobile',
+      title: 'Mobile',
+      span: 'md:col-span-2',
+      items: [
+        {
+          type: 'Launcher',
+          value: 'Olauncher Clutter Free',
+        },
+        {
+          type: 'Podcast Player',
+          value: 'AntennaPod',
+        },
+        {
+          type: 'Mail',
+          value: 'K-9 Mail',
+        },
+        {
+          type: 'Web Browser',
+          value: 'Bromite',
+        },
+      ],
+    },
+    {
+      icon: 'ic:outline-color-lens',
+      title: 'Theming',
+      span: 'md:col-span-3',
+      items: [
+        { type: 'Font', value: 'jetbrains-mono through nerd fonts' },
+        { type: 'Color Scheme', value: 'Wildberries Theme', href: 'https://wildberries.style/about)' },
+      ],
+    },
+  ],
+};

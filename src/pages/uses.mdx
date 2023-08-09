@@ -3,8 +3,10 @@ layout: '~/layouts/PageLayout.astro'
 ---
 
 import Headline from '~/components/blog/Headline.astro';
+import Bento from '~/components/widgets/Bento.astro';
 import { Picture } from '@astrojs/image/components';
 import { Icon } from 'astro-icon';
+import { bentoGrids } from '~/data';
 
 <div class="mx-auto px-6 max-w-3xl 
             prose prose-lg
@@ -30,27 +32,6 @@ import { Icon } from 'astro-icon';
   
   This page is created to show the tools I use to code, write and everything included in a web developer cozy setup. It's inspired by [uses.tech](https://uses.tech/), a website created by [Wes Bos](https://github.com/wesbos/awesome-uses) in which incentivises developers and creators to share their own configurations in a page like this one.
 
-# Applications
-
-## the CLI
-
-- **terminal emulator**: st
-- **shell**: zsh
-- **terminal multiplexer**: tmux
-
-## the GUI
-
-- **Linux Distribution**: Debian Linux
-- **Window Manager**: dwm
-- **general purpose menu launcher**: dmenu
-- **scripts**
-  - tmenu
-  - tsearch
-- **Brain dump and writing journal**: Logseq
-
-# Theming
-
-- **font**: jetbrains-mono through nerd fonts
-- **color scheme**: [Wildberries Theme](https://wildberries.style/about)
-
 </div>
+
+<Bento blocks={bentoGrids.uses} />
