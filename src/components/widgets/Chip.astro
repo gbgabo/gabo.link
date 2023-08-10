@@ -1,0 +1,20 @@
+---
+import { Icon } from 'astro-icon';
+
+const { value, href } = Astro.props;
+---
+
+<span
+  class="text-darker-purple dark:text-acid-green bg-light-purple/29 dark:bg-darker-purple rounded-md inline-block mr-2 mb-2 py-0.5 px-2 font-medium"
+>
+  {
+    href ? (
+      <a href={href}>
+        {value}
+        <Icon name={'eva:diagonal-arrow-right-up-fill'} class="w-5 h-4 inline" />
+      </a>
+    ) : (
+      value
+    )
+  }
+</span>
