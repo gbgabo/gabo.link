@@ -184,11 +184,11 @@ export const bentoGrids = {
       items: [
         { type: 'Linux Distribution', value: ['Debian', 'Manjaro'] },
         { type: 'Window Manager', value: 'dwm' },
-        { type: 'general purpose menu launcher', value: 'dmenu' },
+        { type: 'General Purpose Menu Launcher', value: 'dmenu' },
         { type: 'Brain dump and writing journal', value: 'Logseq' },
-        { type: 'File sync', value: 'Syncthing' },
         { type: 'Web Browser', value: 'Firefox' },
         { type: 'Text editor', value: 'vscodium' },
+        { type: 'Email Client', value: 'Thunderbird' },
       ],
     },
     {
@@ -196,7 +196,7 @@ export const bentoGrids = {
       title: 'The CLI',
       items: [
         { type: 'Terminal Emulator', value: 'st' },
-        { type: 'shell', value: 'zsh' },
+        { type: 'Shell', value: 'zsh' },
         { type: 'Terminal multiplexer', value: 'tmux' },
       ],
     },
