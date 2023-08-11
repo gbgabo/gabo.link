@@ -206,7 +206,7 @@ export const bentoGrids = {
     },
     {
       title: 'Reproduce my setup:',
-      items: [{ value: 'Check my dotfiles', href: 'https://github.com/gbgabo/dotfiles' }],
+      items: [{ variant: 'primary', value: 'Check my dotfiles', href: 'https://github.com/gbgabo/dotfiles' }],
     },
     {
       icon: 'tabler:settings',

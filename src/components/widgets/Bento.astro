@@ -11,6 +11,7 @@ export interface Props {
       type?: string;
       value: string | string[];
       href?: string;
+      variant: 'primary' | 'secondary' | 'dark';
     }[];
   }[];
 }
@@ -36,15 +37,15 @@ const { blocks } = Astro.props;
             <h2 class="inline text-xl font-bold">{block.title}</h2>
           </div>
           <ul>
-            {block.items.map(({ type, value, href }) => {
+            {block.items.map(({ type, value, href, variant = 'dark' }) => {
               return (
                 <li>
                   <p class="dark:text-light-purple">
                     {type ? `${type}:` : ''}{' '}
                     {value instanceof Array ? (
-                      value.map((value) => <Chip value={value} href={href} />)
+                      value.map((value) => <Chip value={value} href={href} variant={variant} />)
                     ) : (
-                      <Chip value={value} href={href} />
+                      <Chip value={value} href={href} variant={variant} />
                     )}
                   </p>
                 </li>

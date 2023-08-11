@@ -1,11 +1,26 @@
 ---
 import { Icon } from 'astro-icon';
 
-const { value, href } = Astro.props;
+export interface Props {
+  value: string;
+  href?: string;
+  class?: string;
+  variant?: 'primary' | 'secondary' | 'dark';
+}
+
+const variants = {
+  primary: 'bg-[#752dce] text-white dark:bg-cherry dark:text-acid-green',
+  secondary: 'bg-light-purple text-white dark:bg-light-purple dark:text-darker-purple',
+  dark: 'text-darker-purple dark:text-acid-green bg-light-purple/29 dark:bg-darker-purple',
+};
+
+const { value, href, variant, class: className } = Astro.props;
 ---
 
 <span
-  class="text-darker-purple dark:text-acid-green bg-light-purple/29 dark:bg-darker-purple rounded-md inline-block mr-2 mb-2 py-0.5 px-2 font-medium"
+  class={`rounded-md inline-block mr-2 mb-2 py-0.5 px-2 font-medium ${className} ${
+    variant ? variants[variant] : variants.primary
+  }`}
 >
   {
     href ? (
