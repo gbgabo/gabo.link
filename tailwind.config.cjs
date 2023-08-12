@@ -17,6 +17,7 @@ module.exports = {
         'light-purple': 'rgb(199, 155, 255)',
         grape: 'rgb(117, 45, 206)',
         'pastel-purple': 'rgb(231, 212, 255)',
+        'muted-purple': 'rgb(236, 222, 255)',
       },
       fontFamily: {
         sans: ['var(--aw-font-sans)', ...defaultTheme.fontFamily.sans],
