@@ -29,7 +29,10 @@ const category = categoryData[post.category]
 <article class="mb-6 transition">
   <div class="relative md:h-64 bg-gray-400 dark:bg-slate-700 rounded shadow-lg mb-5">
     <a
-      class={`absolute left-2 -bottom-3 text-sm capitalize shadow-lg flex items-center p-1 pr-3 w-fit rounded-lg z-10 ${category.classes.filled}`}
+      class:list={[
+        'absolute left-2 -bottom-3 text-sm capitalize shadow-lg flex items-center p-1 pr-3 w-fit rounded-lg z-10',
+        category.classes.filled,
+      ]}
       href={`/category/${post.category}`}
     >
       <Icon class="py-1 w-6 h-6 mr-1" name={category.icon} />

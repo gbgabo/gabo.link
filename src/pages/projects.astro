@@ -62,7 +62,9 @@ const meta = {
       {
         projects.map((project) => (
           <li class="mb-12 md:mb-20">
-            <div class={`max-w-md mx-auto md:max-w-none grid gap-3 md:gap-8 ${project.image ? 'md:grid-cols-2' : ''}`}>
+            <div
+              class:list={['max-w-md mx-auto md:max-w-none grid gap-3 md:gap-8', project.image ? 'md:grid-cols-2' : '']}
+            >
               {project.image && (
                 <a class="relative block group" href={project.link ?? 'javascript:void(0)'}>
                   <div class="relative h-0 pb-[56.25%] md:pb-[75%] md:h-72 lg:pb-[56.25%] overflow-hidden bg-gray-400 dark:bg-slate-700 rounded shadow-lg">

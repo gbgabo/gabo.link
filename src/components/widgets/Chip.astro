@@ -18,9 +18,11 @@ const { value, href, variant, class: className } = Astro.props;
 ---
 
 <span
-  class={`rounded-md inline-block mr-2 mb-2 py-0.5 px-2 font-medium ${className} ${
-    variant ? variants[variant] : variants.primary
-  }`}
+  class:list={[
+    'rounded-md inline-block mr-2 mb-2 py-0.5 px-2 font-medium',
+    className,
+    variant ? variants[variant] : variants.primary,
+  ]}
 >
   {
     href ? (

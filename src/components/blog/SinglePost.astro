@@ -27,7 +27,7 @@ const { post, url } = Astro.props;
           post.category && (
             <p>
               <a
-                class={`capitalize font-bold ${categoryData[post.category].classes.outline} hover:underline `}
+                class:list={['capitalize font-bold hover:underline', categoryData[post.category].classes.outline]}
                 href={getPermalink(post.category, 'category')}
               >
                 {post.category.replaceAll('-', ' ')}
