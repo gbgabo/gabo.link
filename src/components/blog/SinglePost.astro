@@ -81,7 +81,7 @@ const { post, url } = Astro.props;
         prose prose-lg dark:prose-invert dark:prose-headings:text-slate-300 prose-md
         prose-p:text-darker-purple dark:prose-p:text-inherit
         prose-headings:font-heading prose-headings:leading-tighter prose-headings:tracking-tighter prose-headings:font-bold 
-        prose-a:text-primary dark:prose-a:text-[#399ee6] 
+        prose-a:text-grape dark:prose-a:text-[#399ee6] 
         prose-img:rounded-md prose-img:shadow-lg mt-8 
         marker:text-light-purple
         prose-code:bg-dark-purple prose-code:after:content-[''] prose-code:before:content-[''] prose-code:text-light-purple prose-code:px-2 prose-code:py-1 prose-code:rounded-md`}
@@ -98,7 +98,7 @@ const { post, url } = Astro.props;
               <p class="hidden md:block m-0 mx-2">Table of content</p>
             </button>
             <nav class="hidden not-prose">
-              <ul class="border-2 border-dark-purple dark:border-cherry shadow-md text-darker-purple dark:text-acid-green fixed md:sticky rounded-md max-h-96 md:h-fit w-full overscroll-contain overflow-auto animate-fade-up bottom-24 left-0 md:backdrop-blur-sm bg-[#e6c8ff] dark:bg-darker-purple p-5">
+              <ul class="border-2 border-dark-purple dark:border-cherry shadow-md text-darker-purple dark:text-acid-green fixed md:sticky rounded-md max-h-96 md:h-fit w-full overscroll-contain overflow-auto animate-fade-up bottom-24 left-0 md:backdrop-blur-sm bg-pastel-purple dark:bg-darker-purple p-5">
                 {post.headings.map(({ slug, text, depth }) => (
                   <li class="px-3 py-1">
                     <a class="" href={`#${slug}`}>
