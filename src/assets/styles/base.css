@@ -72,7 +72,7 @@
 }
 
 #header.scroll {
-  @apply shadow-md md:shadow-lg bg-pastel-purple/90 md:backdrop-blur-sm dark:bg-darker-purple/90;
+  @apply block shadow-md md:shadow-lg bg-pastel-purple/90 md:backdrop-blur-sm dark:bg-darker-purple/90;
 }
 
 .dropdown:hover .dropdown-menu {

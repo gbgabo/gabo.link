@@ -11,9 +11,10 @@ import { MetaSEO } from '~/types';
 
 export interface Props {
   meta?: MetaSEO;
+  home: boolean;
 }
 
-const { meta } = Astro.props;
+const { meta, home } = Astro.props;
 ---
 
 <Layout {meta}>
@@ -21,7 +22,7 @@ const { meta } = Astro.props;
     <!-- <Announcement /> -->
   </slot>
   <slot name="header">
-    <Header {...headerData} isSticky showRssFeed showToggleTheme />
+    <Header {...headerData} isSticky={home} showRssFeed showToggleTheme />
   </slot>
   <main>
     <ImageModal />

@@ -67,7 +67,10 @@ const {
 ---
 
 <header
-  class="bg-transparent fixed bottom-0 md:top-0 md:sticky z-40 flex-none mx-auto w-full transition-all ease-in duration-100"
+  class:list={[
+    'bg-muted-purple animate-fade-up dark:bg-darker-purple md:bg-transparent md:dark:bg-transparent fixed bottom-0 md:top-0 md:sticky z-40 flex-none mx-auto w-full transition-all ease-in duration-100',
+    isSticky && 'hidden md:block',
+  ]}
   id="header"
 >
   <div class="py-3 px-3 md:py-3.5 md:px-4 mx-auto w-full md:flex md:justify-start max-w-7xl">
