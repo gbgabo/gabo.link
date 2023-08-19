@@ -146,10 +146,11 @@ export const footerData = {
   ],
   socialLinks: [
     { ariaLabel: 'Github', icon: 'tabler:brand-github', href: 'https://github.com/gbgabo' },
-    { ariaLabel: 'Twitter', icon: 'tabler:brand-twitter', href: 'https://twitter.com/gb_gabo' },
-    { ariaLabel: 'Mail', icon: 'tabler:mail', href: 'mailto:contact@gabo.link' },
     { ariaLabel: 'LinkedIn', icon: 'tabler:brand-linkedin', href: 'https://www.linkedin.com/in/gabriel-gaboardi/' },
     { ariaLabel: 'Instagram', icon: 'tabler:brand-instagram', href: 'https://www.instagram.com/gb_gabo/' },
+    { ariaLabel: 'Codepen', icon: 'tabler:brand-codepen', href: 'https://codepen.io/gb_gabo' },
+    { ariaLabel: 'Twitter', icon: 'tabler:brand-twitter', href: 'https://twitter.com/gb_gabo' },
+    { ariaLabel: 'Mail', icon: 'tabler:mail', href: 'mailto:contact@gabo.link' },
     { ariaLabel: 'RSS', icon: 'tabler:rss', href: getAsset('/rss.xml') },
   ],
   // footNote: `
@@ -183,7 +184,7 @@ export const bentoGrids = {
       span: 'md:row-span-3 md:col-span-2',
       items: [
         { type: 'Linux Distribution', value: ['Debian', 'Manjaro'] },
-        { type: 'Window Manager', value: 'dwm' },
+        { type: 'Window Manager || Desktop Enviroment', value: ['dwm', 'Gnome'] },
         { type: 'General Purpose Menu Launcher', value: 'dmenu' },
         { type: 'Brain dump and writing journal', value: 'Logseq' },
         { type: 'Web Browser', value: 'Firefox' },
