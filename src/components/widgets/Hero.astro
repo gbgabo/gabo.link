@@ -89,13 +89,20 @@ const {
         {
           title && (
             <h1
-              class="text-4xl md:text-6xl font-bold leading-tighter tracking-tighter mb-4 font-heading dark:text-gray-200"
+              class="text-3xl md:text-6xl font-bold leading-tighter tracking-tighter mb-4 font-heading dark:text-gray-200"
               set:html={title}
             />
           )
         }
         <div class="max-w-3xl">
-          {subtitle && <p class="text-xl mb-6 text-muted dark:text-light-purple" set:html={subtitle} />}
+          {
+            subtitle && (
+              <p
+                class="text-xl tracking-tighter md:tracking-tight mb-6 text-muted dark:text-light-purple"
+                set:html={subtitle}
+              />
+            )
+          }
           <div class="flex flex-nowrap items-center flex-col sm:flex-row gap-4">
             {
               callToAction && (
