@@ -373,15 +373,38 @@ No exemplo abaixo, a lista de itens que o ls retornará será filtrada pelo grep
 $ ls -l Downloads | grep .png
 ```
 
+![Funcionamento do pipe de um comando ao outro](/assets/images/posts/pipe.png)
+
 A natureza baseada em texto dos programas de terminal permitem uma consistência na forma que se mexe no computador, criando uma experiência unificada. Até para programas de interface gráfica, é possivel chamar comandos que fazem o mesmo que se faz clicando, e você acaba estendendo os programas do dia a dia para a sua necessidade. E por sinal, o que for de necessidade diária, vocẽ pode automatizar!
 
 ### 🤖 Automação
 
 Para toda linha de comando que você escreve, é possível executá-las de uma vez só. Você faz isso por meio de scripts. Scripts são arquivos onde você escreve todos os comandos que queria e a lógica para execução deles. Scripts podem ser muito mais que uma série de comandos. Na verdade, o bash é, além de um interpretador de comandos, uma linguagem de programação!
 
-Se aprofundar em bash é um tópico a parte, mas com muito pouco é possível facilitar a vida com ele. Vamos à um exemplo:
+Se aprofundar em bash é um tópico a parte, mas com muito pouco é possível facilitar a vida com ele. No exemplo abaixo, eu vou criar um comando chamado journal, onde eu abro o meu caderno de anotações diário. Caso eu não tenha criado um novo arquivo para o dia de hoje, eu crio ele e abro no meu editor de texto. Caso o arquivo já exista, eu apenas o abro no editor.
+
+```bash
+#!/bin/bash
+
+# Defino o nome do meu arquivo do dia.
+# Eu uso o comando date para pegar consultar o dia de hoje.
+name=day-$(date +%Y-%m-%d)
+
+# Defino o caminho completo do arquivo.
+# Eu uso a variável global $HOME para declarar o caminho do meu home.
+file="$HOME/$name.txt"
+
+# Caso o arquivo nesse caminho não exista, eu o crio.
+[ ! -f "$file" ] && touch $file
+
+# Abro o arquivo no editor vim
+vim $file
+
+```
 
 ## Não tenha medo do terminal (e dicas pra facilitar a vida)
+
+Em conclusão
 
 - Não é dificil, é diferente
 - TUI não precisa ser feio
