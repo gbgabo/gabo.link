@@ -153,10 +153,9 @@ export const footerData = {
     { ariaLabel: 'Mail', icon: 'tabler:mail', href: 'mailto:contact@gabo.link' },
     { ariaLabel: 'RSS', icon: 'tabler:rss', href: getAsset('/rss.xml') },
   ],
-  // footNote: `
-  //   <span class="w-5 h-5 md:w-6 md:h-6 md:-mt-0.5 bg-cover mr-1.5 float-left rounded-sm bg-[url(https://onwidget.com/favicon/favicon-32x32.png)]"></span>
-  //   Made by <a class="text-blue-600 hover:underline dark:text-gray-200" href="https://onwidget.com/"> onWidget</a> · All rights reserved.
-  // `,
+  footNote: `
+    Dark <span class="dark:hidden">(and maybe light?)</span> theme based on <a class="hover:underline font-bold text-pink" href="https://wildberries.style/"><span class="w-5 h-5 md:w-6 md:h-6 bg-cover inline-block align-bottom rounded-sm mr-1 bg-[url(https://wildberries.style/img/ui/wb_logo.svg)]"></span>Wildberries</a>
+  `,
 };
 
 export const categoryData = {

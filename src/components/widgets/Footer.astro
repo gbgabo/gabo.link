@@ -27,20 +27,20 @@ const { socialLinks = [], secondaryLinks = [], links = [], footNote = '', theme 
 ---
 
 <footer class:list={[{ dark: theme === 'dark' }, 'relative border-t border-gray-200 dark:border-slate-800']}>
-  <div class="dark:bg-dark absolute inset-0 pointer-events-none" aria-hidden="true"></div>
-  <div class="relative max-w-7xl mx-auto px-4 sm:px-6 dark:text-slate-300">
-    <div class="flex items-center justify-center py-8 mb-6">
+  <div class="dark:bg-dark pointer-events-none absolute inset-0" aria-hidden="true"></div>
+  <div class="relative mx-auto max-w-7xl px-4 dark:text-slate-300 sm:px-6">
+    <div class="mb-12 flex flex-col items-center justify-center py-8">
       {
         socialLinks?.length ? (
-          <ul class="flex mb-4">
+          <ul class="mb-4 flex">
             {socialLinks.map(({ ariaLabel, href, text, icon }) => (
               <li>
                 <a
-                  class="text-light-purple hover:bg-gray-100 dark:hover:bg-dark-purple focus:outline-none focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 rounded-lg text-sm p-2.5 inline-flex items-center"
+                  class="inline-flex items-center rounded-lg p-2.5 text-sm text-light-purple hover:bg-gray-100 focus:outline-none focus:ring-4 focus:ring-gray-200 dark:hover:bg-dark-purple dark:focus:ring-gray-700"
                   aria-label={ariaLabel}
                   href={href}
                 >
-                  {icon && <Icon name={icon} class="w-6 h-6" />}
+                  {icon && <Icon name={icon} class="h-6 w-6" />}
                   <Fragment set:html={text} />
                 </a>
               </li>
@@ -52,7 +52,7 @@ const { socialLinks = [], secondaryLinks = [], links = [], footNote = '', theme 
       }
       {
         footNote && (
-          <div class="text-sm mr-4 dark:text-slate-400">
+          <div class="text-center text-sm">
             <Fragment set:html={footNote} />
           </div>
         )
