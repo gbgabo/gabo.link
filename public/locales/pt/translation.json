@@ -1,0 +1,17 @@
+{
+  "site": {
+    "title": "My awesome website!",
+    "description": "Here is the description of my awesome website!",
+    "projects": "/projetos",
+    "about": "/sobre",
+    "lists": "/listas",
+    "articles": "/artigos"
+  },
+  "home": {
+    "title": "Bem vindo(a) ao meu canto da web",
+    "subtitle": "Olá! Me chamo Gabo e sou um desenvolvedor Front-end",
+    "cta1": "Leia o blog",
+    "cta2": "Sobre mim",
+    "allPosts": "Ver todos os posts"
+  }
+}

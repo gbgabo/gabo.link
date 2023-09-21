@@ -69,17 +69,17 @@ export const headerData = {
       href: getBlogPermalink(),
       links: [
         {
-          text: '/articles',
+          text: 'site.articles',
           href: getPermalink('articles', 'category'),
         },
         {
-          text: '/lists',
+          text: 'site.lists',
           href: getPermalink('lists', 'category'),
         },
       ],
     },
     {
-      text: '/projects',
+      text: 'site.projects',
       href: getPermalink('projects', 'page'),
     },
     // {
@@ -87,7 +87,7 @@ export const headerData = {
     //   href: getBlogPermalink('uses', 'page'),
     // },
     {
-      text: '/about',
+      text: 'site.about',
       href: getPermalink('about', 'page'),
     },
   ],
