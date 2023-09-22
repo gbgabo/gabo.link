@@ -21,9 +21,9 @@
     "title": "Sou um desenvolvedor intrigado pela tecnologia moldando a sociedade",
     "subtitle": "Sou um desenvolvedor Front-End do Brasil, trabalhando com Laravel e estudando frameworks full-stack como Next.js. Experiência em React e Typescript. Grande Fan de frameworks SSG como Astro.",
     "skillsHeader": "Habilidades",
-    "skillsCta": "Veja meus projetos",
+    "skillsCta": "Veja meus /projetos",
     "topicsHeader": "Fale comigo sobre",
-    "topicsCta": "Veja meus posts de blog",
+    "topicsCta": "Acesse o /blog",
     "topics": {
       "foss": {
         "title": "Software Livre e Código aberto",
