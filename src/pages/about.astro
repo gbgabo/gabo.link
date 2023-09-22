@@ -4,7 +4,7 @@ import Headline from '~/components/blog/Headline.astro';
 
 import { Picture } from '@astrojs/image/components';
 import { Icon } from 'astro-icon';
-import { getAsset } from '~/utils/permalinks';
+import { getAsset, getPermalink } from '~/utils/permalinks';
 import ExternalLink from '~/components/blog/content/ExternalLink.astro';
 import i18next, { t } from 'i18next';
 
@@ -173,7 +173,7 @@ const links = [
           {t('about.usesHeader')}
         </h2>
         <div class="my-8 grid items-stretch gap-6 dark:text-white sm:grid-cols-1 md:grid-cols-2">
-          <a href="/uses">
+          <a href={getPermalink('uses')}>
             <div
               class="relative flex h-full flex-col rounded border border-transparent bg-white p-6 shadow-lg transition hover:shadow-md dark:border-cherry dark:bg-dark-purple"
             >

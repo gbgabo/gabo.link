@@ -34,7 +34,7 @@ const category = categoryData[post.category]
         'absolute -bottom-3 left-2 z-10 flex w-fit items-center rounded-lg p-1 pr-3 text-sm capitalize shadow-lg',
         category.classes.filled,
       ]}
-      href={`/category/${post.category}`}
+      href={getPermalink(post.category, 'category')}
     >
       <Icon class="mr-1 h-6 w-6 py-1" name={category.icon} />
       <>{t(`categories.${post.category}`)}</>
