@@ -13,5 +13,46 @@
     "cta1": "Read the blog",
     "cta2": "About Me",
     "allPosts": "View all posts"
+  },
+  "about": {
+    "title": "I'm a developer intrigued by technology shaping society",
+    "subtitle": "I'm a Front-End Developer from Brazil, working with Laravel and studying current full-stack frameworks like Next.js. Experience with React and Typescript. Big fan of SSG frameworks such as Astro.",
+    "skillsHeader": "Skills",
+    "skillsCta": "See my projects",
+    "topicsHeader": "Chat with me about",
+    "topicsCta": "See my blog posts",
+    "topics": {
+      "foss": {
+        "title": "Free and Open Source Software",
+        "description": "The power that moves the modern world is made with free software available to build better tools. I'm an evangelist of free software and love to talk and promote it's benefits to developers and users."
+      },
+      "ricing": {
+        "title": "Linux Ricing",
+        "description": "The term refers to the process of customize a linux enviroment to a more productive or simply aesthetically pleasing setup. There is a plethora of tools the community is constantly sharing, and you have no idea how different and personal your system can be to fit your needs. Check out my <a class='underline text-acid-green' href='#what-i-use'>dotfiles</a>."
+      },
+      "webdev": {
+        "title": "Tecnologias de desenvolvimento web",
+        "description": "There is no surprise in web development being bombarded by new frameworks and tools. Beyond just hype, there is real innovation and problems being solved by interesting new approaches."
+      },
+      "content": {
+        "title": "Cool content on the internet",
+        "description": "The internet is full of people creating amazing stuff from videos, podcasts and art in general. In my <a class='underline text-acid-green' href='/category/lists'>blog lists</a> you may find interesting content I compile from the sites I surf."
+      }
+    },
+    "usesHeader": "What I use",
+    "uses": {
+      "uses": {
+        "title": "/uses",
+        "description": "A list of the software I use on the daily basis"
+      },
+      "dotfiles": {
+        "title": "/dotfiles",
+        "description": "The files to reproduce my linux setup"
+      }
+    }
+  },
+  "categories": {
+    "articles": "artigos",
+    "lists": "listas"
   }
 }

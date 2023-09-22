@@ -4,8 +4,8 @@
     "description": "Here is the description of my awesome website!",
     "projects": "/projetos",
     "about": "/sobre",
-    "lists": "/listas",
-    "articles": "/artigos"
+    "articles": "/artigos",
+    "lists": "/listas"
   },
   "home": {
     "title": "Bem vindo(a) ao meu canto da web",
@@ -13,5 +13,46 @@
     "cta1": "Leia o blog",
     "cta2": "Sobre mim",
     "allPosts": "Ver todos os posts"
+  },
+  "about": {
+    "title": "Sou um desenvolvedor intrigado pela tecnologia moldando a sociedade",
+    "subtitle": "Sou um desenvolvedor Front-End do Brasil, trabalhando com Laravel e estudando frameworks full-stack como Next.js. Experiência em React e Typescript. Grande Fan de frameworks SSG como Astro.",
+    "skillsHeader": "Habilidades",
+    "skillsCta": "Veja meus projetos",
+    "topicsHeader": "Fale comigo sobre",
+    "topicsCta": "Veja meus posts de blog",
+    "topics": {
+      "foss": {
+        "title": "Software Livre e Código aberto",
+        "description": "O poder que move o mundo moderno é feito por software livre disponível para a construção de ferramentas melhores. Sou um evangelista do software livre e amo falar e promover seus benefícios para desenvolvedores e usuários"
+      },
+      "ricing": {
+        "title": "Linux Ricing",
+        "description": "O termo se refere ao processo de customizar um ambiente linux em um setup mais produtivo, ou simplesmente mais agradável visualmente. Há uma gama de ferramentas que a comunidade constantemente compartilha, e você não tem ideia quão diferente o seu sistema pessoal pode ser para servir as suas necessidades. Dê uma olhada nos meus <a class='underline text-acid-green' href='#what-i-use'>dotfiles</a>"
+      },
+      "webdev": {
+        "title": "Tecnologias de desenvolvimento web",
+        "description": "Não há surpresa que o mundo do desenvolvimento web é bombardeado por novos frameworks e ferramentas. Além de apenas hype, há reais inovações e problemas sendo resolvidos por novas abordagens interessantes."
+      },
+      "content": {
+        "title": "Conteúdo legal na internet",
+        "description": "A internet é cheia de pessoas criando coisas, de vídeos, podcasts e arte no geral. Nas <a class='underline text-acid-green' href='/category/lists'>listas do blog</a>, vocẽ pode achar conteúdos interessantes que eu compilo dos sites que eu surfo."
+      }
+    },
+    "usesHeader": "O que eu uso",
+    "uses": {
+      "uses": {
+        "title": "/uses",
+        "description": "Uma lista de softwares que eu uso no dia a dia"
+      },
+      "dotfiles": {
+        "title": "/dotfiles",
+        "description": "Os arquivos para reproduzir meu setup linux"
+      }
+    }
+  },
+  "categories": {
+    "articles": "artigos",
+    "lists": "listas"
   }
 }
