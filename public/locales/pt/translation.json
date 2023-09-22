@@ -5,7 +5,10 @@
     "projects": "/projetos",
     "about": "/sobre",
     "articles": "/artigos",
-    "lists": "/listas"
+    "lists": "/listas",
+    "footer": {
+      "footNote": "Tema escuro <span class='dark:hidden'>(e claro, talvez?)</span> baseado no <a class='hover:underline font-bold text-pink' href='https://wildberries.style/''><span class='w-5 h-5 md:w-6 md:h-6 bg-cover inline-block align-bottom rounded-sm mr-1 bg-[url(https://wildberries.style/img/ui/wb_logo.svg)]'></span>Wildberries</a>"
+    }
   },
   "home": {
     "title": "Bem vindo(a) ao meu canto da web",
