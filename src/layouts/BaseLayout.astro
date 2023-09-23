@@ -6,23 +6,25 @@ import BasicScripts from '~/components/common/BasicScripts.astro';
 
 import { MetaSEO } from '~/types';
 import { SITE } from '~/config.mjs';
+import { getAsset } from '~/utils/permalinks';
+import i18next from 'i18next';
 
 export interface Props {
   meta?: MetaSEO;
 }
 
 const { meta = {} } = Astro.props;
-const { language = 'en', textDirection = 'ltr' } = SITE;
+const { textDirection = 'ltr' } = SITE;
 ---
 
-<!DOCTYPE html>
-<html lang={language} dir={textDirection} class="2xl:text-[20px]">
+<!doctype html>
+<html lang={i18next.language} dir={textDirection} class="2xl:text-[20px]">
   <head>
     <MetaTags {...meta} />
-    <link href="prism.css" rel="stylesheet" />
+    <link href={getAsset('prism.css')} rel="stylesheet" />
   </head>
 
-  <body class="antialiased text-page bg-light dark:text-slate-300 tracking-tight dark:bg-dark">
+  <body class="text-page bg-light dark:bg-dark tracking-tight antialiased dark:text-slate-300">
     <slot />
     <BasicScripts />
     <style is:global>

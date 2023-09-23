@@ -66,21 +66,21 @@ export const headerData = {
   links: [
     {
       text: '/blog',
-      href: getBlogPermalink(),
+      href: ['blog', 'page'],
       links: [
         {
           text: 'site.articles',
-          href: getPermalink('articles', 'category'),
+          href: ['articles', 'category'],
         },
         {
           text: 'site.lists',
-          href: getPermalink('lists', 'category'),
+          href: ['lists', 'category'],
         },
       ],
     },
     {
       text: 'site.projects',
-      href: getPermalink('projects', 'page'),
+      href: ['projects', 'page'],
     },
     // {
     //   text: '/uses',
@@ -88,7 +88,7 @@ export const headerData = {
     // },
     {
       text: 'site.about',
-      href: getPermalink('about', 'page'),
+      href: ['about', 'page'],
     },
   ],
 };

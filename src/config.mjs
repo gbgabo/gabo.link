@@ -5,7 +5,7 @@ const CONFIG = {
   name: "Gabo's Link",
 
   origin: 'https://gabo.link',
-  basePathname: i18next.language + '/',
+  basePathname: '/',
   trailingSlash: false,
 
   title: "Gabo's Link",
@@ -14,7 +14,6 @@ const CONFIG = {
 
   defaultTheme: 'dark', // Values: "system" | "light" | "dark" | "light:only" | "dark:only"
 
-  language: i18next.language,
   textDirection: 'ltr',
 
   dateFormatter: new Intl.DateTimeFormat('en', {
