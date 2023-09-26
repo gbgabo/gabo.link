@@ -7,7 +7,7 @@
     "articles": "/artigos",
     "lists": "/listas",
     "footer": {
-      "footNote": "Tema escuro <span class='dark:hidden'>(e claro, talvez?)</span> baseado no <a class='hover:underline font-bold text-pink' href='https://wildberries.style/''><span class='w-5 h-5 md:w-6 md:h-6 bg-cover inline-block align-bottom rounded-sm mr-1 bg-[url(https://wildberries.style/img/ui/wb_logo.svg)]'></span>Wildberries</a>"
+      "footNote": "Tema escuro <span class='dark:hidden'>(e claro?)</span> baseado no <a class='hover:underline font-bold text-pink' href='https://wildberries.style/''><span class='w-5 h-5 md:w-6 md:h-6 bg-cover inline-block align-bottom rounded-sm mr-1 bg-[url(https://wildberries.style/img/ui/wb_logo.svg)]'></span>Wildberries</a>"
     }
   },
   "home": {
@@ -21,9 +21,9 @@
     "title": "Sou um desenvolvedor intrigado pela tecnologia moldando a sociedade",
     "subtitle": "Sou um desenvolvedor Front-End do Brasil, trabalhando com Laravel e estudando frameworks full-stack como Next.js. Experiência em React e Typescript. Grande Fan de frameworks SSG como Astro.",
     "skillsHeader": "Habilidades",
-    "skillsCta": "Veja meus /projetos",
+    "skillsCta": "Veja meus projetos",
     "topicsHeader": "Fale comigo sobre",
-    "topicsCta": "Acesse o /blog",
+    "topicsCta": "Acesse o blog",
     "topics": {
       "foss": {
         "title": "Software Livre e Código aberto",
@@ -51,6 +51,33 @@
       "dotfiles": {
         "title": "/dotfiles",
         "description": "Os arquivos para reproduzir meu setup linux"
+      }
+    }
+  },
+  "projects": {
+    "title": "Projetos",
+    "ctaAbout": "Conheça o projeto",
+    "ctaVisit": "Acesse",
+    "items": {
+      "blog": {
+        "title": "Blog Pessoal gabo.link",
+        "description": "É este exato site. É um fork de um template em Astro + Tailwind chamado Astrowind. É agora implementado com funcionalidades extras como navegação por baixo, suporte otimizado para YT iframes, sumário em posts e internacionalização"
+      },
+      "wash": {
+        "title": "Laundry Symbols",
+        "description": "Uma página que lista os simbolos de lavagem encontradas em todas as roupas, indicando as sugestões da fabricante para lavagem, secagem, lavagem a seco e passagem"
+      },
+      "wildberries": {
+        "title": "Homepage Tema Wildberries",
+        "description": "Wildberries é um tema roxo escuro, com destaques brilhantes, quase numa pegada cyberpunk"
+      },
+      "tinytools": {
+        "title": "Tinytools",
+        "description": "Um suite de pequenos scripts escritos em SHELL que eu e o @calebe94 mantemos. Nossos pequenos projetos são pensados para melhorar sua produtividade de um jeito simples"
+      },
+      "linky": {
+        "title": "Linky",
+        "description": "Minha primeira aplicação em React. Um projeto com o intúito de criar um editor de agregador de link, inspirado no linktree"
       }
     }
   },

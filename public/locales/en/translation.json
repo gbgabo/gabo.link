@@ -54,6 +54,33 @@
       }
     }
   },
+  "projects": {
+    "title": "Projects",
+    "ctaAbout": "About the project",
+    "ctaVisit": "Access",
+    "items": {
+      "blog": {
+        "title": "gabo.link Personal Blog",
+        "description": "It's this very website. It's a fork of an Astro + Tailwind template called Astrowind. It's now implemennted with extra features such as bottom navigation, better handling of YT iframes, table of contents on posts, and internationalization"
+      },
+      "wash": {
+        "title": "Laundry Symbols",
+        "description": "A page that lists most of the so called laundry symbols found on every clothing, indicating the manufacturer's suggestions as to methods of washing, drying, dry-cleaning and ironing clothing"
+      },
+      "wildberries": {
+        "title": "Homepage Tema Wildberries",
+        "description": "Wildberries is a purple dark theme, with additional bright accents, almost in a cyberpunkish way"
+      },
+      "tinytools": {
+        "title": "Tinytools",
+        "description": "A suite of tiny scripts written in SHELL me and @calebe94 maintain. Our projects are designed to improve your productivity in a simple way"
+      },
+      "linky": {
+        "title": "Linky",
+        "description": "My first react website. A project with the purpose to create a link and style editor inspired by linktree"
+      }
+    }
+  },
   "categories": {
     "articles": "articles",
     "lists": "lists"
