@@ -5,6 +5,7 @@ import Hero from '~/components/widgets/Hero.astro';
 import LatestPosts from '~/components/blog/LatestPosts.astro';
 import Web from '~/components/WebBackground.astro';
 import i18next, { t } from 'i18next';
+import { localizePath } from 'astro-i18next';
 
 const meta = {
   title: SITE.title,
@@ -14,7 +15,10 @@ const meta = {
 ---
 
 <Layout {meta} home>
-  <Hero callToAction={{ text: t('home.cta1'), href: '#blog' }} callToAction2={{ text: t('home.cta2'), href: '/about' }}>
+  <Hero
+    callToAction={{ text: t('home.cta1'), href: '#blog' }}
+    callToAction2={{ text: t('home.cta2'), href: localizePath('/about') }}
+  >
     <Fragment slot="background"><Web /></Fragment>
     <Fragment slot="title">{t('home.title')}</Fragment>
     <Fragment slot="subtitle">{t('home.subtitle')}</Fragment>
