@@ -35,7 +35,7 @@ const projects = [
     description: 'projects.items.tinytools.description',
     technologies: ['Bash', 'Linux'],
     link: 'https://tinytoolsh.github.io/',
-    linkText: 'project.ctaAbout',
+    linkText: 'projects.ctaAbout',
   },
   {
     title: 'projects.items.linky.title',
@@ -93,7 +93,7 @@ const meta = {
                 <PostTags class="mt-4 text-sm" enableLink={false} tags={project.technologies} />
                 {project.link && (
                   <ExternalLink class="mt-4 font-bold" href={project.link}>
-                    {project.linkText ? project.linkText : t('projects.ctaVisit')}
+                    {project.linkText ? t(project.linkText) : t('projects.ctaVisit')}
                   </ExternalLink>
                 )}
               </div>
