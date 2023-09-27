@@ -82,6 +82,7 @@
     }
   },
   "categories": {
+    "title": "Categoria",
     "articles": "artigos",
     "lists": "listas"
   }
