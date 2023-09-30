@@ -1,0 +1,34 @@
+---
+import Headline from '~/components/blog/Headline.astro';
+import Bento from '~/components/widgets/Bento.astro';
+import { Picture } from '@astrojs/image/components';
+import { bentoGrids } from '~/data';
+import PageLayout from '~/layouts/PageLayout.astro';
+import i18next, { t } from 'i18next';
+---
+
+<PageLayout>
+  <div
+    class="prose-md prose-headings:leading-tighter prose
+            prose-lg mx-auto
+            my-8 max-w-3xl
+            px-6 dark:prose-invert prose-headings:font-heading prose-headings:font-bold prose-headings:tracking-tighter
+            prose-a:text-primary prose-img:rounded-md
+            prose-img:shadow-lg dark:prose-headings:text-slate-300
+            dark:prose-a:text-blue-400"
+  >
+    <Headline subtitle={t('uses.subtitle')}>/uses</Headline>
+    <Picture
+      class="mx-auto w-full rounded-md"
+      widths={[400, 768, 1024, 2040]}
+      sizes="(max-width: 767px) 400px, (max-width: 1023px) 768px, (max-width: 2039px) 1024px, 2040px"
+      aspectRatio={16 / 9}
+      loading="eager"
+      src={import('~/assets/images/dotfiles.png')}
+      alt="screenshot"
+    />
+
+    <p set:html={t('uses.content')} />
+  </div>
+  <Bento blocks={bentoGrids.uses} />
+</PageLayout>

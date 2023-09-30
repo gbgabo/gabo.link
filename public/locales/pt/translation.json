@@ -81,6 +81,10 @@
       }
     }
   },
+  "uses": {
+    "subtitle": "Uma lista de softwares e ferramentas que eu uso como setup diário",
+    "content": "Hoje em dia temos acesso à ferramentas que permitem jeitos novos e melhores de criar, interagir e experienciar o mundo real e digital. O nível de poder que os softwares atuais oferecem fazem com que ser criativo e produtivo possa ser uma questão de dominar as ferramentas disponiveis agora. Essa página foi criada para mostrar as ferramentas que eu uso para programar, anotar e tudo incluso em um setup confortável de um desenvolvedor web. Ela é inspirada na <a href='https://uses.tech/'>uses.tech</a>, um site criado pelo <a href='https://github.com/wesbos/awesome-uses'>Wes Bos</a> que visa agregar páginas, como essa, de várias pessoas e assim incentivar desenvolvedores e criadores para compartilhar suas configurações caixas de ferramentas do dia a dia."
+  },
   "categories": {
     "title": "Categoria",
     "articles": "artigos",
