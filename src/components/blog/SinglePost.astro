@@ -9,6 +9,8 @@ import { getPermalink } from '~/utils/permalinks';
 import { getFormattedDate } from '~/utils/utils';
 import { categoryData } from '~/data';
 
+import i18next, { t } from 'i18next';
+
 import type { Post } from '~/types';
 
 export interface Props {
@@ -19,37 +21,37 @@ export interface Props {
 const { post, url } = Astro.props;
 ---
 
-<section class="py-8 sm:py-16 lg:py-20 mx-auto">
+<section class="mx-auto py-8 sm:py-16 lg:py-20">
   <article>
     <header class={post.image ? '' : ''}>
-      <div class="flex justify-between flex-col sm:flex-row max-w-3xl mx-auto mt-0 mb-2 px-4 sm:px-6 sm:items-center">
+      <div class="mx-auto mb-2 mt-0 flex max-w-3xl flex-col justify-between px-4 sm:flex-row sm:items-center sm:px-6">
         {
           post.category && (
             <p>
               <a
-                class:list={['capitalize font-bold hover:underline', categoryData[post.category].classes.outline]}
+                class:list={['font-bold capitalize hover:underline', categoryData[post.category].classes.outline]}
                 href={getPermalink(post.category, 'category')}
               >
-                {post.category.replaceAll('-', ' ')}
+                {t(`categories.${post.category}`)}
               </a>
             </p>
           )
         }
       </div>
       <h1
-        class="px-4 sm:px-6 max-w-3xl mx-auto text-4xl md:text-5xl font-bold leading-tighter tracking-tighter font-heading"
+        class="leading-tighter mx-auto max-w-3xl px-4 font-heading text-4xl font-bold tracking-tighter sm:px-6 md:text-5xl"
       >
         {post.title}
       </h1>
-      <p class="max-w-3xl mx-auto my-4 px-4 sm:px-6 text-xl md:text-2xl text-muted dark:text-slate-400 text-justify">
+      <p class="text-muted mx-auto my-4 max-w-3xl px-4 text-justify text-xl dark:text-slate-400 sm:px-6 md:text-2xl">
         {post.excerpt}
       </p>
-      <PostTags tags={post.tags} class="px-4 sm:px-6 mb-6 max-w-3xl mx-auto" />
+      <PostTags tags={post.tags} class="mx-auto mb-6 max-w-3xl px-4 sm:px-6" />
       {
         post.image ? (
           <Picture
             src={post.image}
-            class="max-w-full lg:max-w-6xl mx-auto mb-6 sm:rounded-md bg-gray-400 dark:bg-slate-700"
+            class="mx-auto mb-6 max-w-full bg-gray-400 dark:bg-slate-700 sm:rounded-md lg:max-w-6xl"
             widths={[400, 900]}
             sizes="(max-width: 900px) 400px, 900px"
             alt={post.description || ''}
@@ -62,16 +64,16 @@ const { post, url } = Astro.props;
             background={undefined}
           />
         ) : (
-          <div class="max-w-3xl mx-auto px-4 sm:px-6">
+          <div class="mx-auto max-w-3xl px-4 sm:px-6">
             <div class="border-t dark:border-slate-700" />
           </div>
         )
       }
-      <div class="flex justify-between flex-col sm:flex-row max-w-3xl mx-auto mt-0 mb-2 px-4 sm:px-6 sm:items-center">
+      <div class="mx-auto mb-2 mt-0 flex max-w-3xl flex-col justify-between px-4 sm:flex-row sm:items-center sm:px-6">
         <p>
-          <Icon name="tabler:clock" class="w-4 h-4 inline-block -mt-0.5 dark:text-gray-400" />
+          <Icon name="tabler:clock" class="-mt-0.5 inline-block h-4 w-4 dark:text-gray-400" />
           <time datetime={String(post.publishDate)}>{getFormattedDate(post.publishDate)}</time>
-          {post.readingTime && <> · {post.readingTime} min read</>}
+          {post.readingTime && <> · {`${post.readingTime} ${t('post.readingTime')}`}</>}
         </p>
       </div>
     </header>
@@ -88,17 +90,17 @@ const { post, url } = Astro.props;
     >
       {
         post.headings.length > 0 && (
-          <div class="not-prose fixed z-10 bottom-24 right-3 md:sticky md:top-24">
+          <div class="not-prose fixed bottom-24 right-3 z-10 md:sticky md:top-24">
             <button
-              class="my-0 z-10 fixed md:sticky bottom-20 rounded-[14px] h-fit right-3 shadow-md md:w-fit md:mx-auto md:mb-2 md:flex items-center md:p-2 bg-grape text-white dark:bg-cherry dark:text-acid-green"
+              class="fixed bottom-20 right-3 z-10 my-0 h-fit items-center rounded-[14px] bg-grape text-white shadow-md dark:bg-cherry dark:text-acid-green md:sticky md:mx-auto md:mb-2 md:flex md:w-fit md:p-2"
               data-aw-toggle-toc
               aria-label="Table of content"
             >
-              <Icon class="h-12 w-12 md:h-10 md:w-10 p-2" name="tabler:list" />
-              <p class="hidden md:block m-0 mx-2">Table of content</p>
+              <Icon class="h-12 w-12 p-2 md:h-10 md:w-10" name="tabler:list" />
+              <p class="m-0 mx-2 hidden md:block">{t('post.toc')}</p>
             </button>
-            <nav class="hidden not-prose">
-              <ul class="border-2 border-dark-purple dark:border-cherry shadow-md text-darker-purple dark:text-acid-green fixed md:sticky rounded-md max-h-96 md:h-fit w-full overscroll-contain overflow-auto animate-fade-up bottom-24 left-0 md:backdrop-blur-sm bg-pastel-purple dark:bg-darker-purple p-5">
+            <nav class="not-prose hidden">
+              <ul class="fixed bottom-24 left-0 max-h-96 w-full animate-fade-up overflow-auto overscroll-contain rounded-md border-2 border-dark-purple bg-pastel-purple p-5 text-darker-purple shadow-md dark:border-cherry dark:bg-darker-purple dark:text-acid-green md:sticky md:h-fit md:backdrop-blur-sm">
                 {post.headings.map(({ slug, text, depth }) => (
                   <li class="px-3 py-1">
                     <a class="" href={`#${slug}`}>
@@ -126,8 +128,8 @@ const { post, url } = Astro.props;
         )
       }
     </div>
-    <div class="mx-auto px-6 sm:px-6 max-w-3xl mt-8 flex justify-between flex-col sm:flex-row">
-      <SocialShare url={url} text={post.title} class="mt-5 sm:mt-1 align-middle text-gray-500 dark:text-light-purple" />
+    <div class="mx-auto mt-8 flex max-w-3xl flex-col justify-between px-6 sm:flex-row sm:px-6">
+      <SocialShare url={url} text={post.title} class="mt-5 align-middle text-gray-500 dark:text-light-purple sm:mt-1" />
     </div>
   </article>
 </section>
