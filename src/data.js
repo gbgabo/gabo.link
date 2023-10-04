@@ -66,29 +66,29 @@ export const headerData = {
   links: [
     {
       text: '/blog',
-      href: getBlogPermalink(),
+      href: ['blog', 'page'],
       links: [
         {
-          text: '/articles',
-          href: getPermalink('articles', 'category'),
+          text: 'site.articles',
+          href: ['articles', 'category'],
         },
         {
-          text: '/lists',
-          href: getPermalink('lists', 'category'),
+          text: 'site.lists',
+          href: ['lists', 'category'],
         },
       ],
     },
     {
-      text: '/projects',
-      href: getPermalink('projects', 'page'),
+      text: 'site.projects',
+      href: ['projects', 'page'],
     },
     // {
     //   text: '/uses',
     //   href: getBlogPermalink('uses', 'page'),
     // },
     {
-      text: '/about',
-      href: getPermalink('about', 'page'),
+      text: 'site.about',
+      href: ['about', 'page'],
     },
   ],
 };
@@ -153,9 +153,7 @@ export const footerData = {
     { ariaLabel: 'Mail', icon: 'tabler:mail', href: 'mailto:contact@gabo.link' },
     { ariaLabel: 'RSS', icon: 'tabler:rss', href: getAsset('/rss.xml') },
   ],
-  footNote: `
-    Dark <span class="dark:hidden">(and maybe light?)</span> theme based on <a class="hover:underline font-bold text-pink" href="https://wildberries.style/"><span class="w-5 h-5 md:w-6 md:h-6 bg-cover inline-block align-bottom rounded-sm mr-1 bg-[url(https://wildberries.style/img/ui/wb_logo.svg)]"></span>Wildberries</a>
-  `,
+  footNote: 'site.footer.footNote',
 };
 
 export const categoryData = {

@@ -4,8 +4,9 @@ import Headline from '~/components/blog/Headline.astro';
 
 import { Picture } from '@astrojs/image/components';
 import { Icon } from 'astro-icon';
-import { getAsset } from '~/utils/permalinks';
+import { getAsset, getPermalink } from '~/utils/permalinks';
 import ExternalLink from '~/components/blog/content/ExternalLink.astro';
+import i18next, { t } from 'i18next';
 
 const meta = {
   title: 'About',
@@ -14,26 +15,23 @@ const meta = {
 
 const topics = [
   {
-    title: 'Free and Open Source Software',
-    description:
-      "The power that moves the modern world is made with free software available to build better tools. I'm an evangelist of free software and love to talk and promote it's benefits to developers and users.",
+    title: 'about.topics.foss.title',
+    description: 'about.topics.foss.description',
     icon: 'ph:hand-fist-bold',
   },
   {
-    title: 'Linux Ricing',
-    description:
-      'The term refers to the process of customize a linux enviroment to a more productive or simply aesthetically pleasing setup. There is a plethora of tools the community is constantly sharing, and you have no idea how different and personal your system can be to fit your needs. Check out my <a class="underline text-acid-green" href="#what-i-use">dotfiles</a>.',
+    title: 'about.topics.ricing.title',
+    description: 'about.topics.ricing.description',
     icon: 'mdi:linux',
   },
   {
-    title: 'Web development technologies',
-    description:
-      'There is no surprise in web development being bombarded by new frameworks and tools. Beyond just hype, there is real innovation and problems being solved by interesting new approaches.',
+    title: 'about.topics.webdev.title',
+    description: 'about.topics.webdev.description',
     icon: 'ic:round-code',
   },
   {
-    title: 'Cool content on the internet',
-    description: `The internet is full of people creating amazing stuff from videos, podcasts and art in general. In my <a class="underline text-acid-green" href="/category/lists">blog lists</a> you may find interesting content I compile from the sites I surf.`,
+    title: 'about.topics.content.title',
+    description: 'about.topics.content.description',
     icon: 'mdi:web',
   },
 ];
@@ -83,7 +81,7 @@ const skills = [
 
 const links = [
   {
-    title: 'Resume',
+    title: t('about.cv'),
     href: getAsset('/gabriel-gaboardi.pdf'),
     icon: 'mdi:language-javascript',
   },
@@ -107,7 +105,7 @@ const links = [
 
 <Layout {meta}>
   <Picture
-    class="mx-auto rounded-md w-full max-w-4xl"
+    class="mx-auto w-full max-w-4xl rounded-md"
     widths={[400, 768, 1024, 2040]}
     sizes="(max-width: 767px) 400px, (max-width: 1023px) 768px, (max-width: 2039px) 1024px, 2040px"
     aspectRatio={21 / 9}
@@ -117,102 +115,104 @@ const links = [
     src={import('~/assets/images/about.jpg')}
     alt="screenshot"
   />
-  <div class="px-6 sm:px-6 pt-12 sm:pt-16 md:pb-10 mx-auto max-w-4xl">
-    <Headline>I'm a developer intrigued by technology shaping society</Headline>
-    <p class="text-center text-lg my-8">
-      I'm a Front-End Developer from Brazil, working with Laravel and studying current full-stack frameworks like
-      Next.js. Experience with React and Typescript. Big fan of SSG frameworks such as Astro.
-    </p>
+  <div class="mx-auto max-w-4xl px-6 pt-12 sm:px-6 sm:pt-16 md:pb-10">
+    <Headline>{t('about.title')}</Headline>
+    <p class="my-8 text-center text-lg">{t('about.subtitle')}</p>
   </div>
 
   <div class="grid grid-cols-main">
     <div class="col-start-2 col-end-3 px-6">
       <!-- Skills -->
       <section>
-        <h2 class="text-lg text-primary dark:text-light-purple font-semibold tracking-wide uppercase">Skills</h2>
-        <ul class="grid grid-cols-2 md:grid-cols-3 gap-y-5 gap-x-3 my-8">
+        <h2 class="text-lg font-semibold uppercase tracking-wide text-primary dark:text-light-purple">
+          {t('about.skillsHeader')}
+        </h2>
+        <ul class="my-8 grid grid-cols-2 gap-x-3 gap-y-5 md:grid-cols-3">
           {
             skills.map(({ title, icon }) => {
               return (
                 <li class="inline-flex items-center">
-                  <Icon name={icon} class="w-7 h-7 m-2 text-darker-purple dark:text-light-purple icon-light" />
+                  <Icon name={icon} class="icon-light m-2 h-7 w-7 text-darker-purple dark:text-light-purple" />
                   <p class="ml-2">{title}</p>
                 </li>
               );
             })
           }
         </ul>
-        <ExternalLink class="mb-8" variant="secondary" href="projects">See my projects</ExternalLink>
+        <ExternalLink class="mb-8" variant="secondary" href="projects">{t('about.skillsCta')}</ExternalLink>
       </section>
       <!-- Topics  -->
       <section>
-        <h2 class="text-lg text-primary dark:text-light-purple font-semibold tracking-wide uppercase">
-          Chat with me about
+        <h2 class="text-lg font-semibold uppercase tracking-wide text-primary dark:text-light-purple">
+          {t('about.topicsHeader')}
         </h2>
         <ul>
           {
             topics.map(({ title, description, icon }) => (
               <li>
-                <div class="flex flex-row my-8">
+                <div class="my-8 flex flex-row">
                   <div class="mb-4 mr-5">
-                    <div class="flex items-center justify-center w-12 h-12 rounded-full bg-primary dark:bg-dark-purple">
-                      {icon && <Icon name={icon} class="w-6 h-6 text-acid-green icon-light" />}
+                    <div class="flex h-12 w-12 items-center justify-center rounded-full bg-primary dark:bg-dark-purple">
+                      {icon && <Icon name={icon} class="icon-light h-6 w-6 text-acid-green" />}
                     </div>
                   </div>
                   <div>
-                    <h3 class="mb-3 text-xl font-bold">{title}</h3>
-                    <p class="text-muted dark:text-slate-400" set:html={description} />
+                    <h3 class="mb-3 text-xl font-bold">{t(title)}</h3>
+                    <p class="text-muted dark:text-slate-400" set:html={t(description)} />
                   </div>
                 </div>
               </li>
             ))
           }
         </ul>
-        <ExternalLink class="mb-8" variant="secondary" href="blog">See my blog posts</ExternalLink>
+        <ExternalLink class="mb-8" variant="secondary" href="blog">{t('about.topicsCta')}</ExternalLink>
       </section>
       <!-- What I Use -->
       <section>
-        <h2 id="what-i-use" class="text-lg text-primary dark:text-light-purple font-semibold tracking-wide uppercase">
-          What I use
+        <h2 id="what-i-use" class="text-lg font-semibold uppercase tracking-wide text-primary dark:text-light-purple">
+          {t('about.usesHeader')}
         </h2>
-        <div class="grid gap-6 sm:grid-cols-1 md:grid-cols-2 my-8 dark:text-white items-stretch">
-          <a href="/uses">
+        <div class="my-8 grid items-stretch gap-6 dark:text-white sm:grid-cols-1 md:grid-cols-2">
+          <a href={getPermalink('uses')}>
             <div
-              class="relative flex flex-col p-6 h-full bg-white dark:bg-dark-purple rounded shadow-lg hover:shadow-md transition border border-transparent dark:border-cherry"
+              class="relative flex h-full flex-col rounded border border-transparent bg-white p-6 shadow-lg transition hover:shadow-md dark:border-cherry dark:bg-dark-purple"
             >
               <div class="flex items-center">
-                <Icon name="tabler:app-window" class="w-10 h-10 text-acid-green" />
-                <div class="ml-4 text-xl font-bold">/uses</div>
+                <Icon name="tabler:app-window" class="h-10 w-10 text-acid-green" />
+                <div class="ml-4 text-xl font-bold">{t('about.uses.uses.title')}</div>
               </div>
-              <p class="text-muted dark:text-gray-400 text-md mt-4">A list of the software I use on the daily basis</p>
+              <p class="text-muted text-md mt-4 dark:text-gray-400">{t('about.uses.uses.description')}</p>
             </div>
           </a>
           <a href="https://github.com/gbgabo/dotfiles">
             <div
-              class="relative flex flex-col p-6 h-full bg-white dark:bg-dark-purple rounded shadow-lg hover:shadow-md transition border border-transparent dark:border-cherry"
+              class="relative flex h-full flex-col rounded border border-transparent bg-white p-6 shadow-lg transition hover:shadow-md dark:border-cherry dark:bg-dark-purple"
             >
               <div class="flex items-center">
-                <Icon name="tabler:terminal-2" class="w-10 h-10 text-acid-green" />
+                <Icon name="tabler:terminal-2" class="h-10 w-10 text-acid-green" />
                 <div class="ml-4 text-xl font-bold">
-                  /dotfiles<Icon name={'eva:diagonal-arrow-right-up-fill'} class="inline ml-1 pb-1 w-6 h-6" />
+                  {t('about.uses.dotfiles.title')}<Icon
+                    name={'eva:diagonal-arrow-right-up-fill'}
+                    class="ml-1 inline h-6 w-6 pb-1"
+                  />
                 </div>
               </div>
-              <p class="text-muted dark:text-gray-400 text-md mt-4">The files to reproduce my linux setup</p>
+              <p class="text-muted text-md mt-4 dark:text-gray-400">{t('about.uses.dotfiles.description')}</p>
             </div>
           </a>
         </div>
       </section>
-      <h2 class="text-base md:hidden text-primary dark:text-light-purple font-semibold tracking-wide uppercase">
+      <h2 class="text-base font-semibold uppercase tracking-wide text-primary dark:text-light-purple md:hidden">
         Get in touch!
       </h2>
     </div>
-    <aside class="hidden md:block col-start-2 col-end-3 md:col-span-1">
-      <ul class="md:sticky md:top-28 lg:ml-8 text-acid-green">
+    <aside class="col-start-2 col-end-3 hidden md:col-span-1 md:block">
+      <ul class="text-acid-green md:sticky md:top-28 lg:ml-8">
         {
           links.map(({ href, title }) => {
             return (
-              <li class="bg-grape dark:bg-cherry rounded-md w-fit mr-2 mb-2 py-0.5 px-2 lowercase font-medium">
-                <a class="text-white dark:text-acid-green hover:text-primary dark:hover:text-gray-200" href={href}>
+              <li class="mb-2 mr-2 w-fit rounded-md bg-grape px-2 py-0.5 font-medium lowercase dark:bg-cherry">
+                <a class="text-white hover:text-primary dark:text-acid-green dark:hover:text-gray-200" href={href}>
                   {title}
                 </a>
               </li>
@@ -222,12 +222,12 @@ const links = [
       </ul>
     </aside>
   </div>
-  <ul class="sticky flex md:hidden flex-row flex-wrap bottom-20 md:top-28 mx-6 my-8">
+  <ul class="sticky bottom-20 mx-6 my-8 flex flex-row flex-wrap md:top-28 md:hidden">
     {
       links.map(({ href, title }) => {
         return (
-          <li class="bg-grape dark:bg-cherry rounded-md inline-block mr-2 mb-2 py-0.5 px-2 lowercase font-medium">
-            <a class="text-white dark:text-acid-green hover:text-primary dark:hover:text-gray-200" href={href}>
+          <li class="mb-2 mr-2 inline-block rounded-md bg-grape px-2 py-0.5 font-medium lowercase dark:bg-cherry">
+            <a class="text-white hover:text-primary dark:text-acid-green dark:hover:text-gray-200" href={href}>
               {title}
             </a>
           </li>

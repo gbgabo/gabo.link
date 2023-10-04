@@ -1,18 +1,11 @@
 ---
 import { SITE } from '~/config.mjs';
 import Layout from '~/layouts/PageLayout.astro';
-
 import Hero from '~/components/widgets/Hero.astro';
-import Note from '~/components/widgets/Note.astro';
-import Features from '~/components/widgets/Features.astro';
-import Features2 from '~/components/widgets/Features2.astro';
-import Steps from '~/components/widgets/Steps.astro';
-import Content from '~/components/widgets/Content.astro';
 import LatestPosts from '~/components/blog/LatestPosts.astro';
 import Web from '~/components/WebBackground.astro';
-import FAQs from '~/components/widgets/FAQs.astro';
-import Stats from '~/components/widgets/Stats.astro';
-import CallToAction from '~/components/widgets/CallToAction.astro';
+import i18next, { t } from 'i18next';
+import { localizePath } from 'astro-i18next';
 
 const meta = {
   title: SITE.title,
@@ -22,11 +15,14 @@ const meta = {
 ---
 
 <Layout {meta} home>
-  <Hero callToAction={{ text: 'Read the blog', href: '#blog' }} callToAction2={{ text: 'About me', href: '/about' }}>
+  <Hero
+    callToAction={{ text: t('home.cta1'), href: '#blog' }}
+    callToAction2={{ text: t('home.cta2'), href: localizePath('/about') }}
+  >
     <Fragment slot="background"><Web /></Fragment>
-    <Fragment slot="title">Welcome to my corner on the web</Fragment>
-    <Fragment slot="subtitle">Hey! I'm Gabo and I'm a front-end developer from Brazil</Fragment>
+    <Fragment slot="title">{t('home.title')}</Fragment>
+    <Fragment slot="subtitle">{t('home.subtitle')}</Fragment>
   </Hero>
 
-  <LatestPosts title="Blog" />
+  <LatestPosts title="Blog" allPostsText={t('home.allPosts')} />
 </Layout>

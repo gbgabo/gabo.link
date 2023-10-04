@@ -46,6 +46,7 @@ module.exports = {
       },
     },
   },
+  safelist: ['dark:hidden'],
   plugins: [require('@tailwindcss/typography')],
   darkMode: 'class',
 };

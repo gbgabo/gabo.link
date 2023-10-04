@@ -5,6 +5,7 @@ import Layout from '~/layouts/PageLayout.astro';
 import BlogList from '~/components/blog/List.astro';
 import Headline from '~/components/blog/Headline.astro';
 import Pagination from '~/components/blog/Pagination.astro';
+import i18next, { t } from 'i18next';
 
 import { fetchPosts } from '~/utils/blog';
 import { CATEGORY_BASE } from '~/utils/permalinks';
@@ -34,15 +35,17 @@ const { page, category } = Astro.props;
 
 const currentPage = page.currentPage ?? 1;
 const meta = {
-  title: `Category'${category}' ${currentPage > 1 ? ` — Page ${currentPage}` : ''}`,
+  title: `${t('categories.title')} '${t(`categories.${category.replaceAll('-', ' ')}`)}' ${
+    currentPage > 1 ? ` — Page ${currentPage}` : ''
+  }`,
   description: SITE.description,
   noindex: BLOG?.category?.noindex,
 };
 ---
 
 <Layout meta={meta}>
-  <section class="px-6 sm:px-6 py-12 sm:py-16 lg:py-20 mx-auto max-w-3xl">
-    <Headline><span class="capitalize">{category.replaceAll('-', ' ')}</span></Headline>
+  <section class="mx-auto max-w-3xl px-6 py-12 sm:px-6 sm:py-16 lg:py-20">
+    <Headline><span class="capitalize">{t(`categories.${category.replaceAll('-', ' ')}`)}</span></Headline>
     <BlogList posts={page.data} />
     <Pagination prevUrl={page.url.prev} nextUrl={page.url.next} />
   </section>

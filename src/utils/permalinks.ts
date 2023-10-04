@@ -1,4 +1,5 @@
 import slugify from 'limax';
+import i18next from 'i18next';
 
 import { SITE, BLOG } from '~/config.mjs';
 import { trim } from '~/utils/utils';
@@ -70,4 +71,5 @@ export const getAsset = (path: string): string =>
     .join('/');
 
 /** */
-const definitivePermalink = (permalink: string): string => createPath(BASE_PATHNAME, permalink);
+const definitivePermalink = (permalink: string): string =>
+  createPath((i18next.language === 'en' ? '' : i18next.language) + '/' + BASE_PATHNAME, permalink);

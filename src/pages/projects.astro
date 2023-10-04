@@ -3,46 +3,43 @@ import Layout from '~/layouts/PageLayout.astro';
 import Headline from '~/components/blog/Headline.astro';
 import PostTags from '~/components/blog/Tags.astro';
 import ExternalLink from '~/components/blog/content/ExternalLink.astro';
+import i18next, { t } from 'i18next';
 
 import { Picture } from '@astrojs/image/components';
 
 const projects = [
   {
-    title: 'gabo.link personal blog',
-    description:
-      "It's this very website. It's a fork of an Astro + Tailwind template called Astrowind. It's now implemennted with extra features such as bottom navigation, better handling of YT iframes, optimization of images on md files, and many others",
+    title: 'projects.items.blog.title',
+    description: 'projects.items.blog.description',
     technologies: ['Astro', 'Tailwind', 'Typescript', 'Progressive Enhancent', 'mdx'],
     link: 'https://github.com/gbgabo/gabo.link',
-    linkText: 'Accese o projeto',
+    linkText: 'projects.ctaAbout',
     image: import('~/assets/images/default.png'),
   },
   {
     image: import('~/assets/images/projects/symbols.png'),
-    title: 'Laundry Symbols',
-    description:
-      "A page that lists most of the so called laundry symbols found on every clothing, indicating the manufacturer's suggestions as to methods of washing, drying, dry-cleaning and ironing clothing.",
+    title: 'projects.items.wash.title',
+    description: 'projects.items.wash.description',
     technologies: ['Astro', 'Tailwind', 'Typescript', 'Progressive Enhancement'],
     link: 'https://laundry-symbols.vercel.app/',
   },
   {
     image: import('~/assets/images/projects/wildberries.png'),
-    title: 'Wildberries Theme Homepage',
-    description: 'Wildberries is a purple dark theme, with additional bright accents, almost in a cyberpunkish way. ',
+    title: 'projects.items.wildberries.title',
+    description: 'projects.items.wildberries.description',
     technologies: ['Next.js', 'Typescript', '@vercel/og'],
     link: 'https://wildberries.style/',
   },
   {
-    title: 'Tinytools',
-    description:
-      'A suite of tiny scripts I maintain with <a href="https://github.com/Calebe94">@calebe94</a>. Our projects are designed to improve your productivity in a simple way',
+    title: 'projects.items.tinytools.title',
+    description: 'projects.items.tinytools.description',
     technologies: ['Bash', 'Linux'],
     link: 'https://tinytoolsh.github.io/',
-    linkText: 'Veja mais',
+    linkText: 'projects.ctaAbout',
   },
   {
-    title: 'Linky',
-    description:
-      'My first react website. A project with the purpose to create a link and style editor inspired by linktree',
+    title: 'projects.items.linky.title',
+    description: 'projects.items.linky.description',
     technologies: ['React', 'MUI', 'React Context'],
     link: 'https://linky-gbgabo.vercel.app/edit',
   },
@@ -55,23 +52,23 @@ const meta = {
 ---
 
 <Layout meta={meta}>
-  <section class="px-6 sm:px-6 py-12 sm:py-16 lg:py-20 mx-auto max-w-7xl">
-    <Headline>Projects</Headline>
+  <section class="mx-auto max-w-7xl px-6 py-12 sm:px-6 sm:py-16 lg:py-20">
+    <Headline>{t('projects.title')}</Headline>
 
     <ul>
       {
         projects.map((project) => (
           <li class="mb-12 md:mb-20">
             <div
-              class:list={['max-w-md mx-auto md:max-w-none grid gap-3 md:gap-8', project.image ? 'md:grid-cols-2' : '']}
+              class:list={['mx-auto grid max-w-md gap-3 md:max-w-none md:gap-8', project.image ? 'md:grid-cols-2' : '']}
             >
               {project.image && (
-                <a class="relative block group" href={project.link ?? 'javascript:void(0)'}>
-                  <div class="relative h-0 pb-[56.25%] md:pb-[75%] md:h-72 lg:pb-[56.25%] overflow-hidden bg-gray-400 dark:bg-slate-700 rounded shadow-lg">
+                <a class="group relative block" href={project.link ?? 'javascript:void(0)'}>
+                  <div class="relative h-0 overflow-hidden rounded bg-gray-400 pb-[56.25%] shadow-lg dark:bg-slate-700 md:h-72 md:pb-[75%] lg:pb-[56.25%]">
                     {project.image && (
                       <Picture
                         src={project.image}
-                        class="absolute inset-0 object-cover w-full h-full mb-6 rounded shadow-lg bg-gray-400 dark:bg-slate-700"
+                        class="absolute inset-0 mb-6 h-full w-full rounded bg-gray-400 object-cover shadow-lg dark:bg-slate-700"
                         widths={[400, 900]}
                         sizes="(max-width: 900px) 400px, 900px"
                         alt={project.title}
@@ -84,19 +81,19 @@ const meta = {
                 </a>
               )}
               <div class="my-auto">
-                <h2 class="text-xl sm:text-2xl font-bold leading-tight mb-2 font-heading dark:text-slate-300">
-                  {project.title}
+                <h2 class="mb-2 font-heading text-xl font-bold leading-tight dark:text-slate-300 sm:text-2xl">
+                  {t(project.title)}
                 </h2>
 
                 {project.description && (
-                  <p class="flex-grow text-muted dark:text-slate-400 text-lg">
-                    <Fragment set:html={project.description} />
+                  <p class="text-muted flex-grow text-lg dark:text-slate-400">
+                    <Fragment set:html={t(project.description)} />
                   </p>
                 )}
                 <PostTags class="mt-4 text-sm" enableLink={false} tags={project.technologies} />
                 {project.link && (
-                  <ExternalLink class="font-bold mt-4" href={project.link}>
-                    {project.linkText ? project.linkText : 'Acesse'}
+                  <ExternalLink class="mt-4 font-bold" href={project.link}>
+                    {project.linkText ? t(project.linkText) : t('projects.ctaVisit')}
                   </ExternalLink>
                 )}
               </div>

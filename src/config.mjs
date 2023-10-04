@@ -1,4 +1,5 @@
 import defaultImage from './assets/images/default.png';
+import i18next, { t } from 'i18next';
 
 const CONFIG = {
   name: "Gabo's Link",
@@ -13,7 +14,6 @@ const CONFIG = {
 
   defaultTheme: 'dark', // Values: "system" | "light" | "dark" | "light:only" | "dark:only"
 
-  language: 'en',
   textDirection: 'ltr',
 
   dateFormatter: new Intl.DateTimeFormat('en', {

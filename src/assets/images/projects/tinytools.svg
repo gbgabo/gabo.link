@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   version="1.1"
+   id="svg78"
+   width="560"
+   height="160"
+   viewBox="0 0 560 160"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <metadata
+     id="metadata84">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <defs
+     id="defs82" />
+  <g
+     id="g86"
+     transform="translate(12.763292,-12.415735)">
+    <g
+       id="g90"
+       transform="translate(-12.763292,12.415735)">
+      <path
+         style="fill:#64dffa"
+         d="M 210,70 V 60 H 200 190 V 50 40 h 30 30 v 10 10 h -10 -10 v 10 10 h -10 -10 z m 50,5 v -5 h 10 10 V 65 60 H 270 260 V 50 40 h 30 30 v 10 10 h -10 -10 v 5 5 h 10 10 v 5 5 H 290 260 Z M 330,60 V 40 h 15 15 v 5 5 h 5 5 v -5 -5 h 10 10 V 60 80 H 375 360 V 70 60 h -5 -5 v 10 10 h -10 -10 z m 90,10 V 60 H 410 400 V 50 40 h 10 10 v 5 5 h 10 10 v -5 -5 h 10 10 V 50 60 H 450 440 V 70 80 H 430 420 Z M 50,65 v -5 h -5 -5 v -5 -5 h 15 15 v 5 5 h -5 -5 v 5 5 h -5 -5 z"
+         id="path96" />
+      <path
+         style="fill:#6c6d6d"
+         d="M 0,80 V 0 h 280 280 v 80 80 H 280 0 Z m 110,20 V 80 h 20 20 V 60 40 H 90 30 v 20 20 h 20 20 v 20 20 h 20 20 z m 120,10 v -10 h 10 10 V 90 80 H 240 230 V 70 60 h 10 10 V 50 40 h -30 -30 v 10 10 h 10 10 v 10 10 h -10 -10 v 10 10 h 10 10 v 10 10 h 10 10 z M 320,95 V 70 h -10 -10 v -5 -5 h 10 10 V 50 40 h -30 -30 v 10 10 h 10 10 v 5 5 h -10 -10 v 25 25 h 30 30 z m -40,10 v -5 h 10 10 v 5 5 H 290 280 Z M 390,80 V 40 h -10 -10 v 5 5 h -5 -5 v -5 -5 h -15 -15 v 40 40 h 30 30 z m -40,25 v -5 h 10 10 v 5 5 h -10 -10 z m 0,-35 V 60 h 5 5 v 10 10 h -5 -5 z m 110,45 v -5 H 440 420 V 95 80 h 10 10 V 70 60 h 10 10 V 50 40 h -10 -10 v 5 5 h -10 -10 v -5 -5 h -10 -10 v 10 10 h 10 10 v 10 10 h -10 -10 v 20 20 h 30 30 z m 70,-5 v -10 h -15 -15 v -5 -5 h 15 15 v -5 -5 h -30 -30 v 10 10 h 15 15 v 5 5 h -15 -15 v 5 5 h 30 30 z"
+         id="path94" />
+      <path
+         style="fill:#121313"
+         d="M 70,100 V 80 H 50 30 V 60 40 h 60 60 v 20 20 h -20 -20 v 20 20 H 90 70 Z M 60,65 v -5 h 5 5 V 55 50 H 55 40 v 5 5 h 5 5 v 5 5 h 5 5 z m 150,45 V 100 H 200 190 V 90 80 h 30 30 v 10 10 h -10 -10 v 10 10 h -10 -10 z m 50,-10 V 80 h 30 30 v 20 20 h -30 -30 z m 40,5 v -5 h -10 -10 v 5 5 h 10 10 z m 30,-5 V 80 h 30 30 v 20 20 h -30 -30 z m 40,5 v -5 h -10 -10 v 5 5 h 10 10 z m 30,-5 V 80 h 10 10 v 15 15 h 20 20 v 5 5 h -30 -30 z m 70,15 v -5 h 15 15 v -5 -5 H 485 470 V 90 80 h 30 30 v 5 5 h -15 -15 v 5 5 h 15 15 v 10 10 h -30 -30 z"
+         id="path92" />
+    </g>
+  </g>
+</svg>

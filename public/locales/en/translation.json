@@ -1,0 +1,100 @@
+{
+  "site": {
+    "title": "My awesome website!",
+    "description": "Here is the description of my awesome website!",
+    "projects": "/projects",
+    "about": "/about",
+    "articles": "/articles",
+    "lists": "/lists",
+    "footer": {
+      "footNote": "Dark <span class='dark:hidden'>(and maybe light?)</span> theme based on <a class='hover:underline font-bold text-pink' href='https://wildberries.style/''><img class='w-5 h-5 md:w-6 md:h-6 bg-cover inline-block align-bottom rounded-sm mr-1' src='https://wildberries.style/img/ui/wb_logo.svg'/>Wildberries</a>"
+    }
+  },
+  "home": {
+    "title": "Welcome to my corner on the web",
+    "subtitle": "Hey! I'm Gabo and I'm a front-end developer from Brazil",
+    "cta1": "Read the blog",
+    "cta2": "About me",
+    "allPosts": "View all posts"
+  },
+  "about": {
+    "title": "I'm a developer intrigued by technology shaping society",
+    "subtitle": "I'm a Front-End Developer from Brazil, working with Laravel and studying current full-stack frameworks like Next.js. Experience with React and Typescript. Big fan of SSG frameworks such as Astro.",
+    "skillsHeader": "Skills",
+    "skillsCta": "See my projects",
+    "topicsHeader": "Chat with me about",
+    "topicsCta": "See my blog posts",
+    "cv": "resume",
+    "topics": {
+      "foss": {
+        "title": "Free and Open Source Software",
+        "description": "The power that moves the modern world is made with free software available to build better tools. I'm an evangelist of free software and love to talk and promote it's benefits to developers and users."
+      },
+      "ricing": {
+        "title": "Linux Ricing",
+        "description": "The term refers to the process of customize a linux enviroment to a more productive or simply aesthetically pleasing setup. There is a plethora of tools the community is constantly sharing, and you have no idea how different and personal your system can be to fit your needs. Check out my <a class='underline text-acid-green' href='#what-i-use'>dotfiles</a>."
+      },
+      "webdev": {
+        "title": "Tecnologias de desenvolvimento web",
+        "description": "There is no surprise in web development being bombarded by new frameworks and tools. Beyond just hype, there is real innovation and problems being solved by interesting new approaches."
+      },
+      "content": {
+        "title": "Cool content on the internet",
+        "description": "The internet is full of people creating amazing stuff from videos, podcasts and art in general. In my <a class='underline text-acid-green' href='/category/lists'>blog lists</a> you may find interesting content I compile from the sites I surf."
+      }
+    },
+    "usesHeader": "What I use",
+    "uses": {
+      "uses": {
+        "title": "/uses",
+        "description": "A list of the software I use on the daily basis"
+      },
+      "dotfiles": {
+        "title": "/dotfiles",
+        "description": "The files to reproduce my linux setup"
+      }
+    }
+  },
+  "projects": {
+    "title": "Projects",
+    "ctaAbout": "About the project",
+    "ctaVisit": "Access",
+    "items": {
+      "blog": {
+        "title": "gabo.link Personal Blog",
+        "description": "It's this very website. It's a fork of an Astro + Tailwind template called Astrowind. It's now implemennted with extra features such as bottom navigation, better handling of YT iframes, table of contents on posts, and internationalization"
+      },
+      "wash": {
+        "title": "Laundry Symbols",
+        "description": "A page that lists most of the so called laundry symbols found on every clothing, indicating the manufacturer's suggestions as to methods of washing, drying, dry-cleaning and ironing clothing"
+      },
+      "wildberries": {
+        "title": "Homepage Tema Wildberries",
+        "description": "Wildberries is a purple dark theme, with additional bright accents, almost in a cyberpunkish way"
+      },
+      "tinytools": {
+        "title": "Tinytools",
+        "description": "A suite of tiny scripts written in SHELL me and @calebe94 maintain. Our projects are designed to improve your productivity in a simple way"
+      },
+      "linky": {
+        "title": "Linky",
+        "description": "My first react website. A project with the purpose to create a link and style editor inspired by linktree"
+      }
+    }
+  },
+  "uses": {
+    "subtitle": "A list of software and tools I use as my daily setup",
+    "content": "Currently we have access to tools that enable new and improved ways to create, interact and experience the real and digital world. The level of power current software offer made being creative and productive a matter of mastering the tools we have available right now. This page is created to show the tools I use to code, write and everything included in a web developer cozy setup. It's inspired by <a href='https://uses.tech/'>uses.tech</a>, a website created by <a href='https://github.com/wesbos/awesome-uses'>Wes Bos</a> in which agregates pages, like this one, from many people and incentivises developers and creators to share their own daily configurations and toolbox."
+  },
+  "post": {
+    "toc": "Table of content",
+    "readingTime": "min read",
+    "share": "Share:",
+    "backToBlog": "Back to Blog"
+  },
+  "categories": {
+    "title": "Category",
+    "articles": "articles",
+    "lists": "lists"
+  }
+}

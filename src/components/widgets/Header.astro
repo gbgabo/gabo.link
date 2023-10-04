@@ -4,11 +4,14 @@ import Logo from '~/components/Logo.astro';
 import ToggleTheme from '~/components/common/ToggleTheme.astro';
 import ToggleMenu from '~/components/common/ToggleMenu.astro';
 
-import { getHomePermalink, getAsset } from '~/utils/permalinks';
+import { LanguageSelector } from 'astro-i18next/components';
+
+import i18next, { t } from 'i18next';
+import { getHomePermalink, getAsset, getPermalink } from '~/utils/permalinks';
 
 interface Link {
-  text?: string;
-  href?: string;
+  text: string;
+  href: string | string[];
   ariaLabel?: string;
   icon?: string;
 }
@@ -68,18 +71,18 @@ const {
 
 <header
   class:list={[
-    'bg-muted-purple animate-fade-up dark:bg-darker-purple md:bg-transparent md:dark:bg-transparent fixed bottom-0 md:top-0 md:sticky z-40 flex-none mx-auto w-full transition-all ease-in duration-100',
+    'fixed bottom-0 z-40 mx-auto w-full flex-none animate-fade-up bg-muted-purple transition-all duration-100 ease-in dark:bg-darker-purple md:sticky md:top-0 md:bg-transparent md:dark:bg-transparent',
     isSticky && 'hidden md:block',
   ]}
   id="header"
 >
-  <div class="py-3 px-3 md:py-3.5 md:px-4 mx-auto w-full md:flex md:justify-start max-w-7xl">
+  <div class="mx-auto w-full max-w-7xl px-3 py-3 md:flex md:justify-start md:px-4 md:py-3.5">
     <nav
-      class="menu-list overflow-hidden p-2 mx-auto w-full h-fit max-w-7xl absolute bottom-16 left-0 dark:text-slate-200 bg-pastel-purple/90 md:bg-inherit dark:bg-darker-purple/90 md:justify-start md:static md:dark:bg-inherit md:show md:items-center md:w-auto md:flex md:h-auto md:overflow-visible md:mx-5"
+      class="menu-list md:show absolute bottom-16 left-0 mx-auto h-fit w-full max-w-7xl overflow-hidden bg-pastel-purple/90 p-2 dark:bg-darker-purple/90 dark:text-slate-200 md:static md:mx-5 md:flex md:h-auto md:w-auto md:items-center md:justify-start md:overflow-visible md:bg-inherit md:dark:bg-inherit"
       aria-label="Main navigation"
     >
       <ul
-        class="flex flex-col md:items-center md:flex-row md:pt-0 md:self-center md:text-base md:w-auto text-xl w-full"
+        class="flex w-full flex-col text-xl md:w-auto md:flex-row md:items-center md:self-center md:pt-0 md:text-base"
       >
         {
           links.map(({ text, href, links }, index) => {
@@ -89,37 +92,37 @@ const {
                   <>
                     <button
                       class:list={[
-                        'menu-item w-full dark:hover:bg-dark-purple py-3 px-4 flex items-center font-medium rounded-md hover:text-gray-900 dark:hover:text-white md:hover:bg-gray-200 md:p-0',
+                        'menu-item flex w-full items-center rounded-md px-4 py-3 font-medium hover:text-gray-900 dark:hover:bg-dark-purple dark:hover:text-white md:p-0 md:hover:bg-gray-200',
                         delayClasses[menuIndex + index],
                         delayClassesMd[index],
                       ]}
                     >
                       {href ? (
-                        <a class="w-full text-left md:py-2 md:px-4" href={href}>
-                          {text}
-                          <Icon name="tabler:chevron-down" class="w-3.5 h-3.5 ml-0.5 hidden md:inline" />
+                        <a class="w-full text-left md:px-4 md:py-2" href={getPermalink(...href)}>
+                          {t(text)}
+                          <Icon name="tabler:chevron-down" class="ml-0.5 hidden h-3.5 w-3.5 md:inline" />
                         </a>
                       ) : (
                         <span>
-                          {text}
-                          <Icon name="tabler:chevron-down" class="w-3.5 h-3.5 ml-0.5 hidden md:inline" />
+                          {t(text)}
+                          <Icon name="tabler:chevron-down" class="ml-0.5 hidden h-3.5 w-3.5 md:inline" />
                         </span>
                       )}
                     </button>
-                    <ul class="dropdown-menu md:backdrop-blur-md dark:md:bg-dark-purple rounded md:absolute pl-4 md:pl-0 md:hidden font-medium md:bg-white/90 md:min-w-[200px] drop-shadow-xl">
+                    <ul class="dropdown-menu rounded pl-4 font-medium drop-shadow-xl md:absolute md:hidden md:min-w-[200px] md:bg-white/90 md:pl-0 md:backdrop-blur-md dark:md:bg-dark-purple">
                       {links.map(({ text: text2, href: href2 }, index2) => {
                         menuIndex = index2 === 0 ? menuIndex + 1 : menuIndex + index2;
                         return (
                           <li>
                             <a
                               class:list={[
-                                'menu-item dark:hover:bg-darker-purple py-3 px-5 block whitespace-no-wrap first:rounded-t last:rounded-b md:animate-fade-up md:hover:bg-gray-200 md:py-2',
+                                'menu-item whitespace-no-wrap block px-5 py-3 first:rounded-t last:rounded-b dark:hover:bg-darker-purple md:animate-fade-up md:py-2 md:hover:bg-gray-200',
                                 delayClasses[menuIndex],
                                 delayClassesMd[index2],
                               ]}
-                              href={href2}
+                              href={getPermalink(...href2)}
                             >
-                              {text2}
+                              {t(text2)}
                             </a>
                           </li>
                         );
@@ -129,14 +132,14 @@ const {
                 ) : (
                   <a
                     class:list={[
-                      `menu-item dark:hover:bg-dark-purple py-3 px-4 flex items-center font-medium rounded-md hover:text-gray-900 dark:hover:text-white
-                      md:hover:bg-gray-200 md:py-2`,
+                      `menu-item flex items-center rounded-md px-4 py-3 font-medium hover:text-gray-900 dark:hover:bg-dark-purple dark:hover:text-white
+                      md:py-2 md:hover:bg-gray-200`,
                       `${delayClasses[menuIndex + index]}`,
                       `${delayClassesMd[index]}`,
                     ]}
-                    href={href}
+                    href={getPermalink(...href)}
                   >
-                    {text}
+                    {t(text)}
                   </a>
                 )}
               </li>
@@ -144,6 +147,13 @@ const {
           })
         }
       </ul>
+      <div class="absolute bottom-2 right-2 md:hidden">
+        <LanguageSelector
+          languageMapping={{ en: '', 'pt-BR': '' }}
+          showFlag={true}
+          class="inline-flex items-center rounded-lg bg-pastel-purple p-2.5 text-sm hover:bg-gray-100 dark:bg-dark-purple dark:text-light-purple dark:hover:bg-dark-purple"
+        />
+      </div>
     </nav>
     <div class:list={[{ 'mr-auto': position === 'right' }, 'flex justify-between md:order-first']}>
       <a class="flex items-center" href={getHomePermalink()}>
@@ -154,18 +164,20 @@ const {
         <ToggleMenu />
       </div>
     </div>
-    <div class:list={[{ 'ml-auto': position === 'left' }, 'md:self-center flex items-center md:mb-0 ml-auto']}>
+    <div class:list={[{ 'ml-auto': position === 'left' }, 'ml-auto flex items-center md:mb-0 md:self-center']}>
       <div class="hidden items-center md:flex">
+        <LanguageSelector languageMapping={{ en: '', 'pt-BR': '' }} showFlag={true} class="bg-transparent" />
+
         {showToggleTheme && <ToggleTheme iconClass="w-5 h-5" />}
 
         {
           showRssFeed && (
             <a
-              class="dark:text-light-purple hover:bg-gray-100 dark:hover:bg-dark-purple focus:outline-none focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 rounded-lg text-sm p-2.5 inline-flex items-center"
+              class="inline-flex items-center rounded-lg p-2.5 text-sm hover:bg-gray-100 focus:outline-none focus:ring-4 focus:ring-gray-200 dark:text-light-purple dark:hover:bg-dark-purple dark:focus:ring-gray-700"
               aria-label="RSS Feed"
               href={getAsset('/rss.xml')}
             >
-              <Icon name="tabler:rss" class="w-5 h-5" />
+              <Icon name="tabler:rss" class="h-5 w-5" />
             </a>
           )
         }
@@ -175,10 +187,10 @@ const {
               {actions.map(({ text, href, type }) => (
                 <a
                   class:list={[
-                    'btn ml-2 py-2.5 px-5.5 md:px-6 font-semibold shadow-none text-sm',
+                    'btn px-5.5 ml-2 py-2.5 text-sm font-semibold shadow-none md:px-6',
                     { 'btn-ghost': type === 'ghost', 'btn-primary': type === 'primary' },
                   ]}
-                  href={href}
+                  href={getPermalink(...href)}
                 >
                   <Fragment set:html={text} />
                 </a>
