@@ -3,7 +3,7 @@ import Icon from 'astro-icon';
 
 const langs = [
   ['', 'emojione-v1:flag-for-united-states'],
-  ['pt-br', 'emojione-v1:flag-for-brazil'],
+  ['pt-BR', 'emojione-v1:flag-for-brazil'],
 ];
 
 const path = Astro.url.pathname;
@@ -12,8 +12,6 @@ const localedLangs = langs.map(([lang, icon]) => {
   const firstSegment = path.split('/')[1];
   const langOnURL = langs.flat().includes(firstSegment);
   const newPath = langOnURL ? path.replace(firstSegment, lang) : lang + path;
-
-  console.log(newPath);
 
   return [lang, newPath, icon];
 });
