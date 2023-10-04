@@ -8,6 +8,7 @@ import { LanguageSelector } from 'astro-i18next/components';
 
 import i18next, { t } from 'i18next';
 import { getHomePermalink, getAsset, getPermalink } from '~/utils/permalinks';
+import LanguagePicker from './LanguagePicker.astro';
 
 interface Link {
   text: string;
@@ -166,8 +167,7 @@ const {
     </div>
     <div class:list={[{ 'ml-auto': position === 'left' }, 'ml-auto flex items-center md:mb-0 md:self-center']}>
       <div class="hidden items-center md:flex">
-        <LanguageSelector languageMapping={{ en: '', pt: '' }} showFlag={true} class="bg-transparent" />
-
+        <LanguagePicker />
         {showToggleTheme && <ToggleTheme iconClass="w-5 h-5" />}
 
         {

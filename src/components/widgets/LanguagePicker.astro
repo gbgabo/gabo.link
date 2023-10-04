@@ -1,0 +1,34 @@
+---
+import Icon from 'astro-icon';
+
+const langs = [
+  ['', 'emojione-v1:flag-for-united-states'],
+  ['pt-br', 'emojione-v1:flag-for-brazil'],
+];
+
+const path = Astro.url.pathname;
+
+const localedLangs = langs.map(([lang, icon]) => {
+  const firstSegment = path.split('/')[1];
+  const langOnURL = langs.flat().includes(firstSegment);
+  const newPath = langOnURL ? path.replace(firstSegment, lang) : lang + path;
+
+  console.log(newPath);
+
+  return [lang, newPath, icon];
+});
+---
+
+<ul
+  class="inline-flex items-center rounded-lg bg-pastel-purple p-2.5 text-sm hover:bg-gray-100 dark:bg-dark-purple dark:text-light-purple dark:hover:bg-dark-purple"
+>
+  {
+    localedLangs.map(([lang, path, icon]) => (
+      <li>
+        <a href={path}>
+          <Icon name={icon} class="h-6 w-6" />
+        </a>
+      </li>
+    ))
+  }
+</ul>
