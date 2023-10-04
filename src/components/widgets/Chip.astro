@@ -10,7 +10,7 @@ export interface Props {
 
 const variants = {
   primary: 'bg-grape text-white dark:bg-cherry dark:text-acid-green',
-  secondary: 'bg-light-purple text-white dark:bg-light-purple dark:text-darker-purple',
+  secondary: 'bg-light-purple text-darker-purple dark:bg-light-purple',
   dark: 'text-darker-purple bg-light-purple/30 dark:text-acid-green dark:bg-darker-purple',
 };
 
@@ -19,8 +19,8 @@ const { value, href, variant, class: className } = Astro.props;
 
 <span
   class:list={[
-    'rounded-md inline-block mr-2 mb-2 py-0.5 px-2 font-medium',
     className,
+    'mb-2 mr-2 inline-block rounded-md px-2 py-0.5 font-medium',
     variant ? variants[variant] : variants.primary,
   ]}
 >
@@ -28,7 +28,7 @@ const { value, href, variant, class: className } = Astro.props;
     href ? (
       <a href={href}>
         {value}
-        <Icon name={'eva:diagonal-arrow-right-up-fill'} class="w-5 h-4 inline" />
+        <Icon name={'eva:diagonal-arrow-right-up-fill'} class="inline h-4 w-5" />
       </a>
     ) : (
       value

@@ -24,6 +24,7 @@
     "skillsCta": "See my projects",
     "topicsHeader": "Chat with me about",
     "topicsCta": "See my blog posts",
+    "cv": "resume",
     "topics": {
       "foss": {
         "title": "Free and Open Source Software",
