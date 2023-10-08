@@ -9,11 +9,12 @@ import { fetchPosts } from '~/utils/blog';
 import { TAG_BASE } from '~/utils/permalinks';
 import Headline from '~/components/blog/Headline.astro';
 import Chip from '~/components/widgets/Chip.astro';
+import i18next from 'i18next';
 
 export async function getStaticPaths({ paginate }) {
   if (BLOG?.disabled || BLOG?.tag?.disabled) return [];
 
-  const posts = await fetchPosts();
+  const posts = await fetchPosts(i18next.language);
   const tags = new Set();
   posts.map((post) => {
     Array.isArray(post.tags) && post.tags.map((tag) => tags.add(tag.toLowerCase()));

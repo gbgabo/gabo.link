@@ -8,10 +8,11 @@ import Pagination from '~/components/blog/Pagination.astro';
 
 import { fetchPosts } from '~/utils/blog';
 import { BLOG_BASE } from '~/utils/permalinks';
+import i18next from 'i18next';
 
 export async function getStaticPaths({ paginate }) {
   if (BLOG?.disabled || BLOG?.list?.disabled) return [];
-  return paginate(await fetchPosts(), {
+  return paginate(await fetchPosts(i18next.language), {
     params: { blog: BLOG_BASE || undefined },
     pageSize: BLOG.postsPerPage,
   });
@@ -29,10 +30,8 @@ const meta = {
 ---
 
 <Layout {meta}>
-  <section class="px-6 sm:px-6 py-12 sm:py-16 lg:py-20 mx-auto max-w-4xl">
-    <Headline>
-      Blog Posts
-    </Headline>
+  <section class="mx-auto max-w-4xl px-6 py-12 sm:px-6 sm:py-16 lg:py-20">
+    <Headline>Blog Posts</Headline>
     <BlogList posts={page.data} />
     <Pagination prevUrl={page.url.prev} nextUrl={page.url.next} />
   </section>

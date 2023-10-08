@@ -3,6 +3,7 @@ import Grid from '~/components/blog/Grid.astro';
 
 import { getBlogPermalink } from '~/utils/permalinks';
 import { findLatestPosts } from '~/utils/blog';
+import i18next from 'i18next';
 
 export interface Props {
   title?: string;
@@ -18,16 +19,16 @@ const {
   information = await Astro.slots.render('information'),
 } = Astro.props;
 
-const posts = await findLatestPosts({ count: 4 });
+const posts = await findLatestPosts({ count: 4 }, i18next.language);
 ---
 
-<section id="blog" class="px-4 py-16 mx-auto max-w-7xl lg:py-20">
-  <div class="flex flex-col lg:justify-between lg:flex-row mb-8">
+<section id="blog" class="mx-auto max-w-7xl px-4 py-16 lg:py-20">
+  <div class="mb-8 flex flex-col lg:flex-row lg:justify-between">
     <div class="md:max-w-sm">
       {
         title && (
           <h2
-            class="text-3xl font-bold tracking-tight sm:text-4xl sm:leading-none group font-heading mb-2"
+            class="group mb-2 font-heading text-3xl font-bold tracking-tight sm:text-4xl sm:leading-none"
             set:html={title}
           />
         )
@@ -35,7 +36,7 @@ const posts = await findLatestPosts({ count: 4 });
       {
         allPostsText && allPostsLink && (
           <a
-            class="text-muted dark:text-light-purple hover:text-primary transition ease-in duration-200 block mb-6 lg:mb-0"
+            class="text-muted mb-6 block transition duration-200 ease-in hover:text-primary dark:text-light-purple lg:mb-0"
             href={allPostsLink}
           >
             {allPostsText} »
@@ -44,7 +45,7 @@ const posts = await findLatestPosts({ count: 4 });
       }
     </div>
 
-    {information && <p class="text-muted dark:text-slate-400 lg:text-sm lg:max-w-md" set:html={information} />}
+    {information && <p class="text-muted dark:text-slate-400 lg:max-w-md lg:text-sm" set:html={information} />}
   </div>
 
   <Grid posts={posts} />
