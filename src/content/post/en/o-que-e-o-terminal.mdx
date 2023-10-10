@@ -1,8 +1,8 @@
 ---
 publishDate: 2023-01-12T00:00:00Z
 title: What is the terminal?
-description: Desmistificando a tela preta
-excerpt: Desmistificando a tela preta.
+description: Demystifying the black screen
+excerpt: Demystifying the black screen.
 image: ~/assets/images/terminal.png
 category: Articles
 tags:
@@ -19,109 +19,109 @@ import Card from '~/components/blog/content/Card.astro';
 
 export const components = { img: Image };
 
-Você já deve ter visto aquelas telas pretas, com linhas pequenas pipocando sem parar. Possivelmente em um filme, onde há um super hacker escrevendo dezenas de letras por segundo com o objetivo de quebrar todas as senhas e acessar um sistema secreto do pentágono. Essa janela preta é um **terminal**.
+You've probably seen those black screens with tiny lines continuously popping up. Possibly in a movie where a super hacker is typing dozens of characters per second to crack all the passwords and access a secret Pentagon system. That black window is a **terminal**.
 
-A ideia desse texto é desmistificar e explicar, em uma introdução geral, **tudo que você precisa saber para conhecer o `terminal`**, além de mostrar o quanto ele pode ser divertido e útil.
+The idea of this text is to demystify and explain, in a general introduction, **everything you need to know to get acquainted with the `terminal`**, and to show how fun and useful it can be.
 
-# O que é o terminal
+# What is the terminal
 
-## O hardware (o terminal burro)
+## The hardware (the dumb terminal)
 
-Antes de ser mais conhecido como um programa, o terminal era um equipamento. Seu objetivo era o de **interagir com um computador por meio de texto**. Bem por isso, este é sempre constituindo por um **teclado** para essa interface.
+Before being better known as a program, the terminal was a piece of equipment. Its purpose was to **interact with a computer through text**. That's why it always includes a **keyboard** for this interface.
 
-Mais especificamente, neste texto tudo se refere ao `vídeo terminal`, que **possui uma tela além do teclado**, em contraste com terminais mais antigos, que **interfaciavam com o computador por impressão do texto** (semelhante ao fax). Um exemplo de video terminal é o [VT100](https://pt.wikipedia.org/wiki/VT100).
+More specifically, in this text, everything refers to the `video terminal`, which **has a screen in addition to the keyboard**, in contrast to older terminals that **communicated with the computer by printing text** (similar to a fax). An example of a video terminal is the [VT100](https://en.wikipedia.org/wiki/VT100).
 
-![TI Silent 700 e VT100](/assets/images/posts/terminals.png)
+![TI Silent 700 and VT100](/assets/images/posts/terminals.png)
 
-E se logo de cara você está com medo, ou acha que deve ser muito difícil mexer em um terminal, quero que você me diga quão dificil é mexer nesse cara:
+And if you're afraid right from the start or think it must be very difficult to use a terminal, let me ask you how difficult it is to use this guy:
 
-![Tela de chat](/assets/images/posts/chat.jpeg)
+![Chat screen](/assets/images/posts/chat.jpeg)
 
-É isso mesmo, um chat. Você sabe usar ele? Então você já tem metade do que precisa, acredite. De forma bem simples, o terminal é um chat... com o seu computador! Nele você escreverá algo para o computador, e ele vai lhe responder. **As mensagens que mandamos para o computador serão sempre `comandos` para ele executar.**
+That's right, a chat. Do you know how to use it? Then you already have half of what you need, believe me. Simply put, the terminal is like a chat... with your computer! In it, you will type something to the computer, and it will respond to you. **The messages we send to the computer are always `commands` for it to execute.**
 
-E antigamente isso fazia mais sentido ainda. Visto que os computadores eram caros (e enormes), a melhor solução era ter vários equipamentos menores que só pedem coisas para o único computador do local, como em universidades e bibliotecas. Esses equipamentos eram literalmente os terminais, também chamados de **terminais burros**. Burro porque fazer algo sozinho ele não fazia. Não possuía memória, nem processador dedicado. Ele só pedia para o servidor, e o servidor devolvia na tela o que lhe foi pedido.
+And in the past, this made even more sense. Since computers were expensive (and huge), the best solution was to have several smaller devices that would only request things from the single computer on-site, such as in universities and libraries. These devices were literally the terminals, also known as **dumb terminals**. Dumb because they couldn't do anything on their own. They had no memory or dedicated processor. They simply requested things from the server, and the server displayed on the screen what was requested.
 
-## O software (o emulador de terminal)
+## The software (the terminal emulator)
 
-Ter um computador em casa descarta a necessidade de ter um equipamento a mais pra falar com ele, mas falar por texto não deixou de ser útil. Ainda se usa muito o terminal, porém agora ele é um programa, também conhecido como `emulador de terminal`. Agora sim, se tornando aquela janelinha preta, ele deixa de ser aquele monitor de tubo com comunicação serial.
+Having a computer at home eliminates the need for an additional piece of equipment to communicate with it, but communicating by text has not ceased to be useful. The terminal is still widely used, but now it's a program, also known as a `terminal emulator`. Now, becoming that little black window, it is no longer that tube monitor with serial communication.
 
-![O terminal como hardware e atualmente como software](/assets/images/posts/terminal-interface.png)
+![The terminal as hardware and currently as software](/assets/images/posts/terminal-interface.png)
 
-**O terminal agora vive dentro do próprio computador, se tornando apenas uma abstração digital mantida unicamente pela conveniência de comunicação dos humanos para com as máquinas.**
+**The terminal now lives within the computer itself, becoming just a digital abstraction maintained solely for human convenience in communicating with machines.**
 
-E por meio de uma das interfaces mais antigas de computador, que ainda hoje vemos uma infinidade de usos e aplicações para o ambiente de desenvolvimento e cotidiano no computador.
+And through one of the oldest computer interfaces, we still see a multitude of uses and applications for development and everyday computer use.
 
-## O que o terminal tem
+## What the terminal has
 
-Diga oi para o meu terminal. Nesse texto mostrarei um terminal num sistema com Linux. Ele é muito parecido com o Mac. Para o Windows os conceitos abordados aqui também valem, porém há mudanças para os nomes dos comandos mais comuns.
+Say hello to my terminal. In this text, I will show you a terminal on a Linux system. It's very similar to a Mac. For Windows, the concepts covered here also apply, but there may be differences in the name of the most common commands.
 
-![Tela de um emulador de terminal](/assets/images/posts/emulator.png)
+![A terminal emulator screen](/assets/images/posts/emulator.png)
 
-O terminal é bem vazio de cara, porque ele é só um monitor. Ele só mostra um programa alí no topo. O `shell`!
+The terminal is quite empty at first because it's just a monitor. It only displays a program at the top. The `shell`!
 
-**O shell é o interpetador de comandos do terminal**, eu vou digitar nosso primeiro comando. O `ls`.
+**The shell is the command interpreter of the terminal**, and I will type our first command, `ls`.
 
 ```bash
 gabo@book:~/$ ls
 ```
 
-Ele serve para `listar os arquivos` e subpastas presentes na pasta que você se encontra.
+It serves to `list the files` and subfolders present in the folder you are in.
 
-![Anatomia do Shell](/assets/images/posts/shell.png)
+![Anatomy of the Shell](/assets/images/posts/shell.png)
 
-Em toda tela de terminal você vai se deparar com duas coisas:
+In every terminal screen, you will come across two things:
 
-- O `prompt`: Indica onde você começa o seu comando, sua "mensagem". Nele costuma conter algumas informações úteis como **o diretório (pasta) que você está** ou **usuário que vocês está logado**, além de várias outras coisas que você mesmo pode adicionar.
+- The `prompt`: Indicates where you start your command, your "message." It usually contains some useful information like **the directory (folder) you are in** or **the user you are logged in as**, among various other things you can add yourself.
 
-- A `linha de comando`: Espaço onde se escreve o comando em si.
+- The `command line`: The space where you type the command itself.
 
-O `$` é um indicador que tudo que vem depois dele deve ser interpretado como um comando. Quando você está logado como root, o símbolo muda para um `#`. Em sistemas baseados no DOS, como o windows, esse símbolo pode ser um `>`
+The `$` is an indicator that everything that comes after it should be interpreted as a command. When you are logged in as root, the symbol changes to `#`. In DOS-based systems like Windows, this symbol can be `>`
 
-Por sinal, tem várias opções de shell. O shell que eu mostrei é o mais comum, o `bash`, mas no dia a dia eu uso o `zsh`, bem famoso pelas suas customizações.
+By the way, there are several shell options. The shell I showed is the most common one, `bash`, but in my daily life, I use `zsh`, which is well-known for its customizations.
 
-![Exemplo de prompt do bash e zsh](/assets/images/posts/shell2.png)
+![Example of bash and zsh prompts](/assets/images/posts/shell2.png)
 
-Mais estiloso, né. E sim, eu curto roxo.
+More stylish, right? And yes, I like purple.
 
-Quando um comando é enviado, o sistema retornará a resposta logo embaixo, sendo possível 3 opções:
+When a command is sent, the system will return the response just below, and there are three possible options:
 
-- **O que você pediu:** Quando o seu comando solicita alguma informação, essa informação aparecerá logo abaixo da linha de comando;
-- **Uma mensagem de erro:** Para quando o comando feito não for executado corretamente. Seja por erro do programa ou por erro do usuário ao digitar o que precisava;
-- **Nada:** Nos casos que o computador executa o comando e nada precisa ser devolvido. Tudo ok 👌;
+- **What you requested:** When your command requests some information, that information will appear just below the command line;
+- **An error message:** For when the command is not executed correctly, either due to a program error or a user error in typing what was needed;
+- **Nothing:** In cases where the computer executes the command, and nothing needs to be returned. Everything's fine 👌;
 
-# Usando o terminal
+# Using the terminal
 
-Voltando ao comando de exemplo. O `ls`. Ele será útil, pois no terminal você navega muito entre arquivos.
+Returning to the example command. The `ls`. It will be useful because you navigate a lot between files in the terminal.
 
-![O comando ls](/assets/images/posts/ls.png)
+![The ls command](/assets/images/posts/ls.png)
 
-Notou o `~` logo no final do prompt? Ele simboliza a sua pasta `home`, a pasta inicial do seu usuário, onde as suas coisas ficam no sistema. O comando `ls` me listou todas as pastas e arquivos da minha home.
+Did you notice the `~` at the end of the prompt? It represents your `home` folder, the initial folder of your user, where your things are in the system. The `ls` command listed all the folders and files in my home.
 
-Para irmos numa pasta especifica, o comando `cd` (_change directory_) servirá para `mudar a pasta` que você se encontra. Vamos para a pasta study.
+To go to a specific folder, the `cd` command (_change directory_) will serve to `change the folder` you are in. Let's go to the "study" folder.
 
-Note que ao mudarmos onde estamos, o prompt atualizará o caminho do diretório atual.
+Note that when we change where we are, the prompt will update the current directory path.
 
-![Comando ls e cd](/assets/images/posts/ls-cd.png)
+![The ls and cd commands](/assets/images/posts/ls-cd.png)
 
-Para voltarmos para o diretório anterior, podemos escrever `cd ..`, onde `..` sempre se refere ao diretório pai do que você se encontra.
+To go back to the previous directory, you can type `cd ..`, where `..` always refers to the parent directory of your current location.
 
-Os comandos por texto podem receber `parâmetros`, mensagens a mais que informam formas específicas que o comando deve ser executado. No comando `ls` por exemplo, podemos informar o parâmetro `--colors` para termos uma lista formatada por cor, diferenciando pastas, arquivos e atalhos.
+Text commands can receive `parameters`, additional messages that specify specific ways the command should be executed. In the `ls` command, for example, we can specify the `--colors` parameter to have a color-formatted list, differentiating folders, files, and shortcuts.
 
-![Comando cd e ls --color](/assets/images/posts/ls-color.png)
+![The cd and ls --color commands](/assets/images/posts/ls-color.png)
 
-Isso pode parecer lento, mas é exatamente o contrário. Em grande parte das vezes, o ambiente de linha de comando será muito mais rápido que com mouse (e já descorrerei mais sobre isso).
+This may seem slow, but it's quite the opposite. In most cases, the command-line environment will be much faster than using a mouse (I'll elaborate more on this later).
 
 <Slider>  
   <Card 
     title="ls"
-    description="Lista todos os items presentes no diretório atual"
+    description="Lists all items present in the current directory"
     examples={[
       {
-        description: "Lista todos os arquivos e diretórios do diretório atual",
+        description: "Lists all files and directories in the current directory",
         command: "ls"
       },
       {
-        description: "Lista todos os conteúdos, incluindo arquivos secretos (a) e em lista vertical (l) " ,
+        description: "Lists all contents, including hidden files (a) and in vertical format (l)",
         command: "ls -la"
       }
     ]}
@@ -134,34 +134,34 @@ Isso pode parecer lento, mas é exatamente o contrário. Em grande parte das vez
 
   <Card
     title="cd"
-    description="(Change Directory) Use para navegar entre diretórios"
+    description="(Change Directory) Use to navigate between directories"
     examples={[
       {
-        description: "Ir para o diretório 'user'",
+        description: "Go to the 'user' directory",
         command: 'cd /home/user',
       },
       {
-        description: 'Ir para o diretório pai',
+        description: 'Go to the parent directory',
         command: 'cd ..',
       },
     ]}
-    >
-      gabo@book:&#126;$ cd study
-      gabo@book:&#126;/study$
+  >
+    gabo@book:&#126;$ cd study
+    gabo@book:&#126;/study$
 
   </Card>
 
   <Card
     title="cat"
-    description="Concatena e mostra conteúdos de arquivos de texto"
+    description="Concatenates and displays contents of text files"
     examples={[
       {
-        description: 'Apresenta o arquivo.txt em tela',
-        command: 'cat arquivo.txt',
+        description: 'Displays the file.txt on the screen',
+        command: 'cat file.txt',
       },
       {
-        description: 'Concatena dois arquivos e gera um novo como resultado',
-        command: 'cat arq1 arq2 > novo_arq',
+        description: 'Concatenates two files and generates a new one as a result',
+        command: 'cat file1 file2 > new_file',
       },
     ]}
   >
@@ -179,14 +179,14 @@ Isso pode parecer lento, mas é exatamente o contrário. Em grande parte das vez
 
   <Card 
     title="find"
-    description="Encontra conteúdos dentro de um dado diretório, recursivamente"
+    description="Finds contents within a given directory, recursively"
     examples={[
       {
-        description: 'Encontrar arquivos .txt, no diretório downloads',
+        description: 'Find .txt files in the downloads directory',
         command: "find downloads -name '*.txt'"
       },
       {
-        description: "Procurar apenas por diretórios no diretório atual",
+        description: "Search for directories only in the current directory",
         command: "find . -type d"
       }
     ]}
@@ -212,10 +212,10 @@ Isso pode parecer lento, mas é exatamente o contrário. Em grande parte das vez
   
   <Card 
     title="pwd"
-    description="Retorna o nome do diretório atual"
+    description="Returns the name of the current directory"
     examples={[
       {
-        description: 'Apresenta nome do diretório atual',
+        description: 'Displays the name of the current directory',
         command: "pwd"
       },
     ]}
@@ -227,14 +227,14 @@ Isso pode parecer lento, mas é exatamente o contrário. Em grande parte das vez
   
   <Card 
     title="rm"
-    description="Utilizado para remover arquivos"
+    description="Used to remove files"
     examples={[
       {
-        description: 'Remove o arquivo favicon.ico, mas pede confirmação da ação antes',
+        description: 'Removes the favicon.ico file, but asks for confirmation before proceeding',
         command: "rm -i favicon.icon"
       },
       {
-        description: "Remove a pasta Downloads, e todos os seus arquvivos e pastas dentro (-r de recursivo)",
+        description: "Removes the Downloads folder and all its files and subdirectories (-r for recursive)",
         command: "rm -r Downloads"
       }
     ]}
@@ -244,58 +244,55 @@ Isso pode parecer lento, mas é exatamente o contrário. Em grande parte das vez
   </Card>
 </Slider>
 
-Esse estilo por "chat" de interação é chamado de `CLI` (do inglês, `interface de linha de comando`).
+This style of "chat" interaction is called a `CLI` (Command Line Interface).
 
-E por interagir por texto, não quer dizer que tudo se resume à essa troca de mensagem. Aplicações para o terminal também podem ter interfaces visuais próprias bem ricas.
+And by interacting through text, it doesn't mean that everything is limited to this exchange of messages. Terminal applications can also have rich visual interfaces of their own.
 
-Como por exemplo o `vim` e `nvim` (editores de texto), `htop` e `bpytop` (gerenciadores de tarefas), players de música como `moc`, entre outros vários para email, calendário e até navegar pela web. Se usa muito o termo TUI (Text User Interface) para descrever esse tipo de programa.
+For example, programs like `vim` and `nvim` (text editors), `htop` and `bpytop` (task managers), music players like `moc`, and many others for email, calendar, and even web browsing. The term TUI (Text User Interface) is often used to describe this type of program.
 
-![Aplicações de terminal](/assets/images/posts/tui.png)
+![Terminal Applications](/assets/images/posts/tui.png)
 
-[O projeto awesome-cli-apps](https://github.com/agarrharr/awesome-cli-apps) tem uma lista enorme de programas interessantes para o terminal.
+[The awesome-cli-apps project](https://github.com/agarrharr/awesome-cli-apps) has a huge list of interesting programs for the terminal.
 
-E não, eles não podem competir em tudo com aplicações GUI (Graphical User Interface). Quando você entende as utilidades do terminal, você tira o melhor proveito dele.
+And no, they may not compete in everything with GUI (Graphical User Interface) applications. When you understand the utilities of the terminal, you can make the most out of it.
 
-## Como eu sei o que um comando faz?
+## How Do I Know What a Command Does?
 
-É bom lembrar que ninguém começa sabendo, e sempre haverá novos comandos que você pode aprender dependendo da sua necessidade. Afinal são apenas programas novos. É normal você precisar entender como usar um comando, e um comando decente terá no mínimo um desses dois recursos para você aprender como usá-lo:
+It's worth remembering that nobody starts out knowing everything, and there will always be new commands to learn depending on your needs. After all, they are just new programs. It's normal to need to understand how to use a command, and a decent command will have at least one of these two features to help you learn how to use it:
 
-### --help e/ou -h
+### --help and/or -h
 
-Não sabe como usar um certo comando? Tente chamá-lo com um -h ou --help logo depois. Nem sempre -h funcionará para ajuda, pois o comando já o usa pra outro intuito. Na dúvida, tente os dois.
+Don't know how to use a certain command? Try calling it with -h or --help right after it. Not every command will respond to -h for help because the command may use it for something else. When in doubt, try both.
 
 <Slider>
   <div>
-    ![Chamada do comando curl -h](/assets/images/posts/curl-h.png)
+    ![Calling the curl -h command](/assets/images/posts/curl-h.png)
     <div class="bg-dark-purple">
-      Ao chamar curl -h, é apresentado:
-       - como a estrutura do comando deve ser (curl [opções] url)
-       - quais são as opções disponíveis para utilizar com o comando (-)
+      Calling curl -h displays: - how the command's structure should be (curl [options] url) - what options are
+      available to use with the command (-)
     </div>
-
   </div>
   <div>
-    ![Chamada do comando mkdir -h](/assets/images/posts/mkdir-h.png)
-    Em casos como para o mkdir, é necessário utilizar --help
+    ![Calling the mkdir -h command](/assets/images/posts/mkdir-h.png) In cases like mkdir, you need to use --help.
   </div>
 </Slider>
 
-Você pode esperar no mínimo **instruções de uso** com esses argumentos. Caso queira compreender mais a função/intuito do comando, a próxima opção fará mais sentido.
+You can expect at least **usage instructions** with these arguments. If you want to understand the **purpose/usage** of a command better, the next option will make more sense.
 
-### Página man
+### Man Page
 
-Se você precisa entender **para que serve** um certo comando, as **páginas man** servirão como um **man**ual. Páginas man são páginas em texto que decrevem tudo o que é possível sobre um determinado comando. Eles são arquivos que você chama digitando `man nome-do-comando`. No exemplo a baixo, o comando chama o manual do comando `find`.
+If you need to understand **what a certain command does**, the **man pages** will serve as a **man**ual. Man pages are text pages that describe everything possible about a specific command. They are files that you call by typing `man command-name`. In the example below, the command calls the manual for the `find` command.
 
 <Card
   title="man"
-  description="Um apresentador dos manuais do sistema"
+  description="A presenter of system manuals"
   examples={[
     {
-      description: 'Apresenta o manual do comando cat',
+      description: 'Displays the manual for the cat command',
       command: 'man cat',
     },
     {
-      description: 'Apresenta manual do comando, na seção 7',
+      description: 'Displays the manual for the command in section 7',
       command: 'man cat.7',
     },
   ]}
@@ -327,100 +324,105 @@ Manual page find(1) line 1 (press h for help or q to quit)
 
 </Card>
 
-## Por que usar o terminal
+## Why Use the Terminal?
 
-Recaptulando, há duas formas principais de se interagir com o computador:
+Recapping, there are two main ways to interact with a computer:
 
-- **Por aplicações gráficas (GUI)**, que desenham e processam livremente os pixels na tela, esperando que você navegue pela tela com o mouse;
-- **Por aplicações de terminal (CLI, TUI)**, apresentando informações basedas em texto;
+- **Through graphical applications (GUIs)**, which freely draw and process pixels on the screen, expecting you to navigate the screen with a mouse.
+- **Through terminal applications (CLIs, TUIs)**, presenting information based on text.
 
-Muitos dos programas que se usa por interface gráfica também tem para o terminal.
+Many of the programs used through a graphical interface also have versions for the terminal.
 
-![Gerenciadores de arquivos - pcmanfm e nnn](/assets/images/posts/explorer.png)
-_Gerenciadores de arquivos - pcmanfm e nnn_
+![File Managers - pcmanfm and nnn](/assets/images/posts/explorer.png)
+_File Managers - pcmanfm and nnn_
 
-![Editores de texto - vscodium e nvim](/assets/images/posts/editor.png)
-_Editores de texto - vscodium e nvim_
+![Text Editors - vscodium and nvim](/assets/images/posts/editor.png)
+_Text Editors - vscodium and nvim_
 
-Não se pode concluir uma forma como _a_ melhor, mas há muitas situações onde de fato o terminal se destaca:
+It's not about concluding which one is better, but there are many situations where the terminal stands out:
 
-### ⚡ Velocidade
+### ⚡ Speed
 
-Como já dito, ao se usar o terminal, você se verá navegando muito pelos diretórios do seu sistema. E, sem muito tempo de uso, você já pode estar navegando super rápido. Me acompanha: se você for uma pessoa que já se dá bem digitando no computador, imagina usar essa velocidade pra navegar por ele. Essa velocidade não precisa ficar só na navegação de arquivos e não se resume à digitação de palavras. Ter macros e comandos no teclado para controlar o programa é comum. **Para uma aplicação com bom suporte ao teclado, toda interação pode ser feita na velocidade que sua digitação alcançar**, e isso lhe permite ir melhorando com a prática.
+As mentioned earlier, when you use the terminal, you'll find yourself navigating through directories a lot. With a little time and practice, you can navigate very quickly. Imagine using this speed to navigate your computer if you're already good at typing. This speed isn't limited to just navigating files, and it's not just about typing words. Having macros and keyboard commands to control the program is common. **For an environment with good keyboard support, every interaction can be done at the speed of your typing**, and you can improve with practice.
 
-Os benefícios são claros também pra quem não digita rápido. Entre **navegar mais de uma tela**/menu ou digitar/**copiar uma única frase** no seu terminal, você pode ganhar tempo com a segunda opção. **Você não está refém do que a tela lhe mostra para clicar.** Como exemplo, pense o caminho que você faz para instalar um programa novo: você pesquisa o nome dele na internet, acha o site correto, segue os passos para baixar algum arquivo para aí então clicá-lo para instalar. Um jeito mais rápido é caso já se procure numa loja de aplicativos do sistema, mas mesmo assim, como isso se compara com apenas digitar no terminal "apt install _nome-do-programa_" ou semelhante?
+The benefits are clear even for those who don't type quickly. Between **navigating more than one screen/menu** or typing/**copying a single sentence** on your terminal, you can save time with the second option. **You're not limited to what the screen shows you to click.** For example, consider the process of installing a new program: you search its name on the internet, find the correct website, follow the steps to download a file, and then click it to install. A faster
 
-### 🎯 Exatidão
+### 🎯 Accuracy
 
-Uma coisa que a linha de comando permite de forma natural é a chance de lidarmos com o computador de forma muito específica. Sabe quando você pede uma pizza num aplicativo, **clicando** em cada sabor, sem muito problema? Se você quer pedir para tirar algum ingrediente específico de algum sabor, uma área para escrever um comentário resolveria, né?
+One thing that the command line naturally allows is the opportunity to deal with the computer in a very specific way. You know when you order a pizza in an app, **clicking** on each flavor, no problem? If you want to ask for the removal of a specific ingredient from a flavor, a comment area would solve that, right?
 
-Você nunca terá **todas** as opções possíveis de pedido numa tela, por isso há disponível o que é mais comum. Você é dependente das opções que são apresentadas na tela. Para qualquer outra opção mais específica, há uma forma mais aberta para você definir as coisas: escrevendo.
+You will never have **all** the possible ordering options on one screen, so what is more common is available. You depend on the options presented on the screen. For any other more specific option, there is a more open way for you to define things: by writing.
+
+**It's just a matter of how it's sometimes much better to describe something instead of requiring to navigate on options through pages and scrolls.**
 
 ```bash
-# comando para setar uma imagem minha como wallpaper de um monitor específico
+# Command to set one of my images as wallpaper for a specific monitor
 xwallpaper --output eDP-1 --stretch Pictures/wallpapers/object_mono_dark_purple_horizon_1.png
 ```
 
 ```bash
-# comando para habilitar a função de toque para clique no touchpad do notebook
+# Command to enable tap-to-click function on the notebook's touchpad
 xinput set-prop "SYNA3602:00 0911:5288 Touchpad" "libinput Tapping Enabled" 1
 ```
 
-É dessa forma que interface gráfica e linha de comando se completam. Elas se diferenciam pela **densidade de informações** que uma situação demanda. O quanto é possível dar de informações ao dar um comando:
+I'm not saying you will always need to write a lot. Being too descriptive requires writing well the things the command need and the goal is not for you to memorize these long commands. You at least need to understand/search how to write these once. To use it again, I'll soon describe the use of aliases.
 
-- Em **GUI** recebemos informações mais bem apresentadas, mas o _input_ do usuário é mais simples e menos denso, como um prato _a la carte_ no cardápio.
-- Em **CLI** você possui uma gama de opções disponíveis que podem ser declaradas todas de uma vez, de uma forma mais livre. Como seu prato do _buffet_, que tem muito mais batata frita que deveria.
+This is how the graphical interface and the command line complement each other. They differ in the **density of information** that a situation demands. How much information can be given when giving a command:
 
-Isso nem sempre é uma necessidade, até porque ser muito descritivo demanda escrever bem as coisas que o comando precisa. O objetivo não é vocẽ memorizar esses comandos longos. Você pode salvá-los como um `alias`. Alias são como "gírias" que você pode substituir um comando longo. Parte do poder para ser preciso e rápido está nessa ferramenta. Eu posso **navegar para lugares exatos**, **pedir um comando difícil de lembrar**, **Abrir ou criar um arquivo específico** e até **chamar mais de um comando em série**. Existem muitas listas na internet com aliases bom para se ter no sistema. O próprio sistema operacional é formado por muitos alias que chamam outras coisas por trás.
+- In **GUI**, we receive better-presented information, but the user's input is simpler and less dense, like an à la carte dish on the menu.
+- In **CLI**, you have a range of available options that can be declared all at once, in a more free-form manner. Like your buffet dish, which has way more fries than it should.
+
+#### 🪄 Speed + Accuracy = `Alias`
+
+For specific and/or long commands, you can always save them as an `alias`. Aliases are like "slang" that you can use to replace a long command. Part of the power to be precise and fast is in this tool. I can **navigate to exact places**, **request a hard-to-remember command**, **open or create a specific file**, and even **call more than one command in a series**. There are many lists on the internet with useful aliases for your system. The operating system itself consists of many aliases that call other things behind the scenes.
 
 ```bash
-# comando `update` para checar atualizações e listá-las
+# `update` command to check for updates and list them
 update='sudo apt update && apt list --upgradable'
 ```
 
-Caso queira ver, aqui estão os meu aliases
-[dotfiles/shell/aliases at master · gbgabo/dotfiles](https://github.com/gbgabo/dotfiles/blob/master/shell/aliases)
+If you want to see, here are my aliases: [dotfiles/shell/aliases at master · gbgabo/dotfiles](https://github.com/gbgabo/dotfiles/blob/master/shell/aliases)
 
-### 🔗 Integração
+### 🔗 Integration
 
-Lembre-se que nessa conversa com o computador, as palavras são literalmente programas ou dados para programas. Um comando no terminal pode ser só uma **palavra**, mas também uma **frase**. Com o charactere `|`, também conhecido como pipe, a informação que um comando retorna pode ser usada para o próximo comando, e assim por diante. Montar comandos obedecendo essa sintaxe simples faz com que naturalmente integrações sejam feitas.
+Remember that in this conversation with the computer, words are literally programs or data for programs. A command in the terminal can be just a **word**, but also a **phrase**. With the character `|`, also known as a pipe, the information that one command returns can be used for the next command, and so on. Building commands following this simple syntax naturally leads to integrations being made.
 
-No exemplo abaixo, a lista de itens que o ls retornará será filtrada pelo grep, resultando apenas as linhas que incluem .png, ou seja, os arquivos .png listados.
+In the example below, the list of items that `ls` will return will be filtered by `grep`, resulting in only the lines that include .png, in other words, the listed .png files.
 
 ```bash
 $ ls -l Downloads | grep .png
 ```
 
-![Funcionamento do pipe de um comando ao outro](/assets/images/posts/pipe.png)
+![Functioning of the pipe from one command to another](/assets/images/posts/pipe.png)
 
-A natureza baseada em texto dos programas de terminal permitem uma consistência na forma que se mexe no computador, criando uma experiência unificada. Até para programas de interface gráfica, é possivel chamar comandos que fazem o mesmo que se faz clicando, e você acaba estendendo os programas do dia a dia para a sua necessidade. E por sinal, o que for de necessidade diária, você pode automatizar!
+The text-based nature of terminal programs allows for consistency in how you interact with the computer, creating a unified experience. Even for graphical interface programs, it is possible to call commands that do the same as clicking, and you end up extending everyday programs to your needs. And by the way, what is a daily necessity, you can automate!
 
-### 🤖 Automação
+### 🤖 Automation
 
-Para toda linha de comando que você escreve, é possível executá-las de uma vez só. Você faz isso por meio de scripts. Scripts são arquivos onde você escreve todos os comandos que queira e a lógica para execução deles. Scripts podem ser muito mais que uma série de comandos. Na verdade, o bash é, além de um interpretador de comandos, uma linguagem de programação!
+For every command line you write, you can execute them all at once. You do this through scripts. Scripts are files where you write all the commands you want and the logic for executing them. Scripts can be much more than just a series of commands. In fact, bash is not only a command interpreter but also a programming language!
 
-Se aprofundar em bash é um tópico a parte, mas com muito pouco é possível facilitar a vida com ele. No exemplo abaixo, eu vou criar um comando chamado `journal`, onde eu abro o meu caderno de anotações diário. Cada dia eu crio um novo arquivo de anotações. Caso eu não tenha criado um novo arquivo para o dia de hoje, eu crio ele e abro no meu editor de texto. Caso o arquivo já exista, eu apenas o abro no editor.
+Diving deep into bash is a separate topic, but with very little, you can make life easier with it. In the example below, I will create a command called `journal`, where I open my daily notes. Each day I create a new notes file. If I haven't created a new file for today, I create it and open it in my text editor. If the file already exists, I just open it in the editor.
 
 ```bash
 #!/bin/bash
 
-# Defino o nome do meu arquivo do dia.
-# Eu uso o comando date para pegar consultar o dia de hoje.
+# Define the name of my day's file.
+# I use the `date` command to get today's date.
 name=day-$(date +%Y-%m-%d)
 
-# Defino o caminho completo do local do arquivo.
-# Eu uso a variável global $HOME para declarar o caminho do meu home.
+# Define the full path to the file location.
+# I use the global variable $HOME to declare the path to my home directory.
 file="$HOME/$name.txt"
 
-# Caso o arquivo nesse caminho não exista, eu o crio.
+# If the file does not exist at this path, I create it.
 [ ! -f "$file" ] && touch $file
 
-# Abro o arquivo no editor vim
+# Open the file in the vim editor
 vim $file
 ```
 
-Agora, caso eu queira escrever algo rapido no meu diario, eu só chamo o comando `journal`.
+Now, if I want to write something quickly in my diary, I just call the `journal` command.
 
-## Continua...
+## To be continued...
 
-Bom, isso é tudo por agora. Como eu ainda tenho assunto para escrever, e esse post está ficando bem maior do que eu esperava, é melhor eu parar por aqui. Caso você tenha curtido o assunto, fique ligado em novos posts do [blog](/blog) e se aprofunde pelos outros inúmeros conteúdos na internet
+Well, that's it for now. Since I still have more topics to write about, and this post is getting much longer than I expected, it's better to stop here. If you enjoyed the topic, stay tuned for new posts on the [blog](/blog) and delve into the countless other contents on the internet.
