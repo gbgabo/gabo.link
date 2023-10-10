@@ -356,22 +356,28 @@ Uma coisa que a linha de comando permite de forma natural é a chance de lidarmo
 
 Você nunca terá **todas** as opções possíveis de pedido numa tela, por isso há disponível o que é mais comum. Você é dependente das opções que são apresentadas na tela. Para qualquer outra opção mais específica, há uma forma mais aberta para você definir as coisas: escrevendo.
 
+**É apenas uma questão de como às vezes é muito melhor descrever algo em vez de exigir navegar por opções em páginas e rolagens.**
+
 ```bash
-# comando para setar uma imagem minha como wallpaper de um monitor específico
+# Comando para definir uma das minhas imagens como papel de parede para um monitor específico
 xwallpaper --output eDP-1 --stretch Pictures/wallpapers/object_mono_dark_purple_horizon_1.png
 ```
 
 ```bash
-# comando para habilitar a função de toque para clique no touchpad do notebook
+# Comando para ativar a função de toque como clique no touchpad do notebook
 xinput set-prop "SYNA3602:00 0911:5288 Touchpad" "libinput Tapping Enabled" 1
 ```
 
-É dessa forma que interface gráfica e linha de comando se completam. Elas se diferenciam pela **densidade de informações** que uma situação demanda. O quanto é possível dar de informações ao dar um comando:
+Não estou dizendo que você sempre precisará escrever muito. Ser muito descritivo requer escrever bem as coisas que o comando precisa e o objetivo não é que você memorize esses comandos longos. Pelo menos você precisa entender/pesquisar como escrevê-los uma vez. Para usá-los novamente, em breve descreverei o uso de aliases.
 
-- Em **GUI** recebemos informações mais bem apresentadas, mas o _input_ do usuário é mais simples e menos denso, como um prato _a la carte_ no cardápio.
-- Em **CLI** você possui uma gama de opções disponíveis que podem ser declaradas todas de uma vez, de uma forma mais livre. Como seu prato do _buffet_, que tem muito mais batata frita que deveria.
+É assim que a interface gráfica e a linha de comando se complementam. Elas diferem na **densidade de informações** que uma situação exige. Quanta informação pode ser fornecida ao dar um comando:
 
-Isso nem sempre é uma necessidade, até porque ser muito descritivo demanda escrever bem as coisas que o comando precisa. O objetivo não é vocẽ memorizar esses comandos longos. Você pode salvá-los como um `alias`. Alias são como "gírias" que você pode substituir um comando longo. Parte do poder para ser preciso e rápido está nessa ferramenta. Eu posso **navegar para lugares exatos**, **pedir um comando difícil de lembrar**, **Abrir ou criar um arquivo específico** e até **chamar mais de um comando em série**. Existem muitas listas na internet com aliases bom para se ter no sistema. O próprio sistema operacional é formado por muitos alias que chamam outras coisas por trás.
+- Na **GUI**, recebemos informações melhor apresentadas, mas a entrada do usuário é mais simples e menos densa, como um prato à la carte no menu.
+- Na **CLI**, você tem uma variedade de opções disponíveis que podem ser declaradas de uma vez, de maneira mais livre. Como o seu prato no buffet, que tem muito mais batatas fritas do que deveria.
+
+#### 🪄 Velocidade + Precisão = `Alias`
+
+Para comandos específicos e/ou longos, você sempre pode salvá-los como um `alias`. Aliases são como "gírias" que você pode usar para substituir um comando longo. Parte do poder para ser preciso e rápido está nessa ferramenta. Eu posso **navegar para lugares exatos**, **solicitar um comando difícil de lembrar**, **abrir ou criar um arquivo específico** e até **chamar mais de um comando em série**. Existem muitas listas na internet com aliases úteis para o seu sistema. O próprio sistema operacional consiste em muitos aliases que chamam outras coisas nos bastidores.
 
 ```bash
 # comando `update` para checar atualizações e listá-las
