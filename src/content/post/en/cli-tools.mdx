@@ -1,8 +1,8 @@
 ---
 publishDate: 2023-03-18T00:00:00Z
-title: Programs do improve your experience on the terminal
-description: De reacts e dicas de código, à tutoriais e humor.
-excerpt: De reacts e dicas de código, à tutoriais e humor.
+title: Programs to Improve Your Terminal Experience
+description: For a visually pleasing environment and intuitive management.
+excerpt: For a visually pleasing environment and intuitive management.
 image: ~/assets/images/cli-dark.png
 category: Lists
 draft: false
@@ -11,49 +11,62 @@ tags:
   - command-line
   - CLI
   - linux
-canonical: https://gabo-link.vercel.app/canais-de-desenvolvimento-web-que-valem-voce-ver
+canonical: https://gabo.link/cli-tools
 ---
 
 import ExternalLink from '~/components/blog/content/ExternalLink.astro';
 import ListItem from '~/components/blog/content/ListItem.astro';
 import UnstyledList from '~/components/blog/content/UnstyledList.astro';
 import VideoFrame from '~/components/blog/content/VideoFrame.astro';
+import Slider from '~/components/blog/content/Slider.astro';
+import Image from '~/components/blog/content/Image.astro';
 
-export const components = { ul: UnstyledList };
+export const components = { ul: UnstyledList, img: Image };
 
-<p class="px-6">O Youtube sozinho já é uma plataformma sem fim, que periodicamente quebramos nossas bolhas de recomendação e descobrimos canais incriveis. Nesse post trago canais na área de desenvolvimento web que você talvez não conheça.</p>
+<p class="px-6">The terminal can be an uncomfortable and unproductive environment if you are not familiar with the tools it offers. It's not only interesting to know the native tools of a Linux system, such as those from the GNU project but also the additional tools you can install to make your daily life in the terminal easier. This post's list presents tools that not only add agility to the terminal but also offer a richer visual experience for the text screen. They are useful for both beginners and those who already have autonomy but may not be familiar with some of the items below.</p>
   
 <ListItem>
 
 # 1. tmux
 
-<VideoFrame src="https://www.youtube.com/embed/MuCK81q1edU" />
+<Slider>
+  ![image](/assets/images/posts/cli-tools/tmux.png)
+  <VideoFrame id="Yl7NFenTgIo" />
+</Slider>
 
-Canal de um desenvolvedor do que trabalha para o Netflix. The Primeagen é um showman que mistura programação e comédia, fazendo qualquer assunto envolvendo programação valer a pena ser conversado.
+**Good for:** Managing multiple terminal sessions, visual window management.
 
-Você encontrará lives e cortes abordando tópicos específicos de programação e reacts de assuntos do momento na área de desenvolvimento. Você também pode assistir ele ao vivo no Youtube e Twitch.
+[tmux](https://github.com/tmux/tmux/wiki) is a terminal multiplexer. In other words, it allows you to manage multiple terminal sessions through command line and keyboard shortcuts. It's useful for handling more than one session in the same terminal, managing sessions through windows, sending open sessions to the background, and in general, providing a user-friendly interface to navigate between open processes in the terminal. It makes even more sense when you are limited to accessing a remote machine only via SSH. Tmux will give you much more freedom.
 
-- <ExternalLink href="https://www.youtube.com/@ThePrimeagen">Canal no Youtube</ExternalLink>
-- <ExternalLink variant="secondary" href="https://www.youtube.com/@ThePrimeTimeagen">
-    Canal de cortes - ThePrimeTime
+Tmux supports plugins that allow you to extend the program with functions like predefining window layouts (tmuxinator) for different project environments and restoring the previous layout even after restarting the machine (tmux-continuum).
+
+- <ExternalLink href="https://github.com/tmux/tmux/wiki">Github homepage</ExternalLink>
+- <ExternalLink href="https://tmuxcheatsheet.com/" variant="secondary">
+    Command Cheatsheet
   </ExternalLink>
-- <ExternalLink variant="secondary" href="https://www.twitch.tv/theprimeagen">
-    Canal na Twitch
+- <ExternalLink href="https://github.com/rothgar/awesome-tmux" variant="secondary">
+    Awesome tmux
   </ExternalLink>
 
 </ListItem>
 
 <ListItem>
 
-# 2. fzf
+# 2. Nerd Fonts
 
-<VideoFrame src="https://www.youtube.com/embed/3elGSZSWTbM" />
+![image](/assets/images/posts/cli-tools/nerd-fonts-list.svg)
 
-Pra quem quer entender CSS, o canal do Kevin Powell é perfeito. Há tanto conteúdos introdutórios, como também abordagens para situações bem específicas, mas que você fica: "A-ha! é exatamente aquele problema que eu tava empacado!".
+**Good for:** Rendering useful icons through the command line.
 
-Ele possui uma narrativa bem calma, mas sempre atento à reproduzir as mesmas situações que os desenvolvedores tem problemas. Você vai notar que ele é pura tranquilidade.
+[Nerd Fonts](https://www.nerdfonts.com/) are not a program but a package of icons provided as text fonts. There are over 9,000 included icons that, when used as one of your terminal fonts, allow you to view icons in the command line, making programs visually richer. To facilitate their use, these icons are made available by combining them with another text font you use, such as UbuntuMono, Fira Code, Hack. This way, you only need to set the text font you chose, and the icons will already be included in the terminal.
 
-- <ExternalLink href="https://www.youtube.com/@KevinPowell">Canal no Youtube</ExternalLink>
+- <ExternalLink href="https://www.nerdfonts.com/">Homepage</ExternalLink>
+- <ExternalLink href="https://github.com/ryanoasis/nerd-fonts" variant="secondary">
+    Github page
+  </ExternalLink>
+- <ExternalLink href="https://www.nerdfonts.com/cheat-sheet" variant="secondary">
+    Icon List / Cheatsheet
+  </ExternalLink>
 
 </ListItem>
 
@@ -61,42 +74,50 @@ Ele possui uma narrativa bem calma, mas sempre atento à reproduzir as mesmas si
 
 # 3. zsh
 
-<VideoFrame src="https://www.youtube.com/embed/y17RuWkWdn8" />
+**Good for:** Enhancing the command line experience through plugins.
 
-Outro canal ótimo em trazer pequenos tópicos de aprendizado. Ele aborda assuntos da tríade inicial de HTML/CSS/JS, desde a parte introdutória, como também abordando bibliotecas modernas do mundo Javascript.
+[Zsh](https://zsh.org) is a command interpreter, just like Bash. What makes it famous is the community-developed plugins, especially by the Oh My Zsh project, to make your daily life in the terminal easier. Things like auto-complete, themes, and extensions for a richer prompt, git integrations, and built-in aliases.
 
-Seu conteúdo é de grande utilidade para quem está começando na área, mas também com vários tópicos pra quem já é da área e quer aprender algo em específico.
-
-- <ExternalLink href="https://www.youtube.com/@WebDevSimplified">Canal no Youtube</ExternalLink>
-
-</ListItem>
-
-<ListItem>
-
-# 4. nvim
-
-<VideoFrame src="https://www.youtube.com/embed/jMVhxBB3l0w" />
-
-O cara desse canal é um mago em descrever seu processo de análise e desenvolvimmento de alguma necessidade ao fazer um site. Seu vídeos costumam ser bem direto ao ponto, sem deixar passar os detalhes que se deve ter ao resolver um problema.
-
-Seu canal possui tanto vídeos passo-a-passo práticos em código, como também análises baseadas em experiências de usuários, pensando em como o UI em sí pode ser melhorado.
-
-Hyperplexed é um canal que demonstra como pode ser simples o processo de criação na web, ajudando a matar aquela sindrome de impostor que fica do nosso ladinho.
-
-- <ExternalLink href="https://www.youtube.com/@Hyperplexed">Canal no Youtube</ExternalLink>
+- <ExternalLink href="https://ohmyz.sh/">Oh My Zsh</ExternalLink>
+- <ExternalLink href="https://github.com/ohmyzsh/ohmyzsh/wiki/Installing-ZSH">Installing Zsh</ExternalLink>
 
 </ListItem>
 
 <ListItem>
 
-# 5. Fireship
+# 4. bat
 
-<VideoFrame src="https://www.youtube.com/embed/rv3Yq-B8qp4" />
+![bat](/assets/images/posts/cli-tools/bat.png)
 
-Outro canal que é incrivel pela sua objetividade. Fireship é conhecido pelo seu quadro "em 100 segundos", onde ele explica linguagens e ferramentas em 100 segundos. Obviamente no limite do que é possível mostrar nesse tempo, ele tenta focar nos pontos chaves, principalmente como uma forma de entender os prós daquela linguagem/ferramenta. Pra quem curte Angular e Firebase, ele tem outros conteúdos extras e pagos nessa área.
+**Good for:** Displaying code with syntax highlighting.
 
-Ele atualmente também tem vídeos que resumem as principais notícias no mundo do desenvolvimento, tudo sempre com uma pitada àcida e ironica de humor.
+[bat](https://github.com/sharkdp/bat) is a powerful cat clone with syntax highlighting and Git integration. It enhances the user experience by making it easier to view the content of files in the terminal with syntax highlighting for a wide range of programming languages. This improved visualization is particularly useful for code reviews, code navigation, and reading files.
 
-- <ExternalLink href="https://www.youtube.com/@Fireship">Canal no Youtube</ExternalLink>
+- <ExternalLink href="https://github.com/sharkdp/bat">Github page</ExternalLink>
+
+</ListItem>
+
+<ListItem>
+
+# 5. nnn
+
+![nnn](/assets/images/posts/cli-tools/nnn.gif)
+
+**Good for:** Efficiently navigating directories and files.
+
+[nnn](https://github.com/jarun/nnn) is a highly efficient and feature-rich file manager for the terminal. It enhances the user experience by providing a user-friendly interface to navigate and manage files and directories. With support for keyboard shortcuts, plugins, and various customization options, nnn offers an intuitive and productive way to work with files and directories in the terminal.
+
+- <ExternalLink href="https://github.com/jarun/nnn">Github page</ExternalLink>
+
+</ListItem>
+
+<ListItem>
+# ⭐: nala
+
+**Good for:** A simpler and formatted visual for the `apt` package manager.
+
+[nala](https://gitlab.com/volian/nala) is a front-end for apt.
+
+- <ExternalLink href="https://gitlab.com/volian/nala">Gitlab page</ExternalLink>
 
 </ListItem>
