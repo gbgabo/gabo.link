@@ -7,7 +7,7 @@
     "articles": "/textos",
     "lists": "/listas",
     "footer": {
-      "footNote": "Tema escuro <span class='dark:hidden'>(e claro também?)</span> baseado no <a class='hover:underline font-bold text-pink' href='https://wildberries.style/''><img class='w-5 h-5 md:w-6 md:h-6 bg-cover inline-block align-bottom rounded-sm mr-1' src='https://wildberries.style/img/ui/wb_logo.svg'/>Wildberries</a>"
+      "footNote": "Tema escuro <span class='dark:hidden'>(e claro também?)</span> baseado no <a class='hover:underline font-bold text-pink' href='https://wildberries.style/''><img class='w-5 h-5 md:w-6 md:h-6 bg-cover inline-block align-bottom rounded-sm mr-1' src='https://wildberries.style/img/ui/wb_logo.svg' alt='logo do tema wildberies'/>Wildberries</a>"
     }
   },
   "home": {
