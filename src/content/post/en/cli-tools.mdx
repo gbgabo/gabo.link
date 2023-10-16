@@ -11,6 +11,7 @@ tags:
   - command-line
   - CLI
   - linux
+  - uses
 canonical: https://gabo.link/cli-tools
 ---
 
@@ -23,7 +24,7 @@ import Image from '~/components/blog/content/Image.astro';
 
 export const components = { ul: UnstyledList, img: Image };
 
-<p class="px-6">The terminal can be an uncomfortable and unproductive environment if you are not familiar with the tools it offers. It's not only interesting to know the native tools of a Linux system, such as those from the GNU project but also the additional tools you can install to make your daily life in the terminal easier. This post's list presents tools that not only add agility to the terminal but also offer a richer visual experience for the text screen. They are useful for both beginners and those who already have autonomy but may not be familiar with some of the items below.</p>
+<p class="px-6">The terminal can be an uncomfortable and unproductive environment if you are not familiar with the tools it offers. It's not only interesting to know the native tools of a Linux system, such as those from the [GNU project](https://en.wikipedia.org/wiki/GNU_Project#GNU/Linux) but also the additional tools you can install to make your daily life in the terminal easier. This post's list presents tools that not only add agility to the terminal but also offer a richer visual experience for the text screen. They are useful for both beginners and those who already have autonomy but may not be familiar with some of the items below.</p>
   
 <ListItem>
 
@@ -58,7 +59,7 @@ Tmux supports plugins that allow you to extend the program with functions like p
 
 **Good for:** Rendering useful icons through the command line.
 
-[Nerd Fonts](https://www.nerdfonts.com/) are not a program but a package of icons provided as text fonts. There are over 9,000 included icons that, when used as one of your terminal fonts, allow you to view icons in the command line, making programs visually richer. To facilitate their use, these icons are made available by combining them with another text font you use, such as UbuntuMono, Fira Code, Hack. This way, you only need to set the text font you chose, and the icons will already be included in the terminal.
+[Nerd Fonts](https://www.nerdfonts.com/) are not a program but a package of icons provided as text fonts. There are over 9,000 included icons that, when used as one of your terminal fonts, allow you to view icons in the command line, making programs visually richer. To facilitate their use, these icons are made available by combining them with another text font you use, such as UbuntuMono, Fira Code, Hack. This way, you only need to set the text font you chose, and the icons will already be included in the terminal. The programs in this list, and many in the same category, take advantage of this font for their visuals, so this is pretty much a must
 
 - <ExternalLink href="https://www.nerdfonts.com/">Homepage</ExternalLink>
 - <ExternalLink href="https://github.com/ryanoasis/nerd-fonts" variant="secondary">
@@ -76,10 +77,12 @@ Tmux supports plugins that allow you to extend the program with functions like p
 
 **Good for:** Enhancing the command line experience through plugins.
 
-[Zsh](https://zsh.org) is a command interpreter, just like Bash. What makes it famous is the community-developed plugins, especially by the Oh My Zsh project, to make your daily life in the terminal easier. Things like auto-complete, themes, and extensions for a richer prompt, git integrations, and built-in aliases.
+[Zsh](https://zsh.org) is a command interpreter, just like [Bash](https://w.wiki/PoJ). What makes it famous is the community-developed plugins, especially by the **Oh My Zsh project**, to make your daily life in the terminal easier. Things like **auto-complete**, **themes**, and **extensions** for a richer prompt, git integrations, and built-in aliases.
 
-- <ExternalLink href="https://ohmyz.sh/">Oh My Zsh</ExternalLink>
 - <ExternalLink href="https://github.com/ohmyzsh/ohmyzsh/wiki/Installing-ZSH">Installing Zsh</ExternalLink>
+- <ExternalLink href="https://ohmyz.sh/" variant="secondary">
+    Oh My Zsh
+  </ExternalLink>
 
 </ListItem>
 
@@ -114,9 +117,22 @@ Tmux supports plugins that allow you to extend the program with functions like p
 <ListItem>
 # ⭐: nala
 
-**Good for:** A simpler and formatted visual for the `apt` package manager.
+<Slider>
 
-[nala](https://gitlab.com/volian/nala) is a front-end for apt.
+![nala install](/assets/images/posts/cli-tools/nala-install.png)
+
+![nala update](/assets/images/posts/cli-tools/nala-update.png)
+
+</Slider>
+
+**Good for:** A simpler and formatted interface for the `apt` package manager.
+
+As a bonus item, for people using Debian based distros, [nala](https://gitlab.com/volian/nala) is a front-end for apt. As it's described from the project's page:
+
+> Especially for newer users it can be hard to understand what apt is trying to do when installing or upgrading.
+>
+> We aim to solve this by not showing some redundant messages, formatting the packages better, and using color to
+> show specifically what will happen with a package during install, removal, or an upgrade.
 
 - <ExternalLink href="https://gitlab.com/volian/nala">Gitlab page</ExternalLink>
 
