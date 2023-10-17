@@ -75,13 +75,29 @@ Para facilitar o seu uso, esses ícones são disponibilizados unindo-os com algu
 
 <ListItem>
 
-# 3. zsh
+# 3. Zsh
+
+<Slider>
+
+![zsh](/assets/images/posts/cli-tools/zsh-2.png)
+
+![zsh](/assets/images/posts/cli-tools/zsh.png)
+
+</Slider>
 
 **Bom para:** Melhorar a experiência da linha de comando por meio de plugins.
 
-O zsh é um interpretador de comando, assim como o [Bash](https://w.wiki/PoJ). O que o torna famoso é o que a comunidade desenvolve em plugins, principalmente pelo projeto **Oh My Zsh**, para facilitar o dia a dia no terminal. Coisas como **auto-complete**, **temas** e **extensões** para um prompt mais rico e integrações com Git, além de aliases de fábrica.
+O [Zsh](https://zsh.org) é um interpretador de comando, assim como o [Bash](https://w.wiki/PoJ). O que o torna famoso é o que a comunidade desenvolve em plugins, principalmente pelo projeto **Oh My Zsh**, para facilitar o dia a dia no terminal. Coisas como **auto-complete**, **temas** e **extensões** para um prompt mais rico e integrações com Git, além de aliases de fábrica.
 
-- <ExternalLink href="https://ohmyz.sh/">Oh My Zsh</ExternalLink>
+Há todo um universo de plugins e configurações sendo compartilhados na internet para você explorar, mas como ponto de partida, o Oh My Zsh já inclui a maioria dos plugins e temas que você pode precisar, prontos para uso. Há também um plugin/tema/prompt chamado [spaceship](https://spaceship-prompt.sh) que possui um visual simples, mas repleto de recursos.
+
+- <ExternalLink href="https://github.com/ohmyzsh/ohmyzsh/wiki/Installing-ZSH">Instalando Zsh</ExternalLink>
+- <ExternalLink href="https://ohmyz.sh/" variation="secondary">
+    Oh My Zsh
+  </ExternalLink>
+- <ExternalLink href="https://github.com/unixorn/awesome-zsh-plugins" variant="secondary">
+    Awesome Zsh
+  </ExternalLink>
 
 </ListItem>
 
@@ -133,6 +149,14 @@ Como item bonus, para usuário de distribuições baseadas em Debian, [nala](htt
 > Nosso objetivo é resolver isso, não mostrando algumas mensagens redundantes, formatando melhor os pacotes e usando cores para
 > mostrar especificamente o que acontecerá com um pacote durante a instalação, remoção ou atualização.
 
-- <ExternalLink href="https://gitlab.com/volian/nala">Gitlab page</ExternalLink>
+Além disso, ele permite downloads paralelos, tornando mais rápido para buscar mirrors e baixar pacotes diferentes ao mesmo tempo. Como eu uso apenas os comandos apt mais comuns, foi fácil simplesmente criar um `alias` de apt para `nala`:
+
+```bash
+alias apt='nala'
+```
+
+Pode ser uma opção para você também!
+
+- <ExternalLink href="https://gitlab.com/volian/nala">Página no Gitlab</ExternalLink>
 
 </ListItem>

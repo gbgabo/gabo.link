@@ -73,15 +73,28 @@ Tmux supports plugins that allow you to extend the program with functions like p
 
 <ListItem>
 
-# 3. zsh
+# 3. Zsh (+themes, plugins)
+
+<Slider>
+
+![zsh](/assets/images/posts/cli-tools/zsh-2.png)
+
+![zsh](/assets/images/posts/cli-tools/zsh.png)
+
+</Slider>
 
 **Good for:** Enhancing the command line experience through plugins.
 
 [Zsh](https://zsh.org) is a command interpreter, just like [Bash](https://w.wiki/PoJ). What makes it famous is the community-developed plugins, especially by the **Oh My Zsh project**, to make your daily life in the terminal easier. Things like **auto-complete**, **themes**, and **extensions** for a richer prompt, git integrations, and built-in aliases.
 
+There is a whole universe of plugins and setups being shared on the internet for you to look, but as a start, Oh My Zsh carries most of plugins and themes you my need out of the box. There is also a plugin/theme/prompt called [spaceship](https://spaceship-prompt.sh) which has a simple look, but full of features.
+
 - <ExternalLink href="https://github.com/ohmyzsh/ohmyzsh/wiki/Installing-ZSH">Installing Zsh</ExternalLink>
 - <ExternalLink href="https://ohmyz.sh/" variant="secondary">
     Oh My Zsh
+  </ExternalLink>
+- <ExternalLink href="https://github.com/unixorn/awesome-zsh-plugins" variant="secondary">
+    Awesome Zsh
   </ExternalLink>
 
 </ListItem>
@@ -133,6 +146,14 @@ As a bonus item, for people using Debian based distros, [nala](https://gitlab.co
 >
 > We aim to solve this by not showing some redundant messages, formatting the packages better, and using color to
 > show specifically what will happen with a package during install, removal, or an upgrade.
+
+Additionally, it allows for parallel downloads, making it faster for fetching mirrors and pulling different packages at the same time. As I use just the most commons apt commands, It was easy to simply `alias` apt to `nala`:
+
+```bash
+alias apt='nala'
+```
+
+It might be a fit for you too!
 
 - <ExternalLink href="https://gitlab.com/volian/nala">Gitlab page</ExternalLink>
 
