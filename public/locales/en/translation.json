@@ -35,7 +35,7 @@
         "description": "The term refers to the process of customize a linux enviroment to a more productive or simply aesthetically pleasing setup. There is a plethora of tools the community is constantly sharing, and you have no idea how different and personal your system can be to fit your needs. Check out my <a class='underline text-acid-green' href='#what-i-use'>dotfiles</a>."
       },
       "webdev": {
-        "title": "Web development tecnologies",
+        "title": "Web development technologies",
         "description": "There is no surprise in web development being bombarded by new frameworks and tools. Beyond just hype, there is real innovation and problems being solved by interesting new approaches."
       },
       "content": {
