@@ -1,0 +1,433 @@
+---
+publishDate: 2023-01-12T00:00:00Z
+title: O que é o terminal?
+description: Desmistificando a tela preta
+excerpt: Desmistificando a tela preta.
+image: ~/assets/images/terminal.png
+category: Articles
+tags:
+  - linux
+  - terminal
+  - command line
+  - guide
+  - the basics
+canonical: https://gabo.link/the-terminal
+---
+
+import Slider from '~/components/blog/content/Slider.astro';
+import Image from '~/components/blog/content/Image.astro';
+import Card from '~/components/blog/content/Card.astro';
+
+export const components = { img: Image };
+
+Você já deve ter visto aquelas telas pretas, com linhas pequenas pipocando sem parar. Possivelmente em um filme, onde há um super hacker escrevendo dezenas de letras por segundo com o objetivo de quebrar todas as senhas e acessar um sistema secreto do pentágono. Essa janela preta é um **terminal**.
+
+A ideia desse texto é desmistificar e explicar, em uma introdução geral, **tudo que você precisa saber para conhecer o `terminal`**, além de mostrar o quanto ele pode ser divertido e útil.
+
+# O que é o terminal
+
+## O hardware (o terminal burro)
+
+Antes de ser mais conhecido como um programa, o terminal era um equipamento. Seu objetivo era o de **interagir com um computador por meio de texto**. Bem por isso, este é sempre constituindo por um **teclado** para essa interface.
+
+Mais especificamente, neste texto tudo se refere ao `vídeo terminal`, que **possui uma tela além do teclado**, em contraste com terminais mais antigos, que **interfaciavam com o computador por impressão do texto** (semelhante ao fax). Um exemplo de video terminal é o [VT100](https://pt.wikipedia.org/wiki/VT100).
+
+![TI Silent 700 e VT100](/assets/images/posts/terminals.png)
+
+E se logo de cara você está com medo, ou acha que deve ser muito difícil mexer em um terminal, quero que você me diga quão dificil é mexer nesse cara:
+
+![Tela de chat](/assets/images/posts/chat.jpeg)
+
+É isso mesmo, um chat. Você sabe usar ele? Então você já tem metade do que precisa, acredite. De forma bem simples, o terminal é um chat... com o seu computador! Nele você escreverá algo para o computador, e ele vai lhe responder. **As mensagens que mandamos para o computador serão sempre `comandos` para ele executar.**
+
+E antigamente isso fazia mais sentido ainda. Visto que os computadores eram caros (e enormes), a melhor solução era ter vários equipamentos menores que só pedem coisas para o único computador do local, como em universidades e bibliotecas. Esses equipamentos eram literalmente os terminais, também chamados de **terminais burros**. Burro porque fazer algo sozinho ele não fazia. Não possuía memória, nem processador dedicado. Ele só pedia para o servidor, e o servidor devolvia na tela o que lhe foi pedido.
+
+## O software (o emulador de terminal)
+
+Ter um computador em casa descarta a necessidade de ter um equipamento a mais pra falar com ele, mas falar por texto não deixou de ser útil. Ainda se usa muito o terminal, porém agora ele é um programa, também conhecido como `emulador de terminal`. Agora sim, se tornando aquela janelinha preta, ele deixa de ser aquele monitor de tubo com comunicação serial.
+
+![O terminal como hardware e atualmente como software](/assets/images/posts/terminal-interface.png)
+
+**O terminal agora vive dentro do próprio computador, se tornando apenas uma abstração digital mantida unicamente pela conveniência de comunicação dos humanos para com as máquinas.**
+
+E por meio de uma das interfaces mais antigas de computador, que ainda hoje vemos uma infinidade de usos e aplicações para o ambiente de desenvolvimento e cotidiano no computador.
+
+## O que o terminal tem
+
+Diga oi para o meu terminal. Nesse texto mostrarei um terminal num sistema com Linux. Ele é muito parecido com o Mac. Para o Windows os conceitos abordados aqui também valem, porém há mudanças para os nomes dos comandos mais comuns.
+
+![Tela de um emulador de terminal](/assets/images/posts/emulator.png)
+
+O terminal é bem vazio de cara, porque ele é só um monitor. Ele só mostra um programa alí no topo. O `shell`!
+
+**O shell é o interpetador de comandos do terminal**, eu vou digitar nosso primeiro comando. O `ls`.
+
+```bash
+gabo@book:~/$ ls
+```
+
+Ele serve para `listar os arquivos` e subpastas presentes na pasta que você se encontra.
+
+![Anatomia do Shell](/assets/images/posts/shell.png)
+
+Em toda tela de terminal você vai se deparar com duas coisas:
+
+- O `prompt`: Indica onde você começa o seu comando, sua "mensagem". Nele costuma conter algumas informações úteis como **o diretório (pasta) que você está** ou **usuário que vocês está logado**, além de várias outras coisas que você mesmo pode adicionar.
+
+- A `linha de comando`: Espaço onde se escreve o comando em si.
+
+O `$` é um indicador que tudo que vem depois dele deve ser interpretado como um comando. Quando você está logado como root, o símbolo muda para um `#`. Em sistemas baseados no DOS, como o windows, esse símbolo pode ser um `>`
+
+Por sinal, tem várias opções de shell. O shell que eu mostrei é o mais comum, o `bash`, mas no dia a dia eu uso o `zsh`, bem famoso pelas suas customizações.
+
+![Exemplo de prompt do bash e zsh](/assets/images/posts/shell2.png)
+
+Mais estiloso, né. E sim, eu curto roxo.
+
+Quando um comando é enviado, o sistema retornará a resposta logo embaixo, sendo possível 3 opções:
+
+- **O que você pediu:** Quando o seu comando solicita alguma informação, essa informação aparecerá logo abaixo da linha de comando;
+- **Uma mensagem de erro:** Para quando o comando feito não for executado corretamente. Seja por erro do programa ou por erro do usuário ao digitar o que precisava;
+- **Nada:** Nos casos que o computador executa o comando e nada precisa ser devolvido. Tudo ok 👌;
+
+# Usando o terminal
+
+Voltando ao comando de exemplo. O `ls`. Ele será útil, pois no terminal você navega muito entre arquivos.
+
+![O comando ls](/assets/images/posts/ls.png)
+
+Notou o `~` logo no final do prompt? Ele simboliza a sua pasta `home`, a pasta inicial do seu usuário, onde as suas coisas ficam no sistema. O comando `ls` me listou todas as pastas e arquivos da minha home.
+
+Para irmos numa pasta especifica, o comando `cd` (_change directory_) servirá para `mudar a pasta` que você se encontra. Vamos para a pasta study.
+
+Note que ao mudarmos onde estamos, o prompt atualizará o caminho do diretório atual.
+
+![Comando ls e cd](/assets/images/posts/ls-cd.png)
+
+Para voltarmos para o diretório anterior, podemos escrever `cd ..`, onde `..` sempre se refere ao diretório pai do que você se encontra.
+
+Os comandos por texto podem receber `parâmetros`, mensagens a mais que informam formas específicas que o comando deve ser executado. No comando `ls` por exemplo, podemos informar o parâmetro `--colors` para termos uma lista formatada por cor, diferenciando pastas, arquivos e atalhos.
+
+![Comando cd e ls --color](/assets/images/posts/ls-color.png)
+
+Isso pode parecer lento, mas é exatamente o contrário. Em grande parte das vezes, o ambiente de linha de comando será muito mais rápido que com mouse (e já descorrerei mais sobre isso).
+
+<Slider>  
+  <Card 
+    title="ls"
+    description="Lista todos os items presentes no diretório atual"
+    examples={[
+      {
+        description: "Lista todos os arquivos e diretórios do diretório atual",
+        command: "ls"
+      },
+      {
+        description: "Lista todos os conteúdos, incluindo arquivos secretos (a) e em lista vertical (l) " ,
+        command: "ls -la"
+      }
+    ]}
+  >
+  gabo@book:&#126;$ ls
+  Applications  Documents  logseq  packages  projects  Sync       tmenus
+  Desktop       Downloads  Music   Pictures  Public    Templates  Videos
+  gabo@book:&#126;$
+  </Card>
+
+  <Card
+    title="cd"
+    description="(Change Directory) Use para navegar entre diretórios"
+    examples={[
+      {
+        description: "Ir para o diretório 'user'",
+        command: 'cd /home/user',
+      },
+      {
+        description: 'Ir para o diretório pai',
+        command: 'cd ..',
+      },
+    ]}
+    >
+      gabo@book:&#126;$ cd study
+      gabo@book:&#126;/study$
+
+  </Card>
+
+  <Card
+    title="cat"
+    description="Concatena e mostra conteúdos de arquivos de texto"
+    examples={[
+      {
+        description: 'Apresenta o arquivo.txt em tela',
+        command: 'cat arquivo.txt',
+      },
+      {
+        description: 'Concatena dois arquivos e gera um novo como resultado',
+        command: 'cat arq1 arq2 > novo_arq',
+      },
+    ]}
+  >
+    gabo@book:&#126;$ cat free.md
+    The four essential freedoms
+
+    A program is free software if the program's users have the four essential freedoms: [1]
+
+    The freedom to run the program as you wish, for any purpose (freedom 0).
+    The freedom to study how the program works, and change it so it does your computing as you wish (freedom 1). Access to the source code is a precondition for this.
+    The freedom to redistribute copies so you can help others (freedom 2).
+    The freedom to distribute copies of your modified versions to others (freedom 3). By doing this you can give the whole community a chance to benefit from your changes. Access to the source code is a precondition for this.
+
+  </Card>
+
+  <Card 
+    title="find"
+    description="Encontra conteúdos dentro de um dado diretório, recursivamente"
+    examples={[
+      {
+        description: 'Encontrar arquivos .txt, no diretório downloads',
+        command: "find downloads -name '*.txt'"
+      },
+      {
+        description: "Procurar apenas por diretórios no diretório atual",
+        command: "find . -type d"
+      }
+    ]}
+  >
+  gabo@book:&#126;/project$ find . -name "*.png"
+  ./public/assets/images/posts/ls.png
+  ./public/assets/images/posts/curl-h.png
+  ./public/assets/images/posts/mkdir-h.png
+  ./public/assets/images/posts/terminals.png
+  ./node_modules/@astrojs/webapi/node_modules/undici/docs/assets/lifecycle-diagram.png
+  ./node_modules/undici/docs/assets/lifecycle-diagram.png
+  ./src/assets/images/terminal.png
+  ./src/assets/images/dotfiles.png
+  ./src/assets/images/video.png
+  ./src/assets/images/hero.png
+  ./src/assets/images/default.png
+  ./src/assets/images/profile_picture.png
+  ./src/assets/images/projects/wildberries.png
+  ./src/assets/images/projects/symbols.png
+  ./src/assets/images/cli-dark.png
+  gabo@book:&#126;/project$
+  </Card>
+  
+  <Card 
+    title="pwd"
+    description="Retorna o nome do diretório atual"
+    examples={[
+      {
+        description: 'Apresenta nome do diretório atual',
+        command: "pwd"
+      },
+    ]}
+  >
+  gabo@book:&#126;/project$ pwd
+  /home/gabo/projects
+  gabo@book:&#126;/project$
+  </Card>
+  
+  <Card 
+    title="rm"
+    description="Utilizado para remover arquivos"
+    examples={[
+      {
+        description: 'Remove o arquivo favicon.ico, mas pede confirmação da ação antes',
+        command: "rm -i favicon.icon"
+      },
+      {
+        description: "Remove a pasta Downloads, e todos os seus arquvivos e pastas dentro (-r de recursivo)",
+        command: "rm -r Downloads"
+      }
+    ]}
+  >
+  gabo@book:&#126;/project$ rm -rf personal-blog
+  gabo@book:&#126;/project$ 
+  </Card>
+</Slider>
+
+Esse estilo por "chat" de interação é chamado de `CLI` (do inglês, `interface de linha de comando`).
+
+E por interagir por texto, não quer dizer que tudo se resume à essa troca de mensagem. Aplicações para o terminal também podem ter interfaces visuais próprias bem ricas.
+
+Como por exemplo o `vim` e `nvim` (editores de texto), `htop` e `bpytop` (gerenciadores de tarefas), players de música como `moc`, entre outros vários para email, calendário e até navegar pela web. Se usa muito o termo TUI (Text User Interface) para descrever esse tipo de programa.
+
+![Aplicações de terminal](/assets/images/posts/tui.png)
+
+[O projeto awesome-cli-apps](https://github.com/agarrharr/awesome-cli-apps) tem uma lista enorme de programas interessantes para o terminal.
+
+E não, eles não podem competir em tudo com aplicações GUI (Graphical User Interface). Quando você entende as utilidades do terminal, você tira o melhor proveito dele.
+
+## Como eu sei o que um comando faz?
+
+É bom lembrar que ninguém começa sabendo, e sempre haverá novos comandos que você pode aprender dependendo da sua necessidade. Afinal são apenas programas novos. É normal você precisar entender como usar um comando, e um comando decente terá no mínimo um desses dois recursos para você aprender como usá-lo:
+
+### --help e/ou -h
+
+Não sabe como usar um certo comando? Tente chamá-lo com um -h ou --help logo depois. Nem sempre -h funcionará para ajuda, pois o comando já o usa pra outro intuito. Na dúvida, tente os dois.
+
+<Slider>
+  <div>
+    ![Chamada do comando curl -h](/assets/images/posts/curl-h.png)
+    <div class="bg-dark-purple">
+      Ao chamar curl -h, é apresentado:
+       - como a estrutura do comando deve ser (curl [opções] url)
+       - quais são as opções disponíveis para utilizar com o comando (-)
+    </div>
+
+  </div>
+  <div>
+    ![Chamada do comando mkdir -h](/assets/images/posts/mkdir-h.png)
+    Em casos como para o mkdir, é necessário utilizar --help
+  </div>
+</Slider>
+
+Você pode esperar no mínimo **instruções de uso** com esses argumentos. Caso queira compreender mais a função/intuito do comando, a próxima opção fará mais sentido.
+
+### Página man
+
+Se você precisa entender **para que serve** um certo comando, as **páginas man** servirão como um **man**ual. Páginas man são páginas em texto que decrevem tudo o que é possível sobre um determinado comando. Eles são arquivos que você chama digitando `man nome-do-comando`. No exemplo a baixo, o comando chama o manual do comando `find`.
+
+<Card
+  title="man"
+  description="Um apresentador dos manuais do sistema"
+  examples={[
+    {
+      description: 'Apresenta o manual do comando cat',
+      command: 'man cat',
+    },
+    {
+      description: 'Apresenta manual do comando, na seção 7',
+      command: 'man cat.7',
+    },
+  ]}
+>
+FIND(1)                     General Commands Manual                    FIND(1)
+
+NAME
+find - search for files in a directory hierarchy
+
+SYNOPSIS
+find [-H] [-L] [-P] [-D debugopts] [-Olevel] [starting-point...] [ex‐
+pression]
+
+DESCRIPTION
+This manual page documents the GNU version of find. GNU find searches
+the directory tree rooted at each given starting-point by evaluating
+the given expression from left to right, according to the rules of
+precedence (see section OPERATORS), until the outcome is known (the
+left hand side is false for and operations, true for or), at which
+point find moves on to the next file name. If no starting-point is
+specified, `.' is assumed.
+
+       If you are using find in an environment  where  security  is  important
+       (for  example  if  you  are  using  it  to  search directories that are
+       writable by other users), you should read the `Security Considerations'
+       chapter  of  the findutils documentation, which is called Finding Files
+
+Manual page find(1) line 1 (press h for help or q to quit)
+
+</Card>
+
+## Por que usar o terminal
+
+Recaptulando, há duas formas principais de se interagir com o computador:
+
+- **Por aplicações gráficas (GUI)**, que desenham e processam livremente os pixels na tela, esperando que você navegue pela tela com o mouse;
+- **Por aplicações de terminal (CLI, TUI)**, apresentando informações basedas em texto;
+
+Muitos dos programas que se usa por interface gráfica também tem para o terminal.
+
+![Gerenciadores de arquivos - pcmanfm e nnn](/assets/images/posts/explorer.png)
+_Gerenciadores de arquivos - pcmanfm e nnn_
+
+![Editores de texto - vscodium e nvim](/assets/images/posts/editor.png)
+_Editores de texto - vscodium e nvim_
+
+Não se pode concluir uma forma como _a_ melhor, mas há muitas situações onde de fato o terminal se destaca:
+
+### ⚡ Velocidade
+
+Como já dito, ao se usar o terminal, você se verá navegando muito pelos diretórios do seu sistema. E, sem muito tempo de uso, você já pode estar navegando super rápido. Me acompanha: se você for uma pessoa que já se dá bem digitando no computador, imagina usar essa velocidade pra navegar por ele. Essa velocidade não precisa ficar só na navegação de arquivos e não se resume à digitação de palavras. Ter macros e comandos no teclado para controlar o programa é comum. **Para uma aplicação com bom suporte ao teclado, toda interação pode ser feita na velocidade que sua digitação alcançar**, e isso lhe permite ir melhorando com a prática.
+
+Os benefícios são claros também pra quem não digita rápido. Entre **navegar mais de uma tela**/menu ou digitar/**copiar uma única frase** no seu terminal, você pode ganhar tempo com a segunda opção. **Você não está refém do que a tela lhe mostra para clicar.** Como exemplo, pense o caminho que você faz para instalar um programa novo: você pesquisa o nome dele na internet, acha o site correto, segue os passos para baixar algum arquivo para aí então clicá-lo para instalar. Um jeito mais rápido é caso já se procure numa loja de aplicativos do sistema, mas mesmo assim, como isso se compara com apenas digitar no terminal "apt install _nome-do-programa_" ou semelhante?
+
+### 🎯 Exatidão
+
+Uma coisa que a linha de comando permite de forma natural é a chance de lidarmos com o computador de forma muito específica. Sabe quando você pede uma pizza num aplicativo, **clicando** em cada sabor, sem muito problema? Se você quer pedir para tirar algum ingrediente específico de algum sabor, uma área para escrever um comentário resolveria, né?
+
+Você nunca terá **todas** as opções possíveis de pedido numa tela, por isso há disponível o que é mais comum. Você é dependente das opções que são apresentadas na tela. Para qualquer outra opção mais específica, há uma forma mais aberta para você definir as coisas: escrevendo.
+
+**É apenas uma questão de como às vezes é muito melhor descrever algo em vez de exigir navegar por opções em páginas e rolagens.**
+
+```bash
+# Comando para definir uma das minhas imagens como papel de parede para um monitor específico
+xwallpaper --output eDP-1 --stretch Pictures/wallpapers/object_mono_dark_purple_horizon_1.png
+```
+
+```bash
+# Comando para ativar a função de toque como clique no touchpad do notebook
+xinput set-prop "SYNA3602:00 0911:5288 Touchpad" "libinput Tapping Enabled" 1
+```
+
+Não estou dizendo que você sempre precisará escrever muito. Ser muito descritivo requer escrever bem as coisas que o comando precisa e o objetivo não é que você memorize esses comandos longos. Pelo menos você precisa entender/pesquisar como escrevê-los uma vez. Para usá-los novamente, em breve descreverei o uso de aliases.
+
+É assim que a interface gráfica e a linha de comando se complementam. Elas diferem na **densidade de informações** que uma situação exige. Quanta informação pode ser fornecida ao dar um comando:
+
+- Na **GUI**, recebemos informações melhor apresentadas, mas a entrada do usuário é mais simples e menos densa, como um prato à la carte no menu.
+- Na **CLI**, você tem uma variedade de opções disponíveis que podem ser declaradas de uma vez, de maneira mais livre. Como o seu prato no buffet, que tem muito mais batatas fritas do que deveria.
+
+#### 🪄 Velocidade + Exatidão = `Alias`
+
+Para comandos específicos e/ou longos, você sempre pode salvá-los como um `alias`. Aliases são como "gírias" que você pode usar para substituir um comando longo. Parte do poder para ser preciso e rápido está nessa ferramenta. Eu posso **navegar para lugares exatos**, **solicitar um comando difícil de lembrar**, **abrir ou criar um arquivo específico** e até **chamar mais de um comando em série**. Existem muitas listas na internet com aliases úteis para o seu sistema. O próprio sistema operacional consiste em muitos aliases que chamam outras coisas nos bastidores.
+
+```bash
+# comando `update` para checar atualizações e listá-las
+alias update='sudo apt update && apt list --upgradable'
+```
+
+Caso queira ver, aqui estão os meu aliases
+[dotfiles/shell/aliases at master · gbgabo/dotfiles](https://github.com/gbgabo/dotfiles/blob/master/shell/aliases)
+
+### 🔗 Integração
+
+Lembre-se que nessa conversa com o computador, as palavras são literalmente programas ou dados para programas. Um comando no terminal pode ser só uma **palavra**, mas também uma **frase**. Com o charactere `|`, também conhecido como pipe, a informação que um comando retorna pode ser usada para o próximo comando, e assim por diante. Montar comandos obedecendo essa sintaxe simples faz com que naturalmente integrações sejam feitas.
+
+No exemplo abaixo, a lista de itens que o ls retornará será filtrada pelo grep, resultando apenas as linhas que incluem .png, ou seja, os arquivos .png listados.
+
+```bash
+$ ls -l Downloads | grep .png
+```
+
+![Funcionamento do pipe de um comando ao outro](/assets/images/posts/pipe.png)
+
+A natureza baseada em texto dos programas de terminal permitem uma consistência na forma que se mexe no computador, criando uma experiência unificada. Até para programas de interface gráfica, é possivel chamar comandos que fazem o mesmo que se faz clicando, e você acaba estendendo os programas do dia a dia para a sua necessidade. E por sinal, o que for de necessidade diária, você pode automatizar!
+
+### 🤖 Automação
+
+Para toda linha de comando que você escreve, é possível executá-las de uma vez só. Você faz isso por meio de scripts. Scripts são arquivos onde você escreve todos os comandos que queira e a lógica para execução deles. Scripts podem ser muito mais que uma série de comandos. Na verdade, o bash é, além de um interpretador de comandos, uma linguagem de programação!
+
+Se aprofundar em bash é um tópico a parte, mas com muito pouco é possível facilitar a vida com ele. No exemplo abaixo, eu vou criar um comando chamado `journal`, onde eu abro o meu caderno de anotações diário. Cada dia eu crio um novo arquivo de anotações. Caso eu não tenha criado um novo arquivo para o dia de hoje, eu crio ele e abro no meu editor de texto. Caso o arquivo já exista, eu apenas o abro no editor.
+
+```bash
+#!/bin/bash
+
+# Defino o nome do meu arquivo do dia.
+# Eu uso o comando date para pegar consultar o dia de hoje.
+name=day-$(date +%Y-%m-%d)
+
+# Defino o caminho completo do local do arquivo.
+# Eu uso a variável global $HOME para declarar o caminho do meu home.
+file="$HOME/$name.txt"
+
+# Caso o arquivo nesse caminho não exista, eu o crio.
+[ ! -f "$file" ] && touch $file
+
+# Abro o arquivo no editor vim
+vim $file
+```
+
+Agora, caso eu queira escrever algo rapido no meu diario, eu só chamo o comando `journal`.
+
+## Continua...
+
+Bom, isso é tudo por agora. Como eu ainda tenho assunto para escrever, e esse post está ficando bem maior do que eu esperava, é melhor eu parar por aqui. Caso você tenha curtido o assunto, fique ligado em novos posts do [blog](/blog) e se aprofunde pelos outros inúmeros conteúdos na internet

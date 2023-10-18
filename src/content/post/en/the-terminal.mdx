@@ -1,0 +1,429 @@
+---
+publishDate: 2023-01-12T00:00:00Z
+title: What is the terminal?
+description: Demystifying the black screen
+excerpt: Demystifying the black screen.
+image: ~/assets/images/terminal.png
+category: Articles
+tags:
+  - linux
+  - terminal
+  - command line
+  - guide
+  - the basics
+canonical: https://gabo.link/the-terminal
+---
+
+import Slider from '~/components/blog/content/Slider.astro';
+import Image from '~/components/blog/content/Image.astro';
+import Card from '~/components/blog/content/Card.astro';
+
+export const components = { img: Image };
+
+You've probably seen those black screens with tiny lines continuously popping up. Possibly in a movie where a super hacker is typing dozens of characters per second to crack all the passwords and access a secret Pentagon system. That black window is a **terminal**.
+
+The idea of this text is to demystify and explain, in a general introduction, **everything you need to know to get acquainted with the `terminal`**, and to show how fun and useful it can be.
+
+# What is the terminal
+
+## The hardware (the dumb terminal)
+
+Before being better known as a program, the terminal was a piece of equipment. Its purpose was to **interact with a computer through text**. That's why it always includes a **keyboard** for this interface.
+
+More specifically, in this text, everything refers to the `video terminal`, which **has a screen in addition to the keyboard**, in contrast to older terminals that **communicated with the computer by printing text** (similar to a fax). An example of a video terminal is the [VT100](https://en.wikipedia.org/wiki/VT100).
+
+![TI Silent 700 and VT100](/assets/images/posts/terminals.png)
+
+And if you're afraid right from the start or think it must be very difficult to use a terminal, let me ask you how difficult it is to use this guy:
+
+![Chat screen](/assets/images/posts/chat.jpeg)
+
+That's right, a chat. Do you know how to use it? Then you already have half of what you need, believe me. Simply put, the terminal is like a chat... with your computer! In it, you will type something to the computer, and it will respond to you. **The messages we send to the computer are always `commands` for it to execute.**
+
+And in the past, this made even more sense. Since computers were expensive (and huge), the best solution was to have several smaller devices that would only request things from the single computer on-site, such as in universities and libraries. These devices were literally the terminals, also known as **dumb terminals**. Dumb because they couldn't do anything on their own. They had no memory or dedicated processor. They simply requested things from the server, and the server displayed on the screen what was requested.
+
+## The software (the terminal emulator)
+
+Having a computer at home eliminates the need for an additional piece of equipment to communicate with it, but communicating by text has not ceased to be useful. The terminal is still widely used, but now it's a program, also known as a `terminal emulator`. Now, becoming that little black window, it is no longer that tube monitor with serial communication.
+
+![The terminal as hardware and currently as software](/assets/images/posts/terminal-interface.png)
+
+**The terminal now lives within the computer itself, becoming just a digital abstraction maintained solely for human convenience in communicating with machines.**
+
+And through one of the oldest computer interfaces, we still see a multitude of uses and applications for development and everyday computer use.
+
+## What the terminal has
+
+Say hello to my terminal. In this text, I will show you a terminal on a Linux system. It's very similar to a Mac. For Windows, the concepts covered here also apply, but there may be differences in the name of the most common commands.
+
+![A terminal emulator screen](/assets/images/posts/emulator.png)
+
+The terminal is quite empty at first because it's just a monitor. It only displays a program at the top. The `shell`!
+
+**The shell is the command interpreter of the terminal**, and I will type our first command, `ls`.
+
+```bash
+gabo@book:~/$ ls
+```
+
+It serves to `list the files` and subfolders present in the folder you are in.
+
+![Anatomy of the Shell](/assets/images/posts/shell.png)
+
+In every terminal screen, you will come across two things:
+
+- The `prompt`: Indicates where you start your command, your "message." It usually contains some useful information like **the directory (folder) you are in** or **the user you are logged in as**, among various other things you can add yourself.
+
+- The `command line`: The space where you type the command itself.
+
+The `$` is an indicator that everything that comes after it should be interpreted as a command. When you are logged in as root, the symbol changes to `#`. In DOS-based systems like Windows, this symbol can be `>`
+
+By the way, there are several shell options. The shell I showed is the most common one, `bash`, but in my daily life, I use `zsh`, which is well-known for its customizations.
+
+![Example of bash and zsh prompts](/assets/images/posts/shell2.png)
+
+More stylish, right? And yes, I like purple.
+
+When a command is sent, the system will return the response just below, and there are three possible options:
+
+- **What you requested:** When your command requests some information, that information will appear just below the command line;
+- **An error message:** For when the command is not executed correctly, either due to a program error or a user error in typing what was needed;
+- **Nothing:** In cases where the computer executes the command, and nothing needs to be returned. Everything's fine 👌;
+
+# Using the terminal
+
+Returning to the example command. The `ls`. It will be useful because you navigate a lot between files in the terminal.
+
+![The ls command](/assets/images/posts/ls.png)
+
+Did you notice the `~` at the end of the prompt? It represents your `home` folder, the initial folder of your user, where your things are in the system. The `ls` command listed all the folders and files in my home.
+
+To go to a specific folder, the `cd` command (_change directory_) will serve to `change the folder` you are in. Let's go to the "study" folder.
+
+Note that when we change where we are, the prompt will update the current directory path.
+
+![The ls and cd commands](/assets/images/posts/ls-cd.png)
+
+To go back to the previous directory, you can type `cd ..`, where `..` always refers to the parent directory of your current location.
+
+Text commands can receive `parameters`, additional messages that specify specific ways the command should be executed. In the `ls` command, for example, we can specify the `--colors` parameter to have a color-formatted list, differentiating folders, files, and shortcuts.
+
+![The cd and ls --color commands](/assets/images/posts/ls-color.png)
+
+This may seem slow, but it's quite the opposite. In most cases, the command-line environment will be much faster than using a mouse (I'll elaborate more on this later).
+
+<Slider>  
+  <Card 
+    title="ls"
+    description="Lists all items present in the current directory"
+    examples={[
+      {
+        description: "Lists all files and directories in the current directory",
+        command: "ls"
+      },
+      {
+        description: "Lists all contents, including hidden files (a) and in vertical format (l)",
+        command: "ls -la"
+      }
+    ]}
+  >
+  gabo@book:&#126;$ ls
+  Applications  Documents  logseq  packages  projects  Sync       tmenus
+  Desktop       Downloads  Music   Pictures  Public    Templates  Videos
+  gabo@book:&#126;$
+  </Card>
+
+  <Card
+    title="cd"
+    description="(Change Directory) Use to navigate between directories"
+    examples={[
+      {
+        description: "Go to the 'user' directory",
+        command: 'cd /home/user',
+      },
+      {
+        description: 'Go to the parent directory',
+        command: 'cd ..',
+      },
+    ]}
+  >
+    gabo@book:&#126;$ cd study
+    gabo@book:&#126;/study$
+
+  </Card>
+
+  <Card
+    title="cat"
+    description="Concatenates and displays contents of text files"
+    examples={[
+      {
+        description: 'Displays the file.txt on the screen',
+        command: 'cat file.txt',
+      },
+      {
+        description: 'Concatenates two files and generates a new one as a result',
+        command: 'cat file1 file2 > new_file',
+      },
+    ]}
+  >
+    gabo@book:&#126;$ cat free.md
+    The four essential freedoms
+
+    A program is free software if the program's users have the four essential freedoms: [1]
+
+    The freedom to run the program as you wish, for any purpose (freedom 0).
+    The freedom to study how the program works, and change it so it does your computing as you wish (freedom 1). Access to the source code is a precondition for this.
+    The freedom to redistribute copies so you can help others (freedom 2).
+    The freedom to distribute copies of your modified versions to others (freedom 3). By doing this you can give the whole community a chance to benefit from your changes. Access to the source code is a precondition for this.
+
+  </Card>
+
+  <Card 
+    title="find"
+    description="Finds contents within a given directory, recursively"
+    examples={[
+      {
+        description: 'Find .txt files in the downloads directory',
+        command: "find downloads -name '*.txt'"
+      },
+      {
+        description: "Search for directories only in the current directory",
+        command: "find . -type d"
+      }
+    ]}
+  >
+  gabo@book:&#126;/project$ find . -name "*.png"
+  ./public/assets/images/posts/ls.png
+  ./public/assets/images/posts/curl-h.png
+  ./public/assets/images/posts/mkdir-h.png
+  ./public/assets/images/posts/terminals.png
+  ./node_modules/@astrojs/webapi/node_modules/undici/docs/assets/lifecycle-diagram.png
+  ./node_modules/undici/docs/assets/lifecycle-diagram.png
+  ./src/assets/images/terminal.png
+  ./src/assets/images/dotfiles.png
+  ./src/assets/images/video.png
+  ./src/assets/images/hero.png
+  ./src/assets/images/default.png
+  ./src/assets/images/profile_picture.png
+  ./src/assets/images/projects/wildberries.png
+  ./src/assets/images/projects/symbols.png
+  ./src/assets/images/cli-dark.png
+  gabo@book:&#126;/project$
+  </Card>
+  
+  <Card 
+    title="pwd"
+    description="Returns the name of the current directory"
+    examples={[
+      {
+        description: 'Displays the name of the current directory',
+        command: "pwd"
+      },
+    ]}
+  >
+  gabo@book:&#126;/project$ pwd
+  /home/gabo/projects
+  gabo@book:&#126;/project$
+  </Card>
+  
+  <Card 
+    title="rm"
+    description="Used to remove files"
+    examples={[
+      {
+        description: 'Removes the favicon.ico file, but asks for confirmation before proceeding',
+        command: "rm -i favicon.icon"
+      },
+      {
+        description: "Removes the Downloads folder and all its files and subdirectories (-r for recursive)",
+        command: "rm -r Downloads"
+      }
+    ]}
+  >
+  gabo@book:&#126;/project$ rm -rf personal-blog
+  gabo@book:&#126;/project$ 
+  </Card>
+</Slider>
+
+This style of "chat" interaction is called a `CLI` (Command Line Interface).
+
+And by interacting through text, it doesn't mean that everything is limited to this exchange of messages. Terminal applications can also have rich visual interfaces of their own.
+
+For example, programs like `vim` and `nvim` (text editors), `htop` and `bpytop` (task managers), music players like `moc`, and many others for email, calendar, and even web browsing. The term TUI (Text User Interface) is often used to describe this type of program.
+
+![Terminal Applications](/assets/images/posts/tui.png)
+
+[The awesome-cli-apps project](https://github.com/agarrharr/awesome-cli-apps) has a huge list of interesting programs for the terminal.
+
+And no, they may not compete in everything with GUI (Graphical User Interface) applications. When you understand the utilities of the terminal, you can make the most out of it.
+
+## How Do I Know What a Command Does?
+
+It's worth remembering that nobody starts out knowing everything, and there will always be new commands to learn depending on your needs. After all, they are just new programs. It's normal to need to understand how to use a command, and a decent command will have at least one of these two features to help you learn how to use it:
+
+### --help and/or -h
+
+Don't know how to use a certain command? Try calling it with -h or --help right after it. Not every command will respond to -h for help because the command may use it for something else. When in doubt, try both.
+
+<Slider>
+  <div>
+    ![Calling the curl -h command](/assets/images/posts/curl-h.png)
+    <div class="bg-dark-purple">
+      Calling curl -h displays: - how the command's structure should be (curl [options] url) - what options are
+      available to use with the command (-)
+    </div>
+  </div>
+  <div>
+    ![Calling the mkdir -h command](/assets/images/posts/mkdir-h.png) In cases like mkdir, you need to use --help.
+  </div>
+</Slider>
+
+You can expect at least **usage instructions** with these arguments. If you want to understand the **purpose/usage** of a command better, the next option will make more sense.
+
+### Man Page
+
+If you need to understand **what a certain command does**, the **man pages** will serve as a **man**ual. Man pages are text pages that describe everything possible about a specific command. They are files that you call by typing `man command-name`. In the example below, the command calls the manual for the `find` command.
+
+<Card
+  title="man"
+  description="A presenter of system manuals"
+  examples={[
+    {
+      description: 'Displays the manual for the cat command',
+      command: 'man cat',
+    },
+    {
+      description: 'Displays the manual for the command in section 7',
+      command: 'man cat.7',
+    },
+  ]}
+>
+FIND(1)                     General Commands Manual                    FIND(1)
+
+NAME
+find - search for files in a directory hierarchy
+
+SYNOPSIS
+find [-H] [-L] [-P] [-D debugopts] [-Olevel] [starting-point...] [ex‐
+pression]
+
+DESCRIPTION
+This manual page documents the GNU version of find. GNU find searches
+the directory tree rooted at each given starting-point by evaluating
+the given expression from left to right, according to the rules of
+precedence (see section OPERATORS), until the outcome is known (the
+left hand side is false for and operations, true for or), at which
+point find moves on to the next file name. If no starting-point is
+specified, `.' is assumed.
+
+       If you are using find in an environment  where  security  is  important
+       (for  example  if  you  are  using  it  to  search directories that are
+       writable by other users), you should read the `Security Considerations'
+       chapter  of  the findutils documentation, which is called Finding Files
+
+Manual page find(1) line 1 (press h for help or q to quit)
+
+</Card>
+
+## Why Use the Terminal?
+
+Recapping, there are two main ways to interact with a computer:
+
+- **Through graphical applications (GUIs)**, which freely draw and process pixels on the screen, expecting you to navigate the screen with a mouse.
+- **Through terminal applications (CLIs, TUIs)**, presenting information based on text.
+
+Many of the programs used through a graphical interface also have versions for the terminal.
+
+![File Managers - pcmanfm and nnn](/assets/images/posts/explorer.png)
+_File Managers - pcmanfm and nnn_
+
+![Text Editors - vscodium and nvim](/assets/images/posts/editor.png)
+_Text Editors - vscodium and nvim_
+
+It's not about concluding which one is better, but there are many situations where the terminal stands out:
+
+### ⚡ Speed
+
+As mentioned earlier, when you use the terminal, you'll find yourself navigating through directories a lot. With a little time and practice, you can navigate very quickly. Imagine using this speed to navigate your computer if you're already good at typing. This speed isn't limited to just navigating files, and it's not just about typing words. Having macros and keyboard commands to control the program is common. **For an environment with good keyboard support, every interaction can be done at the speed of your typing**, and you can improve with practice.
+
+The benefits are clear even for those who don't type quickly. Between **navigating more than one screen/menu** or typing/**copying a single sentence** on your terminal, you can save time with the second option. **You're not limited to what the screen shows you to click.** For example, consider the process of installing a new program: you search its name on the internet, find the correct website, follow the steps to download a file, and then click it to install. A faster
+
+### 🎯 Accuracy
+
+One thing that the command line naturally allows is the opportunity to deal with the computer in a very specific way. You know when you order a pizza in an app, **clicking** on each flavor, no problem? If you want to ask for the removal of a specific ingredient from a flavor, a comment area would solve that, right?
+
+You will never have **all** the possible ordering options on one screen, so what is more common is available. You depend on the options presented on the screen. For any other more specific option, there is a more open way for you to define things: by writing.
+
+**It's just a matter of how it's sometimes much better to describe something instead of requiring to navigate on options through pages and scrolls.**
+
+```bash
+# Command to set one of my images as wallpaper for a specific monitor
+xwallpaper --output eDP-1 --stretch Pictures/wallpapers/object_mono_dark_purple_horizon_1.png
+```
+
+```bash
+# Command to enable tap-to-click function on the notebook's touchpad
+xinput set-prop "SYNA3602:00 0911:5288 Touchpad" "libinput Tapping Enabled" 1
+```
+
+I'm not saying you will always need to write a lot. Being too descriptive requires writing well the things the command need and the goal is not for you to memorize these long commands. You at least need to understand/search how to write these once. To use it again, I'll soon describe the use of aliases.
+
+This is how the graphical interface and the command line complement each other. They differ in the **density of information** that a situation demands. How much information can be given when giving a command:
+
+- In **GUI**, we receive better-presented information, but the user's input is simpler and less dense, like an à la carte dish on the menu.
+- In **CLI**, you have a range of available options that can be declared all at once, in a more free-form manner. Like your buffet dish, which has way more fries than it should.
+
+#### 🪄 Speed + Accuracy = `Alias`
+
+For specific and/or long commands, you can always save them as an `alias`. Aliases are like "slang" that you can use to replace a long command. Part of the power to be precise and fast is in this tool. I can **navigate to exact places**, **request a hard-to-remember command**, **open or create a specific file**, and even **call more than one command in a series**. There are many lists on the internet with useful aliases for your system. The operating system itself consists of many aliases that call other things behind the scenes.
+
+```bash
+# `update` command to check for updates and list them
+alias update='sudo apt update && apt list --upgradable'
+```
+
+If you want to see, here are my aliases: [dotfiles/shell/aliases at master · gbgabo/dotfiles](https://github.com/gbgabo/dotfiles/blob/master/shell/aliases)
+
+### 🔗 Integration
+
+Remember that in this conversation with the computer, words are literally programs or data for programs. A command in the terminal can be just a **word**, but also a **phrase**. With the character `|`, also known as a pipe, the information that one command returns can be used for the next command, and so on. Building commands following this simple syntax naturally leads to integrations being made.
+
+In the example below, the list of items that `ls` will return will be filtered by `grep`, resulting in only the lines that include .png, in other words, the listed .png files.
+
+```bash
+$ ls -l Downloads | grep .png
+```
+
+![Functioning of the pipe from one command to another](/assets/images/posts/pipe.png)
+
+The text-based nature of terminal programs allows for consistency in how you interact with the computer, creating a unified experience. Even for graphical interface programs, it is possible to call commands that do the same as clicking, and you end up extending everyday programs to your needs. And by the way, what is a daily necessity, you can automate!
+
+### 🤖 Automation
+
+For every command line you write, you can execute them all at once. You do this through scripts. Scripts are files where you write all the commands you want and the logic for executing them. Scripts can be much more than just a series of commands. In fact, bash is not only a command interpreter but also a programming language!
+
+Diving deep into bash is a separate topic, but with very little, you can make life easier with it. In the example below, I will create a command called `journal`, where I open my daily notes. Each day I create a new notes file. If I haven't created a new file for today, I create it and open it in my text editor. If the file already exists, I just open it in the editor.
+
+```bash
+#!/bin/bash
+
+# Define the name of my day's file.
+# I use the `date` command to get today's date.
+name=day-$(date +%Y-%m-%d)
+
+# Define the full path to the file location.
+# I use the global variable $HOME to declare the path to my home directory.
+file="$HOME/$name.txt"
+
+# If the file does not exist at this path, I create it.
+[ ! -f "$file" ] && touch $file
+
+# Open the file in the vim editor
+vim $file
+```
+
+Now, if I want to write something quickly in my diary, I just call the `journal` command.
+
+## To be continued...
+
+Well, that's it for now. Since I still have more topics to write about, and this post is getting much longer than I expected, it's better to stop here. If you enjoyed the topic, stay tuned for new posts on the [blog](/blog) and delve into the countless other contents on the internet.

@@ -42,7 +42,7 @@ const getNormalizedPost = async (post: CollectionEntry<'post'>): Promise<Post> =
 
   const slug = cleanSlug(rawSlug.split('/').pop());
   const publishDate = new Date(rawPublishDate);
-  const category = rawCategory ? cleanSlug(rawCategory) : undefined;
+  const category = cleanSlug(rawCategory);
   const tags = rawTags.map((tag: string) => cleanSlug(tag));
 
   return {
@@ -80,19 +80,19 @@ const load = async function (): Promise<Array<Post>> {
 let _posts: Array<Post>;
 
 /** */
-export const fetchPosts = async (): Promise<Array<Post>> => {
+export const fetchPosts = async (lang: string): Promise<Array<Post>> => {
   if (!_posts) {
     _posts = await load();
   }
 
-  return _posts;
+  return _posts.filter((post) => post.id.split('/')[0].toLowerCase() == lang.toLowerCase());
 };
 
 /** */
-export const findPostsBySlugs = async (slugs: Array<string>): Promise<Array<Post>> => {
+export const findPostsBySlugs = async (slugs: Array<string>, lang: string): Promise<Array<Post>> => {
   if (!Array.isArray(slugs)) return [];
 
-  const posts = await fetchPosts();
+  const posts = await fetchPosts(lang);
 
   return slugs.reduce(function (r: Array<Post>, slug: string) {
     posts.some(function (post: Post) {
@@ -103,10 +103,10 @@ export const findPostsBySlugs = async (slugs: Array<string>): Promise<Array<Post
 };
 
 /** */
-export const findPostsByIds = async (ids: Array<string>): Promise<Array<Post>> => {
+export const findPostsByIds = async (ids: Array<string>, lang: string): Promise<Array<Post>> => {
   if (!Array.isArray(ids)) return [];
 
-  const posts = await fetchPosts();
+  const posts = await fetchPosts(lang);
 
   return ids.reduce(function (r: Array<Post>, id: string) {
     posts.some(function (post: Post) {
@@ -117,9 +117,9 @@ export const findPostsByIds = async (ids: Array<string>): Promise<Array<Post>> =
 };
 
 /** */
-export const findLatestPosts = async ({ count }: { count?: number }): Promise<Array<Post>> => {
+export const findLatestPosts = async ({ count }: { count?: number }, lang: string): Promise<Array<Post>> => {
   const _count = count || 4;
-  const posts = await fetchPosts();
+  const posts = await fetchPosts(lang);
 
   return posts ? posts.slice(0, _count) : [];
 };

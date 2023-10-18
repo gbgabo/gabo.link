@@ -1,0 +1,162 @@
+---
+publishDate: 2023-03-18T00:00:00Z
+title: Programas para Melhorar Sua Experiência no Terminal
+description: Para um ambiente visualmente mais agradável e gestão mais intuitiva.
+excerpt: Para um ambiente visualmente mais agradável e gestão mais intuitiva.
+image: ~/assets/images/cli-dark.png
+category: Lists
+draft: false
+tags:
+  - terminal
+  - command-line
+  - CLI
+  - linux
+  - uses
+canonical: https://gabo.link/cli-tools
+---
+
+import ExternalLink from '~/components/blog/content/ExternalLink.astro';
+import ListItem from '~/components/blog/content/ListItem.astro';
+import UnstyledList from '~/components/blog/content/UnstyledList.astro';
+import VideoFrame from '~/components/blog/content/VideoFrame.astro';
+import Slider from '~/components/blog/content/Slider.astro';
+import Image from '~/components/blog/content/Image.astro';
+
+export const components = { ul: UnstyledList, img: Image };
+
+<p class="px-6">O terminal pode ser um ambiente desconfortável e improdutivo caso você não crie familiaridade com as ferramentas que ele possui. É interessante não apenas conhecer as ferramentas nativas de um sistema Linux, como as do [projeto GNU](https://en.wikipedia.org/wiki/GNU_Project#GNU/Linux), mas também as ferramentas adicionais que você pode instalar para facilitar seu dia a dia no terminal. A lista deste post apresenta ferramentas que não apenas adicionam agilidade ao terminal, mas também oferecem uma experiência visual mais rica para a tela de texto. Elas são úteis tanto para iniciantes quanto para aqueles que já têm autonomia, mas podem não estar familiarizados com alguns dos itens abaixo.</p>
+  
+<ListItem>
+
+# 1. tmux
+
+<Slider>
+  ![image](/assets/images/posts/cli-tools/tmux.png)
+  <VideoFrame id="Yl7NFenTgIo" />
+</Slider>
+
+**Bom para:** Gerenciar múltiplas sessões de terminal, gestão visual por janelas.
+
+tmux é um multiplexador de terminais. Em outras palavras, ele permite gerenciar múltiplas sessões de terminal por linha de comando e atalhos de teclado. É útil para lidar com mais de uma sessão no mesmo terminal, gerenciar sessões por meio de janelas, enviar sessões abertas para o segundo plano e, de modo geral, ter uma interface amigável para navegar entre processos abertos no terminal. Ele faz ainda mais sentido quando você está limitado a acessar uma máquina remota apenas por SSH. Tmux vai te dar muito mais liberdade.
+
+Tmux suporta plugins que permitem estender o programa com funções como pré-definir layouts de janelas ([tmuxinator](https://github.com/tmuxinator/tmuxinator)) para ambientes diferentes entre projetos e restaurar o layout anterior mesmo após reiniciar a máquina ([tmux-continuum](https://github.com/tmux-plugins/tmux-continuum)).
+
+- <ExternalLink href="https://github.com/tmux/tmux/wiki">Página no Github</ExternalLink>
+- <ExternalLink href="https://tmuxcheatsheet.com/" variant="secondary">
+    Cheatsheet de Comandos
+  </ExternalLink>
+- <ExternalLink href="https://github.com/rothgar/awesome-tmux" variant="secondary">
+    Awesome tmux
+  </ExternalLink>
+
+</ListItem>
+
+<ListItem>
+
+# 2. Nerd Fonts
+
+![image](/assets/images/posts/cli-tools/nerd-fonts-list.svg)
+
+**Bom para:** Renderizar ícones úteis pela linha de comando.
+
+Nerd Fonts não é um programa, mas um pacote de ícones disponibilizados como fontes de texto. São mais de 9 mil ícones inclusos que, ao utilizar como uma de suas fontes para o terminal, é possível visualizar ícones na linha de comando, permitindo que programas se tornem visualmente mais ricos.
+
+Para facilitar o seu uso, esses ícones são disponibilizados unindo-os com alguma outra fonte de texto que você usa, como `UbuntuMono`, `Fira Code`, `Hack`. Dessa forma, você só precisa definir a fonte de texto que escolheu, que os ícones já estarão inclusos no terminal. Os programas nessa lista, e muitos outros da mesma categoria, aproveitam dessa fonte para sua parte visual, então esse pacote é um indispensável.
+
+- <ExternalLink href="https://www.nerdfonts.com/">Página Inicial</ExternalLink>
+- <ExternalLink href="https://github.com/ryanoasis/nerd-fonts" variant="secondary">
+    Página no Github
+  </ExternalLink>
+- <ExternalLink href="https://www.nerdfonts.com/cheat-sheet" variant="secondary">
+    Lista de Ícones / Cheatsheet
+  </ExternalLink>
+
+</ListItem>
+
+<ListItem>
+
+# 3. Zsh (+temas e plugins)
+
+<Slider>
+
+![zsh](/assets/images/posts/cli-tools/zsh-2.png)
+
+![zsh](/assets/images/posts/cli-tools/zsh.png)
+
+</Slider>
+
+**Bom para:** Melhorar a experiência da linha de comando por meio de plugins.
+
+O [Zsh](https://zsh.org) é um interpretador de comando, assim como o [Bash](https://w.wiki/PoJ). O que o torna famoso é o que a comunidade desenvolve em plugins, principalmente pelo projeto **Oh My Zsh**, para facilitar o dia a dia no terminal. Coisas como **auto-complete**, **temas** e **extensões** para um prompt mais rico e integrações com Git, além de aliases de fábrica são funcionalidades que você encontra no projeto.
+
+Há todo um universo de plugins e configurações sendo compartilhados na internet para você explorar, mas como ponto de partida, o Oh My Zsh já inclui a maioria dos plugins e temas que você pode precisar, prontos para uso. Há também um plugin/tema/prompt chamado [spaceship](https://spaceship-prompt.sh) que possui um visual simples, mas repleto de recursos.
+
+- <ExternalLink href="https://github.com/ohmyzsh/ohmyzsh/wiki/Installing-ZSH">Instalando Zsh</ExternalLink>
+- <ExternalLink href="https://ohmyz.sh/" variation="secondary">
+    Oh My Zsh
+  </ExternalLink>
+- <ExternalLink href="https://github.com/unixorn/awesome-zsh-plugins" variant="secondary">
+    Awesome Zsh
+  </ExternalLink>
+
+</ListItem>
+
+<ListItem>
+
+# 4. bat
+
+![bat](/assets/images/posts/cli-tools/bat.png)
+
+**Bom para:** Exibir código com destaque de sintaxe.
+
+[bat](https://github.com/sharkdp/bat) é um poderoso clone do cat com destaque de sintaxe e integração com o Git. Ele aprimora a experiência do usuário ao facilitar a visualização do conteúdo de arquivos no terminal com destaque de sintaxe para uma ampla gama de linguagens de programação. Essa visualização aprimorada é particularmente útil para revisões de código, navegação de código e leitura de arquivos.
+
+- <ExternalLink href="https://github.com/sharkdp/bat">Página no Github</ExternalLink>
+
+</ListItem>
+
+<ListItem>
+
+# 5. nnn
+
+![nnn](/assets/images/posts/cli-tools/nnn.gif)
+
+**Bom para:** Navegar eficientemente entre diretórios e arquivos.
+
+[nnn](https://github.com/jarun/nnn) é um gerenciador de arquivos altamente eficiente e rico em recursos para o terminal. Ele aprimora a experiência do usuário, fornecendo uma interface amigável para navegar e gerenciar arquivos e diretórios. Com suporte a atalhos de teclado, plugins e várias opções de personalização, o nnn oferece uma maneira intuitiva e produtiva de trabalhar com arquivos e diretórios no terminal.
+
+- <ExternalLink href="https://github.com/jarun/nnn">Página no Github</ExternalLink>
+
+</ListItem>
+
+<ListItem>
+# ⭐: nala
+
+<Slider>
+
+![nala install](/assets/images/posts/cli-tools/nala-install.png)
+
+![nala update](/assets/images/posts/cli-tools/nala-update.png)
+
+</Slider>
+
+**Bom para:** ter uma interface mais simples e formatada para o gerenciador de pacotes `apt`.
+
+Como item bonus, para usuário de distribuições baseadas em Debian, [nala](https://gitlab.com/volian/nala) é um front-end para o `apt`. Como descrito na página do projeto (traduzido do inglẽs):
+
+> Especialmente para os usuários mais novos, pode ser difícil entender o que o apt está tentando fazer ao instalar ou atualizar.
+>
+> Nosso objetivo é resolver isso, não mostrando algumas mensagens redundantes, formatando melhor os pacotes e usando cores para
+> mostrar especificamente o que acontecerá com um pacote durante a instalação, remoção ou atualização.
+
+Além disso, ele permite downloads paralelos, tornando mais rápido para buscar mirrors e baixar pacotes diferentes ao mesmo tempo. Como eu uso apenas os comandos apt mais comuns, foi fácil simplesmente criar um `alias` de apt para `nala`:
+
+```bash
+alias apt='nala'
+```
+
+Pode ser uma opção para você também!
+
+- <ExternalLink href="https://gitlab.com/volian/nala">Página no Gitlab</ExternalLink>
+
+</ListItem>

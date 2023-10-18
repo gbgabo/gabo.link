@@ -7,7 +7,7 @@
     "articles": "/articles",
     "lists": "/lists",
     "footer": {
-      "footNote": "Dark <span class='dark:hidden'>(and maybe light?)</span> theme based on <a class='hover:underline font-bold text-pink' href='https://wildberries.style/''><img class='w-5 h-5 md:w-6 md:h-6 bg-cover inline-block align-bottom rounded-sm mr-1' src='https://wildberries.style/img/ui/wb_logo.svg'/>Wildberries</a>"
+      "footNote": "Dark <span class='dark:hidden'>(and maybe light?)</span> theme based on <a class='hover:underline font-bold text-pink' href='https://wildberries.style/''><img class='w-5 h-5 md:w-6 md:h-6 bg-cover inline-block align-bottom rounded-sm mr-1' src='https://wildberries.style/img/ui/wb_logo.svg' alt='wildberries theme logo'/>Wildberries</a>"
     }
   },
   "home": {
@@ -35,7 +35,7 @@
         "description": "The term refers to the process of customize a linux enviroment to a more productive or simply aesthetically pleasing setup. There is a plethora of tools the community is constantly sharing, and you have no idea how different and personal your system can be to fit your needs. Check out my <a class='underline text-acid-green' href='#what-i-use'>dotfiles</a>."
       },
       "webdev": {
-        "title": "Tecnologias de desenvolvimento web",
+        "title": "Web development technologies",
         "description": "There is no surprise in web development being bombarded by new frameworks and tools. Beyond just hype, there is real innovation and problems being solved by interesting new approaches."
       },
       "content": {

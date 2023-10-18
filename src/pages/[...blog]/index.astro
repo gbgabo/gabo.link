@@ -8,10 +8,11 @@ import ToBlogLink from '~/components/blog/ToBlogLink.astro';
 import { getCanonical, getPermalink } from '~/utils/permalinks';
 import { fetchPosts } from '~/utils/blog';
 import { findImage } from '~/utils/images';
+import i18next from 'i18next';
 
 export async function getStaticPaths() {
   if (BLOG?.disabled || BLOG?.post?.disabled) return [];
-  return (await fetchPosts()).map((post) => ({
+  return (await fetchPosts(i18next.language)).map((post) => ({
     params: {
       blog: post.permalink,
     },
