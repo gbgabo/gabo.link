@@ -60,6 +60,10 @@
     }
   },
   "projects": {
+    "meta": {
+      "title": "Projetos",
+      "description": "Uma exposição de projetos que tenho realizado para praticar programação, seja resolvendo problemas, me expressando ou simplesmente me divertindo."
+    },
     "title": "Projetos",
     "ctaAbout": "Conheça o projeto",
     "ctaVisit": "Acesse",
