@@ -8,8 +8,8 @@ import i18next, { t } from 'i18next';
 import { localizePath } from 'astro-i18next';
 
 const meta = {
-  title: SITE.title,
-  description: SITE.description,
+  title: t(SITE.title),
+  description: t(SITE.description),
   dontUseTitleTemplate: true,
 };
 ---

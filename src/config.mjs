@@ -8,8 +8,8 @@ const CONFIG = {
   basePathname: '/',
   trailingSlash: false,
 
-  title: "Gabo's Link",
-  description: "Gabo's Corner on the Internet",
+  title: 'site.title',
+  description: 'site.description',
   defaultImage: defaultImage,
 
   defaultTheme: 'dark', // Values: "system" | "light" | "dark" | "light:only" | "dark:only"
