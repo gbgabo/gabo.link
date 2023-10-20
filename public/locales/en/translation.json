@@ -18,6 +18,10 @@
     "allPosts": "View all posts"
   },
   "about": {
+    "meta": {
+      "title": "About",
+      "description": "Get to know more about me (Gabo). A front-end developer, content creator wannabe, and supporter of all things free and open source"
+    },
     "title": "I'm a developer intrigued by technology shaping society",
     "subtitle": "I'm a Front-End Developer from Brazil, working with Laravel and studying current full-stack frameworks like Next.js. Experience with React and Typescript. Big fan of SSG frameworks such as Astro.",
     "skillsHeader": "Skills",

@@ -18,6 +18,10 @@
     "allPosts": "Ver todos os posts"
   },
   "about": {
+    "meta": {
+      "title": "Sobre",
+      "description": "Conheça mais sobre mim (Gabo). Um desenvolvedor front-end, aspirante a criador de conteúdo e apoiador de tudo o que é sofware livre e de código aberto."
+    },
     "title": "Sou um desenvolvedor intrigado pela tecnologia moldando a sociedade",
     "subtitle": "Sou um desenvolvedor Front-End do Brasil, trabalhando com Laravel e estudando frameworks full-stack como Next.js. Experiência em React e Typescript. Grande Fan de frameworks SSG como Astro.",
     "skillsHeader": "Habilidades",
