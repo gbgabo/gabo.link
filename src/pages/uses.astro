@@ -5,9 +5,14 @@ import { Picture } from '@astrojs/image/components';
 import { bentoGrids } from '~/data';
 import PageLayout from '~/layouts/PageLayout.astro';
 import i18next, { t } from 'i18next';
+
+const meta = {
+  title: 'Uses',
+  description: t('uses.subtitle'),
+};
 ---
 
-<PageLayout>
+<PageLayout meta={meta}>
   <div
     class="prose-md prose-headings:leading-tighter prose
             prose-lg mx-auto
