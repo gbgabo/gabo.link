@@ -35,88 +35,47 @@ export function getStaticPaths() {
   }
 
  
-export const get = ({params, props}) => {
+export const get = ({ params, props }) => {
   const { page } = props
-  const {title, subtitle} = page;
+  const { title, subtitle } = page;
   // Astro doesn't support tsx endpoints so I'm using React-element objects
   const html = {
     type: 'div',
     props: {
-      style: {
-        backgroundColor: 'white',
-        width: '100%',
-        height: '100%',
-        display: 'flex',
-        position: 'relative',
-      },
+      tw: 'bg-white w-full h-full flex relative',
       children: [
         {
           type: 'div',
           props: {
+            tw: 'absolute inset-0 h-full w-full',
             style: {
-              position: 'absolute',
-              inset: 0,
-              height: '100%',
-              width: '100%',
               backgroundImage:
                 'linear-gradient(to right, #00ffb712 1px, #19002e 1px), linear-gradient(to bottom, #00ffb7 1px, #19002e 1px)',
-              backgroundSize: '24px 24px',
+              backgroundSize: '33px 33px',
             },
-            children: '',
           },
         },
         {
           type: 'span',
           props: {
-            style: {
-              display: 'flex',
-              flexDirection: 'column',
-              gap: '0.5rem',
-              position: 'absolute',
-              bottom: 60,
-              left: 60,
-              width: '80%',
-            },
+            tw: 'flex flex-col absolute bottom-14 left-14 w-10/12',
             children: [
               {
                 type: 'div',
                 props: {
-                  style: {
-                    fontSize: '2.5rem',
-                    lineHeight: 1,
-                    background: '#c79bff',
-                    color: '#19002e',
-                    padding: '1rem 1.75rem',
-                    borderRadius: 20,
-                    fontWeight: 600,
-                    marginRight: 'auto',
-                  },
+                  tw: 'bg-[#c79bff] text-[#19002e] mb-3 text-4xl rounded-2xl py-3 px-5 mr-auto',
                   children: 'gabo.link',
                 },
               },
               {
                 type: 'div',
                 props: {
-                  style: {
-                    display: 'flex',
-                    alignItems: 'center',
-                    gap: '1rem',
-                  },
+                  tw: 'flex align-center gap-4',
                   children: [
                     {
                       type: 'span',
                       props: {
-                        style: {
-                          fontSize: '5.25rem',
-                          lineHeight: 1,
-                          fontWeight: 600,
-                          color: '#ff0e82',
-                          backgroundColor: '#240041',
-                          padding: '30px 40px',
-                          borderRadius: 30,
-                          border: '4px',
-                          marginBottom: '20px',
-                        },
+                        tw: 'rounded-3xl px-8 py-5 border-4 border-[#ff0e82] bg-[#240041] mb-4 text-7xl text-[#ff0e82]',
                         children: t(title),
                       },
                     },
@@ -126,11 +85,7 @@ export const get = ({params, props}) => {
               {
                 type: 'span',
                 props: {
-                  style: {
-                    fontSize: '2rem',
-                    lineHeight: '2.5rem',
-                    color: '#fff',
-                  },
+                  tw: 'text-3xl text-white',
                   children: t(subtitle),
                 },
               },
