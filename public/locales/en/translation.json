@@ -64,6 +64,10 @@
       "title": "Projects",
       "description": "The projects I've been making to practice programming by the means of solving problems, expressing myself, or simply having fun"
     },
+    "og": {
+      "title": "/projects",
+      "subtitle": ""
+    },
     "title": "Projects",
     "ctaAbout": "About the project",
     "ctaVisit": "Access",
@@ -93,6 +97,12 @@
   "uses": {
     "subtitle": "A list of software and tools I use as my daily setup",
     "content": "Currently we have access to tools that enable new and improved ways to create, interact and experience the real and digital world. The level of power current software offer made being creative and productive a matter of mastering the tools we have available right now. This page is created to show the tools I use to code, write and everything included in a web developer cozy setup. It's inspired by <a href='https://uses.tech/'>uses.tech</a>, a website created by <a href='https://github.com/wesbos/awesome-uses'>Wes Bos</a> in which agregates pages, like this one, from many people and incentivises developers and creators to share their own daily configurations and toolbox."
+  },
+  "blog": {
+    "og": {
+      "title": "/blog",
+      "subtitle": "The articles and lists I've been writing in my software development journey"
+    }
   },
   "post": {
     "toc": "Table of content",
