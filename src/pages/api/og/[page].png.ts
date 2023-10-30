@@ -58,28 +58,20 @@ export const get = ({ params, props }) => {
         {
           type: 'span',
           props: {
-            tw: 'flex flex-col absolute bottom-14 left-14 w-10/12',
+            tw: 'flex flex-col absolute bottom-14 left-14 w-10/12 items-start',
             children: [
               {
-                type: 'div',
+                type: 'span',
                 props: {
                   tw: 'bg-[#c79bff] text-[#19002e] mb-3 text-4xl rounded-2xl py-3 px-5 mr-auto',
                   children: 'gabo.link',
                 },
               },
               {
-                type: 'div',
+                type: 'span',
                 props: {
-                  tw: 'flex align-center gap-4',
-                  children: [
-                    {
-                      type: 'span',
-                      props: {
-                        tw: 'rounded-3xl px-8 py-5 border-4 border-[#ff0e82] bg-[#240041] mb-4 text-7xl text-[#ff0e82]',
-                        children: t(title),
-                      },
-                    },
-                  ],
+                  tw: 'rounded-3xl px-8 py-5 border-4 border-[#ff0e82] bg-[#240041] mb-4 text-7xl text-[#ff0e82]',
+                  children: t(title),
                 },
               },
               {
