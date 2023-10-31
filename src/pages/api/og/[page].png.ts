@@ -9,34 +9,33 @@ export const config = {
 };
 
 const font = fs.readFileSync(
-    path.resolve('node_modules/@fontsource/jetbrains-mono/files/jetbrains-mono-all-500-normal.woff'),
+  path.resolve('node_modules/@fontsource/jetbrains-mono/files/jetbrains-mono-all-500-normal.woff')
 );
 
 const pages = [
   {
-    slug: "projects",
-    title: "projects.og.title",
-    subtitle: "projects.og.subtitle"
+    slug: 'projects',
+    title: 'projects.og.title',
+    subtitle: 'projects.og.subtitle',
   },
   {
-    slug: "blog",
-    title: "blog.og.title",
-    subtitle: "blog.og.subtitle"
+    slug: 'blog',
+    title: 'blog.og.title',
+    subtitle: 'blog.og.subtitle',
   },
 ];
 
 export function getStaticPaths() {
-    return pages.map(page => {
-      return {
-        params: { page: page.slug },
-        props: { page }
-      }
-    })
-  }
+  return pages.map((page) => {
+    return {
+      params: { page: page.slug },
+      props: { page },
+    };
+  });
+}
 
- 
 export const get = ({ params, props }) => {
-  const { page } = props
+  const { page } = props;
   const { title, subtitle } = page;
   // Astro doesn't support tsx endpoints so I'm using React-element objects
   const html = {
@@ -87,19 +86,16 @@ export const get = ({ params, props }) => {
       ],
     },
   };
-   
-  return new ImageResponse(
-    html, 
-    {
-        width: 1200,
-        height: 630,
-        fonts: [
-            {
-                name: 'JetBrains MonoVariable',
-                style: 'monospace',
-                data: font
-            }
-        ]
-    }
-  );
-}
+
+  return new ImageResponse(html, {
+    width: 1200,
+    height: 630,
+    fonts: [
+      {
+        name: 'JetBrains MonoVariable',
+        style: 'monospace',
+        data: font,
+      },
+    ],
+  });
+};
