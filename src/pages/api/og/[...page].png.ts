@@ -60,7 +60,7 @@ export const get = ({ params, props }) => {
             tw: 'absolute inset-0 h-full w-full',
             style: {
               backgroundImage:
-                'linear-gradient(to right, #00ffb712 1px, #19002e 1px), linear-gradient(to bottom, #00ffb7 1px, #19002e 1px)',
+                'linear-gradient(to right, #00ffb712 1px, #19002e 1px), linear-gradient(to bottom, #00ffb7 2px, #19002e 2px)',
               backgroundSize: '33px 33px',
             },
           },
@@ -87,7 +87,7 @@ export const get = ({ params, props }) => {
               {
                 type: 'span',
                 props: {
-                  tw: 'text-3xl text-white',
+                  tw: 'text-4xl text-white',
                   children: subtitle,
                 },
               },
