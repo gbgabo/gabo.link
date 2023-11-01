@@ -1,5 +1,4 @@
 import { ImageResponse } from '@vercel/og';
-import i18next, { t } from 'i18next';
 
 import fs from 'fs';
 import path from 'path';
@@ -12,16 +11,28 @@ const font = fs.readFileSync(
   path.resolve('node_modules/@fontsource/jetbrains-mono/files/jetbrains-mono-all-500-normal.woff')
 );
 
+// Had to declared language variations through [...rest] parameters static props
+// instead of i18next cause it apears not to work with .ts routes
 const pages = [
   {
     slug: 'projects',
-    title: 'projects.og.title',
-    subtitle: 'projects.og.subtitle',
+    title: '/projects',
+    subtitle: '',
+  },
+  {
+    slug: 'pt-BR/projects',
+    title: '/projects',
+    subtitle: '',
   },
   {
     slug: 'blog',
-    title: 'blog.og.title',
-    subtitle: 'blog.og.subtitle',
+    title: '/blog',
+    subtitle: "The articles and lists I've been writing in my software development journey",
+  },
+  {
+    slug: 'pt-BR/blog',
+    title: '/blog',
+    subtitle: 'Os textos e listas que tenho escrito na durante minha jornada de desenvolvedor de software',
   },
 ];
 
@@ -70,14 +81,14 @@ export const get = ({ params, props }) => {
                 type: 'span',
                 props: {
                   tw: 'rounded-3xl px-8 py-5 border-4 border-[#ff0e82] bg-[#240041] mb-4 text-7xl text-[#ff0e82]',
-                  children: t(title),
+                  children: title,
                 },
               },
               {
                 type: 'span',
                 props: {
                   tw: 'text-3xl text-white',
-                  children: t(subtitle),
+                  children: subtitle,
                 },
               },
             ],
