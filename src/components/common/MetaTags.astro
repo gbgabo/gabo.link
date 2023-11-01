@@ -43,10 +43,10 @@ const {
 
 const image =
   typeof _image === 'string'
-    ? new URL(_image, Astro.site)
+    ? new URL(_image, Astro.url)
     : _image && typeof _image['src'] !== 'undefined'
     ? // @ts-ignore
-      new URL(getRelativeUrlByFilePath(_image.src), Astro.site)
+      new URL(getRelativeUrlByFilePath(_image.src), Astro.url)
     : null;
 ---
 

@@ -14,6 +14,9 @@ const createPath = (...params: string[]) => {
 };
 
 const BASE_PATHNAME = SITE.basePathname;
+export const languageSlug = () => {
+  return i18next.language === 'en' ? '' : i18next.language;
+};
 
 export const cleanSlug = (text = '') =>
   trimSlash(text)
@@ -71,5 +74,5 @@ export const getAsset = (path: string): string =>
     .join('/');
 
 /** */
-const definitivePermalink = (permalink: string): string =>
-  createPath((i18next.language === 'en' ? '' : i18next.language) + '/' + BASE_PATHNAME, permalink);
+
+const definitivePermalink = (permalink: string): string => createPath(languageSlug() + '/' + BASE_PATHNAME, permalink);
