@@ -2,6 +2,7 @@ import { ImageResponse } from '@vercel/og';
 
 import fs from 'fs';
 import path from 'path';
+import { fetchPosts } from '~/utils/blog';
 
 export const config = {
   runtime: 'edge',
@@ -10,6 +11,34 @@ export const config = {
 const font = fs.readFileSync(
   path.resolve('node_modules/@fontsource/jetbrains-mono/files/jetbrains-mono-all-500-normal.woff')
 );
+
+const posts = await fetchPosts('en');
+
+const tags = new Set();
+posts.map((post) => {
+  Array.isArray(post.tags) && post.tags.map((tag) => tags.add(tag.toLowerCase()));
+});
+
+const tagsData = Array.from(tags).map((tag: string) => {
+  return {
+    slug: `tag/${tag}`,
+    title: `#${tag}`,
+    subtitle: '',
+  };
+});
+
+const categories = new Set();
+posts.map((post) => {
+  typeof post.category === 'string' && categories.add(post.category.toLowerCase());
+});
+
+const categoriesData = Array.from(categories).map((category: string) => {
+  return {
+    slug: `category/${category}`,
+    title: category,
+    subtitle: '',
+  };
+});
 
 // Had to declared language variations through [...rest] parameters static props
 // instead of i18next cause it apears not to work with .ts routes
@@ -25,6 +54,17 @@ const pages = [
     subtitle: '',
   },
   {
+    slug: 'uses',
+    title: '/uses',
+    subtitle: 'The free and open-source tools I use everyday, from desktop and mobile to text based apps',
+  },
+  {
+    slug: 'pt-BR/uses',
+    title: '/uses',
+    subtitle:
+      'As ferramentas livres e de código aberto que uso diariamente, de desktop e mobile, à aplicações de texto',
+  },
+  {
     slug: 'blog',
     title: '/blog',
     subtitle: "The articles and lists I've been writing in my software development journey",
@@ -34,6 +74,8 @@ const pages = [
     title: '/blog',
     subtitle: 'Os textos e listas que tenho escrito na durante minha jornada de desenvolvedor de software',
   },
+  ...tagsData,
+  ...categoriesData,
 ];
 
 export function getStaticPaths() {
