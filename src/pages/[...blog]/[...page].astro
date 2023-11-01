@@ -7,7 +7,7 @@ import Headline from '~/components/blog/Headline.astro';
 import Pagination from '~/components/blog/Pagination.astro';
 
 import { fetchPosts } from '~/utils/blog';
-import { BLOG_BASE } from '~/utils/permalinks';
+import { BLOG_BASE, languageSlug } from '~/utils/permalinks';
 import i18next from 'i18next';
 
 export async function getStaticPaths({ paginate }) {
@@ -24,7 +24,7 @@ const currentPage = page.currentPage ?? 1;
 const meta = {
   title: `Blog${currentPage > 1 ? ` — Page ${currentPage}` : ''}`,
   description: SITE.description,
-  image: '/api/og/blog.png',
+  image: `/api/og/${languageSlug()}blog.png`,
   noindex: BLOG?.list?.noindex || currentPage > 1,
   ogType: 'blog',
 };

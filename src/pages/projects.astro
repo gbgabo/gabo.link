@@ -6,6 +6,7 @@ import ExternalLink from '~/components/blog/content/ExternalLink.astro';
 import i18next, { t } from 'i18next';
 
 import { Picture } from '@astrojs/image/components';
+import { languageSlug } from '~/utils/permalinks';
 
 const projects = [
   {
@@ -49,8 +50,8 @@ const projects = [
 
 const meta = {
   title: t('projects.meta.title'),
-  description: t('projects.meta.description'), 
-  image: '/api/og/projects.png',
+  description: t('projects.meta.description'),
+  image: `/api/og/${languageSlug()}projects.png`,
 };
 ---
 
