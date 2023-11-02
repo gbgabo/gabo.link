@@ -40,8 +40,8 @@ const categoriesData = Array.from(categories).map((category: string) => {
   };
 });
 
-// Had to declared language variations through [...rest] parameters static props
-// instead of i18next cause it apears not to work with .ts routes
+// Had to declare language variations through [...rest] parameters static props
+// instead of i18next because it appears not to work with .ts routes
 const pages = [
   {
     slug: 'projects',
