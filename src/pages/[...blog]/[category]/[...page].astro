@@ -38,7 +38,7 @@ const meta = {
   title: `${t('categories.title')} '${t(`categories.${category.replaceAll('-', ' ')}`)}' ${
     currentPage > 1 ? ` — Page ${currentPage}` : ''
   }`,
-  description: SITE.description,
+  description: t(SITE.description),
   image: `/api/og/category/${category}.png`,
   noindex: BLOG?.category?.noindex,
 };
