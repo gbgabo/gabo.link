@@ -1,5 +1,6 @@
 import slugify from 'limax';
 import i18next from 'i18next';
+import QRCode from 'qrcode';
 
 import { SITE, BLOG } from '~/config.mjs';
 import { trim } from '~/utils/utils';
@@ -74,5 +75,23 @@ export const getAsset = (path: string): string =>
     .join('/');
 
 /** */
+
+export const generateQR = async (text: string) =>
+  await QRCode.toDataURL(text, {
+    errorCorrectionLevel: 'H',
+    type: 'image/png',
+    width: 500,
+    margin: 1,
+    color: {
+      dark: '#c79bff',
+      light: '#19002e',
+    },
+  })
+    .then((url) => {
+      return url;
+    })
+    .catch((err) => {
+      console.error(err);
+    });
 
 const definitivePermalink = (permalink: string): string => createPath(languageSlug() + '/' + BASE_PATHNAME, permalink);

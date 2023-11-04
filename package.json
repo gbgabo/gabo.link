@@ -48,7 +48,9 @@
     "node": ">=16.12.0"
   },
   "dependencies": {
+    "@types/qrcode": "^1.5.4",
     "@vercel/og": "^0.5.20",
-    "astro-i18next": "^1.0.0-beta.21"
+    "astro-i18next": "^1.0.0-beta.21",
+    "qrcode": "^1.5.3"
   }
 }

@@ -1,8 +1,8 @@
-import { ImageResponse } from '@vercel/og';
-
 import fs from 'fs';
 import path from 'path';
+import { ImageResponse } from '@vercel/og';
 import { fetchPosts } from '~/utils/blog';
+import { generateQR } from '~/utils/permalinks';
 
 export const config = {
   runtime: 'edge',
@@ -13,10 +13,12 @@ const font = fs.readFileSync(
 );
 
 const posts = await fetchPosts('en');
-
 const tags = new Set();
+const categories = new Set();
+
 posts.map((post) => {
   Array.isArray(post.tags) && post.tags.map((tag) => tags.add(tag.toLowerCase()));
+  typeof post.category === 'string' && categories.add(post.category.toLowerCase());
 });
 
 const tagsData = Array.from(tags).map((tag: string) => {
@@ -25,11 +27,6 @@ const tagsData = Array.from(tags).map((tag: string) => {
     title: `#${tag}`,
     subtitle: '',
   };
-});
-
-const categories = new Set();
-posts.map((post) => {
-  typeof post.category === 'string' && categories.add(post.category.toLowerCase());
 });
 
 const categoriesData = Array.from(categories).map((category: string) => {
@@ -87,9 +84,9 @@ export function getStaticPaths() {
   });
 }
 
-export const get = ({ params, props }) => {
+export const get = async ({ props }) => {
   const { page } = props;
-  const { title, subtitle } = page;
+  const { title, subtitle, slug } = page;
   // Astro doesn't support tsx endpoints so I'm using React-element objects
   const html = {
     type: 'div',
@@ -105,6 +102,13 @@ export const get = ({ params, props }) => {
                 'linear-gradient(to right, #00ffb712 1px, #19002e 1px), linear-gradient(to bottom, #00ffb7 2px, #19002e 2px)',
               backgroundSize: '33px 33px',
             },
+          },
+        },
+        {
+          type: 'img',
+          props: {
+            tw: 'absolute right-0 top-0 h-90 m-8',
+            src: await generateQR(`https://gabo.link/${slug}`),
           },
         },
         {
@@ -146,7 +150,6 @@ export const get = ({ params, props }) => {
     fonts: [
       {
         name: 'JetBrains MonoVariable',
-        style: 'monospace',
         data: font,
       },
     ],
