@@ -237,6 +237,10 @@ export const bentoGrids = {
           type: 'Web Browser',
           value: 'Bromite',
         },
+        {
+          type: 'Package Manager',
+          value: 'droid-ify (f-droid client)',
+        },
       ],
     },
     {
