@@ -32,7 +32,7 @@ const {
 ---
 
 <section class="relative h-auto md:-mt-[110px]">
-  <div class="absolute inset-0 pointer-events-none" aria-hidden="true">
+  <div class="pointer-events-none absolute inset-0" aria-hidden="true">
     {
       background && (
         <div class="relative m-auto h-full overflow-x-hidden" style="clip-path: inset(0);">
@@ -40,7 +40,7 @@ const {
             <Fragment set:html={background} />
           ) : (
             <Image
-              class="fixed object-cover mx-auto max-w-none w-auto h-screen md:h-3/4"
+              class="fixed mx-auto h-screen w-auto max-w-none object-cover md:h-3/4"
               widths={[400, 768, 1024, 2040]}
               sizes="(max-width: 767px) 400px, (max-width: 1023px) 768px, (max-width: 2039px) 1024px, 2040px"
               aspectRatio={1860 / 661}
@@ -53,15 +53,15 @@ const {
       )
     }
   </div>
-  <div class="relative max-w-7xl mx-auto px-4 sm:px-6">
-    <div class="pt-0 md:pt-[76px] pointer-events-none"></div>
+  <div class="relative mx-auto max-w-7xl px-4 sm:px-6">
+    <div class="pointer-events-none pt-0 md:pt-[76px]"></div>
     <div class="grid grid-cols-4 gap-4 py-12 md:py-20">
-      <div class="col-span-4 md:col-span-1 m-auto relative">
+      <div class="relative col-span-4 m-auto md:col-span-1">
         <div
-          class="bg-gradient-to-br from-pastel-purple dark:from-cherry from-0% dark:via-dark-purple via-50% to-light-purple dark:to-darker-purple to-100% mx-auto border-8 dark:border-cherry border-light-purple mb-4 w-52 h-52 md:w-60 md:h-60 shadow-lg rounded-full overflow-hidden"
+          class="mx-auto mb-4 h-52 w-52 overflow-hidden rounded-full border-8 border-light-purple bg-gradient-to-br from-pastel-purple from-0% via-50% to-light-purple to-100% shadow-lg dark:border-cherry dark:from-cherry dark:via-dark-purple dark:to-darker-purple md:h-60 md:w-60"
         >
           <Picture
-            class="mx-auto rounded-md w-full"
+            class="mx-auto w-full rounded-md"
             widths={[400, 768, 1024, 2040]}
             sizes="(max-width: 767px) 400px, (max-width: 1023px) 768px, (max-width: 2039px) 1024px, 2040px"
             aspectRatio={1 / 1}
@@ -73,23 +73,23 @@ const {
           />
         </div>
         <p
-          class="bg-grape dark:bg-light-purple text-white dark:text-darker-purple px-2 w-fit absolute top-0 left-0 rounded"
+          class="absolute left-0 top-0 w-fit rounded bg-grape px-2 text-white dark:bg-light-purple dark:text-darker-purple"
         >
           Gabriel Gaboardi
         </p>
         <p
-          class="bg-grape dark:bg-light-purple text-white dark:text-darker-purple px-2 w-fit absolute bottom-0 right-0 rounded"
+          class="absolute bottom-0 right-0 w-fit rounded bg-grape px-2 text-white dark:bg-light-purple dark:text-darker-purple"
         >
           AKA Gabo
         </p>
       </div>
       <div
-        class="col-span-4 md:col-span-3 bg-pastel-purple/70 dark:bg-darker-purple/70 backdrop-blur-sm shadow-sm rounded-xl px-5 py-7 md:p-12 max-w-screen-lg"
+        class="col-span-4 rounded-xl bg-pastel-purple/70 px-5 py-7 shadow-sm backdrop-blur-sm dark:bg-darker-purple/70 md:col-span-3 md:p-12"
       >
         {
           title && (
             <h1
-              class="text-3xl md:text-6xl font-bold leading-tighter tracking-tighter mb-4 font-heading dark:text-gray-200"
+              class="leading-tighter mb-4 font-heading text-3xl font-bold tracking-tighter dark:text-gray-200 md:text-6xl"
               set:html={title}
             />
           )
@@ -98,22 +98,22 @@ const {
           {
             subtitle && (
               <p
-                class="text-xl tracking-tighter md:tracking-tight mb-6 text-muted dark:text-light-purple"
+                class="text-muted mb-6 text-xl tracking-tighter dark:text-light-purple md:tracking-tight"
                 set:html={subtitle}
               />
             )
           }
-          <div class="flex flex-nowrap items-center flex-col sm:flex-row gap-4">
+          <div class="flex flex-col flex-nowrap items-center gap-4 sm:flex-row">
             {
               callToAction && (
                 <div class="flex w-full sm:w-auto">
                   {typeof callToAction === 'string' ? (
                     <Fragment set:html={callToAction} />
                   ) : (
-                    <a class="btn btn-primary sm:mb-0 w-full" href={callToAction?.href} rel="noopener">
+                    <a class="btn btn-primary w-full sm:mb-0" href={callToAction?.href} rel="noopener">
                       {callToAction?.icon && (
                         <>
-                          <Icon name={callToAction.icon} class="w-5 h-5 mr-2 -ml-1.5" />
+                          <Icon name={callToAction.icon} class="-ml-1.5 mr-2 h-5 w-5" />
                         </>
                       )}
                       {callToAction?.text}
@@ -131,7 +131,7 @@ const {
                     <a class="btn w-full" href={callToAction2?.href}>
                       {callToAction2?.icon && (
                         <>
-                          <Icon name={callToAction2.icon} class="w-5 h-5 mr-2 -ml-1.5" />{' '}
+                          <Icon name={callToAction2.icon} class="-ml-1.5 mr-2 h-5 w-5" />{' '}
                         </>
                       )}
                       {callToAction2.text}
@@ -143,15 +143,15 @@ const {
             <div>
               {
                 socialLinks?.length ? (
-                  <ul class="flex w-fit m-auto">
+                  <ul class="m-auto flex w-fit">
                     {socialLinks.map(({ ariaLabel, href, text, icon }) => (
                       <li>
                         <a
-                          class="text-grape dark:text-acid-green hover:bg-gray-100 dark:hover:bg-dark-purple focus:outline-none focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 rounded-lg text-sm p-2.5 inline-flex items-center"
+                          class="inline-flex items-center rounded-lg p-2.5 text-sm text-grape hover:bg-gray-100 focus:outline-none focus:ring-4 focus:ring-gray-200 dark:text-acid-green dark:hover:bg-dark-purple dark:focus:ring-gray-700"
                           aria-label={ariaLabel}
                           href={href}
                         >
-                          {icon && <Icon name={icon} class="w-6 h-6" />}
+                          {icon && <Icon name={icon} class="h-6 w-6" />}
                           <Fragment set:html={text} />
                         </a>
                       </li>
@@ -174,7 +174,7 @@ const {
                 <Fragment set:html={image} />
               ) : (
                 <Picture
-                  class="mx-auto rounded-md w-full"
+                  class="mx-auto w-full rounded-md"
                   widths={[400, 768, 1024, 2040]}
                   sizes="(max-width: 767px) 400px, (max-width: 1023px) 768px, (max-width: 2039px) 1024px, 2040px"
                   aspectRatio={1024 / 576}
