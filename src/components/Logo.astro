@@ -4,8 +4,6 @@ export interface Props {
 }
 
 const { title = "Gabo's Link" } = Astro.props;
-
-import { Image } from '@astrojs/image/components';
 ---
 
 <svg
@@ -43,4 +41,4 @@ import { Image } from '@astrojs/image/components';
   </g>
 </svg>
 
-<span class="self-center ml-2 text-xl font-bold text-gray-900 whitespace-nowrap dark:text-white"> {title}</span>
+<span class="ml-2 self-center whitespace-nowrap text-xl font-bold text-gray-900 dark:text-white"> {title}</span>

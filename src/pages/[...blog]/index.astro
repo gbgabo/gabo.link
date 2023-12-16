@@ -1,5 +1,6 @@
 ---
 import { BLOG } from '~/config.mjs';
+import type { GetStaticPaths } from 'astro';
 
 import Layout from '~/layouts/PageLayout.astro';
 import SinglePost from '~/components/blog/SinglePost.astro';
@@ -10,15 +11,15 @@ import { fetchPosts } from '~/utils/blog';
 import { findImage } from '~/utils/images';
 import i18next from 'i18next';
 
-export async function getStaticPaths() {
+export const getStaticPaths = (async () => {
   if (BLOG?.disabled || BLOG?.post?.disabled) return [];
-  return (await fetchPosts(i18next.language)).map((post) => ({
+  return (await fetchPosts(i18next.language)).flatMap((post) => ({
     params: {
       blog: post.permalink,
     },
     props: { post },
   }));
-}
+}) satisfies GetStaticPaths;
 
 const { post } = Astro.props;
 const url = getCanonical(getPermalink(post.permalink, 'post'));
