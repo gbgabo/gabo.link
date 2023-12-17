@@ -18,8 +18,6 @@ import Slider from '~/components/blog/content/Slider.astro';
 import Image from '~/components/blog/content/Image.astro';
 import Card from '~/components/blog/content/Card.astro';
 
-export const components = { img: Image };
-
 You've probably seen those black screens with tiny lines continuously popping up. Possibly in a movie where a super hacker is typing dozens of characters per second to crack all the passwords and access a secret Pentagon system. That black window is a **terminal**.
 
 The idea of this text is to demystify and explain, in a general introduction, **everything you need to know to get acquainted with the `terminal`**, and to show how fun and useful it can be.
@@ -32,11 +30,11 @@ Before being better known as a program, the terminal was a piece of equipment. I
 
 More specifically, in this text, everything refers to the `video terminal`, which **has a screen in addition to the keyboard**, in contrast to older terminals that **communicated with the computer by printing text** (similar to a fax). An example of a video terminal is the [VT100](https://en.wikipedia.org/wiki/VT100).
 
-![TI Silent 700 and VT100](/assets/images/posts/terminals.png)
+![TI Silent 700 and VT100](../../../assets/images/posts/terminals.png)
 
 And if you're afraid right from the start or think it must be very difficult to use a terminal, let me ask you how difficult it is to use this guy:
 
-![Chat screen](/assets/images/posts/chat.jpeg)
+![Chat screen](../../../assets/images/posts/chat.jpeg)
 
 That's right, a chat. Do you know how to use it? Then you already have half of what you need, believe me. Simply put, the terminal is like a chat... with your computer! In it, you will type something to the computer, and it will respond to you. **The messages we send to the computer are always `commands` for it to execute.**
 
@@ -46,7 +44,7 @@ And in the past, this made even more sense. Since computers were expensive (and 
 
 Having a computer at home eliminates the need for an additional piece of equipment to communicate with it, but communicating by text has not ceased to be useful. The terminal is still widely used, but now it's a program, also known as a `terminal emulator`. Now, becoming that little black window, it is no longer that tube monitor with serial communication.
 
-![The terminal as hardware and currently as software](/assets/images/posts/terminal-interface.png)
+![The terminal as hardware and currently as software](../../../assets/images/posts/terminal-interface.png)
 
 **The terminal now lives within the computer itself, becoming just a digital abstraction maintained solely for human convenience in communicating with machines.**
 
@@ -56,7 +54,7 @@ And through one of the oldest computer interfaces, we still see a multitude of u
 
 Say hello to my terminal. In this text, I will show you a terminal on a Linux system. It's very similar to a Mac. For Windows, the concepts covered here also apply, but there may be differences in the name of the most common commands.
 
-![A terminal emulator screen](/assets/images/posts/emulator.png)
+![A terminal emulator screen](../../../assets/images/posts/emulator.png)
 
 The terminal is quite empty at first because it's just a monitor. It only displays a program at the top. The `shell`!
 
@@ -68,7 +66,7 @@ gabo@book:~/$ ls
 
 It serves to `list the files` and subfolders present in the folder you are in.
 
-![Anatomy of the Shell](/assets/images/posts/shell.png)
+![Anatomy of the Shell](../../../assets/images/posts/shell.png)
 
 In every terminal screen, you will come across two things:
 
@@ -80,7 +78,7 @@ The `$` is an indicator that everything that comes after it should be interprete
 
 By the way, there are several shell options. The shell I showed is the most common one, `bash`, but in my daily life, I use `zsh`, which is well-known for its customizations.
 
-![Example of bash and zsh prompts](/assets/images/posts/shell2.png)
+![Example of bash and zsh prompts](../../../assets/images/posts/shell2.png)
 
 More stylish, right? And yes, I like purple.
 
@@ -94,7 +92,7 @@ When a command is sent, the system will return the response just below, and ther
 
 Returning to the example command. The `ls`. It will be useful because you navigate a lot between files in the terminal.
 
-![The ls command](/assets/images/posts/ls.png)
+![The ls command](../../../assets/images/posts/ls.png)
 
 Did you notice the `~` at the end of the prompt? It represents your `home` folder, the initial folder of your user, where your things are in the system. The `ls` command listed all the folders and files in my home.
 
@@ -102,13 +100,13 @@ To go to a specific folder, the `cd` command (_change directory_) will serve to 
 
 Note that when we change where we are, the prompt will update the current directory path.
 
-![The ls and cd commands](/assets/images/posts/ls-cd.png)
+![The ls and cd commands](../../../assets/images/posts/ls-cd.png)
 
 To go back to the previous directory, you can type `cd ..`, where `..` always refers to the parent directory of your current location.
 
 Text commands can receive `parameters`, additional messages that specify specific ways the command should be executed. In the `ls` command, for example, we can specify the `--colors` parameter to have a color-formatted list, differentiating folders, files, and shortcuts.
 
-![The cd and ls --color commands](/assets/images/posts/ls-color.png)
+![The cd and ls --color commands](../../../assets/images/posts/ls-color.png)
 
 This may seem slow, but it's quite the opposite. In most cases, the command-line environment will be much faster than using a mouse (I'll elaborate more on this later).
 
@@ -193,21 +191,21 @@ This may seem slow, but it's quite the opposite. In most cases, the command-line
     ]}
   >
   gabo@book:&#126;/project$ find . -name "*.png"
-  ./public/assets/images/posts/ls.png
-  ./public/assets/images/posts/curl-h.png
-  ./public/assets/images/posts/mkdir-h.png
-  ./public/assets/images/posts/terminals.png
-  ./node_modules/@astrojs/webapi/node_modules/undici/docs/assets/lifecycle-diagram.png
-  ./node_modules/undici/docs/assets/lifecycle-diagram.png
-  ./src/assets/images/terminal.png
-  ./src/assets/images/dotfiles.png
-  ./src/assets/images/video.png
-  ./src/assets/images/hero.png
-  ./src/assets/images/default.png
-  ./src/assets/images/profile_picture.png
-  ./src/assets/images/projects/wildberries.png
-  ./src/assets/images/projects/symbols.png
-  ./src/assets/images/cli-dark.png
+  ./public../../../assets/images/posts/ls.png
+  ./public../../../assets/images/posts/curl-h.png
+  ./public../../../assets/images/posts/mkdir-h.png
+  ./public../../../assets/images/posts/terminals.png
+  ./node_modules/@astrojs/webapi/node_modules/undici/docs../../../assets/lifecycle-diagram.png
+  ./node_modules/undici/docs../../../assets/lifecycle-diagram.png
+  ./src../../../assets/images/terminal.png
+  ./src../../../assets/images/dotfiles.png
+  ./src../../../assets/images/video.png
+  ./src../../../assets/images/hero.png
+  ./src../../../assets/images/default.png
+  ./src../../../assets/images/profile_picture.png
+  ./src../../../assets/images/projects/wildberries.png
+  ./src../../../assets/images/projects/symbols.png
+  ./src../../../assets/images/cli-dark.png
   gabo@book:&#126;/project$
   </Card>
   
@@ -251,7 +249,7 @@ And by interacting through text, it doesn't mean that everything is limited to t
 
 For example, programs like `vim` and `nvim` (text editors), `htop` and `bpytop` (task managers), music players like `moc`, and many others for email, calendar, and even web browsing. The term TUI (Text User Interface) is often used to describe this type of program.
 
-![Terminal Applications](/assets/images/posts/tui.png)
+![Terminal Applications](../../../assets/images/posts/tui.png)
 
 [The awesome-cli-apps project](https://github.com/agarrharr/awesome-cli-apps) has a huge list of interesting programs for the terminal.
 
@@ -267,14 +265,14 @@ Don't know how to use a certain command? Try calling it with -h or --help right 
 
 <Slider>
   <div>
-    ![Calling the curl -h command](/assets/images/posts/curl-h.png)
+    ![Calling the curl -h command](../../../assets/images/posts/curl-h.png)
     <div class="bg-dark-purple">
       Calling curl -h displays: - how the command's structure should be (curl [options] url) - what options are
       available to use with the command (-)
     </div>
   </div>
   <div>
-    ![Calling the mkdir -h command](/assets/images/posts/mkdir-h.png) In cases like mkdir, you need to use --help.
+    ![Calling the mkdir -h command](../../../assets/images/posts/mkdir-h.png) In cases like mkdir, you need to use --help.
   </div>
 </Slider>
 
@@ -334,10 +332,10 @@ Recapping, there are two main ways to interact with a computer:
 
 Many of the programs used through a graphical interface also have versions for the terminal.
 
-![File Managers - pcmanfm and nnn](/assets/images/posts/explorer.png)
+![File Managers - pcmanfm and nnn](../../../assets/images/posts/explorer.png)
 _File Managers - pcmanfm and nnn_
 
-![Text Editors - vscodium and nvim](/assets/images/posts/editor.png)
+![Text Editors - vscodium and nvim](../../../assets/images/posts/editor.png)
 _Text Editors - vscodium and nvim_
 
 It's not about concluding which one is better, but there are many situations where the terminal stands out:
@@ -394,7 +392,7 @@ In the example below, the list of items that `ls` will return will be filtered b
 $ ls -l Downloads | grep .png
 ```
 
-![Functioning of the pipe from one command to another](/assets/images/posts/pipe.png)
+![Functioning of the pipe from one command to another](../../../assets/images/posts/pipe.png)
 
 The text-based nature of terminal programs allows for consistency in how you interact with the computer, creating a unified experience. Even for graphical interface programs, it is possible to call commands that do the same as clicking, and you end up extending everyday programs to your needs. And by the way, what is a daily necessity, you can automate!
 

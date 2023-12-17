@@ -8,6 +8,8 @@ import { getAsset, getPermalink } from '~/utils/permalinks';
 import ExternalLink from '~/components/blog/content/ExternalLink.astro';
 import i18next, { t } from 'i18next';
 
+import aboutImage from '~/assets/images/about.jpg';
+
 const meta = {
   title: t('about.meta.title'),
   description: t('about.meta.description'),
@@ -108,11 +110,10 @@ const links = [
     class="mx-auto w-full max-w-4xl rounded-md"
     widths={[400, 768, 1024, 2040]}
     sizes="(max-width: 767px) 400px, (max-width: 1023px) 768px, (max-width: 2039px) 1024px, 2040px"
-    aspectRatio={21 / 9}
     width={1120}
     height={480}
     loading="eager"
-    src={import('~/assets/images/about.jpg')}
+    src={aboutImage}
     alt="screenshot"
   />
   <div class="mx-auto max-w-4xl px-6 pt-12 sm:px-6 sm:pt-16 md:pb-10">
