@@ -36,7 +36,6 @@
     "@typescript-eslint/eslint-plugin": "^6.14.0",
     "@typescript-eslint/parser": "^6.14.0",
     "astro": "^4.0.5",
-    "astro-icon": "^1.0.0-next.2",
     "eslint": "^8.41.0",
     "eslint-plugin-astro": "^0.31.0",
     "eslint-plugin-jsx-a11y": "^6.7.1",
@@ -58,6 +57,7 @@
     "@types/qrcode": "^1.5.4",
     "@vercel/og": "^0.6.1",
     "astro-i18next": "^1.0.0-beta.21",
+    "astro-icon": "1.0.0-next.2",
     "qrcode": "^1.5.3"
   }
 }
