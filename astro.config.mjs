@@ -1,7 +1,7 @@
 import path from 'path';
 import { fileURLToPath } from 'url';
 
-import { defineConfig } from 'astro/config';
+import { defineConfig, squooshImageService } from 'astro/config';
 
 import tailwind from '@astrojs/tailwind';
 import sitemap from '@astrojs/sitemap';
@@ -25,12 +25,6 @@ export default defineConfig({
 
   output: 'static',
 
-  markdown: {
-    remarkPlugins: [readingTimeRemarkPlugin],
-    // Can be 'shiki' (default), 'prism' or false to disable highlighting
-    syntaxHighlight: 'prism',
-  },
-
   integrations: [
     tailwind({
       config: {
@@ -39,13 +33,6 @@ export default defineConfig({
     }),
     sitemap(),
     mdx(),
-
-    ...whenExternalScripts(() =>
-      partytown({
-        config: { forward: ['dataLayer.push'] },
-      })
-    ),
-
     icon({
       include: {
         tabler: ['*'],
@@ -60,18 +47,20 @@ export default defineConfig({
       },
     }),
 
-    // compress({
-    //   css: true,
-    //   html: false,
-    //   img: false,
-    //   js: true,
-    //   svg: false,
-
-    //   logger: 1,
-    // }),
+    ...whenExternalScripts(() =>
+      partytown({
+        config: { forward: ['dataLayer.push'] },
+      })
+    ),
 
     astroI18next(),
   ],
+
+  markdown: {
+    remarkPlugins: [readingTimeRemarkPlugin],
+    // Can be 'shiki' (default), 'prism' or false to disable highlighting
+    syntaxHighlight: 'prism',
+  },
 
   vite: {
     resolve: {
