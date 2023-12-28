@@ -1,14 +1,13 @@
 import path from 'path';
 import { fileURLToPath } from 'url';
 
-import { defineConfig } from 'astro/config';
+import { defineConfig, squooshImageService } from 'astro/config';
 
 import tailwind from '@astrojs/tailwind';
 import sitemap from '@astrojs/sitemap';
-import image from '@astrojs/image';
 import mdx from '@astrojs/mdx';
 import partytown from '@astrojs/partytown';
-import compress from 'astro-compress';
+import icon from 'astro-icon';
 import astroI18next from 'astro-i18next';
 import { readingTimeRemarkPlugin } from './src/utils/frontmatter.mjs';
 
@@ -26,12 +25,6 @@ export default defineConfig({
 
   output: 'static',
 
-  markdown: {
-    remarkPlugins: [readingTimeRemarkPlugin],
-    // Can be 'shiki' (default), 'prism' or false to disable highlighting
-    syntaxHighlight: 'prism',
-  },
-
   integrations: [
     tailwind({
       config: {
@@ -39,10 +32,20 @@ export default defineConfig({
       },
     }),
     sitemap(),
-    image({
-      serviceEntryPoint: '@astrojs/image/sharp',
-    }),
     mdx(),
+    icon({
+      include: {
+        tabler: ['*'],
+        ep: ['arrow-left-bold', 'close-bold'],
+        eva: ['diagonal-arrow-right-up-fill'],
+        mdi: ['linux', 'web', 'language-javascript', 'language-typescript'],
+        ph: ['hand-fist-bold'],
+        fluent: ['play-32-filled'],
+        ic: ['round-code', 'outline-color-lens'],
+        'simple-icons': ['html5', 'css3', 'nextdotjs', 'tailwindcss', 'gnubash', 'astro', 'python', 'linux'],
+        ri: ['twitter-fill', 'facebook-box-fill', 'linkedin-box-fill', 'whatsapp-fill', 'mail-fill'],
+      },
+    }),
 
     ...whenExternalScripts(() =>
       partytown({
@@ -50,20 +53,14 @@ export default defineConfig({
       })
     ),
 
-    compress({
-      css: true,
-      html: {
-        removeAttributeQuotes: false,
-      },
-      img: false,
-      js: true,
-      svg: false,
-
-      logger: 1,
-    }),
-
     astroI18next(),
   ],
+
+  markdown: {
+    remarkPlugins: [readingTimeRemarkPlugin],
+    // Can be 'shiki' (default), 'prism' or false to disable highlighting
+    syntaxHighlight: 'prism',
+  },
 
   vite: {
     resolve: {

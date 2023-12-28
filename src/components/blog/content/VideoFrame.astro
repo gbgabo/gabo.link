@@ -1,5 +1,5 @@
 ---
-import { Icon } from 'astro-icon';
+import { Icon } from 'astro-icon/components';
 export interface Props {
   id: string;
   title: string;
@@ -8,30 +8,30 @@ export interface Props {
 const { id, title } = Astro.props;
 ---
 
-<div class="relative overflow-hidden rounded-sm w-full pt-[56.25%]">
+<div class="relative w-full overflow-hidden rounded-sm pt-[56.25%]">
   <div data-youtube>
     <img
-      class="absolute top-0 left-0 bottom-0 right-0 w-full h-full m-0"
+      class="absolute bottom-0 left-0 right-0 top-0 m-0 h-full w-full"
       src={`https://i.ytimg.com/vi/${id}/maxresdefault.jpg`}
       alt="Video thumbnail"
       width="820"
       height="461"
     />
-    <div class="absolute top-0 left-0 bottom-0 right-0 w-full h-full flex flex-col justify-center items-center">
+    <div class="absolute bottom-0 left-0 right-0 top-0 flex h-full w-full flex-col items-center justify-center">
       <button
-        class="w-14 h-14 rounded-full align-middle text-white dark:text-acid-green dark:bg-cherry bg-grape shadow-lg"
+        class="h-14 w-14 rounded-full bg-grape align-middle text-white shadow-lg dark:bg-cherry dark:text-acid-green"
         data-youtube-button={`https://www.youtube.com/embed/${id}`}
         aria-label="play youtube video on page"
       >
-        <Icon name="fluent:play-32-filled" class="h-10 w-10 p-2 m-auto" />
+        <Icon name="fluent:play-32-filled" class="m-auto h-10 w-10 p-2" />
       </button>
       <a
-        class="absolute bottom-0 right-0 bg-light-purple dark:bg-darker-purple text-light-purple p-2 text-sm rounded-tl-md no-underline shadow-lg"
+        class="absolute bottom-0 right-0 rounded-tl-md bg-light-purple p-2 text-sm text-light-purple no-underline shadow-lg dark:bg-darker-purple"
         href={`https://www.youtube.com/watch?v=${id}`}
         target="_blank"
       >
         Play on Youtube
-        <Icon name={'tabler:external-link'} class="w-4 h-4 inline-block" />
+        <Icon name="tabler:external-link" class="inline-block h-4 w-4" />
       </a>
     </div>
   </div>

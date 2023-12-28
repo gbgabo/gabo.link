@@ -1,5 +1,6 @@
 ---
 import { SITE, BLOG } from '~/config.mjs';
+import type { GetStaticPaths } from 'astro';
 
 import Layout from '~/layouts/PageLayout.astro';
 import BlogList from '~/components/blog/List.astro';
@@ -10,7 +11,7 @@ import i18next, { t } from 'i18next';
 import { fetchPosts } from '~/utils/blog';
 import { CATEGORY_BASE } from '~/utils/permalinks';
 
-export async function getStaticPaths({ paginate }) {
+export const getStaticPaths = async ({ paginate }) => {
   if (BLOG?.disabled || BLOG?.category?.disabled) return [];
 
   const posts = await fetchPosts(i18next.language);
@@ -19,7 +20,7 @@ export async function getStaticPaths({ paginate }) {
     typeof post.category === 'string' && categories.add(post.category.toLowerCase());
   });
 
-  return Array.from(categories).map((category: string) =>
+  return Array.from(categories).flatMap((category: string) =>
     paginate(
       posts.filter((post) => typeof post.category === 'string' && category === post.category.toLowerCase()),
       {
@@ -29,7 +30,7 @@ export async function getStaticPaths({ paginate }) {
       }
     )
   );
-}
+};
 
 const { page, category } = Astro.props;
 
