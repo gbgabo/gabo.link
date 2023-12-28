@@ -84,7 +84,7 @@ export function getStaticPaths() {
   });
 }
 
-export const get = async ({ props }) => {
+export const GET = async ({ props }) => {
   const { page } = props;
   const { title, subtitle, slug } = page;
   // Astro doesn't support tsx endpoints so I'm using React-element objects
