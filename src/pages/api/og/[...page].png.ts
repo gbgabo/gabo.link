@@ -8,9 +8,7 @@ export const config = {
   runtime: 'edge',
 };
 
-const font = fs.readFileSync(
-  path.resolve('node_modules/@fontsource/jetbrains-mono/files/jetbrains-mono-all-500-normal.woff')
-);
+const font = fs.readFileSync(path.resolve('src/assets/jetbrains-mono-all-500-normal.woff'));
 
 const posts = await fetchPosts('en');
 const tags = new Set();
