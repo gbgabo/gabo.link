@@ -1,0 +1,20 @@
+---
+import { Icon } from 'astro-icon/components';
+import Tags from '../blog/Tags.astro';
+import { fetchTags } from '~/utils/blog';
+import { languageSlug } from '~/utils/permalinks';
+
+const tags = await fetchTags(languageSlug());
+---
+
+<div data-filter class="hidden bg-muted-purple py-3 md:block dark:bg-darker-purple">
+  <p class="z-10 pb-3 font-semibold text-light-purple">Tags:</p>
+  <Tags tags={tags} />
+</div>
+
+<div
+  data-toggle-filter
+  class="fixed bottom-20 right-3 z-10 rounded-2xl bg-light-purple p-3 text-darker-purple shadow-md md:hidden"
+>
+  <Icon name="material-symbols:filter-list-rounded" class="h-8 w-8" />
+</div>

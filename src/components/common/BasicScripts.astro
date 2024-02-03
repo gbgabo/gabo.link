@@ -31,10 +31,26 @@ import { SITE } from '~/config.mjs';
     }
   }
 
+  const drawerSlide = (toggle, element) => {
+    attachEvent(toggle, 'click', function (e, elem) {
+      elem.classList.toggle('expanded');
+      document.querySelector(element)?.classList.toggle('hidden');
+      e.stopPropagation();
+    });
+
+    attachEvent([document], 'click', function (e) {
+      if (e.target.closest(element)) return;
+
+      document.querySelector(toggle)?.classList.remove('expanded');
+      document.querySelector(element)?.classList.add('hidden');
+    });
+  };
+
   window.onload = function () {
     let lastKnownScrollPosition = window.scrollY;
     let ticking = true;
 
+    // Nav menu toggling
     attachEvent('[data-aw-toggle-menu]', 'click', function (e, elem) {
       elem.classList.toggle('expanded');
       document.body.classList.toggle('overflow-hidden');
@@ -49,19 +65,15 @@ import { SITE } from '~/config.mjs';
       document.body.classList.remove('overflow-hidden');
       document.querySelector('#header nav')?.classList.remove('show');
     });
+    // ------------------
 
-    attachEvent('[data-aw-toggle-toc]', 'click', function (e, elem) {
-      elem.classList.toggle('expanded');
-      document.querySelector('article nav')?.classList.toggle('hidden');
-      e.stopPropagation();
-    });
+    // Table of content (TOC) toggling
+    drawerSlide('[data-aw-toggle-toc]', 'article nav');
+    // ------------------
 
-    attachEvent([document], 'click', function (e) {
-      if (e.target.closest('article nav')) return;
-
-      document.querySelector('[data-aw-toggle-toc]')?.classList.remove('expanded');
-      document.querySelector('article nav')?.classList.add('hidden');
-    });
+    // Table of content (TOC) toggling
+    drawerSlide('[data-toggle-filter]', '[data-filter]');
+    // ------------------
 
     attachEvent('[data-aw-toggle-color-scheme]', 'click', function () {
       if (defaultTheme.endsWith(':only')) {
@@ -71,6 +83,7 @@ import { SITE } from '~/config.mjs';
       localStorage.theme = document.documentElement.classList.contains('dark') ? 'dark' : 'light';
     });
 
+    // Pop-up Image Dialog
     const mainDialog = document.getElementById('imageDialog');
     const dialogImage = document.querySelector('#imageDialog > img');
     const dialogText = document.querySelector('#imageDialog > p');
@@ -94,6 +107,9 @@ import { SITE } from '~/config.mjs';
       });
     });
 
+    // ------------------
+
+    // Carousel Logic
     const sliders = document.querySelectorAll('.slider-container');
 
     sliders.forEach((slider) => {
@@ -109,7 +125,9 @@ import { SITE } from '~/config.mjs';
         grid.scrollLeft -= slider.offsetWidth;
       });
     });
+    // ------------------
 
+    // YT Iframe videos load on demand
     const youtubeVideos = [...document.querySelectorAll('[data-youtube]')];
 
     const createIframe = (url, frame) => {
@@ -125,6 +143,7 @@ import { SITE } from '~/config.mjs';
       const url = button.dataset.youtubeButton;
       button.addEventListener('click', () => createIframe(url, element));
     });
+    // ------------------
 
     attachEvent('[data-aw-social-share]', 'click', function (_, elem) {
       const network = elem.getAttribute('data-aw-social-share');

@@ -36,6 +36,7 @@ export default defineConfig({
     icon({
       include: {
         tabler: ['*'],
+        'material-symbols': ['filter-list-rounded'],
         ep: ['arrow-left-bold', 'close-bold'],
         eva: ['diagonal-arrow-right-up-fill'],
         mdi: ['linux', 'web', 'language-javascript', 'language-typescript'],
