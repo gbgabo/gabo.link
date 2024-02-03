@@ -1,6 +1,3 @@
-import defaultImage from './assets/images/default.png';
-import i18next, { t } from 'i18next';
-
 const CONFIG = {
   name: "Gabo's Link",
 
@@ -10,7 +7,7 @@ const CONFIG = {
 
   title: 'site.title',
   description: 'site.description',
-  defaultImage: defaultImage,
+  defaultImage: '/assets/images/default.png',
 
   defaultTheme: 'dark', // Values: "system" | "light" | "dark" | "light:only" | "dark:only"
 
