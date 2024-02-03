@@ -3,13 +3,39 @@ import { Icon } from 'astro-icon/components';
 import Tags from '../blog/Tags.astro';
 import { fetchTags } from '~/utils/blog';
 import { languageSlug } from '~/utils/permalinks';
+import { categoryData } from '~/data';
+
+export interface Props {
+  selected?: string;
+}
+
+const { selected } = Astro.props;
+const categories = ['articles', 'lists'];
 
 const tags = await fetchTags(languageSlug());
 ---
 
 <div data-filter class="hidden bg-muted-purple py-3 md:block dark:bg-darker-purple">
-  <p class="z-10 pb-3 font-semibold text-light-purple">Tags:</p>
-  <Tags tags={tags} />
+  <div class="mb-3">
+    <p class="z-10 pb-3 font-semibold text-light-purple">Format:</p>
+    {
+      categories.map((slug) => {
+        return (
+          <a
+            class={`btn mr-2 ${slug === selected && 'btn-primary'}`}
+            href={`${(slug === selected && '/blog') || `/category/${slug}`}`}
+          >
+            <Icon class="mr-1 h-5 w-5" name={categoryData[slug].icon} />
+            {slug}
+          </a>
+        );
+      })
+    }
+  </div>
+  <div>
+    <p class="z-10 pb-3 font-semibold text-light-purple">Tags:</p>
+    <Tags tags={tags} />
+  </div>
 </div>
 
 <div
