@@ -1,6 +1,8 @@
 import path from 'path';
 import { fileURLToPath } from 'url';
+
 import { defineConfig } from 'astro/config';
+
 import tailwind from '@astrojs/tailwind';
 import sitemap from '@astrojs/sitemap';
 import mdx from '@astrojs/mdx';
@@ -8,18 +10,21 @@ import partytown from '@astrojs/partytown';
 import icon from 'astro-icon';
 import astroI18next from 'astro-i18next';
 import { readingTimeRemarkPlugin } from './src/utils/frontmatter.mjs';
+
 import { SITE } from './src/config.mjs';
-import vercel from '@astrojs/vercel/static';
+
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
+
 const whenExternalScripts = (items = []) =>
   SITE.googleAnalyticsId ? (Array.isArray(items) ? items.map((item) => item()) : [items()]) : [];
 
-// https://astro.build/config
 export default defineConfig({
   site: SITE.origin,
   base: SITE.basePathname,
   trailingSlash: SITE.trailingSlash ? 'always' : 'never',
+
   output: 'static',
+
   integrations: [
     tailwind({
       config: {
@@ -42,20 +47,22 @@ export default defineConfig({
         ri: ['twitter-fill', 'facebook-box-fill', 'linkedin-box-fill', 'whatsapp-fill', 'mail-fill'],
       },
     }),
+
     ...whenExternalScripts(() =>
       partytown({
-        config: {
-          forward: ['dataLayer.push'],
-        },
+        config: { forward: ['dataLayer.push'] },
       })
     ),
+
     astroI18next(),
   ],
+
   markdown: {
     remarkPlugins: [readingTimeRemarkPlugin],
     // Can be 'shiki' (default), 'prism' or false to disable highlighting
     syntaxHighlight: 'prism',
   },
+
   vite: {
     resolve: {
       alias: {
@@ -63,5 +70,4 @@ export default defineConfig({
       },
     },
   },
-  adapter: vercel(),
 });
