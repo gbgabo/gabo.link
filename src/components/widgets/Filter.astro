@@ -15,9 +15,9 @@ const categories = ['articles', 'lists'];
 const tags = await fetchTags(languageSlug());
 ---
 
-<div data-filter class="hidden bg-muted-purple py-3 md:block dark:bg-darker-purple">
+<div data-filter class="z-10 hidden animate-fade-up bg-muted-purple py-5 dark:bg-darker-purple md:block">
   <div class="mb-3">
-    <p class="z-10 pb-3 font-semibold text-light-purple">Format:</p>
+    <p class="text-muted z-10 pb-3 font-semibold dark:text-slate-400">Format:</p>
     {
       categories.map((slug) => {
         return (
@@ -33,14 +33,15 @@ const tags = await fetchTags(languageSlug());
     }
   </div>
   <div>
-    <p class="z-10 pb-3 font-semibold text-light-purple">Tags:</p>
+    <p class="text-muted z-10 pb-3 font-semibold dark:text-slate-400">Tags:</p>
     <Tags tags={tags} />
   </div>
 </div>
 
-<div
+<button
+  class="fixed bottom-20 right-3 z-10 rounded-2xl bg-grape p-3 text-white shadow-md dark:bg-cherry dark:text-acid-green md:hidden"
   data-toggle-filter
-  class="fixed bottom-20 right-3 z-10 rounded-2xl bg-light-purple p-3 text-darker-purple shadow-md md:hidden"
+  aria-label="Post filter"
 >
-  <Icon name="material-symbols:filter-list-rounded" class="h-8 w-8" />
-</div>
+  <Icon class="h-8 w-8" name="material-symbols:filter-list-rounded" />
+</button>
