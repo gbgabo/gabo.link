@@ -14,7 +14,7 @@ tags:
 canonical: https://gabo.link/the-terminal
 ---
 
-import Slider from '~/components/blog/content/Slider.astro';
+import Carousel from '~/components/blog/content/Carousel.astro';
 import Image from '~/components/blog/content/Image.astro';
 import Card from '~/components/blog/content/Card.astro';
 
@@ -110,7 +110,7 @@ Text commands can receive `parameters`, additional messages that specify specifi
 
 This may seem slow, but it's quite the opposite. In most cases, the command-line environment will be much faster than using a mouse (I'll elaborate more on this later).
 
-<Slider>  
+<Carousel>  
   <Card 
     title="ls"
     description="Lists all items present in the current directory"
@@ -241,7 +241,7 @@ This may seem slow, but it's quite the opposite. In most cases, the command-line
   gabo@book:&#126;/project$ rm -rf personal-blog
   gabo@book:&#126;/project$ 
   </Card>
-</Slider>
+</Carousel>
 
 This style of "chat" interaction is called a `CLI` (Command Line Interface).
 
@@ -263,7 +263,7 @@ It's worth remembering that nobody starts out knowing everything, and there will
 
 Don't know how to use a certain command? Try calling it with -h or --help right after it. Not every command will respond to -h for help because the command may use it for something else. When in doubt, try both.
 
-<Slider>
+<Carousel>
   <div>
     ![Calling the curl -h command](~/assets/images/posts/the-terminal/curl-h.png)
     <div class="bg-dark-purple">
@@ -275,7 +275,7 @@ Don't know how to use a certain command? Try calling it with -h or --help right 
     ![Calling the mkdir -h command](~/assets/images/posts/the-terminal/mkdir-h.png) In cases like mkdir, you need to use
     --help.
   </div>
-</Slider>
+</Carousel>
 
 You can expect at least **usage instructions** with these arguments. If you want to understand the **purpose/usage** of a command better, the next option will make more sense.
 
