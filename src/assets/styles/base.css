@@ -79,10 +79,6 @@
   display: block;
 }
 
-.slider-grid>* {
-  @apply flex-shrink-0 w-full snap-center flex flex-col;
-}
-
 .dark svg {
   --web-node-color: var(--wb-dark-purple);
   --web-node-bg-color: var(--wb-cherry);
