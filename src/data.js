@@ -167,7 +167,7 @@ export const categoryData = {
   articles: {
     classes: {
       filled: 'text-darker-purple bg-acid-green',
-      outline: 'text-acid-green',
+      outline: 'text-acid-green drop-shadow-sm',
     },
     icon: 'tabler:news',
   },
