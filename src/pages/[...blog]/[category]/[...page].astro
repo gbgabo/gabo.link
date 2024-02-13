@@ -3,6 +3,7 @@ import { SITE, BLOG } from '~/config.mjs';
 import { categoryData } from '~/data.js';
 
 import Layout from '~/layouts/PageLayout.astro';
+import PostLayout from '~/layouts/ListLayout.astro';
 import BlogList from '~/components/blog/List.astro';
 import Headline from '~/components/blog/Headline.astro';
 import Pagination from '~/components/blog/Pagination.astro';
@@ -48,22 +49,20 @@ const meta = {
 ---
 
 <Layout meta={meta}>
-  <section class="mx-auto max-w-7xl px-6 py-12 sm:px-6 sm:py-16 lg:py-20">
-    <Headline left>
-      <a class="text-2xl md:text-3xl" href={getBlogPermalink()}>blog</a><span
-        class={categoryData[category].classes.outline}>/{t(`categories.${category.replaceAll('-', ' ')}`)}</span
-      >
-    </Headline>
-    <div class="grid grid-cols-3 gap-16">
-      <div class="col-span-3 md:col-span-2">
-        <BlogList posts={page.data} />
-      </div>
-      <div class="fixed bottom-20 z-10 md:relative md:col-span-1">
-        <div class="sticky top-28">
-          <Filter selected={category} />
-        </div>
-      </div>
-    </div>
-    <Pagination prevUrl={page.url.prev} nextUrl={page.url.next} />
-  </section>
+  <PostLayout>
+    <Fragment slot="heading">
+      <Headline left>
+        <a class="text-2xl md:text-3xl" href={getBlogPermalink()}>blog</a><span
+          class={categoryData[category].classes.outline}>/{t(`categories.${category.replaceAll('-', ' ')}`)}</span
+        >
+      </Headline>
+    </Fragment>
+    <BlogList posts={page.data} />
+    <Fragment slot="floating-bar">
+      <Filter selected={category} />
+    </Fragment>
+    <Fragment slot="footer">
+      <Pagination prevUrl={page.url.prev} nextUrl={page.url.next} />
+    </Fragment>
+  </PostLayout>
 </Layout>
