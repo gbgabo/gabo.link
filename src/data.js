@@ -149,6 +149,7 @@ export const footerData = {
     { ariaLabel: 'LinkedIn', icon: 'tabler:brand-linkedin', href: 'https://www.linkedin.com/in/gabriel-gaboardi/' },
     { ariaLabel: 'Instagram', icon: 'tabler:brand-instagram', href: 'https://www.instagram.com/gb_gabo/' },
     { ariaLabel: 'Codepen', icon: 'tabler:brand-codepen', href: 'https://codepen.io/gb_gabo' },
+    { ariaLabel: 'Mastodon', icon: 'tabler:brand-mastodon', href: 'https://mastodon.sdf.org/@gb_gabo' },
     { ariaLabel: 'Twitter', icon: 'tabler:brand-twitter', href: 'https://twitter.com/gb_gabo' },
     { ariaLabel: 'Mail', icon: 'tabler:mail', href: 'mailto:contact@gabo.link' },
     { ariaLabel: 'RSS', icon: 'tabler:rss', href: getAsset('/rss.xml') },
@@ -249,7 +250,7 @@ export const bentoGrids = {
       span: 'md:col-span-3',
       items: [
         { type: 'Font', value: 'jetbrains-mono through nerd fonts' },
-        { type: 'Color Scheme', value: 'Wildberries Theme', href: 'https://wildberries.style/about)' },
+        { type: 'Color Scheme', value: 'Wildberries Theme', href: 'https://wildberries.style/about' },
       ],
     },
   ],
