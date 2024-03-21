@@ -35,8 +35,8 @@
         "description": "O poder que move o mundo moderno é feito por software livre disponível para a construção de ferramentas melhores. Sou um evangelista do software livre e amo falar e promover seus benefícios para desenvolvedores e usuários"
       },
       "ricing": {
-        "title": "Linux Ricing",
-        "description": "O termo se refere ao processo de customizar um ambiente linux em um setup mais produtivo, ou simplesmente mais agradável visualmente. Há uma gama de ferramentas que a comunidade constantemente compartilha, e você não tem ideia quão diferente o seu sistema pessoal pode ser para servir as suas necessidades. Dê uma olhada nos meus <a class='underline text-acid-green' href='#what-i-use'>dotfiles</a>"
+        "title": "Customização Linux",
+        "description": "Com Linux e SOs/kernels livres análogos, você pode customizar seu ambiente em um setup mais produtivo, ou simplesmente mais agradável visualmente. Há uma gama de ferramentas que a comunidade constantemente compartilha, e você não tem ideia quão diferente o seu sistema pessoal pode ser para servir as suas necessidades. Dê uma olhada nos meus <a class='underline text-acid-green' href='#what-i-use'>dotfiles</a>"
       },
       "webdev": {
         "title": "Tecnologias de desenvolvimento web",

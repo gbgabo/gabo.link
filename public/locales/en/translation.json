@@ -35,8 +35,8 @@
         "description": "The power that moves the modern world is made with free software available to build better tools. I'm an evangelist of free software and love to talk and promote it's benefits to developers and users."
       },
       "ricing": {
-        "title": "Linux Ricing",
-        "description": "The term refers to the process of customize a linux enviroment to a more productive or simply aesthetically pleasing setup. There is a plethora of tools the community is constantly sharing, and you have no idea how different and personal your system can be to fit your needs. Check out my <a class='underline text-acid-green' href='#what-i-use'>dotfiles</a>."
+        "title": "Linux Customisation",
+        "description": "With linux and free OS/Kernels alike, you can customise your enviroment to a more productive or simply aesthetically pleasing setup. There is a plethora of tools the community is constantly sharing, and you have no idea how different and personal your system can be to fit your needs. Check out my <a class='underline text-acid-green' href='#what-i-use'>dotfiles</a>."
       },
       "webdev": {
         "title": "Web development technologies",
