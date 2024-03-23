@@ -99,7 +99,7 @@ import { SITE } from '~/config.mjs';
       mainDialog.close();
     });
 
-    const images = document.querySelectorAll('.showImage');
+    const images = document.querySelectorAll('[data-article-content] img');
 
     images.forEach((image) => {
       image.addEventListener('click', () => {
