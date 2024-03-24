@@ -123,3 +123,14 @@ export const findLatestPosts = async ({ count }: { count?: number }, lang: strin
 
   return posts ? posts.slice(0, _count) : [];
 };
+
+export const fetchTags = async (lang: string) => {
+  const tags = new Set();
+
+  _posts.map((post) => {
+    Array.isArray(post.tags) && post.tags.map((tag) => tags.add(tag.toLowerCase()));
+  });
+  const tagsData = Array.from(tags).map((tag: string) => tag);
+
+  return tagsData;
+};

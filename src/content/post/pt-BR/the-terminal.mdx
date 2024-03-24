@@ -14,7 +14,7 @@ tags:
 canonical: https://gabo.link/the-terminal
 ---
 
-import Slider from '~/components/blog/content/Slider.astro';
+import Carousel from '~/components/blog/content/Carousel.astro';
 import Image from '~/components/blog/content/Image.astro';
 import Card from '~/components/blog/content/Card.astro';
 
@@ -112,7 +112,7 @@ Os comandos por texto podem receber `parâmetros`, mensagens a mais que informam
 
 Isso pode parecer lento, mas é exatamente o contrário. Em grande parte das vezes, o ambiente de linha de comando será muito mais rápido que com mouse (e já descorrerei mais sobre isso).
 
-<Slider>  
+<Carousel>  
   <Card 
     title="ls"
     description="Lista todos os items presentes no diretório atual"
@@ -243,7 +243,7 @@ Isso pode parecer lento, mas é exatamente o contrário. Em grande parte das vez
   gabo@book:&#126;/project$ rm -rf personal-blog
   gabo@book:&#126;/project$ 
   </Card>
-</Slider>
+</Carousel>
 
 Esse estilo por "chat" de interação é chamado de `CLI` (do inglês, `interface de linha de comando`).
 
@@ -265,7 +265,7 @@ E não, eles não podem competir em tudo com aplicações GUI (Graphical User In
 
 Não sabe como usar um certo comando? Tente chamá-lo com um -h ou --help logo depois. Nem sempre -h funcionará para ajuda, pois o comando já o usa pra outro intuito. Na dúvida, tente os dois.
 
-<Slider>
+<Carousel>
   <div>
     ![Chamada do comando curl -h](~/assets/images/posts/the-terminal/curl-h.png)
     <div class="bg-dark-purple">
@@ -279,7 +279,7 @@ Não sabe como usar um certo comando? Tente chamá-lo com um -h ou --help logo d
     ![Chamada do comando mkdir -h](~/assets/images/posts/the-terminal/mkdir-h.png)
     Em casos como para o mkdir, é necessário utilizar --help
   </div>
-</Slider>
+</Carousel>
 
 Você pode esperar no mínimo **instruções de uso** com esses argumentos. Caso queira compreender mais a função/intuito do comando, a próxima opção fará mais sentido.
 

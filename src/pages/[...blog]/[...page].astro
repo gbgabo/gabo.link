@@ -2,9 +2,11 @@
 import { SITE, BLOG } from '~/config.mjs';
 
 import Layout from '~/layouts/PageLayout.astro';
+import PostLayout from '~/layouts/ListLayout.astro';
 import BlogList from '~/components/blog/List.astro';
 import Headline from '~/components/blog/Headline.astro';
 import Pagination from '~/components/blog/Pagination.astro';
+import Filter from '~/components/widgets/Filter.astro';
 
 import { fetchPosts } from '~/utils/blog';
 import { BLOG_BASE, languageSlug } from '~/utils/permalinks';
@@ -31,9 +33,16 @@ const meta = {
 ---
 
 <Layout {meta}>
-  <section class="mx-auto max-w-4xl px-6 py-12 sm:px-6 sm:py-16 lg:py-20">
-    <Headline>Blog Posts</Headline>
+  <PostLayout>
+    <Fragment slot="heading">
+      <Headline left>/blog</Headline>
+    </Fragment>
     <BlogList posts={page.data} />
-    <Pagination prevUrl={page.url.prev} nextUrl={page.url.next} />
-  </section>
+    <Fragment slot="floating-bar">
+      <Filter />
+    </Fragment>
+    <Fragment slot="footer">
+      <Pagination prevUrl={page.url.prev} nextUrl={page.url.next} />
+    </Fragment>
+  </PostLayout>
 </Layout>

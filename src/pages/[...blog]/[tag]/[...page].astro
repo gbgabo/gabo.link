@@ -2,8 +2,10 @@
 import { SITE, BLOG } from '~/config.mjs';
 
 import Layout from '~/layouts/PageLayout.astro';
+import PostLayout from '~/layouts/ListLayout.astro';
 import BlogList from '~/components/blog/List.astro';
 import Pagination from '~/components/blog/Pagination.astro';
+import Filter from '~/components/widgets/Filter.astro';
 
 import { fetchPosts } from '~/utils/blog';
 import { TAG_BASE } from '~/utils/permalinks';
@@ -44,9 +46,19 @@ const meta = {
 ---
 
 <Layout meta={meta}>
-  <section class="mx-auto max-w-3xl px-6 py-12 sm:px-6 sm:py-16 lg:py-20">
-    <Headline>Tag: <Chip value={tag} variant="secondary" class="rounded-xl px-4 py-2 text-darker-purple" /></Headline>
+  <PostLayout>
+    <Fragment slot="heading">
+      <Headline left
+        >Tag: <Chip value={tag} variant="secondary" class="rounded-xl px-4 py-2 text-darker-purple" /></Headline
+      >
+    </Fragment>
+
     <BlogList posts={page.data} />
-    <Pagination prevUrl={page.url.prev} nextUrl={page.url.next} />
-  </section>
+    <Fragment slot="floating-bar">
+      <Filter />
+    </Fragment>
+    <Fragment slot="footer">
+      <Pagination prevUrl={page.url.prev} nextUrl={page.url.next} />
+    </Fragment>
+  </PostLayout>
 </Layout>

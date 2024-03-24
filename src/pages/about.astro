@@ -8,12 +8,27 @@ import { getAsset, getPermalink } from '~/utils/permalinks';
 import ExternalLink from '~/components/blog/content/ExternalLink.astro';
 import i18next, { t } from 'i18next';
 
-import aboutImage from '~/assets/images/about.jpg';
-
 const meta = {
   title: t('about.meta.title'),
   description: t('about.meta.description'),
 };
+
+const use = [
+  {
+    title: t('about.uses.uses.title'),
+    description: t('about.uses.uses.description'),
+    href: getPermalink('uses'),
+    icon: 'tabler:app-window',
+    external: false,
+  },
+  {
+    title: t('about.uses.dotfiles.title'),
+    description: t('about.uses.dotfiles.description'),
+    href: 'https://github.com/gbgabo/dotfiles',
+    icon: 'tabler:terminal-2',
+    external: true,
+  },
+];
 
 const topics = [
   {
@@ -113,7 +128,7 @@ const links = [
     width={1120}
     height={480}
     loading="eager"
-    src={aboutImage}
+    src={import('~/assets/images/about.jpg')}
     alt="screenshot"
   />
   <div class="mx-auto max-w-4xl px-6 pt-12 sm:px-6 sm:pt-16 md:pb-10">
@@ -125,7 +140,7 @@ const links = [
     <div class="col-start-2 col-end-3 px-6">
       <!-- Skills -->
       <section>
-        <h2 class="text-lg font-semibold uppercase tracking-wide text-primary dark:text-light-purple">
+        <h2 class="text-lg font-semibold uppercase tracking-wide text-grape dark:text-light-purple">
           {t('about.skillsHeader')}
         </h2>
         <ul class="my-8 grid grid-cols-2 gap-x-3 gap-y-5 md:grid-cols-3">
@@ -133,7 +148,7 @@ const links = [
             skills.map(({ title, icon }) => {
               return (
                 <li class="inline-flex items-center">
-                  <Icon name={icon} class="icon-light m-2 h-7 w-7 text-darker-purple dark:text-light-purple" />
+                  <Icon name={icon} class="icon-light m-2 h-7 w-7 text-light-purple dark:text-light-purple" />
                   <p class="ml-2">{title}</p>
                 </li>
               );
@@ -143,8 +158,8 @@ const links = [
         <ExternalLink class="mb-8" variant="secondary" href="projects">{t('about.skillsCta')}</ExternalLink>
       </section>
       <!-- Topics  -->
-      <section>
-        <h2 class="text-lg font-semibold uppercase tracking-wide text-primary dark:text-light-purple">
+      <section class="prose-a:text-grape dark:prose-a:text-acid-green">
+        <h2 class="text-lg font-semibold uppercase tracking-wide text-grape dark:text-light-purple">
           {t('about.topicsHeader')}
         </h2>
         <ul>
@@ -153,8 +168,8 @@ const links = [
               <li>
                 <div class="my-8 flex flex-row">
                   <div class="mb-4 mr-5">
-                    <div class="flex h-12 w-12 items-center justify-center rounded-full bg-primary dark:bg-dark-purple">
-                      {icon && <Icon name={icon} class="icon-light h-6 w-6 text-acid-green" />}
+                    <div class="flex h-12 w-12 items-center justify-center rounded-full bg-light-purple text-white dark:bg-dark-purple dark:text-acid-green">
+                      {icon && <Icon name={icon} class="icon-light h-6 w-6" />}
                     </div>
                   </div>
                   <div>
@@ -170,40 +185,33 @@ const links = [
       </section>
       <!-- What I Use -->
       <section>
-        <h2 id="what-i-use" class="text-lg font-semibold uppercase tracking-wide text-primary dark:text-light-purple">
+        <h2 id="what-i-use" class="text-lg font-semibold uppercase tracking-wide text-grape dark:text-light-purple">
           {t('about.usesHeader')}
         </h2>
         <div class="my-8 grid items-stretch gap-6 dark:text-white sm:grid-cols-1 md:grid-cols-2">
-          <a href={getPermalink('uses')}>
-            <div
-              class="relative flex h-full flex-col rounded border border-transparent bg-white p-6 shadow-lg transition hover:shadow-md dark:border-cherry dark:bg-dark-purple"
-            >
-              <div class="flex items-center">
-                <Icon name="tabler:app-window" class="h-10 w-10 text-acid-green" />
-                <div class="ml-4 text-xl font-bold">{t('about.uses.uses.title')}</div>
-              </div>
-              <p class="text-muted text-md mt-4 dark:text-gray-400">{t('about.uses.uses.description')}</p>
-            </div>
-          </a>
-          <a href="https://github.com/gbgabo/dotfiles">
-            <div
-              class="relative flex h-full flex-col rounded border border-transparent bg-white p-6 shadow-lg transition hover:shadow-md dark:border-cherry dark:bg-dark-purple"
-            >
-              <div class="flex items-center">
-                <Icon name="tabler:terminal-2" class="h-10 w-10 text-acid-green" />
-                <div class="ml-4 text-xl font-bold">
-                  {t('about.uses.dotfiles.title')}<Icon
-                    name={'eva:diagonal-arrow-right-up-fill'}
-                    class="ml-1 inline h-6 w-6 pb-1"
-                  />
-                </div>
-              </div>
-              <p class="text-muted text-md mt-4 dark:text-gray-400">{t('about.uses.dotfiles.description')}</p>
-            </div>
-          </a>
+          {
+            use.map(({ href, title, description, icon, external }) => {
+              return (
+                <a href={href}>
+                  <div class="relative flex h-full flex-col rounded border-2 border-light-purple bg-pastel-purple p-6 shadow-lg transition hover:shadow-md dark:border-cherry dark:bg-dark-purple">
+                    <div class="flex items-center">
+                      <Icon name={icon} class="h-10 w-10 text-grape dark:text-acid-green" />
+                      <div class="ml-4 text-xl font-bold">
+                        {title}
+                        {external && (
+                          <Icon name={'eva:diagonal-arrow-right-up-fill'} class="ml-1 inline h-6 w-6 pb-1" />
+                        )}
+                      </div>
+                    </div>
+                    <p class="text-muted text-md mt-4 dark:text-gray-400">{description}</p>
+                  </div>
+                </a>
+              );
+            })
+          }
         </div>
       </section>
-      <h2 class="text-base font-semibold uppercase tracking-wide text-primary dark:text-light-purple md:hidden">
+      <h2 class="text-base font-semibold uppercase tracking-wide text-grape dark:text-light-purple md:hidden">
         Get in touch!
       </h2>
     </div>

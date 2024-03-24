@@ -1,15 +1,18 @@
 ---
 import { SITE, BLOG } from '~/config.mjs';
-import type { GetStaticPaths } from 'astro';
+import { categoryData } from '~/data.js';
 
 import Layout from '~/layouts/PageLayout.astro';
+import PostLayout from '~/layouts/ListLayout.astro';
 import BlogList from '~/components/blog/List.astro';
 import Headline from '~/components/blog/Headline.astro';
 import Pagination from '~/components/blog/Pagination.astro';
+import Filter from '~/components/widgets/Filter.astro';
+
 import i18next, { t } from 'i18next';
 
 import { fetchPosts } from '~/utils/blog';
-import { CATEGORY_BASE } from '~/utils/permalinks';
+import { CATEGORY_BASE, getBlogPermalink } from '~/utils/permalinks';
 
 export const getStaticPaths = async ({ paginate }) => {
   if (BLOG?.disabled || BLOG?.category?.disabled) return [];
@@ -46,9 +49,20 @@ const meta = {
 ---
 
 <Layout meta={meta}>
-  <section class="mx-auto max-w-3xl px-6 py-12 sm:px-6 sm:py-16 lg:py-20">
-    <Headline><span class="capitalize">{t(`categories.${category.replaceAll('-', ' ')}`)}</span></Headline>
+  <PostLayout>
+    <Fragment slot="heading">
+      <Headline left>
+        <a class="text-2xl md:text-3xl" href={getBlogPermalink()}>blog</a><span
+          class={categoryData[category].classes.outline}>/{t(`categories.${category.replaceAll('-', ' ')}`)}</span
+        >
+      </Headline>
+    </Fragment>
     <BlogList posts={page.data} />
-    <Pagination prevUrl={page.url.prev} nextUrl={page.url.next} />
-  </section>
+    <Fragment slot="floating-bar">
+      <Filter selected={category} />
+    </Fragment>
+    <Fragment slot="footer">
+      <Pagination prevUrl={page.url.prev} nextUrl={page.url.next} />
+    </Fragment>
+  </PostLayout>
 </Layout>

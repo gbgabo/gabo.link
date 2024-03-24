@@ -1,0 +1,68 @@
+---
+publishDate: 2024-01-02T00:00:00Z
+title: Creating a carousel with minimal javascript
+description: A simple approach to quickly present content in a row
+excerpt: A simple approach to quickly present content in a row
+image: ~/assets/images/posts/minimal-js-carousel/anatomy.png
+category: Articles
+draft: true
+tags:
+  - css
+  - vanilla js
+  - javascript
+  - progressive enhancement
+  - tutorial
+canonical: https://gabo.link/the-terminal
+---
+
+As I was writing my [first proper article](/the-terminal) in my blog, I saw the need to show more than one picture to ilustrate an idea. I had to face a dilema programmers encounter pretty often: Do I spend my time building a feature to fulfill a specific need or keep work with the stuff I already have? The main purpose of this blog is to practice vanilla javascript through minimal static pages, progressive enhanced with aditional code when needed. So I convinced myself that that was the oportunity to create a simple carousel from scratch (and even write a post about it, right?)
+
+<div class="mb-10">
+  <p
+    class="codepen"
+    data-height="500"
+    data-theme-id="dark"
+    data-default-tab="result"
+    data-slug-hash="vYPGWXQ"
+    data-user="gb_gabo"
+    style="height: 500px; box-sizing: border-box;"
+  >
+    <span></span>
+  </p>
+  <script async src="https://cpwebassets.codepen.io/assets/embed/ei.js"></script>
+</div>
+
+# The Component
+
+Carousels are visual elements that we can't run away from when we want to show a list of items one at a time. Their looks and usabillity can vary, but in general they share some characteristics: they allow you to display many items horizontally and navigate though them by buttons or scrolling
+
+The objective of this carousel is to rely the less possible on javascript and more on standard CSS and browser APIs (and the ones available on all major browser), while offering an experience similar from what you find in any website.
+
+What this component will have:
+
+- Bottom navigation through next/prev buttons
+- Swippable by default on mobile
+- Indicator of "progress", showing the current slide on the carousel
+- Flexible layout, being able to set width of items based on carousel
+
+What this component won't have:
+
+- Dragabble behaviour on desktop
+- Horizontal scrolling on desktop
+- Bottom, clickable, index for navigation (like those dots you see in some carousels)
+
+## Anatomy of our carousel
+
+Our carousel is simply a div that contains two parts: a list of items to be shown, and a navigation section
+
+![anatomy of our carousel](~/assets/images/posts/minimal-js-carousel/anatomy-2.png)
+
+To make them arranged in this layout, css will come essential. And actually, not only for visuals, CSS will handle 90% of all the component behaviour. We'll have the `carousel-container` which is just the `carousel` component, the `carousel-content` div, which contains all the `carousel-item`s aligned horizontally. At the bottom, we'll have the `carousel-nav` div, containing `carousel-preview` and `carousel-next` for navigation.
+
+# What CSS can handle
+
+CSS has been an incredible API to express layouts and its restraints.
+
+First of all, we need to make that carousel content break behind the container or else it'll be contained, all the items, only inside the carousel view box. `overflow-x` to `scroll` makes sure that it'll overflow behind the element when needed, and its scrollable to view the next items. `scroll-snap` plays a big role on the carousel smooth animation.
+
+# The sprinkle of JS
