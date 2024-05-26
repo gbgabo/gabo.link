@@ -145,7 +145,7 @@ const links = [
             class="scroll-mt-28 text-lg font-semibold uppercase tracking-wide text-grape dark:text-light-purple"
             id="education"
           >
-            Education
+            {t('about.education')}
           </h2>
           <div class="my-8">
             <Bento blocks={bentoGrids.academics} />
@@ -234,10 +234,10 @@ const links = [
       <aside class="col-start-2 col-end-3 hidden md:col-span-1 md:block">
         <ul class="lowercase text-acid-green md:sticky md:top-28 lg:ml-8">
           <li class="mb-2">
-            <Chip value="Skills" variant="secondary" href="#skills" />
+            <Chip value="education" variant="secondary" href="#education" />
           </li>
           <li class="mb-2">
-            <Chip value="education" variant="secondary" href="#education" />
+            <Chip value="Skills" variant="secondary" href="#skills" />
           </li>
           {
             links.map(({ href, title }) => {
