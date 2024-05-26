@@ -182,33 +182,33 @@ export const bentoGrids = {
       span: 'md:row-span-3 md:col-span-2',
       items: [
         [
-          { type: 'text', value: 'Linux Distribution:' },
+          { type: 'text', value: 'Linux Distribution: ' },
           { type: 'chip', value: 'Debian' },
           { type: 'chip', value: 'Manjaro' },
         ],
         [
-          { type: 'text', value: 'Window Manager || Desktop Enviroment' },
+          { type: 'text', value: 'Window Manager || Desktop Enviroment: ' },
           { type: 'chip', value: 'dwm' },
           { type: 'chip', value: 'Gnome' },
         ],
         [
-          { type: 'text', value: 'General Purpose Menu Launcher' },
-          { text: 'chip', value: 'dmenu' },
+          { type: 'text', value: 'General Purpose Menu Launcher: ' },
+          { type: 'chip', value: 'dmenu' },
         ],
         [
-          { type: 'text', value: 'Brain dump and writing journal' },
+          { type: 'text', value: 'Brain dump and writing journal: ' },
           { type: 'chip', value: 'Logseq' },
         ],
         [
-          { type: 'text', value: 'Web Browser' },
-          { type: 'text', value: 'Firefox' },
+          { type: 'text', value: 'Web Browser: ' },
+          { type: 'chip', value: 'Firefox' },
         ],
         [
-          { type: 'text', value: 'Text editor' },
+          { type: 'text', value: 'Text editor: ' },
           { type: 'chip', value: 'vscodium' },
         ],
         [
-          { type: 'text', value: 'Email Client' },
+          { type: 'text', value: 'Email Client: ' },
           { type: 'chip', value: 'Thunderbird' },
         ],
       ],
@@ -220,7 +220,7 @@ export const bentoGrids = {
         [
           {
             type: 'text',
-            value: 'Terminal Emulator',
+            value: 'Terminal Emulator: ',
           },
           {
             type: 'chip',
@@ -228,11 +228,11 @@ export const bentoGrids = {
           },
         ],
         [
-          { type: 'text', value: 'Shell' },
+          { type: 'text', value: 'Shell: ' },
           { type: 'chip', value: 'zsh' },
         ],
         [
-          { type: 'text', value: 'Terminal multiplexer' },
+          { type: 'text', value: 'Terminal multiplexer: ' },
           { type: 'chip', value: 'tmux' },
         ],
       ],
@@ -257,19 +257,19 @@ export const bentoGrids = {
       title: 'Services',
       items: [
         [
-          { type: 'text', value: 'Password Manager' },
+          { type: 'text', value: 'Password Manager: ' },
           { type: 'chip', value: 'KeePassXC' },
         ],
         [
-          { type: 'text', value: 'Email Provider' },
+          { type: 'text', value: 'Email Provider: ' },
           { type: 'chip', value: 'Tutanota' },
         ],
         [
-          { type: 'text', value: 'Login Manager' },
+          { type: 'text', value: 'Login Manager: ' },
           { type: 'chip', value: 'Simple Login' },
         ],
         [
-          { type: 'text', value: 'File Sync' },
+          { type: 'text', value: 'File Sync: ' },
           { type: 'chip', value: 'Syncthing' },
         ],
       ],
@@ -282,7 +282,7 @@ export const bentoGrids = {
         [
           {
             type: 'text',
-            value: 'Launcher',
+            value: 'Launcher: ',
           },
           {
             type: 'chip',
@@ -292,7 +292,7 @@ export const bentoGrids = {
         [
           {
             type: 'text',
-            value: 'Podcast Player',
+            value: 'Podcast Player: ',
           },
           {
             type: 'chip',
@@ -302,7 +302,7 @@ export const bentoGrids = {
         [
           {
             type: 'text',
-            value: 'Mail',
+            value: 'Mail: ',
           },
           {
             type: 'chip',
@@ -312,7 +312,7 @@ export const bentoGrids = {
         [
           {
             type: 'text',
-            value: 'Web Browser',
+            value: 'Web Browser: ',
           },
           {
             type: 'chip',
@@ -321,7 +321,7 @@ export const bentoGrids = {
         ],
         [
           {
-            type: 'Package Manager',
+            type: 'Package Manager: ',
             value: 'droid-ify (f-droid client)',
           },
         ],
@@ -333,11 +333,11 @@ export const bentoGrids = {
       span: 'md:col-span-3',
       items: [
         [
-          { type: 'text', value: 'Font' },
+          { type: 'text', value: 'Font: ' },
           { type: 'chip', value: 'jetbrains-mono through nerd fonts' },
         ],
         [
-          { type: 'text', value: 'Color Scheme' },
+          { type: 'text', value: 'Color Scheme: ' },
           { type: 'chip', value: 'Wildberries Theme', href: 'https://wildberries.style/about' },
         ],
       ],
