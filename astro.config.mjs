@@ -41,7 +41,7 @@ export default defineConfig({
         eva: ['diagonal-arrow-right-up-fill'],
         mdi: ['linux', 'web', 'language-javascript', 'language-typescript'],
         ph: ['hand-fist-bold'],
-        fluent: ['play-32-filled'],
+        fluent: ['play-32-filled', 'hat-graduation-28-filled'],
         ic: ['round-code', 'outline-color-lens'],
         'simple-icons': ['html5', 'css3', 'nextdotjs', 'tailwindcss', 'gnubash', 'astro', 'python', 'linux'],
         ri: ['twitter-fill', 'facebook-box-fill', 'linkedin-box-fill', 'whatsapp-fill', 'mail-fill'],

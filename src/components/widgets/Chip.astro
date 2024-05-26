@@ -20,7 +20,7 @@ const { value, href, variant, class: className } = Astro.props;
 <span
   class:list={[
     className,
-    'mb-2 mr-2 inline-block rounded-md px-2 py-0.5 font-medium',
+    'mr-2 inline-block rounded-md px-2 py-0.5 font-medium',
     variant ? variants[variant] : variants.primary,
   ]}
 >
@@ -28,7 +28,7 @@ const { value, href, variant, class: className } = Astro.props;
     href ? (
       <a href={href}>
         {value}
-        <Icon name={'eva:diagonal-arrow-right-up-fill'} class="inline h-4 w-5" />
+        {href[0] == 'h' && <Icon name={'eva:diagonal-arrow-right-up-fill'} class="-ml-2 inline h-4 w-5" />}
       </a>
     ) : (
       value

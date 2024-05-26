@@ -1,12 +1,15 @@
 ---
 import Layout from '~/layouts/PageLayout.astro';
 import Headline from '~/components/blog/Headline.astro';
+import Chip from '~/components/widgets/Chip.astro';
 
 import { Picture } from 'astro:assets';
 import { Icon } from 'astro-icon/components';
 import { getAsset, getPermalink } from '~/utils/permalinks';
 import ExternalLink from '~/components/blog/content/ExternalLink.astro';
 import i18next, { t } from 'i18next';
+import { bentoGrids } from '~/data';
+import Bento from '~/components/widgets/Bento.astro';
 
 const meta = {
   title: t('about.meta.title'),
@@ -121,115 +124,127 @@ const links = [
 ---
 
 <Layout {meta}>
-  <Picture
-    class="mx-auto w-full max-w-4xl rounded-md"
-    widths={[400, 768, 1024, 2040]}
-    sizes="(max-width: 767px) 400px, (max-width: 1023px) 768px, (max-width: 2039px) 1024px, 2040px"
-    width={1120}
-    height={480}
-    loading="eager"
-    src={import('~/assets/images/about.jpg')}
-    alt="screenshot"
-  />
-  <div class="mx-auto max-w-4xl px-6 pt-12 sm:px-6 sm:pt-16 md:pb-10">
-    <Headline>{t('about.title')}</Headline>
-    <p class="my-8 text-center text-lg">{t('about.subtitle')}</p>
-  </div>
-
-  <div class="grid grid-cols-main">
-    <div class="col-start-2 col-end-3 px-6">
-      <!-- Skills -->
-      <section>
-        <h2 class="text-lg font-semibold uppercase tracking-wide text-grape dark:text-light-purple">
-          {t('about.skillsHeader')}
+  <div class="mx-auto max-w-7xl px-6 pt-12 sm:px-6 sm:py-16 lg:py-20">
+    <div class="grid-cols-main-left grid">
+      <div class="col-start-1 col-end-2">
+        <Headline left>/about <span class="text-muted">#me</span></Headline>
+        <p class="my-8 text-lg">{t('about.subtitle')}</p>
+        <Picture
+          class="my-8 w-full max-w-4xl rounded-md"
+          widths={[400, 768, 1024, 2040]}
+          sizes="(max-width: 767px) 400px, (max-width: 1023px) 768px, (max-width: 2039px) 1024px, 2040px"
+          width={1120}
+          height={480}
+          loading="eager"
+          src={import('~/assets/images/about.jpg')}
+          alt="screenshot"
+        />
+        <h2 class="my-8 text-3xl font-bold">{t('about.title')}</h2>
+        <section>
+          <h2 class="text-lg font-semibold uppercase tracking-wide text-grape dark:text-light-purple" id="education">
+            Education
+          </h2>
+          <div class="my-8">
+            <Bento blocks={bentoGrids.academics} />
+          </div>
+        </section>
+        <!-- Skills -->
+        <section>
+          <h2 class="text-lg font-semibold uppercase tracking-wide text-grape dark:text-light-purple" id="skills">
+            {t('about.skillsHeader')}
+          </h2>
+          <ul class="my-8 grid grid-cols-2 gap-x-3 gap-y-5 md:grid-cols-4">
+            {
+              skills.map(({ title, icon }) => {
+                return (
+                  <li class="inline-flex items-center">
+                    <Icon name={icon} class="icon-light m-2 h-7 w-7 text-light-purple dark:text-light-purple" />
+                    <p class="ml-2">{title}</p>
+                  </li>
+                );
+              })
+            }
+          </ul>
+          <ExternalLink class="mb-8" variant="secondary" href="projects">{t('about.skillsCta')}</ExternalLink>
+        </section>
+        <!-- Topics  -->
+        <section class="prose-a:text-grape dark:prose-a:text-acid-green">
+          <h2 class="text-lg font-semibold uppercase tracking-wide text-grape dark:text-light-purple">
+            {t('about.topicsHeader')}
+          </h2>
+          <ul>
+            {
+              topics.map(({ title, description, icon }) => (
+                <li>
+                  <div class="my-8 flex flex-row">
+                    <div class="mb-4 mr-5">
+                      <div class="flex h-12 w-12 items-center justify-center rounded-full bg-light-purple text-white dark:bg-dark-purple dark:text-acid-green">
+                        {icon && <Icon name={icon} class="icon-light h-6 w-6" />}
+                      </div>
+                    </div>
+                    <div>
+                      <h3 class="mb-3 text-xl font-bold">{t(title)}</h3>
+                      <p class="text-muted dark:text-slate-400" set:html={t(description)} />
+                    </div>
+                  </div>
+                </li>
+              ))
+            }
+          </ul>
+          <ExternalLink class="mb-8" variant="secondary" href="blog">{t('about.topicsCta')}</ExternalLink>
+        </section>
+        <!-- What I Use -->
+        <section>
+          <h2 id="what-i-use" class="text-lg font-semibold uppercase tracking-wide text-grape dark:text-light-purple">
+            {t('about.usesHeader')}
+          </h2>
+          <div class="my-8 grid items-stretch gap-6 dark:text-white sm:grid-cols-1 md:grid-cols-2">
+            {
+              use.map(({ href, title, description, icon, external }) => {
+                return (
+                  <a href={href}>
+                    <div class="relative flex h-full flex-col rounded border-2 border-light-purple bg-pastel-purple p-6 shadow-lg transition hover:shadow-md dark:border-cherry dark:bg-dark-purple">
+                      <div class="flex items-center">
+                        <Icon name={icon} class="h-10 w-10 text-grape dark:text-acid-green" />
+                        <div class="ml-4 text-xl font-bold">
+                          {title}
+                          {external && (
+                            <Icon name={'eva:diagonal-arrow-right-up-fill'} class="ml-1 inline h-6 w-6 pb-1" />
+                          )}
+                        </div>
+                      </div>
+                      <p class="text-muted text-md mt-4 dark:text-gray-400">{description}</p>
+                    </div>
+                  </a>
+                );
+              })
+            }
+          </div>
+        </section>
+        <h2 class="text-base font-semibold uppercase tracking-wide text-grape dark:text-light-purple md:hidden">
+          Get in touch!
         </h2>
-        <ul class="my-8 grid grid-cols-2 gap-x-3 gap-y-5 md:grid-cols-3">
+      </div>
+      <aside class="col-start-2 col-end-3 hidden md:col-span-1 md:block">
+        <ul class="lowercase text-acid-green md:sticky md:top-28 lg:ml-8">
+          <li class="mb-2">
+            <Chip value="Skills" variant="secondary" href="#skills" />
+          </li>
+          <li class="mb-2">
+            <Chip value="education" variant="secondary" href="#education" />
+          </li>
           {
-            skills.map(({ title, icon }) => {
+            links.map(({ href, title }) => {
               return (
-                <li class="inline-flex items-center">
-                  <Icon name={icon} class="icon-light m-2 h-7 w-7 text-light-purple dark:text-light-purple" />
-                  <p class="ml-2">{title}</p>
+                <li class="mb-2">
+                  <Chip value={title} href={href} />
                 </li>
               );
             })
           }
         </ul>
-        <ExternalLink class="mb-8" variant="secondary" href="projects">{t('about.skillsCta')}</ExternalLink>
-      </section>
-      <!-- Topics  -->
-      <section class="prose-a:text-grape dark:prose-a:text-acid-green">
-        <h2 class="text-lg font-semibold uppercase tracking-wide text-grape dark:text-light-purple">
-          {t('about.topicsHeader')}
-        </h2>
-        <ul>
-          {
-            topics.map(({ title, description, icon }) => (
-              <li>
-                <div class="my-8 flex flex-row">
-                  <div class="mb-4 mr-5">
-                    <div class="flex h-12 w-12 items-center justify-center rounded-full bg-light-purple text-white dark:bg-dark-purple dark:text-acid-green">
-                      {icon && <Icon name={icon} class="icon-light h-6 w-6" />}
-                    </div>
-                  </div>
-                  <div>
-                    <h3 class="mb-3 text-xl font-bold">{t(title)}</h3>
-                    <p class="text-muted dark:text-slate-400" set:html={t(description)} />
-                  </div>
-                </div>
-              </li>
-            ))
-          }
-        </ul>
-        <ExternalLink class="mb-8" variant="secondary" href="blog">{t('about.topicsCta')}</ExternalLink>
-      </section>
-      <!-- What I Use -->
-      <section>
-        <h2 id="what-i-use" class="text-lg font-semibold uppercase tracking-wide text-grape dark:text-light-purple">
-          {t('about.usesHeader')}
-        </h2>
-        <div class="my-8 grid items-stretch gap-6 dark:text-white sm:grid-cols-1 md:grid-cols-2">
-          {
-            use.map(({ href, title, description, icon, external }) => {
-              return (
-                <a href={href}>
-                  <div class="relative flex h-full flex-col rounded border-2 border-light-purple bg-pastel-purple p-6 shadow-lg transition hover:shadow-md dark:border-cherry dark:bg-dark-purple">
-                    <div class="flex items-center">
-                      <Icon name={icon} class="h-10 w-10 text-grape dark:text-acid-green" />
-                      <div class="ml-4 text-xl font-bold">
-                        {title}
-                        {external && (
-                          <Icon name={'eva:diagonal-arrow-right-up-fill'} class="ml-1 inline h-6 w-6 pb-1" />
-                        )}
-                      </div>
-                    </div>
-                    <p class="text-muted text-md mt-4 dark:text-gray-400">{description}</p>
-                  </div>
-                </a>
-              );
-            })
-          }
-        </div>
-      </section>
-      <h2 class="text-base font-semibold uppercase tracking-wide text-grape dark:text-light-purple md:hidden">
-        Get in touch!
-      </h2>
+      </aside>
     </div>
-    <aside class="col-start-2 col-end-3 hidden md:col-span-1 md:block">
-      <ul class="text-acid-green md:sticky md:top-28 lg:ml-8">
-        {
-          links.map(({ href, title }) => {
-            return (
-              <li class="mb-2 mr-2 w-fit rounded-md bg-grape px-2 py-0.5 font-medium lowercase dark:bg-cherry">
-                <a class="text-white hover:text-primary dark:text-acid-green dark:hover:text-gray-200" href={href}>
-                  {title}
-                </a>
-              </li>
-            );
-          })
-        }
-      </ul>
-    </aside>
   </div>
   <ul
     class="sticky bottom-16 mx-6 my-8 flex flex-row flex-wrap bg-gradient-to-t from-transparent from-0% via-muted-purple via-10% pb-4 dark:via-darker-purple md:top-28 md:hidden"

@@ -43,6 +43,7 @@ module.exports = {
       },
       gridTemplateColumns: {
         main: '1fr min(65ch, 100%) 1fr',
+        'main-left': 'min(100ch, 100%) 1fr',
       },
     },
   },

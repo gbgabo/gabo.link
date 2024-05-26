@@ -1,25 +1,33 @@
 ---
 import { Icon } from 'astro-icon/components';
 import Chip from '~/components/widgets/Chip.astro';
+import type { Props as ChipProps } from '~/components/widgets/Chip.astro';
+
+interface ChipItem extends ChipProps {
+  type: 'chip';
+  value: string;
+}
+
+interface TextItem {
+  type: 'text';
+  value: string;
+}
+
+type Item = TextItem | ChipItem;
 
 export interface Props {
   blocks: {
     icon?: string;
     title: string;
     span?: string;
-    items: {
-      type?: string;
-      value: string | string[];
-      href?: string;
-      variant?: 'primary' | 'secondary' | 'dark';
-    }[];
+    items: Item[][];
   }[];
 }
 
 const { blocks } = Astro.props;
 ---
 
-<div class="m-auto mb-6 grid max-w-5xl grid-cols-3 gap-4 px-4">
+<div class="m-auto mb-6 grid max-w-5xl grid-cols-3 gap-4">
   {
     blocks.map((block) => (
       <Fragment>
@@ -38,20 +46,17 @@ const { blocks } = Astro.props;
             <h2 class="inline text-xl font-bold">{block.title}</h2>
           </div>
           <ul>
-            {block.items.map(({ type, value, href, variant = 'dark' }) => {
-              return (
-                <li>
-                  <p class="dark:text-light-purple">
-                    {type ? `${type}:` : ''}{' '}
-                    {value instanceof Array ? (
-                      value.map((value) => <Chip value={value} href={href} variant={variant} />)
-                    ) : (
-                      <Chip value={value} href={href} variant={variant} />
-                    )}
-                  </p>
-                </li>
-              );
-            })}
+            <li>
+              {block.items.map((row) => (
+                <p class="mb-2 dark:text-light-purple">
+                  {row.map((item) => {
+                    if (item.type === 'chip')
+                      return <Chip value={item.value} href={item.href} variant={item.variant || 'dark'} />;
+                    if (item.type === 'text') return item.value;
+                  })}
+                </p>
+              ))}
+            </li>
           </ul>
         </div>
       </Fragment>
