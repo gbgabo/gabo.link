@@ -15,7 +15,7 @@
     "translate": "astro-i18next generate"
   },
   "devDependencies": {
-    "@astrojs/mdx": "^2.0.1",
+    "@astrojs/mdx": "^3.1.0",
     "@astrojs/partytown": "^2.0.2",
     "@astrojs/rss": "^4.0.1",
     "@astrojs/sitemap": "^3.0.3",
@@ -23,6 +23,7 @@
     "@astrolib/analytics": "^0.5.0",
     "@astrolib/seo": "^1.0.0-beta.5",
     "@fontsource-variable/jetbrains-mono": "^5.0.19",
+    "@iconify-json/devicon-plain": "^1.1.42",
     "@iconify-json/ep": "^1.1.14",
     "@iconify-json/eva": "^1.1.10",
     "@iconify-json/fluent": "^1.1.45",
@@ -36,8 +37,8 @@
     "@tailwindcss/typography": "^0.5.9",
     "@typescript-eslint/eslint-plugin": "^6.14.0",
     "@typescript-eslint/parser": "^6.14.0",
-    "astro": "4.1.0",
-    "eslint": "^8.41.0",
+    "astro": "^4.10.1",
+    "eslint": "^8.0.0",
     "eslint-plugin-astro": "^0.31.0",
     "eslint-plugin-jsx-a11y": "^6.7.1",
     "limax": "^4.1.0",
