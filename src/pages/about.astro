@@ -2,20 +2,20 @@
 import Layout from '~/layouts/PageLayout.astro';
 import Headline from '~/components/blog/Headline.astro';
 import Chip from '~/components/widgets/Chip.astro';
-
 import { Picture } from 'astro:assets';
 import { Icon } from 'astro-icon/components';
 import { getAsset, getPermalink } from '~/utils/permalinks';
 import ExternalLink from '~/components/blog/content/ExternalLink.astro';
-import i18next, { t } from 'i18next';
+import i18next, { t, changeLanguage } from 'i18next';
 import { bentoGrids } from '~/data';
 import Bento from '~/components/widgets/Bento.astro';
+
+changeLanguage('en');
 
 const meta = {
   title: t('about.meta.title'),
   description: t('about.meta.description'),
 };
-
 const use = [
   {
     title: t('about.uses.uses.title'),
@@ -32,7 +32,6 @@ const use = [
     external: true,
   },
 ];
-
 const topics = [
   {
     title: 'about.topics.foss.title',
@@ -55,7 +54,6 @@ const topics = [
     icon: 'mdi:web',
   },
 ];
-
 const skills = [
   {
     title: 'Javascript',
@@ -94,11 +92,18 @@ const skills = [
     icon: 'simple-icons:python',
   },
   {
+    title: 'Laravel',
+    icon: 'mdi:laravel',
+  },
+  {
+    title: 'Livewire',
+    icon: 'devicon-plain:livewire',
+  },
+  {
     title: 'Linux',
     icon: 'simple-icons:linux',
   },
 ];
-
 const links = [
   {
     title: t('about.cv'),
@@ -125,7 +130,7 @@ const links = [
 
 <Layout {meta}>
   <div class="mx-auto max-w-7xl px-6 pt-12 sm:px-6 sm:py-16 lg:py-20">
-    <div class="grid-cols-main-left grid">
+    <div class="grid grid-cols-main-left">
       <div class="col-start-1 col-end-2">
         <Headline left>/about <span class="text-muted">#me</span></Headline>
         <p class="my-8 text-lg">{t('about.subtitle')}</p>
@@ -234,10 +239,10 @@ const links = [
       <aside class="col-start-2 col-end-3 hidden md:col-span-1 md:block">
         <ul class="lowercase text-acid-green md:sticky md:top-28 lg:ml-8">
           <li class="mb-2">
-            <Chip value="education" variant="secondary" href="#education" />
+            <Chip value={t('about.education')} variant="secondary" href="#education" />
           </li>
           <li class="mb-2">
-            <Chip value="Skills" variant="secondary" href="#skills" />
+            <Chip value={t('about.skillsHeader')} variant="secondary" href="#skills" />
           </li>
           {
             links.map(({ href, title }) => {
