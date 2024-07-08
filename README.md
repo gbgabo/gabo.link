@@ -15,7 +15,8 @@ Gabo's personal static website powered by Astro, typescript, MDX and tailwindcss
 
 <br>
 
-<img src="src/assets/images/default.png" alt="gabo.link homepage Screenshot">
+<img src="src/assets/images/views.png" alt="gabo.link homepage Screenshot">
+<img src="src/assets/images/views_2.png" alt="gabo.link homepage Screenshot">
 
 <br>
 
