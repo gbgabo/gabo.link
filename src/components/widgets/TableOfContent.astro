@@ -2,6 +2,7 @@
 import type { Post } from '~/types';
 import { Icon } from 'astro-icon/components';
 import i18next, { t } from 'i18next';
+import ShareModal from './ShareModal.astro';
 
 export interface Props {
   headings: Post['headings'];
@@ -10,40 +11,38 @@ export interface Props {
 const { headings } = Astro.props;
 ---
 
-<div class="not-prose fixed bottom-24 right-3 z-10 md:sticky md:top-24">
-  <button
-    class="fixed bottom-20 right-3 z-10 my-0 h-fit items-center rounded-2xl bg-grape p-3 text-white shadow-md dark:bg-cherry dark:text-acid-green md:sticky md:mx-auto md:mb-2 md:flex md:w-fit md:p-2"
-    data-aw-toggle-toc
-    aria-label="Table of content"
+<button
+  class="fixed bottom-20 right-3 z-10 my-0 h-fit items-center rounded-2xl bg-grape p-3 text-white shadow-md dark:bg-cherry dark:text-acid-green md:sticky md:mb-2 md:flex md:w-fit md:p-2"
+  data-aw-toggle-toc
+  aria-label="Table of content"
+>
+  <Icon class="h-8 w-8 md:p-1" name="tabler:list" />
+  <p class="m-0 mx-2 hidden md:block">{t('post.toc')}</p>
+</button>
+<nav
+  class="not-prose fixed bottom-24 right-0 m-3 hidden max-h-96 animate-fade-up overflow-auto overscroll-contain rounded-md border-2 border-dark-purple border-light-purple bg-pastel-purple text-darker-purple shadow-md dark:border-cherry dark:bg-darker-purple dark:text-slate-300 md:sticky md:h-fit md:backdrop-blur-sm"
+>
+  <ul class="px-5 pt-5">
+    {
+      headings.map(({ slug, text, depth }) => (
+        <li class="px-3 py-1">
+          <a class="" href={`#${slug}`}>
+            {depth == 1 ? (
+              <b class="text-xl font-bold text-grape dark:text-acid-green">{`${text}`}</b>
+            ) : (
+              <p style={{ 'margin-left': `${depth * 0.45}rem` }}>{`${text}`}</p>
+            )}
+          </a>
+        </li>
+      ))
+    }
+  </ul>
+  <div
+    class="sticky bottom-0 left-0 flex w-full justify-center bg-pastel-purple/90 text-grape backdrop-blur-sm dark:bg-darker-purple/90 dark:text-light-purple"
   >
-    <Icon class="h-8 w-8 md:p-1" name="tabler:list" />
-    <p class="m-0 mx-2 hidden md:block">{t('post.toc')}</p>
-  </button>
-  <nav
-    class="not-prose fixed bottom-24 right-0 m-3 hidden max-h-96 animate-fade-up overflow-auto overscroll-contain rounded-md border-2 border-dark-purple border-light-purple bg-pastel-purple text-darker-purple shadow-md dark:border-cherry dark:bg-darker-purple dark:text-slate-300 md:sticky md:h-fit md:backdrop-blur-sm"
-  >
-    <ul class="px-5 pt-5">
-      {
-        headings.map(({ slug, text, depth }) => (
-          <li class="px-3 py-1">
-            <a class="" href={`#${slug}`}>
-              {depth == 1 ? (
-                <b class="text-xl font-bold text-grape dark:text-acid-green">{`${text}`}</b>
-              ) : (
-                <p style={{ 'margin-left': `${depth * 0.45}rem` }}>{`${text}`}</p>
-              )}
-            </a>
-          </li>
-        ))
-      }
-    </ul>
-    <div
-      class="sticky bottom-0 left-0 flex w-full justify-center bg-pastel-purple/90 text-grape backdrop-blur-sm dark:bg-darker-purple/90 dark:text-light-purple"
-    >
-      <a class="inline-flex items-center justify-center p-2 font-bold" href="#">
-        <Icon class="mr-1 h-5 w-5" name="tabler:caret-up-filled" />
-        Go to top
-      </a>
-    </div>
-  </nav>
-</div>
+    <a class="inline-flex items-center justify-center p-2 font-bold" href="#">
+      <Icon class="mr-1 h-5 w-5" name="tabler:caret-up-filled" />
+      Go to top
+    </a>
+  </div>
+</nav>
