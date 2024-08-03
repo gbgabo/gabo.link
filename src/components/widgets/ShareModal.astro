@@ -1,0 +1,40 @@
+---
+import { Icon } from 'astro-icon/components';
+import { generateQR } from '~/utils/permalinks';
+import SocialShare from '../common/SocialShare.astro';
+
+export interface Props {
+  href: string | URL;
+  text: string;
+}
+
+const { href, text } = Astro.props;
+const qrcode = await generateQR(href);
+---
+
+<dialog data-share-dialog>
+  <button data-share-close class="absolute bottom-3 right-3 h-12 w-12 rounded-full bg-cherry text-acid-green" autofocus>
+    <Icon class="m-auto h-8 w-8 py-2" name="ep:close-bold" />
+  </button>
+  <p class="mx-auto flex w-4/5 text-2xl font-bold text-light-purple" aria-label="Share button">
+    <Icon class="h-8 w-8 md:p-1" name="tabler:share" />
+    <span class="m-0 mx-2 md:block">Share:</span>
+  </p>
+  <p class="mx-auto w-4/5 text-acid-green">{text}</p>
+  <img src={qrcode} alt="" class="p-3" />
+  <p class="text-center text-light-purple">{href}</p>
+  <SocialShare
+    text={text}
+    url={href}
+    label={false}
+    class="mx-auto mt-5 align-middle text-gray-500 dark:text-light-purple"
+  />
+</dialog>
+<button
+  class="fixed bottom-36 right-3 z-10 my-0 h-fit items-center rounded-xl bg-light-purple p-2 text-darker-purple shadow-md md:sticky md:mb-2 md:flex md:w-fit md:rounded-2xl md:p-2"
+  aria-label="Share button"
+  data-share-open
+>
+  <Icon class="h-6 w-6 md:h-8 md:w-8 md:p-1" name="tabler:share" />
+  <p class="m-0 mx-2 hidden md:block">Share</p>
+</button>

@@ -6,26 +6,53 @@ export interface Props {
   text: string;
   url: string | URL;
   class?: string;
+  label?: boolean;
 }
 
-const { text, url, class: className = 'inline-block' } = Astro.props;
+const { text, url, class: className = 'inline-block', label = true } = Astro.props;
+
+const platforms = [
+  {
+    title: 'Twitter Share',
+    slug: 'twitter',
+    icon: 'ri:twitter-fill',
+  },
+  {
+    title: 'Facebook Share',
+    slug: 'facebook',
+    icon: 'ri:facebook-box-fill',
+  },
+  {
+    title: 'Linkedin Share',
+    slug: 'linkedin',
+    icon: 'ri:linkedin-box-fill',
+  },
+  {
+    title: 'Whatsapp Share',
+    slug: 'whatsapp',
+    icon: 'ri:whatsapp-fill',
+  },
+  {
+    title: 'Email Share',
+    slug: 'mail',
+    icon: 'ri:mail-fill',
+  },
+];
 ---
 
 <div class={className}>
-  <span class="align-super font-bold dark:text-pink">{t('post.share')}</span>
-  <button class="ml-2" title="Twitter Share" data-aw-social-share="twitter" data-aw-url={url} data-aw-text={text}
-    ><Icon name="ri:twitter-fill" class="h-6 w-6 hover:text-black dark:hover:text-slate-300" />
-  </button>
-  <button class="ml-2" title="Facebook Share" data-aw-social-share="facebook" data-aw-url={url}
-    ><Icon name="ri:facebook-box-fill" class="h-6 w-6 hover:text-black dark:hover:text-slate-300" />
-  </button>
-  <button class="ml-2" title="Linkedin Share" data-aw-social-share="linkedin" data-aw-url={url} data-aw-text={text}
-    ><Icon name="ri:linkedin-box-fill" class="h-6 w-6 hover:text-black dark:hover:text-slate-300" />
-  </button>
-  <button class="ml-2" title="Whatsapp Share" data-aw-social-share="whatsapp" data-aw-url={url} data-aw-text={text}
-    ><Icon name="ri:whatsapp-fill" class="h-6 w-6 hover:text-black dark:hover:text-slate-300" />
-  </button>
-  <button class="ml-2" title="Email Share" data-aw-social-share="mail" data-aw-url={url} data-aw-text={text}
-    ><Icon name="ri:mail-fill" class="h-6 w-6 hover:text-black dark:hover:text-slate-300" />
-  </button>
+  {label && <span class="align-super font-bold dark:text-pink">{t('post.share')}</span>}
+  {
+    platforms.map(({ title, slug, icon }, index) => (
+      <button
+        class={`${index !== 0 && 'ml-2'} rounded-full border-2 border-light-purple p-3`}
+        title={title}
+        data-aw-social-share={slug}
+        data-aw-url={url}
+        data-aw-text={text}
+      >
+        <Icon name={icon} class="h-8 w-8 hover:text-black dark:hover:text-slate-300" />
+      </button>
+    ))
+  }
 </div>
