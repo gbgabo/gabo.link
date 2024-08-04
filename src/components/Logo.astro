@@ -3,7 +3,7 @@ export interface Props {
   title?: string;
 }
 
-const { title = "Gabo's Link" } = Astro.props;
+const { title } = Astro.props;
 ---
 
 <svg
@@ -41,4 +41,8 @@ const { title = "Gabo's Link" } = Astro.props;
   </g>
 </svg>
 
-<span class="ml-2 self-center whitespace-nowrap text-xl font-bold text-gray-900 dark:text-white"> {title}</span>
+{
+  title && (
+    <span class="ml-2 self-center whitespace-nowrap text-xl font-bold text-gray-900 dark:text-white">{title}</span>
+  )
+}
