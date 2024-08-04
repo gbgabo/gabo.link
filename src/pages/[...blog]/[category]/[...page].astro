@@ -48,7 +48,13 @@ const meta = {
 };
 ---
 
-<Layout meta={meta}>
+<Layout
+  breadcrumbs={[
+    { title: 'blog', href: '/blog' },
+    { title: category, href: '/blog' },
+  ]}
+  meta={meta}
+>
   <PostLayout>
     <Fragment slot="heading">
       <Headline left>
