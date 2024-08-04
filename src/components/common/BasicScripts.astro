@@ -199,6 +199,20 @@ import { SITE } from '~/config.mjs';
         ticking = true;
       }
     });
+
+    const shareDialog = document.querySelector('[data-share-dialog]');
+    const showButton = document.querySelector('[data-share-open]');
+    const closeShare = document.querySelector('[data-share-close]');
+
+    // "Show the dialog" button opens the dialog modally
+    showButton.addEventListener('click', () => {
+      shareDialog.showModal();
+    });
+
+    // "Close" button closes the dialog
+    closeShare.addEventListener('click', () => {
+      shareDialog.close();
+    });
   };
 
   window.onpageshow = function () {

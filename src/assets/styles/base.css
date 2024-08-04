@@ -8,7 +8,7 @@
   }
 
   dialog::backdrop {
-    @apply bg-darker-purple/90;
+    @apply bg-pastel-purple/95 dark:bg-darker-purple/90;
   }
 
   :modal {
@@ -53,10 +53,6 @@
   .menu-item {
     @apply opacity-0 translate-y-1/2 md:opacity-100 md:translate-y-0;
     transition: transform 0.3s, opacity 0.3s;
-  }
-
-  #closeDialog {
-    @apply absolute bottom-3 right-3 h-12 w-12 bg-cherry text-acid-green rounded-full;
   }
 }
 

@@ -13,6 +13,7 @@ import { categoryData } from '~/data';
 import i18next, { t } from 'i18next';
 
 import type { Post } from '~/types';
+import ShareModal from '../widgets/ShareModal.astro';
 
 export interface Props {
   post: Post;
@@ -90,7 +91,10 @@ const { post, url } = Astro.props;
         marker:text-light-purple
         prose-code:bg-dark-purple prose-code:after:content-[''] prose-code:before:content-[''] prose-code:text-light-purple prose-code:px-2 prose-code:py-1 prose-code:rounded-md`}
     >
-      {post.headings.length > 0 && <TableOfContents headings={post.headings} />}
+      <div class="not-prose fixed bottom-24 right-3 z-10 md:sticky md:top-24">
+        {post.headings.length > 0 && <TableOfContents headings={post.headings} />}
+        <ShareModal href={Astro.url.href} text={post.title} />
+      </div>
       {
         post.Content ? (
           <>
@@ -103,7 +107,11 @@ const { post, url } = Astro.props;
       }
     </div>
     <div class="mx-auto mt-8 flex max-w-3xl flex-col justify-between px-6 sm:flex-row sm:px-6">
-      <SocialShare url={url} text={post.title} class="mt-5 align-middle text-gray-500 dark:text-light-purple sm:mt-1" />
+      <SocialShare
+        url={url}
+        text={post.title}
+        class="mt-5 flex flex-col gap-2 align-middle text-grape dark:text-light-purple sm:mt-1"
+      />
     </div>
   </article>
 </section>
