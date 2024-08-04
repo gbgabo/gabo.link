@@ -93,7 +93,7 @@ const { post, url } = Astro.props;
     >
       <div class="not-prose fixed bottom-24 right-3 z-10 md:sticky md:top-24">
         {post.headings.length > 0 && <TableOfContents headings={post.headings} />}
-        <ShareModal href={Astro.url.href} text={post.title} />
+        <ShareModal href={Astro.url.href} />
       </div>
       {
         post.Content ? (
