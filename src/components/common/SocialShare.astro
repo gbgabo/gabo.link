@@ -42,17 +42,19 @@ const platforms = [
 
 <div class={className}>
   {label && <span class="align-super font-bold dark:text-pink">{t('post.share')}</span>}
-  {
-    platforms.map(({ title, slug, icon }, index) => (
-      <button
-        class={`${index !== 0 && 'ml-2'} rounded-full border-2 border-light-purple p-3`}
-        title={title}
-        data-aw-social-share={slug}
-        data-aw-url={url}
-        data-aw-text={text}
-      >
-        <Icon name={icon} class="h-8 w-8 hover:text-black dark:hover:text-slate-300" />
-      </button>
-    ))
-  }
+  <div>
+    {
+      platforms.map(({ title, slug, icon }, index) => (
+        <button
+          class={`${index !== 0 && 'ml-2'} rounded-full border-2 border-light-purple p-3`}
+          title={title}
+          data-aw-social-share={slug}
+          data-aw-url={url}
+          data-aw-text={text}
+        >
+          <Icon name={icon} class="h-8 w-8 hover:text-black dark:hover:text-slate-300" />
+        </button>
+      ))
+    }
+  </div>
 </div>
