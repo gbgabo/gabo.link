@@ -5,7 +5,10 @@ import { Icon } from 'astro-icon/components';
 <dialog id="imageDialog">
   <img class="h-auto max-h-[80%] w-auto max-w-full object-contain drop-shadow-xl" src="" />
   <p class="text-acid-green">Some text</p>
-  <button id="closeDialog">
+  <button
+    id="closeDialog"
+    class="absolute bottom-3 right-3 h-12 w-12 rounded-full bg-grape text-acid-green text-white dark:bg-cherry dark:text-acid-green"
+  >
     <Icon class="m-auto h-8 w-8 py-2" name="ep:close-bold" />
   </button>
 </dialog>
