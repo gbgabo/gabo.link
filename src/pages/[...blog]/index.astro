@@ -34,7 +34,13 @@ const meta = {
 };
 ---
 
-<Layout {meta}>
+<Layout
+  breadcrumbs={[
+    { title: 'blog', href: '/blog' },
+    { title: post.category, href: '/blog' },
+  ]}
+  {meta}
+>
   <SinglePost post={{ ...post, image: meta.image }} url={url} />
   <ToBlogLink />
 </Layout>
