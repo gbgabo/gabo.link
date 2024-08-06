@@ -10,9 +10,9 @@ const { breadcrumbs } = Astro.props;
   {
     breadcrumbs.map(({ title, href }, index) => (
       <>
-        <span class="text-muted text-2xl">/</span>
+        <span class="text-2xl text-inherit">/</span>
         <a
-          class={`text-page mx-1 my-1 inline-flex items-center justify-center rounded-lg text-center font-extrabold leading-snug ${index + 1 == breadcrumbs.length ? 'text-light-purple' : 'text-muted'} shadow-md transition duration-200 ease-in`}
+          class={`text-page mx-1 my-1 inline-flex items-center justify-center rounded-lg text-center font-extrabold leading-snug ${index + 1 == breadcrumbs.length ? 'text-light-purple' : 'text-white'} shadow-md transition duration-200 ease-in`}
           href={href}
         >
           {title}
