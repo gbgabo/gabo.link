@@ -14,15 +14,15 @@ const meta = {
 };
 ---
 
-<PageLayout meta={meta}>
+<PageLayout
+  breadcrumbs={[
+    { title: 'about', href: '/about' },
+    { title: 'uses', href: '#top' },
+  ]}
+  meta={meta}
+>
   <div
-    class="prose-md prose-headings:leading-tighter prose
-            prose-lg mx-auto
-            my-8 max-w-3xl
-            px-6 dark:prose-invert prose-headings:font-heading prose-headings:font-bold prose-headings:tracking-tighter
-            prose-a:text-grape
-            prose-img:rounded-md prose-img:shadow-lg
-            dark:prose-headings:text-slate-300 dark:prose-a:text-acid-green"
+    class="prose-md prose-headings:leading-tighter prose prose-lg mx-auto my-8 max-w-3xl px-6 dark:prose-invert prose-headings:font-heading prose-headings:font-bold prose-headings:tracking-tighter prose-a:text-grape prose-img:rounded-md prose-img:shadow-lg dark:prose-headings:text-slate-300 dark:prose-a:text-acid-green"
   >
     <Headline left subtitle={t('uses.subtitle')}>/uses</Headline>
     <Picture
