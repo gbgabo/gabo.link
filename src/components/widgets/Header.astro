@@ -37,6 +37,8 @@ export interface Props {
 
 let menuIndex = 1;
 
+const pathname = Astro.url.pathname;
+
 const delayClasses = [
   'delay-[100ms]',
   'delay-[200ms]',
@@ -89,6 +91,7 @@ const {
       >
         {
           links.map(({ text, href, links }, index) => {
+            const permalink = getPermalink(...href);
             return (
               <li class={links?.length ? 'dropdown' : ''}>
                 {links?.length ? (
@@ -102,8 +105,8 @@ const {
                     >
                       {href ? (
                         <a
-                          class={`w-full text-left md:px-4 md:py-2 ${getPermalink(...href) === Astro.url.pathname && 'text-light-purple'}`}
-                          href={getPermalink(...href)}
+                          class={`w-full text-left md:px-4 md:py-2 ${permalink === pathname && 'font-extrabold text-light-purple'}`}
+                          href={permalink}
                         >
                           {t(text)}
                           <Icon name="tabler:chevron-down" class="ml-0.5 hidden h-3.5 w-3.5 md:inline" />
@@ -118,6 +121,7 @@ const {
                     <ul class="dropdown-menu rounded pl-4 font-medium drop-shadow-xl md:absolute md:hidden md:min-w-[200px] md:bg-white/90 md:pl-0 md:backdrop-blur-md dark:md:bg-dark-purple">
                       {links.map(({ text: text2, href: href2 }, index2) => {
                         menuIndex = index2 === 0 ? menuIndex + 1 : menuIndex + index2;
+                        const permalink2 = getPermalink(...href2);
                         return (
                           <li>
                             <a
@@ -125,9 +129,9 @@ const {
                                 'menu-item whitespace-no-wrap block px-5 py-3 first:rounded-t last:rounded-b dark:hover:bg-darker-purple md:animate-fade-up md:py-2 md:hover:bg-gray-200',
                                 delayClasses[menuIndex],
                                 delayClassesMd[index2],
-                                getPermalink(...href2) === Astro.url.pathname && 'text-light-purple',
+                                permalink2 === pathname && 'font-extrabold text-light-purple',
                               ]}
-                              href={getPermalink(...href2)}
+                              href={permalink2}
                             >
                               {t(text2)}
                             </a>
@@ -139,12 +143,12 @@ const {
                 ) : (
                   <a
                     class:list={[
-                      `menu-item flex items-center rounded-md px-4 py-3 font-medium hover:text-gray-900 dark:hover:bg-dark-purple dark:hover:text-white md:py-2 md:hover:bg-gray-200`,
+                      `menu-item flex items-center rounded-md px-4 py-3 hover:text-gray-900 dark:hover:bg-dark-purple dark:hover:text-white md:py-2 md:hover:bg-gray-200`,
                       `${delayClasses[menuIndex + index]}`,
                       `${delayClassesMd[index]}`,
-                      getPermalink(...href) === Astro.url.pathname && 'text-light-purple',
+                      permalink === pathname ? 'font-extrabold text-light-purple' : 'font-medium',
                     ]}
-                    href={getPermalink(...href)}
+                    href={permalink}
                   >
                     {t(text)}
                   </a>
