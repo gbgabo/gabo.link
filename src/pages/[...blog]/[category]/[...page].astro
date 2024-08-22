@@ -51,7 +51,7 @@ const meta = {
 <Layout
   breadcrumbs={[
     { title: 'blog', href: '/blog' },
-    { title: category, href: '#top' },
+    { title: t(`categories.${category.replaceAll('-', ' ')}`), href: '#top' },
   ]}
   meta={meta}
 >

@@ -105,7 +105,7 @@ const {
                     >
                       {href ? (
                         <a
-                          class={`w-full text-left md:px-4 md:py-2 ${permalink === pathname && 'font-extrabold text-grape dark:text-light-purple'}`}
+                          class={`w-full text-left lowercase md:px-4 md:py-2 ${permalink === pathname && 'font-extrabold text-grape dark:text-light-purple'}`}
                           href={permalink}
                         >
                           {t(text)}
@@ -126,7 +126,7 @@ const {
                           <li>
                             <a
                               class:list={[
-                                'menu-item whitespace-no-wrap block px-5 py-3 first:rounded-t last:rounded-b dark:hover:bg-darker-purple md:animate-fade-up md:py-2 md:hover:bg-gray-200',
+                                'menu-item whitespace-no-wrap block px-5 py-3 lowercase first:rounded-t last:rounded-b dark:hover:bg-darker-purple md:animate-fade-up md:py-2 md:hover:bg-gray-200',
                                 delayClasses[menuIndex],
                                 delayClassesMd[index2],
                                 permalink2 === pathname && 'font-extrabold text-grape dark:text-light-purple',
@@ -143,7 +143,7 @@ const {
                 ) : (
                   <a
                     class:list={[
-                      `menu-item flex items-center rounded-md px-4 py-3 hover:text-gray-900 dark:hover:bg-dark-purple dark:hover:text-white md:py-2 md:hover:bg-gray-200`,
+                      `menu-item flex items-center rounded-md px-4 py-3 lowercase hover:text-gray-900 dark:hover:bg-dark-purple dark:hover:text-white md:py-2 md:hover:bg-gray-200`,
                       `${delayClasses[menuIndex + index]}`,
                       `${delayClassesMd[index]}`,
                       permalink === pathname ? 'font-extrabold text-grape dark:text-light-purple' : 'font-medium',
