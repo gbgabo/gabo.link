@@ -105,7 +105,7 @@ const {
                     >
                       {href ? (
                         <a
-                          class={`w-full text-left md:px-4 md:py-2 ${permalink === pathname && 'font-extrabold text-light-purple'}`}
+                          class={`w-full text-left md:px-4 md:py-2 ${permalink === pathname && 'font-extrabold text-grape dark:text-light-purple'}`}
                           href={permalink}
                         >
                           {t(text)}
@@ -129,7 +129,7 @@ const {
                                 'menu-item whitespace-no-wrap block px-5 py-3 first:rounded-t last:rounded-b dark:hover:bg-darker-purple md:animate-fade-up md:py-2 md:hover:bg-gray-200',
                                 delayClasses[menuIndex],
                                 delayClassesMd[index2],
-                                permalink2 === pathname && 'font-extrabold text-light-purple',
+                                permalink2 === pathname && 'font-extrabold text-grape dark:text-light-purple',
                               ]}
                               href={permalink2}
                             >
@@ -146,7 +146,7 @@ const {
                       `menu-item flex items-center rounded-md px-4 py-3 hover:text-gray-900 dark:hover:bg-dark-purple dark:hover:text-white md:py-2 md:hover:bg-gray-200`,
                       `${delayClasses[menuIndex + index]}`,
                       `${delayClassesMd[index]}`,
-                      permalink === pathname ? 'font-extrabold text-light-purple' : 'font-medium',
+                      permalink === pathname ? 'font-extrabold text-grape dark:text-light-purple' : 'font-medium',
                     ]}
                     href={permalink}
                   >
