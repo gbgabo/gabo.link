@@ -9,7 +9,7 @@ import ToBlogLink from '~/components/blog/ToBlogLink.astro';
 import { getCanonical, getPermalink } from '~/utils/permalinks';
 import { fetchPosts } from '~/utils/blog';
 import { findImage } from '~/utils/images';
-import i18next from 'i18next';
+import i18next, { t } from 'i18next';
 
 export const getStaticPaths = (async () => {
   if (BLOG?.disabled || BLOG?.post?.disabled) return [];
@@ -34,7 +34,13 @@ const meta = {
 };
 ---
 
-<Layout {meta}>
+<Layout
+  breadcrumbs={[
+    { title: 'blog', href: '/blog' },
+    { title: t(`categories.${post.category.replaceAll('-', ' ')}`), href: '#top' },
+  ]}
+  {meta}
+>
   <SinglePost post={{ ...post, image: meta.image }} url={url} />
   <ToBlogLink />
 </Layout>

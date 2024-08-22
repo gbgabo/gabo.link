@@ -10,15 +10,16 @@ import type { MetaSEO } from '~/types';
 
 export interface Props {
   meta?: MetaSEO;
+  breadcrumbs?: Array<{ title: string; href: string }>;
   home?: boolean;
 }
 
-const { meta, home } = Astro.props;
+const { meta, home, breadcrumbs } = Astro.props;
 ---
 
 <Layout {meta}>
   <slot name="header">
-    <Header {...headerData} isSticky={home} showRssFeed showToggleTheme />
+    <Header {breadcrumbs} {...headerData} isSticky={home} showRssFeed showToggleTheme />
   </slot>
   <main>
     <ImageModal />

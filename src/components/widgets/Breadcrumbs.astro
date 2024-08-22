@@ -1,0 +1,23 @@
+---
+export interface Props {
+  breadcrumbs?: Array<{ title: string; href: string }>;
+}
+
+const { breadcrumbs } = Astro.props;
+---
+
+<Fragment>
+  {
+    breadcrumbs.map(({ title, href }, index) => (
+      <>
+        <span class="text-2xl text-inherit">/</span>
+        <a
+          class={`text-page mx-1 my-1 inline-flex items-center justify-center rounded-lg text-center lowercase leading-snug ${index + 1 == breadcrumbs.length ? 'font-extrabold text-grape dark:text-light-purple' : 'font-medium text-inherit'} shadow-md transition duration-200 ease-in`}
+          href={href}
+        >
+          {title}
+        </a>
+      </>
+    ))
+  }
+</Fragment>

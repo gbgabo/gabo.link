@@ -8,6 +8,7 @@ import { LanguageSelector } from 'astro-i18next/components';
 
 import i18next, { t } from 'i18next';
 import { getHomePermalink, getAsset, getPermalink } from '~/utils/permalinks';
+import Breadcrumbs from './Breadcrumbs.astro';
 
 interface Link {
   text: string;
@@ -31,9 +32,12 @@ export interface Props {
   showToggleTheme?: boolean;
   showRssFeed?: boolean;
   position?: string;
+  breadcrumbs?: Array<{ title: string; href: string }>;
 }
 
 let menuIndex = 1;
+
+const pathname = Astro.url.pathname;
 
 const delayClasses = [
   'delay-[100ms]',
@@ -66,6 +70,7 @@ const {
   showToggleTheme = false,
   showRssFeed = false,
   position = 'center',
+  breadcrumbs,
 } = Astro.props;
 ---
 
@@ -86,6 +91,7 @@ const {
       >
         {
           links.map(({ text, href, links }, index) => {
+            const permalink = getPermalink(...href);
             return (
               <li class={links?.length ? 'dropdown' : ''}>
                 {links?.length ? (
@@ -98,7 +104,10 @@ const {
                       ]}
                     >
                       {href ? (
-                        <a class="w-full text-left md:px-4 md:py-2" href={getPermalink(...href)}>
+                        <a
+                          class={`w-full text-left lowercase md:px-4 md:py-2 ${permalink === pathname && 'font-extrabold text-grape dark:text-light-purple'}`}
+                          href={permalink}
+                        >
                           {t(text)}
                           <Icon name="tabler:chevron-down" class="ml-0.5 hidden h-3.5 w-3.5 md:inline" />
                         </a>
@@ -112,15 +121,17 @@ const {
                     <ul class="dropdown-menu rounded pl-4 font-medium drop-shadow-xl md:absolute md:hidden md:min-w-[200px] md:bg-white/90 md:pl-0 md:backdrop-blur-md dark:md:bg-dark-purple">
                       {links.map(({ text: text2, href: href2 }, index2) => {
                         menuIndex = index2 === 0 ? menuIndex + 1 : menuIndex + index2;
+                        const permalink2 = getPermalink(...href2);
                         return (
                           <li>
                             <a
                               class:list={[
-                                'menu-item whitespace-no-wrap block px-5 py-3 first:rounded-t last:rounded-b dark:hover:bg-darker-purple md:animate-fade-up md:py-2 md:hover:bg-gray-200',
+                                'menu-item whitespace-no-wrap block px-5 py-3 lowercase first:rounded-t last:rounded-b dark:hover:bg-darker-purple md:animate-fade-up md:py-2 md:hover:bg-gray-200',
                                 delayClasses[menuIndex],
                                 delayClassesMd[index2],
+                                permalink2 === pathname && 'font-extrabold text-grape dark:text-light-purple',
                               ]}
-                              href={getPermalink(...href2)}
+                              href={permalink2}
                             >
                               {t(text2)}
                             </a>
@@ -132,12 +143,12 @@ const {
                 ) : (
                   <a
                     class:list={[
-                      `menu-item flex items-center rounded-md px-4 py-3 font-medium hover:text-gray-900 dark:hover:bg-dark-purple dark:hover:text-white
-                      md:py-2 md:hover:bg-gray-200`,
+                      `menu-item flex items-center rounded-md px-4 py-3 lowercase hover:text-gray-900 dark:hover:bg-dark-purple dark:hover:text-white md:py-2 md:hover:bg-gray-200`,
                       `${delayClasses[menuIndex + index]}`,
                       `${delayClassesMd[index]}`,
+                      permalink === pathname ? 'font-extrabold text-grape dark:text-light-purple' : 'font-medium',
                     ]}
-                    href={getPermalink(...href)}
+                    href={permalink}
                   >
                     {t(text)}
                   </a>
@@ -157,8 +168,11 @@ const {
     </nav>
     <div class:list={[{ 'mr-auto': position === 'right' }, 'flex justify-between md:order-first']}>
       <a class="flex items-center" href={getHomePermalink()}>
-        <Logo />
+        <Logo collapsable={breadcrumbs} />
       </a>
+      <div class="my-auto flex w-full md:hidden">
+        {breadcrumbs && <Breadcrumbs {breadcrumbs} />}
+      </div>
       <div class="flex items-center md:hidden">
         {showToggleTheme && <ToggleTheme />}
         <ToggleMenu />
