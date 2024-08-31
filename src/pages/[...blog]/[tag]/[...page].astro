@@ -8,7 +8,7 @@ import Pagination from '~/components/blog/Pagination.astro';
 import Filter from '~/components/widgets/Filter.astro';
 
 import { fetchPosts } from '~/utils/blog';
-import { TAG_BASE } from '~/utils/permalinks';
+import { getBlogPermalink, TAG_BASE } from '~/utils/permalinks';
 import Headline from '~/components/blog/Headline.astro';
 import Chip from '~/components/widgets/Chip.astro';
 import i18next, { t } from 'i18next';
@@ -47,7 +47,7 @@ const meta = {
 
 <Layout
   breadcrumbs={[
-    { title: 'blog', href: '/blog' },
+    { title: 'blog', href: getBlogPermalink() },
     { title: `#${tag}`, href: '#top' },
   ]}
   meta={meta}

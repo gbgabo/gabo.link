@@ -6,7 +6,7 @@ import Layout from '~/layouts/PageLayout.astro';
 import SinglePost from '~/components/blog/SinglePost.astro';
 import ToBlogLink from '~/components/blog/ToBlogLink.astro';
 
-import { getCanonical, getPermalink } from '~/utils/permalinks';
+import { getBlogPermalink, getCanonical, getPermalink } from '~/utils/permalinks';
 import { fetchPosts } from '~/utils/blog';
 import { findImage } from '~/utils/images';
 import i18next, { t } from 'i18next';
@@ -36,7 +36,7 @@ const meta = {
 
 <Layout
   breadcrumbs={[
-    { title: 'blog', href: '/blog' },
+    { title: 'blog', href: getBlogPermalink() },
     { title: t(`categories.${post.category.replaceAll('-', ' ')}`), href: '#top' },
   ]}
   {meta}

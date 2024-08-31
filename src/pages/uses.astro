@@ -5,7 +5,7 @@ import { Picture } from 'astro:assets';
 import { bentoGrids } from '~/data';
 import PageLayout from '~/layouts/PageLayout.astro';
 import i18next, { t } from 'i18next';
-import { languageSlug } from '~/utils/permalinks';
+import { getPermalink, languageSlug } from '~/utils/permalinks';
 
 const meta = {
   title: 'Uses',
@@ -16,7 +16,7 @@ const meta = {
 
 <PageLayout
   breadcrumbs={[
-    { title: 'about', href: '/about' },
+    { title: t('about.meta.title'), href: getPermalink('about') },
     { title: 'uses', href: '#top' },
   ]}
   meta={meta}
