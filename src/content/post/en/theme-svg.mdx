@@ -1,6 +1,6 @@
 ---
-publishDate: 2024-01-02T00:00:00Z
-title: Creating a carousel with minimal javascript
+publishDate: 2024-02-18T00:00:00Z
+title: Creating theme dynamic images with SVG
 description: A simple approach to quickly present content in a row
 excerpt: A simple approach to quickly present content in a row
 image: ~/assets/images/posts/minimal-js-carousel/anatomy.png
@@ -12,7 +12,7 @@ tags:
   - javascript
   - progressive enhancement
   - tutorial
-canonical: https://gabo.link/minimal-js-carousel
+canonical: https://gabo.link/the-terminal
 ---
 
 As I was writing my [first proper article](/the-terminal) in my blog, I saw the need to show more than one picture to ilustrate an idea. I had to face a dilema programmers encounter pretty often: Do I spend my time building a feature to fulfill a specific need or keep work with the stuff I already have? The main purpose of this blog is to practice vanilla javascript through minimal static pages, progressive enhanced with aditional code when needed. So I convinced myself that that was the oportunity to create a simple carousel from scratch (and even write a post about it, right?)
@@ -55,7 +55,7 @@ What this component won't have:
 
 Our carousel is simply a div that contains two parts: a list of items to be shown, and a navigation section
 
-![anatomy of the carousel](~/assets/images/posts/minimal-js-carousel/anatomy-2.png)
+![anatomy of our carousel](~/assets/images/posts/minimal-js-carousel/anatomy-2.png)
 
 To make them arranged in this layout, css will come essential. And actually, not only for visuals, CSS will handle 90% of all the component behaviour. We'll have the `carousel-container` which is just the `carousel` component, the `carousel-content` div, which contains all the divs added, aligned horizontally. At the bottom, we'll have the `carousel-nav` div, containing `carousel-preview` and `carousel-next` for navigation.
 
@@ -63,13 +63,11 @@ To make them arranged in this layout, css will come essential. And actually, not
 
 CSS has been an incredible API to express layouts and its restraints.
 
-First of all, we need to make that carousel content break behind the container or else it'll be contained, all the items, only inside the carousel view box. `overflow-x` to `scroll` makes sure that it'll overflow behind the element when needed, and its scrollable to view the next items.
-
-`scroll-snap` plays a big role on the carousel smooth animation.
+First of all, we need to make that carousel content break behind the container or else it'll be contained, all the items, only inside the carousel view box. `overflow-x` to `scroll` makes sure that it'll overflow behind the element when needed, and its scrollable to view the next items. `scroll-snap` plays a big role on the carousel smooth animation.
 
 # The sprinkle of JS
 
-In summary, javascript will be needed to scroll just enough for the css to smooth the snap animation when an item slide in.
+In summary, javascript will be needed to scroll just enough
 
 # Porting to Astro components
 

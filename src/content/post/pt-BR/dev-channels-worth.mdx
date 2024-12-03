@@ -12,12 +12,9 @@ tags:
 canonical: https://gabo.link/dev-channels-worth
 ---
 
-import ExternalLink from '~/components/blog/content/ExternalLink.astro';
+import Links from '~/components/blog/content/Links.astro';
 import ListItem from '~/components/blog/content/ListItem.astro';
-import UnstyledList from '~/components/blog/content/UnstyledList.astro';
 import VideoFrame from '~/components/blog/content/VideoFrame.astro';
-
-export const components = { ul: UnstyledList };
 
 <p class="px-6">O Youtube sozinho já é uma plataformma sem fim, que periodicamente quebramos nossas bolhas de recomendação e descobrimos canais incriveis. Nesse post trago canais na área de desenvolvimento web que você talvez não conheça.</p>
   
@@ -31,15 +28,13 @@ Canal de um desenvolvedor do que trabalha para o Netflix. The Primeagen é um sh
 
 Você encontrará lives e cortes abordando tópicos específicos de programação e reacts de assuntos do momento na área de desenvolvimento. Você também pode assistir ele ao vivo no Youtube e Twitch.
 
-- <ExternalLink href="https://www.youtube.com/@ThePrimeagen">The Primeagen</ExternalLink>
-  <p class="inline-block align-super text-sm">Canal principal do YT</p>
-- <ExternalLink variant="secondary" href="https://www.youtube.com/@ThePrimeTimeagen">
-    ThePrimeTime
-  </ExternalLink>
-  <p class="inline-block align-super text-sm">Canal de cortes</p>
-- <ExternalLink variant="secondary" href="https://www.twitch.tv/theprimeagen">
-    Canal na Twitch
-  </ExternalLink>
+<Links
+  callToAction={[
+    { text: 'The Primeagen', href: 'https://www.youtube.com/@ThePrimeagen', description: 'Canal principal do YT' },
+    { text: 'ThePrimeTime', href: 'https://www.youtube.com/@ThePrimeTimeagen', description: 'Canal de cortes', variant: "secondary" },
+    { text: 'Canal na Twitch', href: 'https://www.twitch.tv/theprimeagen',  variant: "secondary" },
+  ]}
+/>
 
 </ListItem>
 
@@ -53,7 +48,7 @@ Pra quem quer entender CSS, o canal do Kevin Powell é perfeito. Há tanto conte
 
 Ele possui uma narrativa bem calma, mas sempre atento à reproduzir as mesmas situações que os desenvolvedores tem problemas. Você vai notar que ele é pura tranquilidade.
 
-- <ExternalLink href="https://www.youtube.com/@KevinPowell">Canal no Youtube</ExternalLink>
+<Links callToAction={[{ text: 'Canal no Youtube', href: 'https://www.youtube.com/@KevinPowell' }]} />
 
 </ListItem>
 
@@ -67,7 +62,7 @@ Outro canal ótimo em trazer pequenos tópicos de aprendizado. Ele aborda assunt
 
 Seu conteúdo é de grande utilidade para quem está começando na área, mas também com vários tópicos pra quem já é da área e quer aprender algo em específico.
 
-- <ExternalLink href="https://www.youtube.com/@WebDevSimplified">Canal no Youtube</ExternalLink>
+<Links callToAction={[{ text: 'Canal no Youtube', href: 'https://www.youtube.com/@WebDevSimplified' }]} />
 
 </ListItem>
 
@@ -83,7 +78,7 @@ Seu canal possui tanto vídeos passo-a-passo práticos em código, como também 
 
 Hyperplexed é um canal que demonstra como pode ser simples o processo de criação na web, ajudando a matar aquela sindrome de impostor que fica do nosso ladinho.
 
-- <ExternalLink href="https://www.youtube.com/@Hyperplexed">Canal no Youtube</ExternalLink>
+<Links callToAction={[{ text: 'Canal no Youtube', href: 'https://www.youtube.com/@Hyperplexed' }]} />
 
 </ListItem>
 
@@ -97,6 +92,6 @@ Outro canal que é incrivel pela sua objetividade. Fireship é conhecido pelo se
 
 Ele atualmente também tem vídeos que resumem as principais notícias no mundo do desenvolvimento, tudo sempre com uma pitada àcida e ironica de humor.
 
-- <ExternalLink href="https://www.youtube.com/@Fireship">Canal no Youtube</ExternalLink>
+<Links callToAction={[{ text: 'Canal no Youtube', href: 'https://www.youtube.com/@Fireship' }]} />
 
 </ListItem>

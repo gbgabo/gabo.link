@@ -1,0 +1,33 @@
+---
+import ExternalLink from '~/components/blog/content/ExternalLink.astro';
+
+interface CallToAction {
+  text: string;
+  href: string;
+  variant?: 'primary' | 'secondary';
+  description?: string;
+  icon?: string;
+}
+
+export interface Props {
+  callToAction: CallToAction[];
+}
+
+const { callToAction } = Astro.props;
+---
+
+<span class="not-prose">
+  <ul class="list-none pl-0">
+    {
+      callToAction &&
+        callToAction.map(({ text, href, variant, description }) => (
+          <li>
+            <ExternalLink variant={variant} href={href}>
+              {text}
+            </ExternalLink>
+            {description && <p class="inline-block align-super text-sm">{description}</p>}
+          </li>
+        ))
+    }
+  </ul>
+</span>

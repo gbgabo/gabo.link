@@ -17,11 +17,9 @@ canonical: https://gabo.link/cli-tools
 
 import ExternalLink from '~/components/blog/content/ExternalLink.astro';
 import ListItem from '~/components/blog/content/ListItem.astro';
-import UnstyledList from '~/components/blog/content/UnstyledList.astro';
+import Links from '~/components/blog/content/Links.astro';
 import VideoFrame from '~/components/blog/content/VideoFrame.astro';
 import Carousel from '~/components/blog/content/Carousel.astro';
-
-export const components = { ul: UnstyledList };
 
 <p class="px-6">The terminal can be an uncomfortable and unproductive environment if you are not familiar with the tools it offers. It's not only interesting to know the native tools of a Linux system, such as those from the [GNU project](https://en.wikipedia.org/wiki/GNU_Project#GNU/Linux) but also the additional tools you can install to make your daily life in the terminal easier. This post's list presents tools that not only add agility to the terminal but also offer a richer visual experience for the text screen. They are useful for both beginners and those who already have autonomy but may not be familiar with some of the items below.</p>
   
@@ -40,13 +38,13 @@ export const components = { ul: UnstyledList };
 
 Tmux supports plugins that allow you to extend the program with functions like predefining window layouts ([tmuxinator](https://github.com/tmuxinator/tmuxinator)) for different project environments and restoring the previous layout even after restarting the machine ([tmux-continuum](https://github.com/tmux-plugins/tmux-continuum)).
 
-- <ExternalLink href="https://github.com/tmux/tmux/wiki">Github homepage</ExternalLink>
-- <ExternalLink href="https://tmuxcheatsheet.com/" variant="secondary">
-    Command Cheatsheet
-  </ExternalLink>
-- <ExternalLink href="https://github.com/rothgar/awesome-tmux" variant="secondary">
-    Awesome tmux
-  </ExternalLink>
+<Links
+  callToAction={[
+    { text: 'Github homepage', href: 'https://github.com/tmux/tmux/wiki' },
+    { text: 'Command Cheatsheet', href: 'https://tmuxcheatsheet.com/', variant: "secondary" },
+    { text: 'Awesome tmux', href: 'https://github.com/rothgar/awesome-tmux', variant: "secondary" },
+  ]}
+/>
 
 </ListItem>
 
@@ -60,13 +58,13 @@ Tmux supports plugins that allow you to extend the program with functions like p
 
 [Nerd Fonts](https://www.nerdfonts.com/) are not a program but a package of icons provided as text fonts. There are over 9,000 included icons that, when used as one of your terminal fonts, allow you to view icons in the command line, making programs visually richer. To facilitate their use, these icons are combined with another text font you use, such as `UbuntuMono`, `Fira Code`, `Hack`. This way, you only need to set the text font you chose, and the icons will already be included in the terminal. The programs in this list, and many in the same category, take advantage of these fonts for their visuals, so this is pretty much a must
 
-- <ExternalLink href="https://www.nerdfonts.com/">Homepage</ExternalLink>
-- <ExternalLink href="https://github.com/ryanoasis/nerd-fonts" variant="secondary">
-    Github page
-  </ExternalLink>
-- <ExternalLink href="https://www.nerdfonts.com/cheat-sheet" variant="secondary">
-    Icon List / Cheatsheet
-  </ExternalLink>
+<Links
+  callToAction={[
+    { text: 'Homepage', href: 'https://www.nerdfonts.com/' },
+    { text: 'Github page', href: 'https://github.com/ryanoasis/nerd-fonts', variant: "secondary" },
+    { text: 'Icon List / Cheatsheet', href: 'https://www.nerdfonts.com/cheat-sheet', variant: "secondary" },
+  ]}
+/>
 
 </ListItem>
 
@@ -88,13 +86,13 @@ Tmux supports plugins that allow you to extend the program with functions like p
 
 There is a whole universe of plugins and setups being shared on the internet for you to look at, but as a start, Oh My Zsh carries most of plugins and themes you my need out of the box. There is also a plugin/theme/prompt called [spaceship](https://spaceship-prompt.sh) which has a simple look, but it's full of features.
 
-- <ExternalLink href="https://github.com/ohmyzsh/ohmyzsh/wiki/Installing-ZSH">Installing Zsh</ExternalLink>
-- <ExternalLink href="https://ohmyz.sh/" variant="secondary">
-    Oh My Zsh
-  </ExternalLink>
-- <ExternalLink href="https://github.com/unixorn/awesome-zsh-plugins" variant="secondary">
-    Awesome Zsh
-  </ExternalLink>
+<Links
+  callToAction={[
+    { text: 'Installing Zsh', href: 'https://github.com/ohmyzsh/ohmyzsh/wiki/Installing-ZSH' },
+    { text: 'Oh My Zsh', href: 'https://ohmyz.sh/', variant: "secondary" },
+    { text: 'Awesome Zsh', href: 'https://github.com/unixorn/awesome-zsh-plugins', variant: "secondary" },
+  ]}
+/>
 
 </ListItem>
 
@@ -108,7 +106,7 @@ There is a whole universe of plugins and setups being shared on the internet for
 
 [bat](https://github.com/sharkdp/bat) is a powerful cat clone with syntax highlighting and Git integration. It enhances the user experience by making it easier to view the content of files in the terminal with syntax highlighting for a wide range of programming languages. This improved visualization is particularly useful for code reviews, code navigation, and reading files.
 
-- <ExternalLink href="https://github.com/sharkdp/bat">Github page</ExternalLink>
+<Links callToAction={[{ text: 'Github page', href: 'https://github.com/sharkdp/bat' }]} />
 
 </ListItem>
 
@@ -122,7 +120,7 @@ There is a whole universe of plugins and setups being shared on the internet for
 
 [nnn](https://github.com/jarun/nnn) is a highly efficient and feature-rich file manager for the terminal. It enhances the user experience by providing a user-friendly interface to navigate and manage files and directories. With support for keyboard shortcuts, plugins, and various customization options, nnn offers an intuitive and productive way to work with files and directories in the terminal.
 
-- <ExternalLink href="https://github.com/jarun/nnn">Github page</ExternalLink>
+<Links callToAction={[{ text: 'Github page', href: 'https://github.com/jarun/nnn' }]} />
 
 </ListItem>
 
@@ -154,6 +152,6 @@ alias apt='nala'
 
 It might be a fit for you too!
 
-- <ExternalLink href="https://gitlab.com/volian/nala">Gitlab page</ExternalLink>
+<Links callToAction={[{ text: 'Gitlab page', href: 'https://gitlab.com/volian/nala' }]} />
 
 </ListItem>
