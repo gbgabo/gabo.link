@@ -26,4 +26,56 @@ import '@fontsource-variable/jetbrains-mono';
     --wb-pastel-purple: #e7d4ff;
     --wb-muted-purple: #ecdeff;
   }
+
+  img {
+    content-visibility: auto;
+  }
+
+  .pagefind-ui {
+    --pagefind-ui-scale: 0.75;
+    --pagefind-ui-primary: var(--aw-color-secondary);
+    --pagefind-ui-text: var(--wb-acid-green);
+    --pagefind-ui-border: var(--aw-color-primary);
+    --pagefind-ui-border-width: 2px;
+    --pagefind-ui-border-radius: 0.25rem;
+    --pagefind-ui-font: var(--aw-font-sans);
+    --pagefind-ui-background: var(--wb-dark-purple);
+  }
+
+  .pagefind-ui.red {
+    --pagefind-ui-background: var(--wb-dark-purple);
+    width: 100%;
+  }
+
+  .pagefind-ui .pagefind-ui__drawer:not(.pagefind-ui__hidden) {
+    padding: 0 2em 1em;
+    overflow-y: auto;
+    box-shadow:
+      0 10px 10px -5px rgba(0, 0, 0, 0.2),
+      0 2px 2px 0 rgba(0, 0, 0, 0.1);
+    border-bottom-right-radius: var(--pagefind-ui-border-radius);
+    border-bottom-left-radius: var(--pagefind-ui-border-radius);
+    background-color: var(--pagefind-ui-background);
+    color: var(--wb-muted-purple);
+  }
+
+  .pagefind-ui .pagefind-ui__result-excerpt {
+    color: var(--pagefind-ui-primary);
+  }
+
+  .pagefind-ui .pagefind-ui__search-input {
+    color: var(--aw-color-secondary);
+  }
+
+  .pagefind-ui .pagefind-ui__search-input:before {
+    background-color: var(--pagefind-ui-border);
+  }
+
+  .pagefind-ui .pagefind-ui__result-link {
+    color: var(--pagefind-ui-text);
+  }
+
+  .pagefind-ui .pagefind-ui__result-link {
+    color: var(--pagefind-ui-primary);
+  }
 </style>
