@@ -37,7 +37,7 @@ import '@fontsource-variable/jetbrains-mono';
     --pagefind-ui-text: var(--wb-acid-green);
     --pagefind-ui-border: var(--aw-color-primary);
     --pagefind-ui-border-width: 2px;
-    --pagefind-ui-border-radius: 0.25rem;
+    --pagefind-ui-border-radius: 2rem;
     --pagefind-ui-font: var(--aw-font-sans);
     --pagefind-ui-background: var(--wb-dark-purple);
   }
@@ -61,6 +61,11 @@ import '@fontsource-variable/jetbrains-mono';
 
   .pagefind-ui .pagefind-ui__result-excerpt {
     color: var(--pagefind-ui-primary);
+  }
+
+  :focus-visible {
+    outline: 0 !important;
+    box-shadow: none;
   }
 
   .pagefind-ui .pagefind-ui__search-input {
