@@ -10,8 +10,6 @@ module.exports = {
         secondary: 'var(--aw-color-secondary)',
         accent: 'var(--aw-color-accent)',
         'dark-purple': 'var(--wb-dark-purple)',
-        //TODO: Tailwind apparently can't handle classes with /xx opacity syntax
-        //currently declaring these colors from their direct color value (but also still storing on CustomStyle global scope)
         'darker-purple': '#19002e',
         'acid-green': 'var(--wb-acid-green)',
         cherry: 'var(--wb-cherry)',
