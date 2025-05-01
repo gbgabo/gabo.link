@@ -21,7 +21,7 @@
     "@astrojs/rss": "^4.0.11",
     "@astrojs/sitemap": "^3.3.1",
     "@astrojs/tailwind": "^6.0.2",
-    "@astrolib/analytics": "^0.5.0",
+    "@astrolib/analytics": "^0.6.1",
     "@astrolib/seo": "^1.0.0-beta.5",
     "@fontsource-variable/jetbrains-mono": "^5.0.19",
     "@iconify-json/devicon-plain": "^1.1.42",
