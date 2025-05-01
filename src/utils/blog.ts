@@ -10,7 +10,6 @@ const generatePermalink = async ({ id, slug, publishDate, category }) => {
   const hour = String(publishDate.getHours()).padStart(2, '0');
   const minute = String(publishDate.getMinutes()).padStart(2, '0');
   const second = String(publishDate.getSeconds()).padStart(2, '0');
-  console.log(id);
 
   const permalink = POST_PERMALINK_PATTERN.replace('%slug%', slug)
     .replace('%id%', id)
