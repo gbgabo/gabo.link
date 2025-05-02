@@ -3,7 +3,6 @@ import { fileURLToPath } from 'url';
 
 import { defineConfig } from 'astro/config';
 
-import tailwind from '@astrojs/tailwind';
 import sitemap from '@astrojs/sitemap';
 import mdx from '@astrojs/mdx';
 import partytown from '@astrojs/partytown';
@@ -12,6 +11,8 @@ import astroI18next from 'astro-i18next';
 import { readingTimeRemarkPlugin } from './src/utils/frontmatter.mjs';
 
 import { SITE } from './src/config.mjs';
+
+import tailwindcss from '@tailwindcss/vite';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
@@ -26,11 +27,6 @@ export default defineConfig({
   output: 'static',
 
   integrations: [
-    tailwind({
-      config: {
-        applyBaseStyles: false,
-      },
-    }),
     sitemap(),
     mdx(),
     icon({
@@ -70,5 +66,7 @@ export default defineConfig({
         '~': path.resolve(__dirname, './src'),
       },
     },
+
+    plugins: [tailwindcss()],
   },
 });
