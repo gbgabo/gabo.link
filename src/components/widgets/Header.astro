@@ -118,7 +118,7 @@ const {
                         </span>
                       )}
                     </button>
-                    <ul class="dropdown-menu rounded pl-4 font-medium drop-shadow-xl md:absolute md:hidden md:min-w-[200px] md:bg-white/90 md:pl-0 md:backdrop-blur-md dark:md:bg-dark-purple">
+                    <ul class="dropdown-menu rounded-sm pl-4 font-medium drop-shadow-xl md:absolute md:hidden md:min-w-[200px] md:bg-white/90 md:pl-0 md:backdrop-blur-md dark:md:bg-dark-purple">
                       {links.map(({ text: text2, href: href2 }, index2) => {
                         menuIndex = index2 === 0 ? menuIndex + 1 : menuIndex + index2;
                         const permalink2 = getPermalink(...href2);
@@ -187,7 +187,7 @@ const {
         {
           showRssFeed && (
             <a
-              class="inline-flex items-center rounded-lg p-2.5 text-sm hover:bg-gray-100 focus:outline-none focus:ring-4 focus:ring-gray-200 dark:text-light-purple dark:hover:bg-dark-purple dark:focus:ring-gray-700"
+              class="inline-flex items-center rounded-lg p-2.5 text-sm hover:bg-gray-100 focus:outline-hidden focus:ring-4 focus:ring-gray-200 dark:text-light-purple dark:hover:bg-dark-purple dark:focus:ring-gray-700"
               aria-label="RSS Feed"
               href={getAsset('/rss.xml')}
             >

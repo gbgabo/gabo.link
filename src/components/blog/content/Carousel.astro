@@ -4,7 +4,7 @@ import { Icon } from 'astro-icon/components';
 
 <div
   data-carousel
-  class="not-prose relative grid auto-rows-[auto_min-content] overflow-auto rounded-xl pt-2 text-light-purple"
+  class="not-prose text-light-purple relative grid auto-rows-[auto_min-content] overflow-auto rounded-xl pt-2"
 >
   <div
     data-carousel-content
@@ -16,14 +16,14 @@ import { Icon } from 'astro-icon/components';
   <div data-carousel-nav class="flex justify-center gap-3 py-2">
     <button
       data-carousel-preview
-      class="rounded-bl-3xl rounded-br-lg rounded-tl-3xl rounded-tr-lg bg-light-purple text-darker-purple drop-shadow-lg active:bg-acid-green active:text-cherry"
+      class="bg-light-purple text-darker-purple active:bg-acid-green active:text-cherry rounded-tl-3xl rounded-tr-lg rounded-br-lg rounded-bl-3xl drop-shadow-lg"
       aria-label="Preview Slide"
     >
       <Icon class="mx-3 h-8 w-8 py-2" name="ep:arrow-left-bold" />
     </button>
     <button
       data-carousel-next
-      class="rounded-bl-lg rounded-br-3xl rounded-tl-lg rounded-tr-3xl bg-light-purple text-darker-purple drop-shadow-lg active:bg-acid-green active:text-cherry"
+      class="bg-light-purple text-darker-purple active:bg-acid-green active:text-cherry rounded-tl-lg rounded-tr-3xl rounded-br-3xl rounded-bl-lg drop-shadow-lg"
       aria-label="Next Slide"
     >
       <Icon class="mx-3 h-8 w-8 rotate-180 py-2" name="ep:arrow-left-bold" />

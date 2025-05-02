@@ -28,7 +28,7 @@ const category = categoryData[post.category]
 ---
 
 <article class="mb-6 transition">
-  <div class="relative mb-5 rounded bg-gray-400 shadow-lg dark:bg-slate-700 md:h-64">
+  <div class="relative mb-5 rounded-sm bg-gray-400 shadow-lg dark:bg-slate-700 md:h-64">
     <a
       class:list={[
         'absolute -bottom-3 left-2 z-10 flex w-fit items-center rounded-lg p-1 pr-3 text-sm capitalize shadow-lg',
@@ -43,7 +43,7 @@ const category = categoryData[post.category]
       image && (
         <Picture
           src={image}
-          class="w-full rounded bg-gray-400 shadow-lg dark:bg-slate-700 md:h-full md:w-auto md:object-cover"
+          class="w-full rounded-sm bg-gray-400 shadow-lg dark:bg-slate-700 md:h-full md:w-auto md:object-cover"
           widths={[400, 900]}
           width={400}
           height={224}

@@ -214,7 +214,7 @@ const links = [
               use.map(({ href, title, description, icon, external }) => {
                 return (
                   <a href={href}>
-                    <div class="relative flex h-full flex-col rounded border-2 border-light-purple bg-pastel-purple p-6 shadow-lg transition hover:shadow-md dark:border-cherry dark:bg-dark-purple">
+                    <div class="relative flex h-full flex-col rounded-sm border-2 border-light-purple bg-pastel-purple p-6 shadow-lg transition hover:shadow-md dark:border-cherry dark:bg-dark-purple">
                       <div class="flex items-center">
                         <Icon name={icon} class="h-10 w-10 text-grape dark:text-acid-green" />
                         <div class="ml-4 text-xl font-bold">
@@ -258,7 +258,7 @@ const links = [
     </div>
   </div>
   <ul
-    class="sticky bottom-16 mx-6 my-8 flex flex-row flex-wrap bg-gradient-to-t from-transparent from-0% via-muted-purple via-10% pb-4 dark:via-darker-purple md:top-28 md:hidden"
+    class="sticky bottom-16 mx-6 my-8 flex flex-row flex-wrap bg-linear-to-t from-transparent from-0% via-muted-purple via-10% pb-4 dark:via-darker-purple md:top-28 md:hidden"
   >
     {
       links.map(({ href, title }) => {

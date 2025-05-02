@@ -59,7 +59,7 @@ const {
     <div class="grid grid-cols-4 gap-4 py-12 md:py-20">
       <div class="relative col-span-4 m-auto md:col-span-1">
         <div
-          class="mx-auto mb-4 h-52 w-52 overflow-hidden rounded-full border-8 border-light-purple bg-gradient-to-br from-pastel-purple from-0% via-50% to-light-purple to-100% shadow-lg dark:border-cherry dark:from-cherry dark:via-dark-purple dark:to-darker-purple md:h-60 md:w-60"
+          class="mx-auto mb-4 h-52 w-52 overflow-hidden rounded-full border-8 border-light-purple bg-linear-to-br from-pastel-purple from-0% via-50% to-light-purple to-100% shadow-lg dark:border-cherry dark:from-cherry dark:via-dark-purple dark:to-darker-purple md:h-60 md:w-60"
         >
           <Picture
             class="mx-auto w-full rounded-md"
@@ -74,18 +74,18 @@ const {
           />
         </div>
         <p
-          class="absolute left-0 top-0 w-fit rounded bg-grape px-2 text-white dark:bg-light-purple dark:text-darker-purple"
+          class="absolute left-0 top-0 w-fit rounded-sm bg-grape px-2 text-white dark:bg-light-purple dark:text-darker-purple"
         >
           Gabriel Gaboardi
         </p>
         <p
-          class="absolute bottom-0 right-0 w-fit rounded bg-grape px-2 text-white dark:bg-light-purple dark:text-darker-purple"
+          class="absolute bottom-0 right-0 w-fit rounded-sm bg-grape px-2 text-white dark:bg-light-purple dark:text-darker-purple"
         >
           AKA Gabo
         </p>
       </div>
       <div
-        class="col-span-4 rounded-xl bg-pastel-purple/70 px-5 py-7 shadow-sm backdrop-blur-sm dark:bg-darker-purple/70 md:col-span-3 md:p-12"
+        class="col-span-4 rounded-xl bg-pastel-purple/70 px-5 py-7 shadow-xs backdrop-blur-xs dark:bg-darker-purple/70 md:col-span-3 md:p-12"
       >
         {
           title && (
@@ -148,7 +148,7 @@ const {
                     {socialLinks.map(({ ariaLabel, href, text, icon }) => (
                       <li>
                         <a
-                          class="inline-flex items-center rounded-lg p-2.5 text-sm text-grape hover:bg-gray-100 focus:outline-none focus:ring-4 focus:ring-gray-200 dark:text-acid-green dark:hover:bg-dark-purple dark:focus:ring-gray-700"
+                          class="inline-flex items-center rounded-lg p-2.5 text-sm text-grape hover:bg-gray-100 focus:outline-hidden focus:ring-4 focus:ring-gray-200 dark:text-acid-green dark:hover:bg-dark-purple dark:focus:ring-gray-700"
                           aria-label={ariaLabel}
                           href={href}
                         >

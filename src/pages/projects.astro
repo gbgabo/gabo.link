@@ -68,11 +68,11 @@ const meta = {
             >
               {project.image && (
                 <a class="group relative block" href={project.link ?? 'javascript:void(0)'}>
-                  <div class="relative h-0 overflow-hidden rounded bg-transparent pb-[56.25%] md:h-72 md:pb-[75%] lg:pb-[56.25%]">
+                  <div class="relative h-0 overflow-hidden rounded-sm bg-transparent pb-[56.25%] md:h-72 md:pb-[75%] lg:pb-[56.25%]">
                     {project.image && (
                       <Picture
                         src={project.image}
-                        class="absolute inset-0 m-auto w-full rounded bg-gray-400 object-cover shadow-lg dark:bg-slate-700"
+                        class="absolute inset-0 m-auto w-full rounded-sm bg-gray-400 object-cover shadow-lg dark:bg-slate-700"
                         widths={[400, 900]}
                         sizes="(max-width: 900px) 400px, 900px"
                         alt={project.title}
@@ -89,7 +89,7 @@ const meta = {
                 </h2>
 
                 {project.description && (
-                  <p class="text-muted flex-grow text-lg dark:text-slate-400">
+                  <p class="text-muted grow text-lg dark:text-slate-400">
                     <Fragment set:html={t(project.description)} />
                   </p>
                 )}
