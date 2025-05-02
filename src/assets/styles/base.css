@@ -1,6 +1,70 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import 'tailwindcss';
+
+@config '../../../tailwind.config.cjs';
+
+/*
+  The default border color has changed to `currentcolor` in Tailwind CSS v4,
+  so we've added these compatibility styles to make sure everything still
+  looks the same as it did with Tailwind CSS v3.
+
+  If we ever want to remove these styles, we need to add an explicit border
+  color utility to any element that depends on these defaults.
+*/
+@layer base {
+  *,
+  ::after,
+  ::before,
+  ::backdrop,
+  ::file-selector-button {
+    border-color: var(--color-gray-200, currentcolor);
+  }
+}
+
+@utility text-page {
+  color: var(--aw-color-text-page);
+}
+
+@utility text-muted {
+  color: var(--aw-color-text-muted);
+}
+
+@utility bg-light {
+  background-color: var(--aw-color-bg-page);
+}
+
+@utility bg-dark {
+  @apply bg-darker-purple;
+}
+
+@utility btn {
+  @apply text-page dark:text-light-purple dark:border-light-purple dark:hover:text-darker-purple dark:hover:bg-light-purple dark:hover:border-light-purple inline-flex items-center justify-center rounded-full bg-white/20 px-6 py-3.5 text-center text-base leading-snug font-medium shadow-md transition duration-200 ease-in hover:border-gray-600 hover:bg-gray-100 focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:ring-offset-blue-200 md:px-8 dark:bg-white/10;
+}
+
+@utility btn-ghost {
+  @apply text-muted dark:text-light-purple dark:hover:text-darker-purple border-none shadow-none hover:text-gray-900;
+}
+
+@utility btn-primary {
+  @apply bg-grape hover:bg-light-purple hover:text-darker-purple dark:text-acid-green dark:bg-primary dark:border-primary dark:hover:border-acid-green dark:hover:bg-acid-green dark:hover:text-cherry font-semibold text-white;
+}
+
+@utility menu-list {
+  @apply translate-y-96 opacity-0;
+  transition:
+    transform 0.3s cubic-bezier(0.86, 0, 0.07, 1),
+    opacity 0.3s;
+}
+
+@utility menu-item {
+  @apply translate-y-1/2 opacity-0 md:translate-y-0 md:opacity-100;
+  transition:
+    transform 0.3s,
+    opacity 0.3s;
+}
+
+@utility show {
+  @apply translate-y-0 opacity-100;
+}
 
 @layer base {
   a {
@@ -12,53 +76,7 @@
   }
 
   :modal {
-    @apply p-0 border-0 h-full bg-transparent flex flex-col justify-center;
-  }
-}
-
-@layer components {
-  .text-page {
-    color: var(--aw-color-text-page);
-  }
-
-  .text-muted {
-    color: var(--aw-color-text-muted);
-  }
-
-  .bg-light {
-    background-color: var(--aw-color-bg-page);
-  }
-
-  .bg-dark {
-    @apply bg-darker-purple;
-  }
-
-  .btn {
-    @apply inline-flex items-center justify-center rounded-full shadow-md bg-white/20 dark:bg-white/10 font-medium text-center text-base text-page leading-snug transition py-3.5 px-6 md:px-8 ease-in duration-200 focus:ring-blue-500 focus:ring-offset-blue-200 focus:ring-2 focus:ring-offset-2 hover:bg-gray-100 hover:border-gray-600 dark:text-light-purple dark:border-light-purple dark:hover:text-darker-purple dark:hover:bg-light-purple dark:hover:border-light-purple;
-  }
-
-  .btn-ghost {
-    @apply border-none shadow-none text-muted hover:text-gray-900 dark:text-light-purple dark:hover:text-darker-purple;
-  }
-
-  .btn-primary {
-    @apply font-semibold bg-grape text-white hover:bg-light-purple hover:text-darker-purple dark:text-acid-green dark:bg-primary dark:border-primary dark:hover:border-acid-green dark:hover:bg-acid-green dark:hover:text-cherry;
-  }
-
-  .menu-list {
-    @apply opacity-0 translate-y-96;
-    transition: transform 0.3s cubic-bezier(0.86, 0, 0.07, 1), opacity 0.3s;
-  }
-
-  .menu-item {
-    @apply opacity-0 translate-y-1/2 md:opacity-100 md:translate-y-0;
-    transition: transform 0.3s, opacity 0.3s;
-  }
-}
-
-@layer utilities {
-  .show {
-    @apply opacity-100 translate-y-0;
+    @apply flex h-full flex-col justify-center border-0 bg-transparent p-0;
   }
 }
 
@@ -68,7 +86,7 @@
 }
 
 #header.scroll {
-  @apply block shadow-md md:shadow-lg bg-pastel-purple/90 md:backdrop-blur-sm dark:bg-darker-purple/90;
+  @apply bg-pastel-purple/90 dark:bg-darker-purple/90 block shadow-md md:shadow-lg md:backdrop-blur-xs;
 }
 
 .dropdown:hover .dropdown-menu {
@@ -89,12 +107,11 @@ svg {
   --logo-down-color: var(--wb-grape);
 }
 
-
-[astro-icon].icon-light>* {
+[astro-icon].icon-light > * {
   stroke-width: 1.2;
 }
 
-[astro-icon].icon-bold>* {
+[astro-icon].icon-bold > * {
   stroke-width: 2.4;
 }
 
@@ -102,12 +119,12 @@ svg {
   @apply transition;
 }
 
-[data-aw-toggle-menu].expanded g>path:first-child {
-  @apply -rotate-45 translate-y-[15px] translate-x-[-3px];
+[data-aw-toggle-menu].expanded g > path:first-child {
+  @apply translate-x-[-3px] translate-y-[15px] -rotate-45;
 }
 
-[data-aw-toggle-menu].expanded g>path:last-child {
-  @apply rotate-45 translate-y-[-8px] translate-x-[14px];
+[data-aw-toggle-menu].expanded g > path:last-child {
+  @apply translate-x-[14px] translate-y-[-8px] rotate-45;
 }
 
 [data-aw-toggle-toc].expanded {
