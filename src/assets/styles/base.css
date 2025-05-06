@@ -1,6 +1,7 @@
 @import 'tailwindcss';
+@plugin "@tailwindcss/typography";
 
-@config '../../../tailwind.config.cjs';
+@custom-variant dark (&:where(.dark, .dark *));
 
 /*
   The default border color has changed to `currentcolor` in Tailwind CSS v4,
@@ -10,6 +11,39 @@
   If we ever want to remove these styles, we need to add an explicit border
   color utility to any element that depends on these defaults.
 */
+
+@theme {
+  --color-primary: var(--aw-color-primary);
+  --color-secondary: var(--aw-color-secondary);
+  --color-accent: var(--aw-color-accent);
+  --color-dark-purple: var(--wb-dark-purple);
+  --color-darker-purple: #19002e;
+  --color-acid-green: var(--wb-acid-green);
+  --color-cherry: var(--wb-cherry);
+  --color-pink: var(--wb-pink);
+  --color-light-purple: #c79bff;
+  --color-grape: var(--wb-grape);
+  --color-pastel-purple: #e7d4ff;
+  --color-muted-purple: var(--wb-muted-purple);
+
+  --font-sans: var(--aw-font-sans);
+  --font-serif: var(--aw-font-serif);
+  --font-heading: var(--aw-font-heading);
+
+  --animate-fade-up: fade-up 0.3s;
+
+  @keyframes fade-up {
+    from {
+      opacity: 0;
+      transform: translateY(50%);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0%);
+    }
+  }
+}
+
 @layer base {
   *,
   ::after,
