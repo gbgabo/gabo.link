@@ -12,7 +12,7 @@
   },
   "home": {
     "title": "Welcome to my corner on the web",
-    "subtitle": "Hey! I'm Gabo and I'm a web developer from Brazil",
+    "subtitle": "Hey! I'm Gabo and I'm a software engineer from Brazil",
     "cta1": "Read the blog",
     "cta2": "About me",
     "allPosts": "View all posts"
@@ -20,10 +20,10 @@
   "about": {
     "meta": {
       "title": "About",
-      "description": "Get to know more about me (Gabo). A front-end developer, content creator wannabe, and supporter of all things free and open source"
+      "description": "Get to know more about me (Gabo). A software engineer, content creator wannabe, and supporter of all things free and open source"
     },
     "title": "I'm a developer intrigued by technology shaping society",
-    "subtitle": "I'm a Front-End Developer from Brazil, working with Laravel and studying current full-stack frameworks like Next.js. Experience with React and Typescript. Big fan of SSG frameworks such as Astro.",
+    "subtitle": "I'm a software engineer from Brazil, working with Laravel and studying current full-stack frameworks like Next.js. Experience with React and Typescript. Big fan of SSG frameworks such as Astro.",
     "education": "Education",
     "skillsHeader": "Skills",
     "skillsCta": "See my projects",
@@ -69,17 +69,21 @@
     "ctaAbout": "About the project",
     "ctaVisit": "Access",
     "items": {
+      "chicotadas": {
+        "title": "chicotadas.com.br",
+        "description": "The home page of Chicotadas podcast. The project aims to host and manage all official content of the show. Dedicated feed for episodes and social media posts, dictionary page for listing common terms used on the episodes, also featuring instant description of terms along any episode's transcription"
+      },
       "blog": {
         "title": "gabo.link Personal Blog",
         "description": "It's this very website. It's a fork of an Astro + Tailwind template called Astrowind. It's now implemennted with extra features such as bottom navigation, better handling of YT iframes, table of contents on posts, and internationalization"
       },
       "wash": {
         "title": "Laundry Symbols",
-        "description": "A page that lists most of the so called laundry symbols found on every clothing, indicating the manufacturer's suggestions as to methods of washing, drying, dry-cleaning and ironing clothing"
+        "description": "A page that lists most of the so called laundry symbols found on every clothing, indicating the manufacturer's suggestions as to methods of washing, drying, dry-cleaning and ironing clothing. Also includes filter for non standard and legacy symbols"
       },
       "wildberries": {
         "title": "Wildberries Theme Homepage",
-        "description": "Wildberries is a purple dark theme, with additional bright accents, almost in a cyberpunkish way. This is my first Next.js project, created to make available the list of applications and Its ways to install this color theme I came up with during the years"
+        "description": "Wildberries is a purple dark theme, with additional bright accents, almost in a cyberpunkish way. Intially created with Next.js, the now Astro project makes available the list of applications and its ways to install this color scheme I came up with during the years"
       },
       "tinytools": {
         "title": "Tinytools",
