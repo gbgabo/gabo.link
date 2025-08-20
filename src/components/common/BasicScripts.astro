@@ -202,18 +202,20 @@ import { SITE } from '~/config.mjs';
 
     const toggleModal = (dialog, open, close) => {
       const modal = document.querySelector(dialog);
-      const openButtons = document.querySelectorAll(open);
-      const closeButton = document.querySelector(close);
+      if (modal) {
+        const openButtons = document.querySelectorAll(open);
+        const closeButton = document.querySelector(close);
 
-      openButtons.forEach((button) => {
-        button.addEventListener('click', () => {
-          modal.showModal();
+        openButtons.forEach((button) => {
+          button.addEventListener('click', () => {
+            modal.showModal();
+          });
         });
-      });
 
-      closeButton.addEventListener('click', () => {
-        modal.close();
-      });
+        closeButton.addEventListener('click', () => {
+          modal.close();
+        });
+      }
     };
 
     toggleModal('[data-share-dialog]', '[data-share-open]', '[data-share-close]');

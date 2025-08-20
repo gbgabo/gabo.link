@@ -3,13 +3,21 @@ import { Icon } from 'astro-icon/components';
 import Search from 'astro-pagefind/components/Search';
 ---
 
-<dialog data-search-dialog>
+<dialog data-search-dialog class="fixed m-auto rounded-[2rem] bg-dark-purple p-2">
+  <Search
+    id="search"
+    className="pagefind-ui mb-14"
+    uiOptions={{
+      showImages: false,
+      translations: {
+        placeholder: 'Pesquisar',
+      },
+    }}
+  />
   <button
     data-search-close
-    class="bg-grapes absolute bottom-3 right-3 h-12 w-12 rounded-full text-acid-green text-white dark:bg-cherry dark:text-acid-green"
-    autofocus
+    class="sticky bottom-2 left-4 inline-flex w-fit flex-row items-center rounded-full bg-cherry px-3 py-2 font-medium text-acid-green"
   >
-    <Icon class="m-auto h-8 w-8 py-2" name="ep:close-bold" />
+    <Icon class="h-7 w-7" name="tabler:x" />
   </button>
-  <Search id="search" className="pagefind-ui" uiOptions={{ showImages: false }} />
 </dialog>
