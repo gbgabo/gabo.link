@@ -1,0 +1,72 @@
+---
+publishDate: 2024-12-18T00:00:00Z
+title: 'Astro: The static site generator and beyond'
+description: An introduction to astro, and what makes it great
+excerpt: An introduction to astro, and what makes it great
+image: ~/assets/images/thumbnails/astro.png
+category: Articles
+draft: true
+tags:
+  - astro
+  - javascript
+  - framework
+  - ssg
+canonical: https://gabo.link/astro-the-ssg-and-beyond
+---
+
+The **Astro Framework** is a modern, lightweight framework for building web applications and websites. This post will show how it's the go to for generating static pages, but beyond that, it smartly adds features in such a way that it can probably cover all of your needs to most of your projects. For anyone familiar with current front-end frameworks, you'll easilly feel comfortable with astro, as it has SSR, file-based routing, and many other straight forward implementations of features many other frameworks have been using and proving its effectiveness, but also adding improvement in new ways to handle specific scopes of web development.
+
+It's not supposed to substitute a SPA. If you really need a SPA, there is definitelly better options. But it has never been so current to discuss how we need to step back on client-side rendered only pages to a better arquitecture that relies on native solutions that don't create unnecessary complexities, and solves needs of the internet that the web platform itself can improve on along the way. Through focusing on serving content on pages as fast as possible, Astro is trying to prove how server rendered content can be smart on the modern web.
+
+I've been using it for around two years and its features can be categorized into several main topics:
+
+# What makes it great:
+
+## Server-First
+
+### **Content-focused Development**
+
+- **Markdown and MDX**: First-class support for Markdown with embedded components (MDX).
+- **Static Site Generation (SSG)**: Designed for content-heavy sites like blogs, documentation, and marketing pages.
+- **Content Collections**: Organize, validate, and type-check your site’s content.
+
+### **Zero JavaScript by Default**
+
+- Ships minimal JavaScript to the client by default, focusing on performance.
+- Add interactivity only where needed with **"partial hydration"**.
+
+### **4. Optimized Performance**
+
+- **Island Architecture**: Delivers HTML first and hydrates only interactive parts.
+- Built-in optimizations like lazy loading, image optimizations, and CSS splitting.
+
+### **Developer Experience**
+
+## **Build System and Integrations**
+
+- **Vite-powered**: Leverages the modern, fast Vite bundler.
+- **Customizable Build Pipeline**: Plugins and integrations for frameworks, CMSs, analytics, and more.
+- Supports SSR (Server-Side Rendering) and traditional SSG workflows.
+
+## **Component-based Architecture**
+
+- **Support for Multiple Frameworks**: Use components from React, Vue, Svelte, SolidJS, or even mix them in a single project.
+- **Astro Components**: Native, server-rendered components that are optimized for speed and minimal JavaScript.
+
+- **Intuitive API**: Simple and declarative syntax.
+- **File-based Routing**: Automatically map routes to files.
+- **Hot Module Replacement (HMR)**: Fast feedback during development.
+
+## **7. Versatility and Hosting**
+
+- Deployable to various platforms: Vercel, Netlify, static hosting, etc.
+- Works seamlessly with modern edge computing.
+
+## **8. Ecosystem and Community**
+
+- Large and growing set of official and community-built integrations.
+- Active community and frequent updates.
+
+# Who is it for (and who isn't)
+
+Astro is a powerful choice for developers who want a blend of modern interactivity, excellent performance, and a focus on content. Would you like more detail on any specific feature?

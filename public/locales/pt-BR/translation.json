@@ -11,8 +11,8 @@
     }
   },
   "home": {
-    "title": "Bem vindo(a) ao meu canto da web",
-    "subtitle": "Olá! Me chamo Gabo e sou um desenvolvedor Front-end",
+    "title": "Bem vindx ao meu canto da web",
+    "subtitle": "Olá! Me chamo Gabo e sou um engenheiro de software",
     "cta1": "Leia o blog",
     "cta2": "Sobre mim",
     "allPosts": "Ver todos os posts"
@@ -20,10 +20,10 @@
   "about": {
     "meta": {
       "title": "Sobre",
-      "description": "Conheça mais sobre mim (Gabo). Um desenvolvedor front-end, aspirante a criador de conteúdo e apoiador de tudo o que é sofware livre e de código aberto."
+      "description": "Conheça mais sobre mim (Gabo). Um desenvolvedor de software, aspirante a criador de conteúdo e apoiador de tudo o que é sofware livre e de código aberto."
     },
     "title": "Sou um desenvolvedor intrigado pela tecnologia moldando a sociedade",
-    "subtitle": "Sou um desenvolvedor Front-End do Brasil, trabalhando com Laravel e estudando frameworks full-stack como Next.js. Experiência em React e Typescript. Grande Fan de frameworks SSG como Astro.",
+    "subtitle": "Sou um engenheiro de software, trabalhando com Laravel e estudando frameworks full-stack como Next.js. Experiência em React e Typescript. Grande Fan de frameworks SSG como Astro.",
     "education": "Formação",
     "skillsHeader": "Habilidades",
     "skillsCta": "Veja meus projetos",
@@ -69,13 +69,17 @@
     "ctaAbout": "Conheça o projeto",
     "ctaVisit": "Acesse",
     "items": {
+      "chicotadas": {
+        "title": "chicotadas.com.br",
+        "description": "A página inicial do Chicotadas podcast. O projeto visa guardar e gerenciar todo conteúdo oficial do show. Feed dedicado para episódios, posts para redes, página de dicionário para listar termos comuns usados nos episódios, incluindo também descrição instantânea de termos ao longo das transcrições de episódios e mais"
+      },
       "blog": {
         "title": "Blog Pessoal gabo.link",
         "description": "É este exato site. É um fork de um template em Astro + Tailwind chamado Astrowind. É agora implementado com funcionalidades extras como navegação por baixo, suporte otimizado para YT iframes, sumário em posts e internacionalização"
       },
       "wash": {
         "title": "Laundry Symbols",
-        "description": "Uma página que lista os simbolos de lavagem encontradas em todas as roupas, indicando as sugestões da fabricante para lavagem, secagem, lavagem a seco e passagem"
+        "description": "Uma página que lista os simbolos de lavagem encontradas em todas as roupas, indicando as sugestões da fabricante para lavagem, secagem, lavagem a seco e passagem. Também inclui filtro para símbolos legado e não padrão"
       },
       "wildberries": {
         "title": "Homepage Tema Wildberries",
