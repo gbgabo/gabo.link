@@ -160,7 +160,8 @@ const {
           })
         }
       </ul>
-      <div class="absolute bottom-2 right-2 md:hidden">
+      <div class="absolute bottom-2 right-2 flex flex-col gap-3 md:hidden">
+        {showToggleTheme && <ToggleTheme iconClass="w-5 h-5" />}
         <LanguageSelector
           languageMapping={{ en: '', 'pt-BR': '' }}
           showFlag={true}

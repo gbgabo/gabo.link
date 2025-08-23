@@ -3,10 +3,10 @@ import { Icon } from 'astro-icon/components';
 import Search from 'astro-pagefind/components/Search';
 ---
 
-<dialog data-search-dialog class="fixed m-auto h-fit rounded-[2rem] p-2 dark:bg-darker-purple/90">
+<dialog data-search-dialog class="fixed m-auto h-fit w-full max-w-3xl rounded-[2rem] p-2 dark:bg-darker-purple/90">
   <Search
     id="search"
-    className="pagefind-ui mb-14"
+    className="pagefind-ui mb-14 w-full"
     uiOptions={{
       showImages: false,
     }}
