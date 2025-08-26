@@ -19,7 +19,7 @@ const { meta, home, breadcrumbs } = Astro.props;
 
 <Layout {meta}>
   <slot name="header">
-    <Header {breadcrumbs} {...headerData} isSticky={home} showRssFeed showToggleTheme />
+    <Header {breadcrumbs} {...headerData} isSticky={home} showRssFeed showToggleTheme showSearch />
   </slot>
   <main>
     <ImageModal />

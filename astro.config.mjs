@@ -9,6 +9,7 @@ import mdx from '@astrojs/mdx';
 import partytown from '@astrojs/partytown';
 import icon from 'astro-icon';
 import astroI18next from 'astro-i18next';
+import pagefind from 'astro-pagefind';
 import { readingTimeRemarkPlugin } from './src/utils/frontmatter.mjs';
 
 import { SITE } from './src/config.mjs';
@@ -33,6 +34,7 @@ export default defineConfig({
     }),
     sitemap(),
     mdx(),
+    pagefind(),
     icon({
       include: {
         tabler: ['*'],

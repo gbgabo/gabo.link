@@ -200,19 +200,26 @@ import { SITE } from '~/config.mjs';
       }
     });
 
-    const shareDialog = document.querySelector('[data-share-dialog]');
-    const showButton = document.querySelector('[data-share-open]');
-    const closeShare = document.querySelector('[data-share-close]');
+    const toggleModal = (dialog, open, close) => {
+      const modal = document.querySelector(dialog);
+      if (modal) {
+        const openButtons = document.querySelectorAll(open);
+        const closeButton = document.querySelector(close);
 
-    // "Show the dialog" button opens the dialog modally
-    showButton.addEventListener('click', () => {
-      shareDialog.showModal();
-    });
+        openButtons.forEach((button) => {
+          button.addEventListener('click', () => {
+            modal.showModal();
+          });
+        });
 
-    // "Close" button closes the dialog
-    closeShare.addEventListener('click', () => {
-      shareDialog.close();
-    });
+        closeButton.addEventListener('click', () => {
+          modal.close();
+        });
+      }
+    };
+
+    toggleModal('[data-share-dialog]', '[data-share-open]', '[data-share-close]');
+    toggleModal('[data-search-dialog]', '[data-search-open]', '[data-search-close]');
   };
 
   window.onpageshow = function () {

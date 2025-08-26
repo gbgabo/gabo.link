@@ -30,6 +30,7 @@ export interface Props {
   actions?: Array<ActionLink>;
   isSticky?: boolean;
   showToggleTheme?: boolean;
+  showSearch?: boolean;
   showRssFeed?: boolean;
   position?: string;
   breadcrumbs?: Array<{ title: string; href: string }>;
@@ -67,6 +68,7 @@ const {
   links = [],
   actions = [],
   isSticky = false,
+  showSearch = false,
   showToggleTheme = false,
   showRssFeed = false,
   position = 'center',
@@ -158,7 +160,8 @@ const {
           })
         }
       </ul>
-      <div class="absolute bottom-2 right-2 md:hidden">
+      <div class="absolute bottom-2 right-2 flex flex-col gap-3 md:hidden">
+        {showToggleTheme && <ToggleTheme iconClass="w-5 h-5" />}
         <LanguageSelector
           languageMapping={{ en: '', 'pt-BR': '' }}
           showFlag={true}
@@ -174,16 +177,36 @@ const {
         {breadcrumbs && <Breadcrumbs {breadcrumbs} />}
       </div>
       <div class="flex items-center md:hidden">
-        {showToggleTheme && <ToggleTheme />}
+        {
+          showSearch && (
+            <button
+              type="button"
+              class="inline-flex items-center rounded-lg p-2.5 text-sm hover:bg-gray-100 focus:outline-none focus:ring-4 focus:ring-gray-200 dark:text-light-purple dark:hover:bg-dark-purple dark:focus:ring-cherry"
+              aria-label="Search button"
+              data-search-open
+            >
+              <Icon name="tabler:search" class="h-6 w-6" />
+            </button>
+          )
+        }
         <ToggleMenu />
       </div>
     </div>
     <div class:list={[{ 'ml-auto': position === 'left' }, 'ml-auto flex items-center md:mb-0 md:self-center']}>
       <div class="hidden items-center md:flex">
-        <LanguageSelector languageMapping={{ en: '', 'pt-BR': '' }} showFlag={true} class="bg-transparent" />
-
+        {
+          showSearch && (
+            <button
+              type="button"
+              class="inline-flex items-center rounded-lg p-2.5 text-sm hover:bg-gray-100 focus:outline-none focus:ring-4 focus:ring-gray-200 dark:text-light-purple dark:hover:bg-dark-purple dark:focus:ring-cherry"
+              aria-label="Search button"
+              data-search-open
+            >
+              <Icon name="tabler:search" class="h-5 w-5" />
+            </button>
+          )
+        }
         {showToggleTheme && <ToggleTheme iconClass="w-5 h-5" />}
-
         {
           showRssFeed && (
             <a
@@ -214,6 +237,7 @@ const {
             ''
           )
         }
+        <LanguageSelector languageMapping={{ en: '', 'pt-BR': '' }} showFlag={true} class="ml-2 bg-transparent" />
       </div>
     </div>
   </div>
