@@ -8,7 +8,7 @@
   }
 
   dialog::backdrop {
-    @apply bg-pastel-purple/95 dark:bg-darker-purple/90;
+    @apply bg-muted-purple dark:bg-darker-purple/95;
   }
 
   [data-share-dialog]:modal {

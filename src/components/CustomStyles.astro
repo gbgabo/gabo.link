@@ -31,7 +31,7 @@ import '@fontsource-variable/jetbrains-mono';
     content-visibility: auto;
   }
 
-  .pagefind-ui {
+  .dark .pagefind-ui {
     --pagefind-ui-scale: 0.75;
     --pagefind-ui-primary: var(--aw-color-secondary);
     --pagefind-ui-text: var(--wb-acid-green);
@@ -42,13 +42,24 @@ import '@fontsource-variable/jetbrains-mono';
     --pagefind-ui-background: var(--wb-dark-purple);
   }
 
+  .pagefind-ui {
+    --pagefind-ui-scale: 0.75;
+    --pagefind-ui-primary: var(--wb-darker-purple);
+    --pagefind-ui-text: var(--wb-darker-purple);
+    --pagefind-ui-border: var(--wb-light-purple);
+    --pagefind-ui-border-width: 2px;
+    --pagefind-ui-border-radius: 2rem;
+    --pagefind-ui-font: var(--aw-font-sans);
+    --pagefind-ui-background: var(--wb-muted-purple);
+  }
+
   .pagefind-ui.red {
     --pagefind-ui-background: var(--wb-dark-purple);
     width: 100%;
   }
 
   .pagefind-ui .pagefind-ui__drawer:not(.pagefind-ui__hidden) {
-    padding: 1rem 2em 1em;
+    padding: 1em;
     overflow-y: auto;
     box-shadow:
       0 10px 10px -5px rgba(0, 0, 0, 0.2),
@@ -69,7 +80,7 @@ import '@fontsource-variable/jetbrains-mono';
   }
 
   .pagefind-ui .pagefind-ui__search-input {
-    color: var(--aw-color-secondary);
+    color: var(--pagefind-ui-primary);
   }
 
   .pagefind-ui .pagefind-ui__search-input:before {
@@ -78,6 +89,14 @@ import '@fontsource-variable/jetbrains-mono';
 
   .pagefind-ui .pagefind-ui__result-link {
     color: var(--pagefind-ui-text);
+  }
+
+  .pagefind-ui .pagefind-ui__message {
+    color: var(--pagefind-ui-text);
+  }
+
+  .pagefind-ui .pagefind-ui__result:last-of-type {
+    border-bottom: none !important;
   }
 
   .pagefind-ui .pagefind-ui__result-link {

@@ -3,7 +3,10 @@ import { Icon } from 'astro-icon/components';
 import Search from 'astro-pagefind/components/Search';
 ---
 
-<dialog data-search-dialog class="fixed m-auto h-fit w-full max-w-3xl rounded-[2rem] p-2 dark:bg-darker-purple/90">
+<dialog
+  data-search-dialog
+  class="fixed m-auto h-fit w-full max-w-3xl rounded-[2rem] bg-light-purple/30 p-2 dark:bg-darker-purple/90"
+>
   <Search
     id="search"
     className="pagefind-ui mb-14 w-full"
@@ -13,7 +16,7 @@ import Search from 'astro-pagefind/components/Search';
   />
   <button
     data-search-close
-    class="sticky bottom-2 left-4 inline-flex w-fit flex-row items-center rounded-full bg-cherry px-3 py-2 font-medium text-acid-green"
+    class="text btn-primary sticky bottom-2 left-4 inline-flex w-fit flex-row items-center rounded-full px-3 py-2 font-medium"
   >
     <Icon class="h-7 w-7" name="tabler:x" />
   </button>
