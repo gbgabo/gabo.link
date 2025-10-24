@@ -9,11 +9,18 @@ import Search from 'astro-pagefind/components/Search';
 >
   <Search
     id="search"
-    className="pagefind-ui mb-14 w-full"
+    className="pagefind-ui w-full"
     uiOptions={{
       showImages: false,
     }}
   />
+  <div class="-mt-5 hidden rounded-b-3xl pb-9 pt-14 dark:bg-light-purple dark:text-darker-purple">
+    <div class="mb-5 flex flex-col items-center px-4 text-center">
+      <Icon class="mb-1 h-12 w-12" name="tabler:search" />
+      <h1 class="mb-2 text-xl font-semibold">Explore o site</h1>
+      <p>A pesquisa verificará em títulos, transcrições de episódios e posts.</p>
+    </div>
+  </div>
   <button
     data-search-close
     class="text btn-primary sticky bottom-2 left-4 inline-flex w-fit flex-row items-center rounded-full px-3 py-2 font-medium"
