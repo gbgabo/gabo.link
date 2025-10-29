@@ -132,7 +132,11 @@ const links = [
   <div class="mx-auto max-w-7xl px-6 pt-12 sm:px-6 sm:py-16 lg:py-20">
     <div class="grid grid-cols-main-left">
       <div class="col-start-1 col-end-2">
-        <Headline left>/about <span class="text-muted">#<span class="me">me</span></span></Headline>
+        <Headline left
+          >/<span class="lowercase">{t('about.meta.title')}</span><span class="text-muted">
+            #<span class="me">me</span></span
+          ></Headline
+        >
         <p class="my-8 text-lg">{t('about.subtitle')}</p>
         <Picture
           class="my-8 w-full max-w-4xl rounded-md"
