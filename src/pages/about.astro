@@ -132,7 +132,7 @@ const links = [
   <div class="mx-auto max-w-7xl px-6 pt-12 sm:px-6 sm:py-16 lg:py-20">
     <div class="grid grid-cols-main-left">
       <div class="col-start-1 col-end-2">
-        <Headline left>/about <span class="text-muted">#me</span></Headline>
+        <Headline left>/about <span class="text-muted">#<span class="me">me</span></span></Headline>
         <p class="my-8 text-lg">{t('about.subtitle')}</p>
         <Picture
           class="my-8 w-full max-w-4xl rounded-md"
@@ -144,7 +144,7 @@ const links = [
           src={import('~/assets/images/about.jpg')}
           alt="screenshot"
         />
-        <h2 class="my-8 text-3xl font-bold">{t('about.title')}</h2>
+        <h2 class="my-8 text-2xl font-bold md:text-3xl">{t('about.title')}</h2>
         <section>
           <h2
             class="scroll-mt-28 text-lg font-semibold uppercase tracking-wide text-grape dark:text-light-purple"
@@ -272,4 +272,43 @@ const links = [
       })
     }
   </ul>
+  <script define:vars={{ aliases: t('about.aliases') }}>
+    function typeWords(selector, words, speed = 100, pause = 1000) {
+      const el = document.querySelector(selector);
+      if (!el || !words.length) return;
+
+      let wordIndex = 0;
+      let charIndex = 0;
+      let deleting = false;
+
+      function step() {
+        const currentWord = words[wordIndex];
+
+        if (!deleting) {
+          // typing
+          el.textContent = currentWord.slice(0, charIndex + 1);
+          charIndex++;
+          if (charIndex === currentWord.length) {
+            if (wordIndex === words.length - 1) return; // last word done
+            deleting = true;
+            return setTimeout(step, pause);
+          }
+        } else {
+          // deleting
+          el.textContent = currentWord.slice(0, charIndex - 1);
+          charIndex--;
+          if (charIndex === 0) {
+            deleting = false;
+            wordIndex++;
+          }
+        }
+
+        setTimeout(step, deleting ? speed / 2 : speed);
+      }
+
+      step();
+    }
+
+    typeWords('.me', aliases.split(','), 120, 1000);
+  </script>
 </Layout>
