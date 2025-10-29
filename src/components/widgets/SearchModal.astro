@@ -1,19 +1,31 @@
 ---
 import { Icon } from 'astro-icon/components';
 import Search from 'astro-pagefind/components/Search';
+import i18next, { t } from 'i18next';
 ---
 
 <dialog
   data-search-dialog
+  data-pagefind-ignore="all"
   class="fixed m-auto h-fit w-full max-w-3xl rounded-[2rem] bg-light-purple/30 p-2 dark:bg-darker-purple/90"
 >
   <Search
     id="search"
-    className="pagefind-ui mb-14 w-full"
+    className="pagefind-ui w-full"
     uiOptions={{
       showImages: false,
+      showSubResults: true,
     }}
   />
+  <div
+    class="-mt-5 hidden rounded-b-3xl bg-light-purple pb-9 pt-14 text-grape dark:bg-dark-purple dark:text-light-purple"
+  >
+    <div class="mb-5 flex flex-col items-center px-4 text-center">
+      <Icon class="mb-1 h-12 w-12 text-darker-purple dark:text-acid-green" name="tabler:search" />
+      <h1 class="mb-2 text-xl font-bold text-darker-purple dark:text-acid-green">{t('site.search.title')}</h1>
+      <p>{t('site.search.description')}</p>
+    </div>
+  </div>
   <button
     data-search-close
     class="text btn-primary sticky bottom-2 left-4 inline-flex w-fit flex-row items-center rounded-full px-3 py-2 font-medium"

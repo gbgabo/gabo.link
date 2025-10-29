@@ -6,6 +6,10 @@
     "about": "/sobre",
     "articles": "/textos",
     "lists": "/listas",
+    "search": {
+      "title": "Explore o blog",
+      "description": "Pesquise por páginas, textos e listas publicadas"
+    },
     "footer": {
       "footNote": "Tema escuro <span class='dark:hidden'>(e claro também?)</span> baseado no <a class='hover:underline font-bold text-pink' href='https://wildberries.style/''><img class='w-5 h-5 md:w-6 md:h-6 bg-cover inline-block align-bottom rounded-sm mr-1' src='https://wildberries.style/img/ui/wb_logo.svg' alt='logo do tema wildberies'/>Wildberries</a>"
     }

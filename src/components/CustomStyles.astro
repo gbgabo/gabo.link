@@ -70,6 +70,10 @@ import '@fontsource-variable/jetbrains-mono';
     color: var(--wb-muted-purple);
   }
 
+  .pagefind-ui:has(.pagefind-ui__drawer.pagefind-ui__hidden) + div {
+    display: block;
+  }
+
   .pagefind-ui .pagefind-ui__result-excerpt {
     color: var(--pagefind-ui-primary);
   }

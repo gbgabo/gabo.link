@@ -6,6 +6,10 @@
     "about": "/about",
     "articles": "/articles",
     "lists": "/lists",
+    "search": {
+      "title": "Explore the blog",
+      "description": "Search from published pages, articles and lists"
+    },
     "footer": {
       "footNote": "Dark <span class='dark:hidden'>(and maybe light?)</span> theme based on <a class='hover:underline font-bold text-pink' href='https://wildberries.style/''><img class='w-5 h-5 md:w-6 md:h-6 bg-cover inline-block align-bottom rounded-sm mr-1' src='https://wildberries.style/img/ui/wb_logo.svg' alt='wildberries theme logo'/>Wildberries</a>"
     }

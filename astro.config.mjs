@@ -34,7 +34,11 @@ export default defineConfig({
     }),
     sitemap(),
     mdx(),
-    pagefind(),
+    pagefind({
+      indexConfig: {
+        excludeSelectors: ["[class^='language']", 'pre'],
+      },
+    }),
     icon({
       include: {
         tabler: ['*'],
