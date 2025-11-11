@@ -47,6 +47,23 @@ import { SITE } from '~/config.mjs';
   };
 
   window.onload = function () {
+    // External Link Handle
+    const currentDomain = window.location.hostname;
+    const allLinks = document.querySelectorAll('a[href]');
+
+    allLinks.forEach((link) => {
+      try {
+        const linkUrl = new URL(link.href);
+        if (linkUrl.hostname !== currentDomain && !linkUrl.hostname.includes(currentDomain)) {
+          link.setAttribute('target', '_blank');
+          // Optional: add rel="noopener noreferrer" for security
+          link.setAttribute('rel', 'noopener noreferrer');
+        }
+      } catch (e) {
+        // Handle invalid URLs or relative paths
+      }
+    });
+
     let lastKnownScrollPosition = window.scrollY;
     let ticking = true;
 
