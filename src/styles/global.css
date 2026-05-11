@@ -1,4 +1,5 @@
 @import 'tailwindcss';
+
 @plugin "@tailwindcss/typography";
 
 @custom-variant dark (&:where(.dark, .dark *));
@@ -41,16 +42,6 @@
       opacity: 1;
       transform: translateY(0%);
     }
-  }
-}
-
-@layer base {
-  *,
-  ::after,
-  ::before,
-  ::backdrop,
-  ::file-selector-button {
-    border-color: var(--color-gray-200, currentcolor);
   }
 }
 
@@ -101,8 +92,18 @@
 }
 
 @layer base {
+  *,
+  ::after,
+  ::before,
+  ::backdrop,
+  ::file-selector-button {
+    border-color: var(--color-gray-200, currentcolor);
+  }
+}
+
+@layer base {
   a {
-    @apply break-words;
+    @apply wrap-break-word;
   }
 
   dialog::backdrop {

@@ -32,7 +32,7 @@ const {
 } = Astro.props;
 ---
 
-<section class="relative h-auto md:-mt-[110px]">
+<section class="relative h-auto md:mt-[-110px]">
   <div class="pointer-events-none absolute inset-0" aria-hidden="true">
     {
       background && (
@@ -59,7 +59,7 @@ const {
     <div class="grid grid-cols-4 gap-4 py-12 md:py-20">
       <div class="relative col-span-4 m-auto md:col-span-1">
         <div
-          class="mx-auto mb-4 h-52 w-52 overflow-hidden rounded-full border-8 border-light-purple bg-gradient-to-br from-pastel-purple from-0% via-50% to-light-purple to-100% shadow-lg dark:border-cherry dark:from-cherry dark:via-dark-purple dark:to-darker-purple md:h-60 md:w-60"
+          class="mx-auto mb-4 h-52 w-52 overflow-hidden rounded-full border-8 border-light-purple bg-linear-to-br from-pastel-purple from-0% via-50% to-light-purple to-100% shadow-lg dark:border-cherry dark:from-cherry dark:via-dark-purple dark:to-darker-purple md:h-60 md:w-60"
         >
           <Picture
             class="mx-auto w-full rounded-md"

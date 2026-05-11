@@ -74,7 +74,7 @@ const link = !BLOG?.post?.disabled ? getPermalink(post.permalink, 'post') : '';
       </h2>
     </header>
 
-    {post.excerpt && <p class="text-muted flex-grow text-lg dark:text-slate-400">{post.excerpt}</p>}
+    {post.excerpt && <p class="text-muted grow text-lg dark:text-slate-400">{post.excerpt}</p>}
     <div class="mt-2 text-sm">
       <Icon name="tabler:clock" class="-mt-0.5 inline-block h-3.5 w-3.5 dark:text-gray-400" />
       <time datetime={String(post.publishDate)}>{getFormattedDate(post.publishDate)}</time>

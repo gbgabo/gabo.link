@@ -117,7 +117,7 @@ export const GET = async ({ props }) => {
               {
                 type: 'span',
                 props: {
-                  tw: 'bg-[#c79bff] text-[#19002e] mb-3 text-4xl rounded-2xl py-3 px-5 mr-auto',
+                  tw: 'bg-light-purple text-darker-purple mb-3 text-4xl rounded-2xl py-3 px-5 mr-auto',
                   children: 'gabo.link',
                 },
               },
