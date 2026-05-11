@@ -66,6 +66,10 @@ export default defineConfig({
     syntaxHighlight: 'prism',
   },
 
+  image: {
+    dangerouslyProcessSVG: true,
+  },
+
   vite: {
     resolve: {
       alias: {
