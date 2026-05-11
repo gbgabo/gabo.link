@@ -6,11 +6,9 @@ import { Picture } from 'astro:assets';
 import { Icon } from 'astro-icon/components';
 import { getAsset, getPermalink } from '~/utils/permalinks';
 import ExternalLink from '~/components/blog/content/ExternalLink.astro';
-import i18next, { t, changeLanguage } from 'i18next';
+import i18next, { t } from 'i18next';
 import { bentoGrids } from '~/data';
 import Bento from '~/components/widgets/Bento.astro';
-
-changeLanguage('en');
 
 const meta = {
   title: t('about.meta.title'),

@@ -1,6 +1,5 @@
 ---
 import { AstroSeo } from '@astrolib/seo';
-import { GoogleAnalytics } from '@astrolib/analytics';
 import { getImage } from 'astro:assets';
 
 import { SITE } from '~/config.mjs';
@@ -45,50 +44,18 @@ const image =
   typeof _image === 'string'
     ? new URL(_image, Astro.url)
     : _image && typeof _image['src'] !== 'undefined'
-    ? // @ts-ignore
-      new URL(getRelativeUrlByFilePath(_image.src), Astro.url)
-    : null;
+      ? // @ts-ignore
+        new URL(getRelativeUrlByFilePath(_image.src), Astro.url)
+      : null;
 ---
 
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-<AstroSeo
-  title={title}
-  titleTemplate={dontUseTitleTemplate ? '%s' : `%s — ${SITE.name}`}
-  description={description}
-  canonical={String(canonical)}
-  noindex={noindex}
-  nofollow={nofollow}
-  openGraph={{
-    url: String(canonical),
-    title: ogTitle,
-    description: description,
-    type: ogType,
-    images: image
-      ? [
-          {
-            url: image.toString(),
-            alt: ogTitle,
-          },
-        ]
-      : undefined,
-    // site_name: 'SiteName',
-  }}
-  twitter={{
-    // handle: '@handle',
-    // site: '@site',
-    cardType: image ? 'summary_large_image' : undefined,
-  }}
-/>
-
 <CustomStyles />
 
 <!-- Google Site Verification -->
 {SITE.googleSiteVerificationId && <meta name="google-site-verification" content={SITE.googleSiteVerificationId} />}
-
-<!-- Google Analytics -->
-{SITE.googleAnalyticsId && <GoogleAnalytics id={String(SITE.googleAnalyticsId)} partytown={true} />}
 
 {SITE.splitbeeAnalytics?.enabled && <SplitbeeAnalytics {...SITE.splitbeeAnalytics} />}
 
