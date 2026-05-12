@@ -117,9 +117,7 @@
   ::file-selector-button {
     border-color: var(--color-gray-200, currentcolor);
   }
-}
 
-@layer base {
   a {
     @apply wrap-break-word;
   }
