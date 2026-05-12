@@ -13,10 +13,6 @@
 */
 
 :root {
-  --aw-font-sans: 'JetBrains Mono Variable', sans-serif;
-  --aw-font-serif: var(--aw-font-sans);
-  --aw-font-heading: var(--aw-font-sans);
-
   --aw-color-primary: rgb(144, 0, 72);
   --aw-color-secondary: rgb(199, 155, 255);
   --aw-color-accent: rgb(0, 255, 183);
@@ -49,9 +45,9 @@
   --color-pastel-purple: #e7d4ff;
   --color-muted-purple: var(--wb-muted-purple);
 
-  --font-sans: var(--aw-font-sans);
-  --font-serif: var(--aw-font-serif);
-  --font-heading: var(--aw-font-heading);
+  --font-sans: var(--font-jetbrains-mono);
+  --font-serif: var(--font-sans);
+  --font-heading: var(--font-sans);
 
   --animate-fade-up: fade-up 0.3s;
 

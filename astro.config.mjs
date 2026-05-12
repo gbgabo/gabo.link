@@ -1,7 +1,7 @@
 import path from 'path';
 import { fileURLToPath } from 'url';
 
-import { defineConfig } from 'astro/config';
+import { defineConfig, fontProviders } from 'astro/config';
 
 import sitemap from '@astrojs/sitemap';
 import mdx from '@astrojs/mdx';
@@ -70,6 +70,14 @@ export default defineConfig({
     dangerouslyProcessSVG: true,
   },
 
+  fonts: [{
+      provider: fontProviders.fontsource(),
+      name: "JetBrains Mono",
+      cssVariable: "--font-jetbrains-mono",
+      weights: [400, 500],
+      formats: ["ttf"]
+    }],
+  
   vite: {
     resolve: {
       alias: {

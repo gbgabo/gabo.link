@@ -1,7 +1,7 @@
 ---
 import '~/styles/global.css';
 import '~/styles/pagefind.css';
-import '@fontsource-variable/jetbrains-mono';
+import { Font } from 'astro:assets';
 
 import MetaTags from '~/components/common/MetaTags.astro';
 import BasicScripts from '~/components/common/BasicScripts.astro';
@@ -24,6 +24,7 @@ const { textDirection = 'ltr' } = SITE;
 <html lang={i18next.language} dir={textDirection} class="2xl:text-[20px]">
   <head>
     <MetaTags {...meta} />
+    <Font cssVariable="--font-jetbrains-mono" />
     <link href={getAsset('prism.css')} rel="stylesheet" />
     {
       Astro.url.hostname !== 'localhost' && (
