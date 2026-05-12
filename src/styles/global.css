@@ -1,6 +1,5 @@
 @import 'tailwindcss';
-
-@plugin "@tailwindcss/typography";
+@plugin '@tailwindcss/typography';
 
 @custom-variant dark (&:where(.dark, .dark *));
 
@@ -12,6 +11,29 @@
   If we ever want to remove these styles, we need to add an explicit border
   color utility to any element that depends on these defaults.
 */
+
+:root {
+  --aw-font-sans: 'JetBrains Mono Variable', sans-serif;
+  --aw-font-serif: var(--aw-font-sans);
+  --aw-font-heading: var(--aw-font-sans);
+
+  --aw-color-primary: rgb(144, 0, 72);
+  --aw-color-secondary: rgb(199, 155, 255);
+  --aw-color-accent: rgb(0, 255, 183);
+  --aw-color-text-page: rgb(25, 0, 46);
+  --aw-color-text-muted: rgb(75 85 99);
+  --aw-color-bg-page: rgb(236, 222, 255);
+
+  --wb-dark-purple: #240041;
+  --wb-darker-purple: #19002e;
+  --wb-acid-green: #00ffb7;
+  --wb-cherry: #900048;
+  --wb-pink: #ff0e82;
+  --wb-light-purple: #c79bff;
+  --wb-grape: #752dce;
+  --wb-pastel-purple: #e7d4ff;
+  --wb-muted-purple: #ecdeff;
+}
 
 @theme {
   --color-primary: var(--aw-color-primary);
@@ -168,4 +190,13 @@ svg {
 
 [data-toggle-filter].expanded {
   @apply text-dark-purple bg-light-purple dark:text-cherry dark:bg-acid-green;
+}
+
+:focus-visible {
+  outline: 0 !important;
+  box-shadow: none;
+}
+
+img {
+  content-visibility: auto;
 }
