@@ -1,5 +1,5 @@
 ---
-import { AstroSeo } from '@astrolib/seo';
+import { SEO } from 'astro-seo';
 import { getImage } from 'astro:assets';
 
 import { SITE } from '~/config.mjs';
@@ -52,13 +52,44 @@ const image =
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
+<SEO
+  title={title}
+  titleTemplate={dontUseTitleTemplate ? '%s' : `%s — ${SITE.name}`}
+  description={description}
+  canonical={String(canonical)}
+  noindex={noindex}
+  nofollow={nofollow}
+  openGraph={{
+    basic: {
+      url: String(canonical),
+      title: ogTitle,
+      description: description,
+      type: ogType,
+      image: image
+        ? [
+            {
+              url: image.href,
+              alt: ogTitle,
+            },
+          ]
+        : undefined,
+      // site_name: 'SiteName',
+    },
+  }}
+  twitter={{
+    // handle: '@handle',
+    // site: '@site',
+    cardType: image ? 'summary_large_image' : undefined,
+  }}
+/>
+
 <CustomStyles />
 
-<!-- Google Site Verification -->
 {SITE.googleSiteVerificationId && <meta name="google-site-verification" content={SITE.googleSiteVerificationId} />}
 
 {SITE.splitbeeAnalytics?.enabled && <SplitbeeAnalytics {...SITE.splitbeeAnalytics} />}
 
+<!-- Favicons -->
 <link rel="shortcut icon" href={getAsset('/favicon.ico')} />
 <link rel="icon" type="image/svg+xml" href={getAsset('/favicon.svg')} />
 <link rel="mask-icon" href={getAsset('/favicon.svg')} color="#8D46E7" />
