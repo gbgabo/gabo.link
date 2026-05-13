@@ -7,13 +7,15 @@ import i18next, { t } from 'i18next';
 <dialog
   data-search-dialog
   data-pagefind-ignore="all"
-  class="bg-light-purple/30 dark:bg-darker-purple/90 fixed m-auto h-fit w-full max-w-3xl rounded-4xl p-2"
+  class="fixed m-auto h-fit w-full max-w-3xl rounded-b-4xl md:max-h-3/4"
 >
   <PagefindConfig />
-  <div class="pagefind-ui">
-    <pagefind-input></pagefind-input>
+  <div class="pagefind-ui relative">
+    <div class="sticky top-0 z-10 p-1">
+      <pagefind-input></pagefind-input>
+    </div>
     <pagefind-summary></pagefind-summary>
-    <pagefind-results show-images></pagefind-results>
+    <div class="p-2"><pagefind-results show-images></pagefind-results></div>
   </div>
 
   <div

@@ -1,17 +1,18 @@
 .dark .pagefind-ui {
   --pf-font: var(--font-sans);
+
   --pf-text: var(--color-acid-green);
   --pf-text-secondary: var(--color-light-purple);
-  --pf-text-muted: #949494;
+  --pf-text-muted: var(--color-light-purple);
   --pf-background: var(--color-dark-purple);
   --pf-border: var(--color-cherry);
-  --pf-border-focus: #555;
+  --pf-border-focus: var(--color-light-purple);
   --pf-skeleton: #2a2a2a;
   --pf-skeleton-shine: #333;
   --pf-hover: #252525;
   --pf-mark: var(--color-acid-green);
   --pf-scroll-shadow: rgba(255, 255, 255, 0.1);
-  --pf-outline-focus: #58a6ff;
+  --pf-outline-focus: var(--color-cherry);
 
   --pf-shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.3);
   --pf-shadow-md: 0 4px 12px rgba(0, 0, 0, 0.4);
@@ -21,4 +22,12 @@
   --pf-error-border: #5c2828;
   --pf-error-text: #f87171;
   --pf-error-text-secondary: #ef4444;
+
+  --pf-input-height: 50px;
+  --pf-border-radius: 1rem;
+}
+
+.pf-input {
+  --pf-border-radius: 2rem;
+  --pf-text: var(--pf-text-muted);
 }
