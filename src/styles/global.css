@@ -20,15 +20,15 @@
   --aw-color-text-muted: rgb(75 85 99);
   --aw-color-bg-page: rgb(236, 222, 255);
 
-  --wb-dark-purple: #240041;
-  --wb-darker-purple: #19002e;
-  --wb-acid-green: #00ffb7;
-  --wb-cherry: #900048;
-  --wb-pink: #ff0e82;
-  --wb-light-purple: #c79bff;
-  --wb-grape: #752dce;
-  --wb-pastel-purple: #e7d4ff;
-  --wb-muted-purple: #ecdeff;
+  --wb-dark-purple: oklch(0.2116 0.1111 302.92);
+  --wb-darker-purple: oklch(0.1715 0.0894 304.32);
+  --wb-acid-green: oklch(0.8852 0.1888 163.93);
+  --wb-cherry: oklch(0.4225 0.1709 1.09);
+  --wb-pink: oklch(0.6483 0.2578 2.13);
+  --wb-light-purple: oklch(0.7679 0.1456 303.42);
+  --wb-grape: oklch(0.494 0.2265 297.51);
+  --wb-pastel-purple: oklch(0.8988 0.0614 305.2);
+  --wb-muted-purple: oklch(0.9218 0.0467 304.67);
 }
 
 @theme {
@@ -123,7 +123,11 @@
   }
 
   dialog::backdrop {
-    @apply bg-pastel-purple/95 dark:bg-darker-purple/90;
+    @apply bg-pastel-purple/95;
+  }
+
+  .dark dialog::backdrop {
+    @apply bg-darker-purple/90;
   }
 
   :modal {
