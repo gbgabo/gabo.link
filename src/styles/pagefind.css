@@ -31,3 +31,7 @@
   --pf-border-radius: 2rem;
   --pf-text: var(--pf-text-muted);
 }
+
+pagefind-results:not(:has(.pf-results > .pf-result)) + div {
+  display: block;
+}

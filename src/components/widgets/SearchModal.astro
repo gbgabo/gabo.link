@@ -7,29 +7,34 @@ import i18next, { t } from 'i18next';
 <dialog
   data-search-dialog
   data-pagefind-ignore="all"
-  class="fixed m-auto h-fit w-full max-w-3xl rounded-b-4xl md:max-h-3/4"
+  class="fixed inset-x-0 top-4 mx-auto w-full max-w-3xl overflow-hidden rounded-b-4xl"
 >
   <PagefindConfig />
-  <div class="pagefind-ui relative">
+
+  <div class="pagefind-ui flex max-h-[85vh] flex-col">
     <div class="sticky top-0 z-10 p-1">
       <pagefind-input></pagefind-input>
     </div>
-    <pagefind-summary></pagefind-summary>
-    <div class="p-2"><pagefind-results show-images></pagefind-results></div>
-  </div>
 
-  <div
-    class="bg-light-purple text-grape dark:bg-dark-purple dark:text-light-purple -mt-5 hidden rounded-b-3xl pt-14 pb-9"
-  >
-    <div class="mb-5 flex flex-col items-center px-4 text-center">
-      <Icon class="text-darker-purple dark:text-acid-green mb-1 h-12 w-12" name="tabler:search" />
-      <h1 class="text-darker-purple dark:text-acid-green mb-2 text-xl font-bold">{t('site.search.title')}</h1>
-      <p>{t('site.search.description')}</p>
+    <div class="overflow-y-auto px-2 pb-10">
+      <div class="my-2"><pagefind-summary></pagefind-summary></div>
+
+      <pagefind-results show-images></pagefind-results>
+      <div
+        class="bg-light-purple text-grape dark:bg-dark-purple dark:text-light-purple -mt-5 hidden rounded-b-3xl pt-14 pb-9"
+      >
+        <div class="mb-5 flex flex-col items-center px-4 text-center">
+          <Icon class="text-darker-purple dark:text-acid-green mb-1 h-12 w-12" name="tabler:search" />
+          <h1 class="text-darker-purple dark:text-acid-green mb-2 text-xl font-bold">{t('site.search.title')}</h1>
+          <p>{t('site.search.description')}</p>
+        </div>
+      </div>
     </div>
   </div>
+
   <button
     data-search-close
-    class="text btn-primary sticky bottom-2 left-4 inline-flex w-fit flex-row items-center rounded-full px-3 py-2 font-medium"
+    class="btn-primary absolute right-4 bottom-4 inline-flex items-center rounded-full px-3 py-2 font-medium"
   >
     <Icon class="h-7 w-7" name="tabler:x" />
   </button>
