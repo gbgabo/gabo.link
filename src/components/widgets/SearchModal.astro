@@ -4,11 +4,7 @@ import PagefindConfig from 'astro-pagefind/components/PagefindConfig.astro';
 import i18next, { t } from 'i18next';
 ---
 
-<dialog
-  data-search-dialog
-  data-pagefind-ignore="all"
-  class="fixed inset-x-0 top-4 mx-auto w-full max-w-3xl overflow-hidden rounded-b-4xl"
->
+<dialog data-search-dialog data-pagefind-ignore="all" class="w-full max-w-3xl">
   <PagefindConfig />
 
   <div class="pagefind-ui flex max-h-[85vh] flex-col">
@@ -16,7 +12,7 @@ import i18next, { t } from 'i18next';
       <pagefind-input></pagefind-input>
     </div>
 
-    <div class="overflow-y-auto px-2 pb-10">
+    <div class="-mt-6 overflow-y-auto rounded-b-4xl px-2 pt-5 pb-10">
       <div class="my-2"><pagefind-summary></pagefind-summary></div>
 
       <pagefind-results show-images></pagefind-results>
