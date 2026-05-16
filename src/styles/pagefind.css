@@ -2,7 +2,7 @@
   --pf-font: var(--font-sans);
 
   --pf-input-height: 50px;
-  --pf-border-radius: 2rem;
+  --pf-border-radius: 1rem;
 
   --pf-text: var(--color-grape);
   --pf-text-secondary: var(--color-darker-purple);
