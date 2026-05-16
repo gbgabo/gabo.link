@@ -226,7 +226,26 @@ import { SITE } from '~/config.mjs';
         openButtons.forEach((button) => {
           button.addEventListener('click', () => {
             modal.showModal();
+            document.documentElement.classList.add('overflow-hidden');
           });
+        });
+
+        modal.addEventListener('close', () => {
+          document.documentElement.classList.remove('overflow-hidden');
+        });
+
+        modal.addEventListener('click', (event) => {
+          const rect = modal.getBoundingClientRect();
+
+          const isInside =
+            event.clientX >= rect.left &&
+            event.clientX <= rect.right &&
+            event.clientY >= rect.top &&
+            event.clientY <= rect.bottom;
+
+          if (!isInside) {
+            modal.close();
+          }
         });
 
         closeButton.addEventListener('click', () => {
