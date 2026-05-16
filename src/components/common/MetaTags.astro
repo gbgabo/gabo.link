@@ -65,14 +65,7 @@ const image =
       title: ogTitle,
       description: description,
       type: ogType,
-      image: image
-        ? [
-            {
-              url: image.href,
-              alt: ogTitle,
-            },
-          ]
-        : undefined,
+      image: image ? image.href : undefined,
       // site_name: 'SiteName',
     },
   }}
