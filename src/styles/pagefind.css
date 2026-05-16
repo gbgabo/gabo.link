@@ -9,8 +9,8 @@
   --pf-border-focus: var(--color-light-purple);
   --pf-skeleton: #2a2a2a;
   --pf-skeleton-shine: #333;
-  --pf-hover: #252525;
-  --pf-mark: var(--color-acid-green);
+  --pf-hover: var(--color-dark-purple);
+  --pf-mark: var(--color-darker-purple);
   --pf-scroll-shadow: rgba(255, 255, 255, 0.1);
   --pf-outline-focus: var(--color-cherry);
 
@@ -30,8 +30,24 @@
 .pf-input {
   --pf-border-radius: 2rem;
   --pf-text: var(--pf-text-muted);
+  --pf-background: var(--color-darker-purple);
 }
 
 pagefind-results:not(:has(.pf-results > .pf-result)) + div {
   display: block;
+}
+
+.pf-input-clear {
+  font-family: var(--pf-font) !important;
+}
+
+:is(*, #\#):is(*, #\#):is(*, #\#) .pf-result-excerpt mark,
+:is(*, #\#):is(*, #\#):is(*, #\#) .pf-heading-excerpt mark,
+:is(*, #\#):is(*, #\#):is(*, #\#) .pf-searchbox-result-excerpt mark {
+  background: var(--color-light-purple) !important;
+}
+
+:is(*, #\#):is(*, #\#):is(*, #\#) .pf-input-wrapper::before,
+:is(*, #\#):is(*, #\#):is(*, #\#) .pf-searchbox-input-wrapper::before {
+  background-color: var(--color-acid-green) !important;
 }
