@@ -128,7 +128,7 @@ const links = [
 
 <Layout breadcrumbs={[{ title: t('about.meta.title'), href: '#top' }]} {meta}>
   <div class="mx-auto max-w-7xl px-6 pt-12 sm:px-6 sm:py-16 lg:py-20">
-    <div class="grid grid-cols-main-left">
+    <div class="grid grid-cols-(--grid-main-left)">
       <div class="col-start-1 col-end-2">
         <Headline left
           >/<span class="lowercase">{t('about.meta.title')}</span><span class="text-muted">
@@ -149,7 +149,7 @@ const links = [
         <h2 class="my-8 text-2xl font-bold md:text-3xl">{t('about.title')}</h2>
         <section>
           <h2
-            class="scroll-mt-28 text-lg font-semibold uppercase tracking-wide text-grape dark:text-light-purple"
+            class="text-grape dark:text-light-purple scroll-mt-28 text-lg font-semibold tracking-wide uppercase"
             id="education"
           >
             {t('about.education')}
@@ -161,7 +161,7 @@ const links = [
         <!-- Skills -->
         <section>
           <h2
-            class="scroll-mt-28 text-lg font-semibold uppercase tracking-wide text-grape dark:text-light-purple"
+            class="text-grape dark:text-light-purple scroll-mt-28 text-lg font-semibold tracking-wide uppercase"
             id="skills"
           >
             {t('about.skillsHeader')}
@@ -171,7 +171,7 @@ const links = [
               skills.map(({ title, icon }) => {
                 return (
                   <li class="inline-flex items-center">
-                    <Icon name={icon} class="icon-light m-2 h-7 w-7 text-light-purple dark:text-light-purple" />
+                    <Icon name={icon} class="icon-light text-light-purple dark:text-light-purple m-2 h-7 w-7" />
                     <p class="ml-2">{title}</p>
                   </li>
                 );
@@ -182,7 +182,7 @@ const links = [
         </section>
         <!-- Topics  -->
         <section class="prose-a:text-grape dark:prose-a:text-acid-green">
-          <h2 class="text-lg font-semibold uppercase tracking-wide text-grape dark:text-light-purple">
+          <h2 class="text-grape dark:text-light-purple text-lg font-semibold tracking-wide uppercase">
             {t('about.topicsHeader')}
           </h2>
           <ul>
@@ -190,8 +190,8 @@ const links = [
               topics.map(({ title, description, icon }) => (
                 <li>
                   <div class="my-8 flex flex-row">
-                    <div class="mb-4 mr-5">
-                      <div class="flex h-12 w-12 items-center justify-center rounded-full bg-light-purple text-white dark:bg-dark-purple dark:text-acid-green">
+                    <div class="mr-5 mb-4">
+                      <div class="bg-light-purple dark:bg-dark-purple dark:text-acid-green flex h-12 w-12 items-center justify-center rounded-full text-white">
                         {icon && <Icon name={icon} class="icon-light h-6 w-6" />}
                       </div>
                     </div>
@@ -208,17 +208,17 @@ const links = [
         </section>
         <!-- What I Use -->
         <section>
-          <h2 id="what-i-use" class="text-lg font-semibold uppercase tracking-wide text-grape dark:text-light-purple">
+          <h2 id="what-i-use" class="text-grape dark:text-light-purple text-lg font-semibold tracking-wide uppercase">
             {t('about.usesHeader')}
           </h2>
-          <div class="my-8 grid items-stretch gap-6 dark:text-white sm:grid-cols-1 md:grid-cols-2">
+          <div class="my-8 grid items-stretch gap-6 sm:grid-cols-1 md:grid-cols-2 dark:text-white">
             {
               use.map(({ href, title, description, icon, external }) => {
                 return (
                   <a href={href}>
-                    <div class="relative flex h-full flex-col rounded border-2 border-light-purple bg-pastel-purple p-6 shadow-lg transition hover:shadow-md dark:border-cherry dark:bg-dark-purple">
+                    <div class="border-light-purple bg-pastel-purple dark:border-cherry dark:bg-dark-purple relative flex h-full flex-col rounded border-2 p-6 shadow-lg transition hover:shadow-md">
                       <div class="flex items-center">
-                        <Icon name={icon} class="h-10 w-10 text-grape dark:text-acid-green" />
+                        <Icon name={icon} class="text-grape dark:text-acid-green h-10 w-10" />
                         <div class="ml-4 text-xl font-bold">
                           {title}
                           {external && (
@@ -234,12 +234,12 @@ const links = [
             }
           </div>
         </section>
-        <h2 class="text-base font-semibold uppercase tracking-wide text-grape dark:text-light-purple md:hidden">
+        <h2 class="text-grape dark:text-light-purple text-base font-semibold tracking-wide uppercase md:hidden">
           Get in touch!
         </h2>
       </div>
       <aside class="col-start-2 col-end-3 hidden md:col-span-1 md:block">
-        <ul class="lowercase text-acid-green md:sticky md:top-28 lg:ml-8">
+        <ul class="text-acid-green lowercase md:sticky md:top-28 lg:ml-8">
           <li class="mb-2">
             <Chip value={t('about.education')} variant="secondary" href="#education" />
           </li>
@@ -260,13 +260,13 @@ const links = [
     </div>
   </div>
   <ul
-    class="sticky bottom-16 mx-6 my-8 flex flex-row flex-wrap bg-linear-to-t from-transparent from-0% via-muted-purple via-10% pb-4 dark:via-darker-purple md:top-28 md:hidden"
+    class="via-muted-purple dark:via-darker-purple sticky bottom-16 mx-6 my-8 flex flex-row flex-wrap bg-linear-to-t from-transparent from-0% via-10% pb-4 md:top-28 md:hidden"
   >
     {
       links.map(({ href, title }) => {
         return (
-          <li class="mb-2 mr-2 inline-block rounded-md bg-grape px-2 py-0.5 font-medium lowercase dark:bg-cherry">
-            <a class="text-white hover:text-primary dark:text-acid-green dark:hover:text-gray-200" href={href}>
+          <li class="bg-grape dark:bg-cherry mr-2 mb-2 inline-block rounded-md px-2 py-0.5 font-medium lowercase">
+            <a class="hover:text-primary dark:text-acid-green text-white dark:hover:text-gray-200" href={href}>
               {title}
             </a>
           </li>
