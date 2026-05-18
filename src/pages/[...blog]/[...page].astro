@@ -1,4 +1,5 @@
 ---
+import type { GetStaticPaths } from 'astro';
 import { SITE, BLOG } from '~/config.mjs';
 
 import Layout from '~/layouts/PageLayout.astro';
@@ -12,13 +13,13 @@ import { fetchPosts } from '~/utils/blog';
 import { BLOG_BASE, languageSlug } from '~/utils/permalinks';
 import i18next, { t } from 'i18next';
 
-export async function getStaticPaths({ paginate }) {
+export const getStaticPaths = (async ({ paginate }) => {
   if (BLOG?.disabled || BLOG?.list?.disabled) return [];
   return paginate(await fetchPosts(i18next.language), {
     params: { blog: BLOG_BASE || undefined },
     pageSize: BLOG.postsPerPage,
   });
-}
+}) satisfies GetStaticPaths;
 
 const { page } = Astro.props;
 const currentPage = page.currentPage ?? 1;
