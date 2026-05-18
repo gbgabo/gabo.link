@@ -12,6 +12,41 @@
   color utility to any element that depends on these defaults.
 */
 
+@layer base {
+  *,
+  ::after,
+  ::before,
+  ::backdrop,
+  ::file-selector-button {
+    border-color: var(--color-gray-200, currentcolor);
+  }
+
+  a {
+    @apply wrap-break-word;
+  }
+
+  dialog::backdrop {
+    @apply bg-pastel-purple/95;
+  }
+
+  .dark dialog::backdrop {
+    @apply bg-darker-purple/90;
+  }
+
+  :modal {
+    @apply mx-auto flex h-full flex-col justify-center border-0 bg-transparent p-0;
+  }
+
+  :focus-visible {
+    outline: 0 !important;
+    box-shadow: none;
+  }
+
+  img {
+    content-visibility: auto;
+  }
+}
+
 :root {
   --aw-color-primary: rgb(144, 0, 72);
   --aw-color-secondary: rgb(199, 155, 255);
@@ -49,6 +84,11 @@
   --font-serif: var(--font-sans);
   --font-heading: var(--font-sans);
 
+  --web-node-color: rgb(212, 187, 244);
+  --web-node-bg-color: rgba(198, 155, 255, 0.827);
+  --logo-up-color: var(--wb-light-purple);
+  --logo-down-color: var(--wb-grape);
+
   --grid-main-left: min(100ch, 100%) 1fr;
 
   @keyframes fade-up {
@@ -63,6 +103,13 @@
   }
 
   --animate-fade-up: fade-up 0.3s;
+}
+
+.dark {
+  --web-node-color: var(--wb-dark-purple);
+  --web-node-bg-color: var(--wb-cherry);
+  --logo-up-color: var(--wb-acid-green);
+  --logo-down-color: var(--wb-pink);
 }
 
 @utility text-page {
@@ -93,48 +140,21 @@
   @apply bg-grape hover:bg-light-purple hover:text-darker-purple dark:text-acid-green dark:bg-primary dark:border-primary dark:hover:border-acid-green dark:hover:bg-acid-green dark:hover:text-cherry font-semibold text-white;
 }
 
-@utility menu-list {
-  @apply translate-y-96 opacity-0;
-  transition:
-    transform 0.3s cubic-bezier(0.86, 0, 0.07, 1),
-    opacity 0.3s;
-}
+@layer components {
+  [data-menu] {
+    @apply translate-y-96 opacity-0 transition-all md:translate-y-0 md:opacity-100;
+  }
 
-@utility menu-item {
-  @apply translate-y-1/2 opacity-0 transition-all md:translate-y-0 md:opacity-100;
+  .menu-item {
+    @apply translate-y-1/2 opacity-0 transition-all md:translate-y-0 md:opacity-100;
+  }
+
+  [data-menu].show .menu-item {
+    @apply translate-y-0 opacity-100;
+  }
 }
 
 @utility show {
-  @apply translate-y-0 opacity-100;
-}
-
-@layer base {
-  *,
-  ::after,
-  ::before,
-  ::backdrop,
-  ::file-selector-button {
-    border-color: var(--color-gray-200, currentcolor);
-  }
-
-  a {
-    @apply wrap-break-word;
-  }
-
-  dialog::backdrop {
-    @apply bg-pastel-purple/95;
-  }
-
-  .dark dialog::backdrop {
-    @apply bg-darker-purple/90;
-  }
-
-  :modal {
-    @apply mx-auto flex h-full flex-col justify-center border-0 bg-transparent p-0;
-  }
-}
-
-.menu-list.show .menu-item {
   @apply translate-y-0 opacity-100;
 }
 
@@ -144,20 +164,6 @@
 
 .dropdown:hover .dropdown-menu {
   display: block;
-}
-
-.dark svg {
-  --web-node-color: var(--wb-dark-purple);
-  --web-node-bg-color: var(--wb-cherry);
-  --logo-up-color: var(--wb-acid-green);
-  --logo-down-color: var(--wb-pink);
-}
-
-svg {
-  --web-node-color: rgb(212, 187, 244);
-  --web-node-bg-color: rgba(198, 155, 255, 0.827);
-  --logo-up-color: var(--wb-light-purple);
-  --logo-down-color: var(--wb-grape);
 }
 
 [astro-icon].icon-light > * {
@@ -186,13 +192,4 @@ svg {
 
 [data-toggle-filter].expanded {
   @apply text-dark-purple bg-light-purple dark:text-cherry dark:bg-acid-green;
-}
-
-:focus-visible {
-  outline: 0 !important;
-  box-shadow: none;
-}
-
-img {
-  content-visibility: auto;
 }

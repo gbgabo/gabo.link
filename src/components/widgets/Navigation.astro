@@ -1,0 +1,82 @@
+---
+import i18next, { t } from 'i18next';
+import { getPermalink } from '~/utils/permalinks';
+import { MenuLink } from './Header.astro';
+import { LanguageSelector } from 'astro-i18next/components';
+import { Icon } from 'astro-icon/components';
+import ToggleTheme from '~/components/common/ToggleTheme.astro';
+import NavLink from '~/components/common/NavLink.astro';
+
+let menuIndex = 1;
+const pathname = Astro.url.pathname;
+
+interface Props {
+  links: Array<MenuLink>;
+  showToggleTheme?: boolean;
+}
+
+const { links, showToggleTheme = false } = Astro.props;
+---
+
+<nav
+  data-menu
+  class="menu-list md:show bg-pastel-purple/90 dark:bg-darker-purple/90 absolute bottom-18 left-0 mx-auto h-fit w-full max-w-7xl overflow-hidden p-2 md:static md:mx-5 md:flex md:h-auto md:w-auto md:items-center md:justify-start md:overflow-visible md:bg-inherit dark:text-slate-200 md:dark:bg-inherit"
+  aria-label="Main navigation"
+>
+  <ul class="flex w-full flex-col text-xl md:w-auto md:flex-row md:items-center md:self-center md:pt-0 md:text-base">
+    {
+      links.map(({ text, href, links }, index) => {
+        const permalink = getPermalink(...href);
+        return (
+          <li class={links?.length ? 'dropdown' : ''} style={`--item-delay: ${menuIndex * 100}ms`}>
+            {links?.length ? (
+              <>
+                <button style={`transition-delay: var(--item-delay)`}>
+                  {href ? (
+                    <NavLink href={permalink} accent={permalink === pathname}>
+                      {t(text)}
+                      <Icon name="tabler:chevron-down" class="ml-2.5 hidden h-3.5 w-3.5 md:inline" />
+                    </NavLink>
+                  ) : (
+                    <span>
+                      {t(text)}
+                      <Icon name="tabler:chevron-down" class="ml-0.5 hidden h-3.5 w-3.5 md:inline" />
+                    </span>
+                  )}
+                </button>
+                <ul class="dropdown-menu dark:md:bg-dark-purple rounded pl-4 font-medium drop-shadow-xl md:absolute md:hidden md:min-w-50 md:bg-white/90 md:pl-0 md:backdrop-blur-md">
+                  {links.map(({ text: text2, href: href2 }, index2) => {
+                    const permalink2 = getPermalink(...href2);
+                    return (
+                      <li style={`--item-delay: ${menuIndex * 100}ms`}>
+                        <NavLink
+                          class="whitespace-no-wrap dark:hover:bg-darker-purple md:animate-fade-up md:hover:bg-gray-200"
+                          href={permalink2}
+                          accent={permalink2 === pathname}
+                        >
+                          {t(text2)}
+                        </NavLink>
+                      </li>
+                    );
+                  })}
+                </ul>
+              </>
+            ) : (
+              <NavLink href={permalink} accent={permalink === pathname}>
+                {t(text)}
+              </NavLink>
+            )}
+          </li>
+        );
+      })
+    }
+  </ul>
+  <div class="absolute right-2 bottom-2 flex flex-col gap-3 md:hidden">
+    {showToggleTheme && <ToggleTheme iconClass="w-5 h-5" />}
+    <LanguageSelector
+      languageMapping={{ en: '', 'pt-BR': '' }}
+      showFlag={true}
+      class="bg-pastel-purple dark:bg-dark-purple dark:text-light-purple dark:hover:bg-dark-purple inline-flex items-center rounded-lg p-2.5 text-sm hover:bg-gray-100"
+    />
+  </div>
+</nav>

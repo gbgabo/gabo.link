@@ -1,0 +1,17 @@
+---
+import { twMerge } from 'tailwind-merge';
+
+const { href, accent, class: className } = Astro.props;
+---
+
+<a
+  class={twMerge(
+    'dark:hover:bg-dark-purple flex items-center rounded-md px-4 py-3 lowercase hover:text-gray-900 md:py-2 md:hover:bg-gray-200 dark:hover:text-white',
+    className,
+    accent ? 'text-grape dark:text-light-purple font-extrabold' : 'font-medium'
+  )}
+  style={`transition-delay: var(--item-delay)`}
+  href={href}
+>
+  <slot />
+</a>

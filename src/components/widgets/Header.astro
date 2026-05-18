@@ -1,14 +1,12 @@
 ---
+import { getHomePermalink, getAsset, getPermalink } from '~/utils/permalinks';
+import { LanguageSelector } from 'astro-i18next/components';
 import { Icon } from 'astro-icon/components';
 import Logo from '~/components/Logo.astro';
 import ToggleTheme from '~/components/common/ToggleTheme.astro';
 import ToggleMenu from '~/components/common/ToggleMenu.astro';
-
-import { LanguageSelector } from 'astro-i18next/components';
-
-import i18next, { t } from 'i18next';
-import { getHomePermalink, getAsset, getPermalink } from '~/utils/permalinks';
-import Breadcrumbs from './Breadcrumbs.astro';
+import Breadcrumbs from '~/components/widgets/Breadcrumbs.astro';
+import Navigation from '~/components/widgets/Navigation.astro';
 
 interface Link {
   text: string;
@@ -21,7 +19,7 @@ interface ActionLink extends Link {
   type?: string;
 }
 
-interface MenuLink extends Link {
+export interface MenuLink extends Link {
   links?: Array<Link>;
 }
 
@@ -35,34 +33,6 @@ export interface Props {
   position?: string;
   breadcrumbs?: Array<{ title: string; href: string }>;
 }
-
-let menuIndex = 1;
-
-const pathname = Astro.url.pathname;
-
-const delayClasses = [
-  'delay-100',
-  'delay-200',
-  'delay-300',
-  'delay-400',
-  'delay-500',
-  'delay-600',
-  'delay-700',
-  'delay-800',
-  'delay-900',
-];
-
-const delayClassesMd = [
-  'md:delay-100',
-  'md:delay-200',
-  'md:delay-300',
-  'md:delay-400',
-  'md:delay-500',
-  'md:delay-600',
-  'md:delay-700',
-  'md:delay-800',
-  'md:delay-900',
-];
 
 const {
   links = [],
@@ -84,91 +54,7 @@ const {
   id="header"
 >
   <div class="mx-auto w-full max-w-7xl px-3 py-3 md:flex md:justify-start md:px-4 md:py-3.5">
-    <nav
-      class="menu-list md:show bg-pastel-purple/90 dark:bg-darker-purple/90 absolute bottom-16 left-0 mx-auto h-fit w-full max-w-7xl overflow-hidden p-2 md:static md:mx-5 md:flex md:h-auto md:w-auto md:items-center md:justify-start md:overflow-visible md:bg-inherit dark:text-slate-200 md:dark:bg-inherit"
-      aria-label="Main navigation"
-    >
-      <ul
-        class="flex w-full flex-col text-xl md:w-auto md:flex-row md:items-center md:self-center md:pt-0 md:text-base"
-      >
-        {
-          links.map(({ text, href, links }, index) => {
-            const permalink = getPermalink(...href);
-            return (
-              <li class={links?.length ? 'dropdown' : ''}>
-                {links?.length ? (
-                  <>
-                    <button
-                      class:list={[
-                        'menu-item dark:hover:bg-dark-purple flex w-full items-center rounded-md px-4 py-3 font-medium hover:text-gray-900 md:p-0 md:hover:bg-gray-200 dark:hover:text-white',
-                        delayClasses[menuIndex + index],
-                        delayClassesMd[index],
-                      ]}
-                    >
-                      {href ? (
-                        <a
-                          class={`w-full text-left lowercase md:px-4 md:py-2 ${permalink === pathname && 'text-grape dark:text-light-purple font-extrabold'}`}
-                          href={permalink}
-                        >
-                          {t(text)}
-                          <Icon name="tabler:chevron-down" class="ml-0.5 hidden h-3.5 w-3.5 md:inline" />
-                        </a>
-                      ) : (
-                        <span>
-                          {t(text)}
-                          <Icon name="tabler:chevron-down" class="ml-0.5 hidden h-3.5 w-3.5 md:inline" />
-                        </span>
-                      )}
-                    </button>
-                    <ul class="dropdown-menu dark:md:bg-dark-purple rounded pl-4 font-medium drop-shadow-xl md:absolute md:hidden md:min-w-50 md:bg-white/90 md:pl-0 md:backdrop-blur-md">
-                      {links.map(({ text: text2, href: href2 }, index2) => {
-                        menuIndex = index2 === 0 ? menuIndex + 1 : menuIndex + index2;
-                        const permalink2 = getPermalink(...href2);
-                        return (
-                          <li>
-                            <a
-                              class:list={[
-                                'menu-item whitespace-no-wrap dark:hover:bg-darker-purple md:animate-fade-up block px-5 py-3 lowercase first:rounded-t last:rounded-b md:py-2 md:hover:bg-gray-200',
-                                delayClasses[menuIndex],
-                                delayClassesMd[index2],
-                                permalink2 === pathname && 'text-grape dark:text-light-purple font-extrabold',
-                              ]}
-                              href={permalink2}
-                            >
-                              {t(text2)}
-                            </a>
-                          </li>
-                        );
-                      })}
-                    </ul>
-                  </>
-                ) : (
-                  <a
-                    class:list={[
-                      `menu-item dark:hover:bg-dark-purple flex items-center rounded-md px-4 py-3 lowercase hover:text-gray-900 md:py-2 md:hover:bg-gray-200 dark:hover:text-white`,
-                      `${delayClasses[menuIndex + index]}`,
-                      `${delayClassesMd[index]}`,
-                      permalink === pathname ? 'text-grape dark:text-light-purple font-extrabold' : 'font-medium',
-                    ]}
-                    href={permalink}
-                  >
-                    {t(text)}
-                  </a>
-                )}
-              </li>
-            );
-          })
-        }
-      </ul>
-      <div class="absolute right-2 bottom-2 flex flex-col gap-3 md:hidden">
-        {showToggleTheme && <ToggleTheme iconClass="w-5 h-5" />}
-        <LanguageSelector
-          languageMapping={{ en: '', 'pt-BR': '' }}
-          showFlag={true}
-          class="bg-pastel-purple dark:bg-dark-purple dark:text-light-purple dark:hover:bg-dark-purple inline-flex items-center rounded-lg p-2.5 text-sm hover:bg-gray-100"
-        />
-      </div>
-    </nav>
+    <Navigation links={links} showToggleTheme />
     <div class:list={[{ 'mr-auto': position === 'right' }, 'flex justify-between md:order-first']}>
       <a class="flex items-center" href={getHomePermalink()}>
         <Logo collapsable={breadcrumbs} />
