@@ -1,3 +1,4 @@
+import { intlayer } from "astro-intlayer";
 import path from 'path';
 import { fileURLToPath } from 'url';
 
@@ -27,38 +28,29 @@ export default defineConfig({
 
   output: 'static',
 
-  integrations: [
-    sitemap(),
-    mdx(),
-    pagefind({
-      indexConfig: {
-        excludeSelectors: ["[class^='language']", 'pre'],
-      },
-    }),
-    icon({
-      include: {
-        tabler: ['*'],
-        'material-symbols': ['filter-list-rounded'],
-        ep: ['arrow-left-bold', 'close-bold'],
-        eva: ['diagonal-arrow-right-up-fill'],
-        mdi: ['linux', 'web', 'language-javascript', 'language-typescript', 'laravel'],
-        ph: ['hand-fist-bold'],
-        'devicon-plain': ['livewire'],
-        fluent: ['play-32-filled', 'hat-graduation-28-filled'],
-        ic: ['round-code', 'outline-color-lens'],
-        'simple-icons': ['html5', 'css3', 'nextdotjs', 'tailwindcss', 'gnubash', 'astro', 'python', 'linux'],
-        ri: ['twitter-fill', 'facebook-box-fill', 'linkedin-box-fill', 'whatsapp-fill', 'mail-fill'],
-      },
-    }),
-
-    ...whenExternalScripts(() =>
-      partytown({
-        config: { forward: ['dataLayer.push'] },
-      })
-    ),
-
-    astroI18next(),
-  ],
+  integrations: [sitemap(), mdx(), pagefind({
+    indexConfig: {
+      excludeSelectors: ["[class^='language']", 'pre'],
+    },
+  }), icon({
+    include: {
+      tabler: ['*'],
+      'material-symbols': ['filter-list-rounded'],
+      ep: ['arrow-left-bold', 'close-bold'],
+      eva: ['diagonal-arrow-right-up-fill'],
+      mdi: ['linux', 'web', 'language-javascript', 'language-typescript', 'laravel'],
+      ph: ['hand-fist-bold'],
+      'devicon-plain': ['livewire'],
+      fluent: ['play-32-filled', 'hat-graduation-28-filled'],
+      ic: ['round-code', 'outline-color-lens'],
+      'simple-icons': ['html5', 'css3', 'nextdotjs', 'tailwindcss', 'gnubash', 'astro', 'python', 'linux'],
+      ri: ['twitter-fill', 'facebook-box-fill', 'linkedin-box-fill', 'whatsapp-fill', 'mail-fill'],
+    },
+  }), ...whenExternalScripts(() =>
+    partytown({
+      config: { forward: ['dataLayer.push'] },
+    })
+  ), astroI18next(), intlayer()],
 
   markdown: {
     remarkPlugins: [readingTimeRemarkPlugin],

@@ -1,6 +1,6 @@
 {
   "extends": "astro/tsconfigs/base",
-  "include": [".astro/types.d.ts", "**/*"],
+  "include": [".astro/types.d.ts", ".intlayer/types/**/*.ts", "**/*"],
   "exclude": ["dist"],
   "compilerOptions": {
     "strictNullChecks": true,
