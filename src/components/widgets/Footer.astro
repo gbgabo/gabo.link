@@ -1,8 +1,5 @@
 ---
 import { Icon } from 'astro-icon/components';
-import { SITE } from '~/config.mjs';
-import { getHomePermalink } from '~/utils/permalinks';
-import i18next, { t } from 'i18next';
 
 interface Link {
   text?: string;
@@ -52,7 +49,7 @@ const { socialLinks = [], footNote = '', theme = 'light' } = Astro.props;
       {
         footNote && (
           <div class="text-center text-sm">
-            <Fragment set:html={t(footNote)} />
+            <Fragment set:html={footNote} />
           </div>
         )
       }

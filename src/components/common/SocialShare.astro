@@ -1,6 +1,6 @@
 ---
+import { getLocaleFromPath, getIntlayer, type LocalesValues } from 'intlayer';
 import { Icon } from 'astro-icon/components';
-import i18next, { t } from 'i18next';
 
 export interface Props {
   text: string;
@@ -8,6 +8,9 @@ export interface Props {
   class?: string;
   label?: boolean;
 }
+
+const locale = getLocaleFromPath(Astro.url.pathname) as LocalesValues;
+const { post } = getIntlayer('blog', locale);
 
 const { text, url, class: className = 'inline-block', label = true } = Astro.props;
 
@@ -41,7 +44,7 @@ const platforms = [
 ---
 
 <div class={className}>
-  {label && <span class="align-super font-bold dark:text-pink">{t('post.share')}</span>}
+  {label && <span class="dark:text-pink align-super font-bold">{post.share}</span>}
   <div class="grid grid-cols-4 justify-items-center gap-2 md:grid-cols-5">
     {
       platforms.map(({ title, slug, icon }, index) => (

@@ -9,7 +9,7 @@ const appContent = {
         'pt-BR': "Gabo's Link",
       }),
       description: t({
-        en: "Gabo's Link",
+        en: "Gabo's corner on the web",
         'pt-BR': 'O canto do Gabo na web',
       }),
     },

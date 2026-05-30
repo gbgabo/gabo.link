@@ -1,5 +1,4 @@
 ---
-import i18next, { t } from 'i18next';
 import { getPermalink } from '~/utils/permalinks';
 import { MenuLink } from './Header.astro';
 import { LanguageSelector } from 'astro-i18next/components';
@@ -34,12 +33,12 @@ const { links, showToggleTheme = false } = Astro.props;
                 <button style={`transition-delay: var(--item-delay)`}>
                   {href ? (
                     <NavLink href={permalink} accent={permalink === pathname}>
-                      {t(text)}
+                      {text}
                       <Icon name="tabler:chevron-down" class="ml-2.5 hidden h-3.5 w-3.5 md:inline" />
                     </NavLink>
                   ) : (
                     <span>
-                      {t(text)}
+                      {text}
                       <Icon name="tabler:chevron-down" class="ml-0.5 hidden h-3.5 w-3.5 md:inline" />
                     </span>
                   )}
@@ -54,7 +53,7 @@ const { links, showToggleTheme = false } = Astro.props;
                           href={permalink2}
                           accent={permalink2 === pathname}
                         >
-                          {t(text2)}
+                          {text2}
                         </NavLink>
                       </li>
                     );
@@ -63,7 +62,7 @@ const { links, showToggleTheme = false } = Astro.props;
               </>
             ) : (
               <NavLink href={permalink} accent={permalink === pathname}>
-                {t(text)}
+                {text}
               </NavLink>
             )}
           </li>

@@ -1,7 +1,12 @@
 ---
 import { Icon } from 'astro-icon/components';
+import { getLocaleFromPath, getIntlayer } from 'intlayer';
+import type { LocalesValues } from 'intlayer';
+
 import PagefindConfig from 'astro-pagefind/components/PagefindConfig.astro';
-import i18next, { t } from 'i18next';
+
+const locale = getLocaleFromPath(Astro.url.pathname) as LocalesValues;
+const { search } = getIntlayer('app', locale);
 ---
 
 <dialog data-search-dialog data-pagefind-ignore="all" class="w-full max-w-3xl">
@@ -21,8 +26,8 @@ import i18next, { t } from 'i18next';
       >
         <div class="mb-5 flex flex-col items-center px-4 text-center">
           <Icon class="text-darker-purple dark:text-acid-green mb-1 h-12 w-12" name="tabler:search" />
-          <h1 class="text-darker-purple dark:text-acid-green mb-2 text-xl font-bold">{t('site.search.title')}</h1>
-          <p>{t('site.search.description')}</p>
+          <h1 class="text-darker-purple dark:text-acid-green mb-2 text-xl font-bold">{search.title}</h1>
+          <p>{search.description}</p>
         </div>
       </div>
     </div>
