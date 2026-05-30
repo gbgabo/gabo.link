@@ -1,28 +1,33 @@
 ---
-import { SITE } from '~/config.mjs';
 import Layout from '~/layouts/PageLayout.astro';
 import Hero from '~/components/widgets/Hero.astro';
 import LatestPosts from '~/components/blog/LatestPosts.astro';
 import Web from '~/components/WebBackground.astro';
-import i18next, { t } from 'i18next';
-import { localizePath } from 'astro-i18next';
+import { getIntlayer, getLocaleFromPath, getPrefix, localeMap, getLocalizedUrl } from 'intlayer';
+import type { LocalesValues } from 'intlayer';
+
+export const getStaticPaths = () => localeMap(({ locale }) => ({ params: { locale: getPrefix(locale).localePrefix } }));
+
+const locale = getLocaleFromPath(Astro.url.pathname) as LocalesValues;
+const { title, subtitle, cta1, cta2, allPosts } = getIntlayer('home', locale);
+const { meta: metadata } = getIntlayer('app', locale);
 
 const meta = {
-  title: t(SITE.title),
-  description: t(SITE.description),
+  title: metadata.title,
+  description: metadata.description,
   dontUseTitleTemplate: true,
 };
 ---
 
 <Layout {meta} home>
   <Hero
-    callToAction={{ text: t('home.cta1'), href: '#blog' }}
-    callToAction2={{ text: t('home.cta2'), href: localizePath('/about') }}
+    callToAction={{ text: cta1, href: '#blog' }}
+    callToAction2={{ text: cta2, href: getLocalizedUrl('/about', locale) }}
   >
     <Fragment slot="background"><Web /></Fragment>
-    <Fragment slot="title">{t('home.title')}</Fragment>
-    <Fragment slot="subtitle">{t('home.subtitle')}</Fragment>
+    <Fragment slot="title">{title}</Fragment>
+    <Fragment slot="subtitle">{subtitle}</Fragment>
   </Hero>
 
-  <LatestPosts title="Blog" allPostsText={t('home.allPosts')} />
+  <LatestPosts title="Blog" allPostsText={allPosts} />
 </Layout>

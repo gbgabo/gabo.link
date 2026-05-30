@@ -1,13 +1,13 @@
 /**
-* Intlayer configuration file documentation 
-* @see https://intlayer.org/doc/concept/configuration
-*/
+ * Intlayer configuration file documentation
+ * @see https://intlayer.org/doc/concept/configuration
+ */
 
 import { type IntlayerConfig, Locales } from 'intlayer';
 
 const config: IntlayerConfig = {
   internationalization: {
-    locales: [Locales.ENGLISH],
+    locales: [Locales.ENGLISH, Locales.PORTUGUESE_BRAZIL],
     /**
      * Default locale used as a fallback if the requested locale is not found.
      */
@@ -45,7 +45,7 @@ const config: IntlayerConfig = {
     apiKey: process.env.OPENAI_API_KEY,
     /**
      * Additional context for the translations
-     * 
+     *
      * Can be use in addition of the dictionary `description` field
      */
     applicationContext: [''].join('\n'),
@@ -75,7 +75,7 @@ const config: IntlayerConfig = {
      *   output: ({ key, locale }) => `/locales/${locale}/${key}.content.json`,
      * }
      * ```
-     * 
+     *
      * Variable list:
      *   - `fileName`: The name of the file.
      *   - `key`: The key of the content.
@@ -110,14 +110,14 @@ const config: IntlayerConfig = {
   build: {
     /**
      * (Experimental feature)
-     * 
+     *
      * Minify the dictionaries to reduce the bundle size.
      */
     minify: true,
 
     /**
      * (Experimental feature)
-     * 
+     *
      * Purge the unused keys in a dictionaries
      */
     purge: true,
@@ -126,7 +126,7 @@ const config: IntlayerConfig = {
      * Indicates if the build should check TypeScript types
      */
     checkTypes: false,
-  }
+  },
 };
 
 export default config;

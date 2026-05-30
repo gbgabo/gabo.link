@@ -1,58 +1,61 @@
 ---
-import Layout from '~/layouts/PageLayout.astro';
-import Headline from '~/components/blog/Headline.astro';
-import Chip from '~/components/widgets/Chip.astro';
 import { Picture } from 'astro:assets';
 import { Icon } from 'astro-icon/components';
 import { getAsset, getPermalink } from '~/utils/permalinks';
-import ExternalLink from '~/components/blog/content/ExternalLink.astro';
-import i18next, { t } from 'i18next';
 import { bentoGrids } from '~/data';
+import { getIntlayer, getLocaleFromPath, getPrefix, localeMap, getLocalizedUrl } from 'intlayer';
+import type { LocalesValues } from 'intlayer';
+
+import Layout from '~/layouts/PageLayout.astro';
+import Headline from '~/components/blog/Headline.astro';
+import Chip from '~/components/widgets/Chip.astro';
+import ExternalLink from '~/components/blog/content/ExternalLink.astro';
 import Bento from '~/components/widgets/Bento.astro';
 
-const meta = {
-  title: t('about.meta.title'),
-  description: t('about.meta.description'),
-};
+export const getStaticPaths = () => localeMap(({ locale }) => ({ params: { locale: getPrefix(locale).localePrefix } }));
+
+const locale = getLocaleFromPath(Astro.url.pathname) as LocalesValues;
+const { meta: metadata, aliases, title, subtitle, uses, topics, nav, skills, contact } = getIntlayer('about', locale);
+
 const use = [
   {
-    title: t('about.uses.uses.title'),
-    description: t('about.uses.uses.description'),
+    title: uses.content.uses.title,
+    description: uses.content.uses.description,
     href: getPermalink('uses'),
     icon: 'tabler:app-window',
     external: false,
   },
   {
-    title: t('about.uses.dotfiles.title'),
-    description: t('about.uses.dotfiles.description'),
+    title: uses.content.dotfiles.title,
+    description: uses.content.dotfiles.description,
     href: 'https://github.com/gbgabo/dotfiles',
     icon: 'tabler:terminal-2',
     external: true,
   },
 ];
-const topics = [
+const topicsList = [
   {
-    title: 'about.topics.foss.title',
-    description: 'about.topics.foss.description',
+    title: topics.content.foss.title,
+    description: topics.content.foss.description,
     icon: 'ph:hand-fist-bold',
   },
   {
-    title: 'about.topics.ricing.title',
-    description: 'about.topics.ricing.description',
+    title: topics.content.ricing.title,
+    description: topics.content.ricing.description,
     icon: 'mdi:linux',
   },
   {
-    title: 'about.topics.webdev.title',
-    description: 'about.topics.webdev.description',
+    title: topics.content.webdev.title,
+    description: topics.content.webdev.description,
     icon: 'ic:round-code',
   },
   {
-    title: 'about.topics.content.title',
-    description: 'about.topics.content.description',
+    title: topics.content.lists.title,
+    description: topics.content.lists.description,
     icon: 'mdi:web',
   },
 ];
-const skills = [
+const skillsList = [
   {
     title: 'Javascript',
     icon: 'mdi:language-javascript',
@@ -104,8 +107,8 @@ const skills = [
 ];
 const links = [
   {
-    title: t('about.cv'),
-    href: getAsset(`/cvs/gabriel-gaboardi-${i18next.language}.pdf`),
+    title: nav.cv,
+    href: getAsset(`/cvs/gabriel-gaboardi-${locale}.pdf`),
     icon: 'mdi:language-javascript',
   },
   {
@@ -124,18 +127,23 @@ const links = [
     icon: 'mdi:language-javascript',
   },
 ];
+
+const meta = {
+  title: metadata.title,
+  description: metadata.description,
+};
 ---
 
-<Layout breadcrumbs={[{ title: t('about.meta.title'), href: '#top' }]} {meta}>
+<Layout breadcrumbs={[{ title: metadata.title, href: '#top' }]} {meta}>
   <div class="mx-auto max-w-7xl px-6 pt-12 sm:px-6 sm:py-16 lg:py-20">
     <div class="grid grid-cols-(--grid-main-left)">
       <div class="col-start-1 col-end-2">
         <Headline left
-          >/<span class="lowercase">{t('about.meta.title')}</span><span class="text-muted">
+          >/<span class="lowercase">{metadata.title}</span><span class="text-muted">
             #<span class="me">me</span></span
           ></Headline
         >
-        <p class="my-8 text-lg">{t('about.subtitle')}</p>
+        <p class="my-8 text-lg">{subtitle}</p>
         <Picture
           class="my-8 w-full max-w-4xl rounded-md"
           widths={[400, 768, 1024, 2040]}
@@ -146,13 +154,13 @@ const links = [
           src={import('~/assets/images/about.jpg')}
           alt="screenshot"
         />
-        <h2 class="my-8 text-2xl font-bold md:text-3xl">{t('about.title')}</h2>
+        <h2 class="my-8 text-2xl font-bold md:text-3xl">{title}</h2>
         <section>
           <h2
             class="text-grape dark:text-light-purple scroll-mt-28 text-lg font-semibold tracking-wide uppercase"
             id="education"
           >
-            {t('about.education')}
+            {nav.education}
           </h2>
           <div class="my-8">
             <Bento blocks={bentoGrids.academics} />
@@ -164,11 +172,11 @@ const links = [
             class="text-grape dark:text-light-purple scroll-mt-28 text-lg font-semibold tracking-wide uppercase"
             id="skills"
           >
-            {t('about.skillsHeader')}
+            {skills.header}
           </h2>
           <ul class="my-8 grid grid-cols-2 gap-x-3 gap-y-5 md:grid-cols-4">
             {
-              skills.map(({ title, icon }) => {
+              skillsList.map(({ title, icon }) => {
                 return (
                   <li class="inline-flex items-center">
                     <Icon name={icon} class="icon-light text-light-purple dark:text-light-purple m-2 h-7 w-7" />
@@ -178,16 +186,16 @@ const links = [
               })
             }
           </ul>
-          <ExternalLink class="mb-8" variant="secondary" href="projects">{t('about.skillsCta')}</ExternalLink>
+          <ExternalLink class="mb-8" variant="secondary" href="projects">{skills.cta}</ExternalLink>
         </section>
         <!-- Topics  -->
         <section class="prose-a:text-grape dark:prose-a:text-acid-green">
           <h2 class="text-grape dark:text-light-purple text-lg font-semibold tracking-wide uppercase">
-            {t('about.topicsHeader')}
+            {topics.header}
           </h2>
           <ul>
             {
-              topics.map(({ title, description, icon }) => (
+              topicsList.map(({ title, description, icon }) => (
                 <li>
                   <div class="my-8 flex flex-row">
                     <div class="mr-5 mb-4">
@@ -196,20 +204,20 @@ const links = [
                       </div>
                     </div>
                     <div>
-                      <h3 class="mb-3 text-xl font-bold">{t(title)}</h3>
-                      <p class="text-muted dark:text-slate-400" set:html={t(description)} />
+                      <h3 class="mb-3 text-xl font-bold">{title}</h3>
+                      <p class="text-muted dark:text-slate-400" set:html={description} />
                     </div>
                   </div>
                 </li>
               ))
             }
           </ul>
-          <ExternalLink class="mb-8" variant="secondary" href="blog">{t('about.topicsCta')}</ExternalLink>
+          <ExternalLink class="mb-8" variant="secondary" href="blog">{topics.cta}</ExternalLink>
         </section>
         <!-- What I Use -->
         <section>
           <h2 id="what-i-use" class="text-grape dark:text-light-purple text-lg font-semibold tracking-wide uppercase">
-            {t('about.usesHeader')}
+            {uses.header}
           </h2>
           <div class="my-8 grid items-stretch gap-6 sm:grid-cols-1 md:grid-cols-2 dark:text-white">
             {
@@ -235,16 +243,16 @@ const links = [
           </div>
         </section>
         <h2 class="text-grape dark:text-light-purple text-base font-semibold tracking-wide uppercase md:hidden">
-          Get in touch!
+          {contact}
         </h2>
       </div>
       <aside class="col-start-2 col-end-3 hidden md:col-span-1 md:block">
         <ul class="text-acid-green lowercase md:sticky md:top-28 lg:ml-8">
           <li class="mb-2">
-            <Chip value={t('about.education')} variant="secondary" href="#education" />
+            <Chip value={nav.education} variant="secondary" href="#education" />
           </li>
           <li class="mb-2">
-            <Chip value={t('about.skillsHeader')} variant="secondary" href="#skills" />
+            <Chip value={skills.header} variant="secondary" href="#skills" />
           </li>
           {
             links.map(({ href, title }) => {
@@ -274,7 +282,7 @@ const links = [
       })
     }
   </ul>
-  <script define:vars={{ aliases: t('about.aliases') }}>
+  <script define:vars={{ aliases: aliases }}>
     function typeWords(selector, words, speed = 100, pause = 1000) {
       const el = document.querySelector(selector);
       if (!el || !words.length) return;

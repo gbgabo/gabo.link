@@ -1,98 +1,55 @@
 import { getPermalink, getBlogPermalink, getAsset } from './utils/permalinks';
+import { getIntlayer } from 'intlayer';
 
-export const headerData = {
-  links: [
-    {
-      text: '/blog',
-      href: ['blog', 'page'],
-      links: [
-        {
-          text: 'site.articles',
-          href: ['articles', 'category'],
-        },
-        {
-          text: 'site.lists',
-          href: ['lists', 'category'],
-        },
-      ],
-    },
-    {
-      text: 'site.projects',
-      href: ['projects', 'page'],
-    },
+export const headerData = (locale = '') => {
+  const { nav } = getIntlayer('app', locale);
+  return {
+    links: [
+      {
+        text: '/blog',
+        href: ['blog', 'page'],
+        links: [
+          {
+            text: nav.articles,
+            href: ['articles', 'category'],
+          },
+          {
+            text: nav.lists,
+            href: ['lists', 'category'],
+          },
+        ],
+      },
+      {
+        text: nav.projects,
+        href: ['projects', 'page'],
+      },
 
-    {
-      text: 'site.about',
-      href: ['about', 'page'],
-    },
-  ],
-  // actions: [
-  //     { type: 'button', text: 'Download', href: 'https://github.com/onwidget/astrowind' }
-  //   ],
+      {
+        text: nav.about,
+        href: ['about', 'page'],
+      },
+    ],
+    // actions: [
+    //     { type: 'button', text: 'Download', href: 'https://github.com/onwidget/astrowind' }
+    //   ],
+  };
 };
 
-export const footerData = {
-  links: [
-    // {
-    //   title: 'Product',
-    //   links: [
-    //     { text: 'Features', href: '#' },
-    //     { text: 'Security', href: '#' },
-    //     { text: 'Team', href: '#' },
-    //     { text: 'Enterprise', href: '#' },
-    //     { text: 'Customer stories', href: '#' },
-    //     { text: 'Pricing', href: '#' },
-    //     { text: 'Resources', href: '#' },
-    //   ],
-    // },
-    // {
-    //   title: 'Platform',
-    //   links: [
-    //     { text: 'Developer API', href: '#' },
-    //     { text: 'Partners', href: '#' },
-    //     { text: 'Atom', href: '#' },
-    //     { text: 'Electron', href: '#' },
-    //     { text: 'AstroWind Desktop', href: '#' },
-    //   ],
-    // },
-    // {
-    //   title: 'Support',
-    //   links: [
-    //     { text: 'Docs', href: '#' },
-    //     { text: 'Community Forum', href: '#' },
-    //     { text: 'Professional Services', href: '#' },
-    //     { text: 'Skills', href: '#' },
-    //     { text: 'Status', href: '#' },
-    //   ],
-    // },
-    // {
-    //   title: 'Company',
-    //   links: [
-    //     { text: 'About', href: '#' },
-    //     { text: 'Blog', href: '#' },
-    //     { text: 'Careers', href: '#' },
-    //     { text: 'Press', href: '#' },
-    //     { text: 'Inclusion', href: '#' },
-    //     { text: 'Social Impact', href: '#' },
-    //     { text: 'Shop', href: '#' },
-    //   ],
-    // },
-  ],
-  secondaryLinks: [
-    // { text: 'Terms', href: getPermalink('/terms') },
-    // { text: 'Privacy Policy', href: getPermalink('/privacy') },
-  ],
-  socialLinks: [
-    { ariaLabel: 'Github', icon: 'tabler:brand-github', href: 'https://github.com/gbgabo' },
-    { ariaLabel: 'LinkedIn', icon: 'tabler:brand-linkedin', href: 'https://www.linkedin.com/in/gabriel-gaboardi/' },
-    { ariaLabel: 'Instagram', icon: 'tabler:brand-instagram', href: 'https://www.instagram.com/gb_gabo/' },
-    { ariaLabel: 'Codepen', icon: 'tabler:brand-codepen', href: 'https://codepen.io/gb_gabo' },
-    { ariaLabel: 'Mastodon', icon: 'tabler:brand-mastodon', href: 'https://mastodon.sdf.org/@gb_gabo' },
-    { ariaLabel: 'Twitter', icon: 'tabler:brand-twitter', href: 'https://twitter.com/gb_gabo' },
-    { ariaLabel: 'Mail', icon: 'tabler:mail', href: 'mailto:contact@gabo.link' },
-    { ariaLabel: 'RSS', icon: 'tabler:rss', href: getAsset('/rss.xml') },
-  ],
-  footNote: 'site.footer.footNote',
+export const footerData = (locale = '') => {
+  const { footer } = getIntlayer('app', locale);
+  return {
+    socialLinks: [
+      { ariaLabel: 'Github', icon: 'tabler:brand-github', href: 'https://github.com/gbgabo' },
+      { ariaLabel: 'LinkedIn', icon: 'tabler:brand-linkedin', href: 'https://www.linkedin.com/in/gabriel-gaboardi/' },
+      { ariaLabel: 'Instagram', icon: 'tabler:brand-instagram', href: 'https://www.instagram.com/gb_gabo/' },
+      { ariaLabel: 'Codepen', icon: 'tabler:brand-codepen', href: 'https://codepen.io/gb_gabo' },
+      { ariaLabel: 'Mastodon', icon: 'tabler:brand-mastodon', href: 'https://mastodon.sdf.org/@gb_gabo' },
+      { ariaLabel: 'Twitter', icon: 'tabler:brand-twitter', href: 'https://twitter.com/gb_gabo' },
+      { ariaLabel: 'Mail', icon: 'tabler:mail', href: 'mailto:contact@gabo.link' },
+      { ariaLabel: 'RSS', icon: 'tabler:rss', href: getAsset('/rss.xml') },
+    ],
+    footNote: footer
+  };
 };
 
 export const categoryData = {
@@ -284,7 +241,7 @@ export const bentoGrids = {
   academics: [
     {
       icon: 'fluent:hat-graduation-28-filled',
-      title: 'Dregrees',
+      title: 'Degrees',
       span: 'md:col-span-2',
       items: [
         [
