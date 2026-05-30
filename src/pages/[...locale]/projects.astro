@@ -1,71 +1,76 @@
 ---
+import { Picture } from 'astro:assets';
+import { getIntlayer, getLocaleFromPath, getPrefix, localeMap } from 'intlayer';
+import type { LocalesValues } from 'intlayer';
+
 import Layout from '~/layouts/PageLayout.astro';
 import Headline from '~/components/blog/Headline.astro';
 import PostTags from '~/components/blog/Tags.astro';
 import ExternalLink from '~/components/blog/content/ExternalLink.astro';
-import i18next, { t } from 'i18next';
 
-import { Picture } from 'astro:assets';
-import { languageSlug } from '~/utils/permalinks';
+export const getStaticPaths = () => localeMap(({ locale }) => ({ params: { locale: getPrefix(locale).localePrefix } }));
+
+const locale = getLocaleFromPath(Astro.url.pathname) as LocalesValues;
+const { meta: metadata, items, title, ctaAbout, ctaVisit } = getIntlayer('projects', locale);
 
 const projects = [
   {
-    title: 'projects.items.chicotadas.title',
-    description: 'projects.items.chicotadas.description',
+    title: items.chicotadas.title,
+    description: items.chicotadas.description,
     technologies: ['Astro', 'Tailwind', 'Typescript', 'Strapi CMS'],
     link: 'https://chicotadas.com.br',
-    linkText: 'projects.ctaVisit',
+    linkText: ctaVisit,
     image: import('~/assets/images/projects/chicotadas.png'),
   },
   {
-    title: 'projects.items.blog.title',
-    description: 'projects.items.blog.description',
+    title: items.blog.title,
+    description: items.blog.description,
     technologies: ['Astro', 'Tailwind', 'Typescript', 'Progressive Enhancent', 'mdx'],
     link: 'https://github.com/gbgabo/gabo.link',
-    linkText: 'projects.ctaAbout',
+    linkText: ctaAbout,
     image: import('~/assets/images/projects/gabolink.png'),
   },
   {
     image: import('~/assets/images/projects/symbols.png'),
-    title: 'projects.items.wash.title',
-    description: 'projects.items.wash.description',
+    title: items.wash.title,
+    description: items.wash.description,
     technologies: ['Astro', 'Tailwind', 'Typescript', 'Progressive Enhancement', 'Vanilla JS'],
-    link: 'https://laundry-symbols.vercel.app/',
+    link: 'https://laundry.gabo.link/',
   },
   {
     image: import('~/assets/images/projects/wildberries.png'),
-    title: 'projects.items.wildberries.title',
-    description: 'projects.items.wildberries.description',
+    title: items.wildberries.title,
+    description: items.wildberries.description,
     technologies: ['Astro', 'Tailwind', 'Typescript', '@vercel/og', 'Vanilla JS'],
     link: 'https://wildberries.style/',
   },
   {
     image: import('~/assets/images/projects/tinytools.svg'),
-    title: 'projects.items.tinytools.title',
-    description: 'projects.items.tinytools.description',
+    title: items.tinytools.title,
+    description: items.tinytools.description,
     technologies: ['Bash', 'Linux'],
     link: 'https://tinytoolsh.github.io/',
-    linkText: 'projects.ctaAbout',
+    linkText: ctaAbout,
   },
   {
     image: import('~/assets/images/projects/linky.png'),
-    title: 'projects.items.linky.title',
-    description: 'projects.items.linky.description',
+    title: items.linky.title,
+    description: items.linky.description,
     technologies: ['React', 'MUI', 'React Context'],
     link: 'https://linky-gbgabo.vercel.app/edit',
   },
 ];
 
 const meta = {
-  title: t('projects.meta.title'),
-  description: t('projects.meta.description'),
-  image: `/api/og/${languageSlug()}/projects.png`,
+  title: metadata.title,
+  description: metadata.description,
+  image: `/api/og/${locale}/projects.png`,
 };
 ---
 
-<Layout breadcrumbs={[{ title: t('projects.meta.title'), href: '#top' }]} meta={meta}>
+<Layout breadcrumbs={[{ title: metadata.title, href: '#top' }]} meta={meta}>
   <section class="mx-auto max-w-7xl px-6 py-12 sm:px-6 sm:py-16 lg:py-20">
-    <Headline left>/{t('projects.title')}</Headline>
+    <Headline left>/{title}</Headline>
 
     <ul data-pagefind-body>
       {
@@ -92,19 +97,19 @@ const meta = {
                 </a>
               )}
               <div class="my-auto">
-                <h2 class="mb-2 font-heading text-xl font-bold leading-tight dark:text-slate-300 sm:text-2xl">
-                  {t(project.title)}
+                <h2 class="font-heading mb-2 text-xl leading-tight font-bold sm:text-2xl dark:text-slate-300">
+                  {project.title}
                 </h2>
 
                 {project.description && (
                   <p class="text-muted grow text-lg dark:text-slate-400">
-                    <Fragment set:html={t(project.description)} />
+                    <Fragment set:html={project.description} />
                   </p>
                 )}
                 <PostTags class="mt-4 text-sm" enableLink={false} tags={project.technologies} />
                 {project.link && (
                   <ExternalLink class="mt-4 font-bold" href={project.link}>
-                    {project.linkText ? t(project.linkText) : t('projects.ctaVisit')}
+                    {project.linkText ? project.linkText : ctaVisit}
                   </ExternalLink>
                 )}
               </div>

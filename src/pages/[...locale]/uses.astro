@@ -1,30 +1,39 @@
 ---
+import { Picture } from 'astro:assets';
+import { getIntlayer, getLocaleFromPath, getPrefix, localeMap } from 'intlayer';
+import type { LocalesValues } from 'intlayer';
+
 import Headline from '~/components/blog/Headline.astro';
 import Bento from '~/components/widgets/Bento.astro';
-import { Picture } from 'astro:assets';
-import { bentoGrids } from '~/data';
 import PageLayout from '~/layouts/PageLayout.astro';
-import i18next, { t } from 'i18next';
-import { getPermalink, languageSlug } from '~/utils/permalinks';
+
+import { bentoGrids } from '~/data';
+import { getPermalink } from '~/utils/permalinks';
+
+export const getStaticPaths = () => localeMap(({ locale }) => ({ params: { locale: getPrefix(locale).localePrefix } }));
+
+const locale = getLocaleFromPath(Astro.url.pathname) as LocalesValues;
+const { subtitle, content } = getIntlayer('uses', locale);
+const { meta: aboutMeta } = getIntlayer('about', locale);
 
 const meta = {
   title: 'Uses',
-  description: t('uses.subtitle'),
-  image: `/api/og/${languageSlug()}/uses.png`,
+  description: subtitle,
+  image: `/api/og/${locale}/uses.png`,
 };
 ---
 
 <PageLayout
   breadcrumbs={[
-    { title: t('about.meta.title'), href: getPermalink('about') },
+    { title: aboutMeta.title, href: getPermalink('about') },
     { title: 'uses', href: '#top' },
   ]}
   meta={meta}
 >
   <div
-    class="prose-md prose-headings:leading-tighter prose prose-lg mx-auto my-8 max-w-3xl px-6 dark:prose-invert prose-headings:font-heading prose-headings:font-bold prose-headings:tracking-tighter prose-a:text-grape prose-img:rounded-md prose-img:shadow-lg dark:prose-headings:text-slate-300 dark:prose-a:text-acid-green"
+    class="prose-md prose-headings:leading-tighter prose prose-lg dark:prose-invert prose-headings:font-heading prose-headings:font-bold prose-headings:tracking-tighter prose-a:text-grape prose-img:rounded-md prose-img:shadow-lg dark:prose-headings:text-slate-300 dark:prose-a:text-acid-green mx-auto my-8 max-w-3xl px-6"
   >
-    <Headline left subtitle={t('uses.subtitle')}>/uses</Headline>
+    <Headline left subtitle={subtitle}>/uses</Headline>
     <Picture
       class="mx-auto w-full rounded-md"
       widths={[400, 768, 1024, 2040]}
@@ -35,7 +44,7 @@ const meta = {
       alt="screenshot"
     />
 
-    <p set:html={t('uses.content')} />
+    <p set:html={content} />
   </div>
   <Bento blocks={bentoGrids.uses} />
 </PageLayout>
