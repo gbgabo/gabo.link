@@ -1,6 +1,7 @@
 ---
+import { getLocaleFromPath, getIntlayer, type LocalesValues } from 'intlayer';
 import type { GetStaticPaths } from 'astro';
-import { SITE, BLOG } from '~/config.mjs';
+import { BLOG } from '~/config.mjs';
 
 import Layout from '~/layouts/PageLayout.astro';
 import PostLayout from '~/layouts/ListLayout.astro';
@@ -11,7 +12,7 @@ import Filter from '~/components/widgets/Filter.astro';
 
 import { fetchPosts } from '~/utils/blog';
 import { BLOG_BASE, languageSlug } from '~/utils/permalinks';
-import i18next, { t } from 'i18next';
+import i18next from 'i18next';
 
 export const getStaticPaths = (async ({ paginate }) => {
   if (BLOG?.disabled || BLOG?.list?.disabled) return [];
@@ -21,12 +22,15 @@ export const getStaticPaths = (async ({ paginate }) => {
   });
 }) satisfies GetStaticPaths;
 
+const locale = getLocaleFromPath(Astro.url.pathname) as LocalesValues;
+const { meta: metadata } = getIntlayer('app', locale);
+
 const { page } = Astro.props;
 const currentPage = page.currentPage ?? 1;
 
 const meta = {
   title: `Blog${currentPage > 1 ? ` — Page ${currentPage}` : ''}`,
-  description: t(SITE.description),
+  description: metadata.description,
   image: `/api/og/${languageSlug()}/blog.png`,
   noindex: BLOG?.list?.noindex || currentPage > 1,
   ogType: 'blog',

@@ -1,4 +1,5 @@
 ---
+import { getLocaleFromPath, getIntlayer, type LocalesValues } from 'intlayer';
 import { BLOG } from '~/config.mjs';
 import type { GetStaticPaths } from 'astro';
 
@@ -9,7 +10,7 @@ import ToBlogLink from '~/components/blog/ToBlogLink.astro';
 import { getBlogPermalink, getCanonical, getPermalink } from '~/utils/permalinks';
 import { fetchPosts } from '~/utils/blog';
 import { findImage } from '~/utils/images';
-import i18next, { t } from 'i18next';
+import i18next from 'i18next';
 
 export const getStaticPaths = (async () => {
   if (BLOG?.disabled || BLOG?.post?.disabled) return [];
@@ -20,6 +21,9 @@ export const getStaticPaths = (async () => {
     props: { post },
   }));
 }) satisfies GetStaticPaths;
+
+const locale = getLocaleFromPath(Astro.url.pathname) as LocalesValues;
+const { categories } = getIntlayer('blog', locale);
 
 const { post } = Astro.props;
 const url = getCanonical(getPermalink(post.permalink, 'post'));
@@ -37,7 +41,7 @@ const meta = {
 <Layout
   breadcrumbs={[
     { title: 'blog', href: getBlogPermalink() },
-    { title: t(`categories.${post.category.replaceAll('-', ' ')}`), href: '#top' },
+    { title: categories[post.category.replaceAll('-', ' ')], href: '#top' },
   ]}
   {meta}
 >
