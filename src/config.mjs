@@ -1,5 +1,6 @@
 const CONFIG = {
   name: "Gabo's Link",
+  description: "Gabo's corner on the web",
 
   origin: 'https://gabo.link',
   basePathname: '/',
