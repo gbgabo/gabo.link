@@ -1,5 +1,5 @@
 ---
-import { getLocaleFromPath, getIntlayer, type LocalesValues } from 'intlayer';
+import { getIntlayer, localeMap, getPrefix } from 'intlayer';
 import { BLOG } from '~/config.mjs';
 import type { GetStaticPaths } from 'astro';
 
@@ -10,22 +10,32 @@ import ToBlogLink from '~/components/blog/ToBlogLink.astro';
 import { getBlogPermalink, getCanonical, getPermalink } from '~/utils/permalinks';
 import { fetchPosts } from '~/utils/blog';
 import { findImage } from '~/utils/images';
-import i18next from 'i18next';
 
 export const getStaticPaths = (async () => {
   if (BLOG?.disabled || BLOG?.post?.disabled) return [];
-  return (await fetchPosts(i18next.language)).flatMap((post) => ({
-    params: {
-      blog: post.permalink,
-    },
-    props: { post },
-  }));
+
+  const paths = await Promise.all(
+    localeMap(async ({ locale }) => {
+      const posts = await fetchPosts(locale);
+
+      return posts.map((post) => ({
+        params: {
+          locale: getPrefix(locale).localePrefix,
+          blog: post.permalink,
+        },
+        props: {
+          post,
+          locale,
+        },
+      }));
+    })
+  );
+
+  return paths.flat();
 }) satisfies GetStaticPaths;
 
-const locale = getLocaleFromPath(Astro.url.pathname) as LocalesValues;
+const { post, locale } = Astro.props;
 const { categories } = getIntlayer('blog', locale);
-
-const { post } = Astro.props;
 const url = getCanonical(getPermalink(post.permalink, 'post'));
 
 const meta = {

@@ -1,5 +1,5 @@
 ---
-import { getLocaleFromPath, getIntlayer, type LocalesValues } from 'intlayer';
+import { getIntlayer, localeMap, getPrefix } from 'intlayer';
 import { BLOG } from '~/config.mjs';
 
 import Layout from '~/layouts/PageLayout.astro';
@@ -12,33 +12,47 @@ import { fetchPosts } from '~/utils/blog';
 import { getBlogPermalink, TAG_BASE } from '~/utils/permalinks';
 import Headline from '~/components/blog/Headline.astro';
 import Chip from '~/components/widgets/Chip.astro';
-import i18next from 'i18next';
 
 export const getStaticPaths = async ({ paginate }) => {
   if (BLOG?.disabled || BLOG?.tag?.disabled) return [];
 
-  const posts = await fetchPosts(i18next.language);
-  const tags = new Set();
-  posts.map((post) => {
-    Array.isArray(post.tags) && post.tags.map((tag) => tags.add(tag.toLowerCase()));
-  });
+  const paths = await Promise.all(
+    localeMap(async ({ locale }) => {
+      const posts = await fetchPosts(locale);
 
-  return Array.from(tags).flatMap((tag: string) =>
-    paginate(
-      posts.filter((post) => Array.isArray(post.tags) && post.tags.find((elem) => elem.toLowerCase() === tag)),
-      {
-        params: { tag: tag, blog: TAG_BASE || undefined },
-        pageSize: BLOG.postsPerPage,
-        props: { tag },
-      }
-    )
+      const tags = new Set<string>();
+
+      posts.forEach((post) => {
+        if (Array.isArray(post.tags)) {
+          post.tags.forEach((tag) => tags.add(tag.toLowerCase()));
+        }
+      });
+
+      return Array.from(tags).flatMap((tag) =>
+        paginate(
+          posts.filter((post) => Array.isArray(post.tags) && post.tags.some((item) => item.toLowerCase() === tag)),
+          {
+            params: {
+              locale: getPrefix(locale).localePrefix,
+              blog: TAG_BASE || undefined,
+              tag,
+            },
+            pageSize: BLOG.postsPerPage,
+            props: {
+              tag,
+              locale,
+            },
+          }
+        )
+      );
+    })
   );
+
+  return paths.flat();
 };
 
-const locale = getLocaleFromPath(Astro.url.pathname) as LocalesValues;
+const { page, tag, locale } = Astro.props;
 const { meta: metadata } = getIntlayer('app', locale);
-
-const { page, tag } = Astro.props;
 
 const currentPage = page.currentPage ?? 1;
 const meta = {

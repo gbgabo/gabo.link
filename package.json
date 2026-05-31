@@ -6,13 +6,12 @@
   "scripts": {
     "dev": "astro dev",
     "start": "astro dev",
-    "build": "astro-i18next generate && astro build",
+    "build": "astro build",
     "preview": "astro preview",
     "astro": "astro",
     "format": "prettier -w .",
     "check": "astro check",
-    "subfont": "subfont -ir --no-fallbacks --silent --root dist",
-    "translate": "astro-i18next generate"
+    "subfont": "subfont -ir --no-fallbacks --silent --root dist"
   },
   "devDependencies": {
     "@astrojs/check": "^0.9.9",

@@ -1,5 +1,4 @@
 import slugify from 'limax';
-import i18next from 'i18next';
 import QRCode from 'qrcode';
 
 import { SITE, BLOG } from '~/config.mjs';
@@ -15,9 +14,6 @@ const createPath = (...params: string[]) => {
 };
 
 const BASE_PATHNAME = SITE.basePathname;
-export const languageSlug = () => {
-  return i18next.language === 'en' ? '' : i18next.language;
-};
 
 export const cleanSlug = (text = '') =>
   trimSlash(text)
@@ -94,4 +90,4 @@ export const generateQR = async (text: string) =>
       console.error(err);
     });
 
-const definitivePermalink = (permalink: string): string => createPath(languageSlug() + '/' + BASE_PATHNAME, permalink);
+const definitivePermalink = (permalink: string): string => createPath('/' + BASE_PATHNAME, permalink);

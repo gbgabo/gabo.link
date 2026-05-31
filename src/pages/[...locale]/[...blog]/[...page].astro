@@ -1,5 +1,5 @@
 ---
-import { getLocaleFromPath, getIntlayer, type LocalesValues } from 'intlayer';
+import { getIntlayer, localeMap, getPrefix } from 'intlayer';
 import type { GetStaticPaths } from 'astro';
 import { BLOG } from '~/config.mjs';
 
@@ -11,27 +11,37 @@ import Pagination from '~/components/blog/Pagination.astro';
 import Filter from '~/components/widgets/Filter.astro';
 
 import { fetchPosts } from '~/utils/blog';
-import { BLOG_BASE, languageSlug } from '~/utils/permalinks';
-import i18next from 'i18next';
+import { BLOG_BASE } from '~/utils/permalinks';
 
 export const getStaticPaths = (async ({ paginate }) => {
   if (BLOG?.disabled || BLOG?.list?.disabled) return [];
-  return paginate(await fetchPosts(i18next.language), {
-    params: { blog: BLOG_BASE || undefined },
-    pageSize: BLOG.postsPerPage,
-  });
+
+  const paths = await Promise.all(
+    localeMap(async ({ locale }) =>
+      paginate(await fetchPosts(locale), {
+        params: {
+          locale: getPrefix(locale).localePrefix,
+          blog: BLOG_BASE || undefined,
+        },
+        pageSize: BLOG.postsPerPage,
+        props: {
+          locale,
+        },
+      })
+    )
+  );
+
+  return paths.flat();
 }) satisfies GetStaticPaths;
 
-const locale = getLocaleFromPath(Astro.url.pathname) as LocalesValues;
+const { page, locale } = Astro.props;
 const { meta: metadata } = getIntlayer('app', locale);
-
-const { page } = Astro.props;
 const currentPage = page.currentPage ?? 1;
 
 const meta = {
   title: `Blog${currentPage > 1 ? ` — Page ${currentPage}` : ''}`,
   description: metadata.description,
-  image: `/api/og/${languageSlug()}/blog.png`,
+  image: `/api/og/${locale}/blog.png`,
   noindex: BLOG?.list?.noindex || currentPage > 1,
   ogType: 'blog',
 };
