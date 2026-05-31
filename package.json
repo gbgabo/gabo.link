@@ -50,7 +50,6 @@
     "@tailwindcss/vite": "^4.3.0",
     "@types/qrcode": "^1.5.4",
     "@vercel/og": "^0.11.1",
-    "astro-i18next": "^1.0.0-beta.21",
     "astro-icon": "^1.0.3",
     "astro-intlayer": "^8.11.0",
     "astro-pagefind": "^2.0.0",

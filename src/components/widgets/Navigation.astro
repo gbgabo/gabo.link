@@ -1,7 +1,6 @@
 ---
 import { getPermalink } from '~/utils/permalinks';
 import { MenuLink } from './Header.astro';
-import { LanguageSelector } from 'astro-i18next/components';
 import { Icon } from 'astro-icon/components';
 import ToggleTheme from '~/components/common/ToggleTheme.astro';
 import NavLink from '~/components/common/NavLink.astro';
@@ -72,10 +71,10 @@ const { links, showToggleTheme = false } = Astro.props;
   </ul>
   <div class="absolute right-2 bottom-2 flex flex-col gap-3 md:hidden">
     {showToggleTheme && <ToggleTheme iconClass="w-5 h-5" />}
-    <LanguageSelector
+    <!-- <LanguageSelector
       languageMapping={{ en: '', 'pt-BR': '' }}
       showFlag={true}
       class="bg-pastel-purple dark:bg-dark-purple dark:text-light-purple dark:hover:bg-dark-purple inline-flex items-center rounded-lg p-2.5 text-sm hover:bg-gray-100"
-    />
+    /> -->
   </div>
 </nav>

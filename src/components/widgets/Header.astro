@@ -1,6 +1,5 @@
 ---
 import { getHomePermalink, getAsset, getPermalink } from '~/utils/permalinks';
-import { LanguageSelector } from 'astro-i18next/components';
 import { Icon } from 'astro-icon/components';
 import Logo from '~/components/Logo.astro';
 import ToggleTheme from '~/components/common/ToggleTheme.astro';
@@ -123,7 +122,7 @@ const {
             ''
           )
         }
-        <LanguageSelector languageMapping={{ en: '', 'pt-BR': '' }} showFlag={true} class="ml-2 bg-transparent" />
+        <!-- <LanguageSelector languageMapping={{ en: '', 'pt-BR': '' }} showFlag={true} class="ml-2 bg-transparent" /> -->
       </div>
     </div>
   </div>
