@@ -6,6 +6,7 @@ import ToggleTheme from '~/components/common/ToggleTheme.astro';
 import ToggleMenu from '~/components/common/ToggleMenu.astro';
 import Breadcrumbs from '~/components/widgets/Breadcrumbs.astro';
 import Navigation from '~/components/widgets/Navigation.astro';
+import LanguageSelector from '../common/LanguageSelector.astro';
 
 interface Link {
   text: string;
@@ -122,7 +123,7 @@ const {
             ''
           )
         }
-        <!-- <LanguageSelector languageMapping={{ en: '', 'pt-BR': '' }} showFlag={true} class="ml-2 bg-transparent" /> -->
+        <LanguageSelector />
       </div>
     </div>
   </div>

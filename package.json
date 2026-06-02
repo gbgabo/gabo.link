@@ -56,7 +56,8 @@
     "astro-seo": "^1.1.0",
     "intlayer": "^8.11.0",
     "qrcode": "^1.5.3",
-    "tailwind-merge": "^3.6.0"
+    "tailwind-merge": "^3.6.0",
+    "vanilla-intlayer": "^8.11.3"
   },
   "overrides": {
     "vite": "^7"
