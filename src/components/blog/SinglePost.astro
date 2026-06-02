@@ -34,7 +34,7 @@ const { post, url } = Astro.props;
             <p>
               <a
                 class:list={['font-bold capitalize hover:underline', categoryData[post.category].classes.outline]}
-                href={getPermalink(post.category, 'category')}
+                href={getPermalink(Astro.url.pathname, post.category, 'category')}
               >
                 {categories[post.category]}
               </a>

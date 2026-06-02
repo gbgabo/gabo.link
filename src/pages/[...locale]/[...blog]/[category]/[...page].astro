@@ -68,7 +68,7 @@ const meta = {
 
 <Layout
   breadcrumbs={[
-    { title: 'blog', href: getBlogPermalink() },
+    { title: 'blog', href: getBlogPermalink(Astro.url.pathname) },
     { title: categories[category.replaceAll('-', ' ')], href: '#top' },
   ]}
   meta={meta}
@@ -76,7 +76,7 @@ const meta = {
   <PostLayout>
     <Fragment slot="heading">
       <Headline left>
-        <a class="text-2xl md:text-3xl" href={getBlogPermalink()}>blog</a><span
+        <a class="text-2xl md:text-3xl" href={getBlogPermalink(Astro.url.pathname)}>blog</a><span
           class={categoryData[category].classes.outline}>/{categories[category.replaceAll('-', ' ')]}</span
         >
       </Headline>

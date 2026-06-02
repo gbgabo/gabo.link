@@ -24,7 +24,7 @@ const { links, showToggleTheme = false } = Astro.props;
   <ul class="flex w-full flex-col text-xl md:w-auto md:flex-row md:items-center md:self-center md:pt-0 md:text-base">
     {
       links.map(({ text, href, links }, index) => {
-        const permalink = getPermalink(...href);
+        const permalink = getPermalink(pathname, ...href);
         return (
           <li class={links?.length ? 'dropdown' : ''} style={`--item-delay: ${menuIndex * 100}ms`}>
             {links?.length ? (
@@ -44,7 +44,7 @@ const { links, showToggleTheme = false } = Astro.props;
                 </button>
                 <ul class="dropdown-menu dark:md:bg-dark-purple rounded pl-4 font-medium drop-shadow-xl md:absolute md:hidden md:min-w-50 md:bg-white/90 md:pl-0 md:backdrop-blur-md">
                   {links.map(({ text: text2, href: href2 }, index2) => {
-                    const permalink2 = getPermalink(...href2);
+                    const permalink2 = getPermalink(pathname, ...href2);
                     return (
                       <li style={`--item-delay: ${menuIndex * 100}ms`}>
                         <NavLink

@@ -25,7 +25,7 @@ const meta = {
 
 <PageLayout
   breadcrumbs={[
-    { title: aboutMeta.title, href: getPermalink('about') },
+    { title: aboutMeta.title, href: getPermalink(Astro.url.pathname, 'about') },
     { title: 'uses', href: '#top' },
   ]}
   meta={meta}

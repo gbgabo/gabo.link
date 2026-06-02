@@ -33,7 +33,10 @@ const tags = await fetchTags(locale);
           return (
             <a
               class={`btn col-span-1 px-1 ${slug === selected && 'btn-primary'}`}
-              href={(slug === selected && getBlogPermalink()) || getPermalink(slug, 'category')}
+              href={
+                (slug === selected && getBlogPermalink(Astro.url.pathname)) ||
+                getPermalink(Astro.url.pathname, slug, 'category')
+              }
             >
               <Icon class="mr-1 h-5 w-5" name={categoryData[slug].icon} />
               {categories[slug]}

@@ -23,7 +23,7 @@ const { categories } = getIntlayer('blog', locale);
 const { post } = Astro.props;
 const image = await findImage(post.image);
 
-const link = !BLOG?.post?.disabled ? getPermalink(post.permalink, 'post') : '';
+const link = !BLOG?.post?.disabled ? getPermalink(Astro.url.pathname, post.permalink, 'post') : '';
 ---
 
 <article class:list={['mx-auto grid max-w-md gap-3 md:max-w-none md:gap-8', image ? 'md:grid-cols-2' : '']}>
@@ -56,7 +56,7 @@ const link = !BLOG?.post?.disabled ? getPermalink(post.permalink, 'post') : '';
               <>
                 <a
                   class:list={['capitalize hover:underline', categoryData[post.category].classes.outline]}
-                  href={getPermalink(post.category, 'category')}
+                  href={getPermalink(Astro.url.pathname, post.category, 'category')}
                 >
                   {categories[post.category]}
                 </a>

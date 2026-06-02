@@ -3,7 +3,7 @@ import { Picture } from 'astro:assets';
 import { Icon } from 'astro-icon/components';
 import { getAsset, getPermalink } from '~/utils/permalinks';
 import { bentoGrids } from '~/data';
-import { getIntlayer, getLocaleFromPath, getPrefix, localeMap, getLocalizedUrl } from 'intlayer';
+import { getIntlayer, getLocaleFromPath, getPrefix, localeMap } from 'intlayer';
 import type { LocalesValues } from 'intlayer';
 
 import Layout from '~/layouts/PageLayout.astro';
@@ -21,7 +21,7 @@ const use = [
   {
     title: uses.content.uses.title,
     description: uses.content.uses.description,
-    href: getPermalink('uses'),
+    href: getPermalink(Astro.url.pathname, 'uses'),
     icon: 'tabler:app-window',
     external: false,
   },

@@ -15,7 +15,7 @@ export interface Props {
 const {
   title = await Astro.slots.render('title'),
   allPostsText = 'View all posts',
-  allPostsLink = getBlogPermalink(),
+  allPostsLink = getBlogPermalink(Astro.url.pathname),
   information = await Astro.slots.render('information'),
 } = Astro.props;
 

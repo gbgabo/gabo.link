@@ -55,7 +55,7 @@ const {
   <div class="mx-auto w-full max-w-7xl px-3 py-3 md:flex md:justify-start md:px-4 md:py-3.5">
     <Navigation links={links} showToggleTheme />
     <div class:list={[{ 'mr-auto': position === 'right' }, 'flex justify-between md:order-first']}>
-      <a class="flex items-center" href={getHomePermalink()}>
+      <a class="flex items-center" href={getHomePermalink(Astro.url.pathname)}>
         <Logo collapsable={breadcrumbs} />
       </a>
       <div class="my-auto flex w-full md:hidden">
@@ -112,7 +112,7 @@ const {
                     'btn ml-2 px-5.5 py-2.5 text-sm font-semibold shadow-none md:px-6',
                     { 'btn-ghost': type === 'ghost', 'btn-primary': type === 'primary' },
                   ]}
-                  href={getPermalink(...href)}
+                  href={getPermalink(Astro.url.pathname, ...href)}
                 >
                   <Fragment set:html={text} />
                 </a>

@@ -1,3 +1,4 @@
+import { getLocaleFromPath, getPrefix, type LocalesValues } from 'intlayer';
 import slugify from 'limax';
 import QRCode from 'qrcode';
 
@@ -31,7 +32,9 @@ export const TAG_BASE = cleanSlug(BLOG?.tag?.pathname) || 'tag';
 export const getCanonical = (path = ''): string | URL => new URL(path, SITE.origin);
 
 /** */
-export const getPermalink = (slug = '', type = 'page'): string => {
+
+export const getPermalink = (pathname = '/', slug = '', type = 'page'): string => {
+  const locale = getLocaleFromPath(pathname) as LocalesValues;
   let permalink: string;
 
   switch (type) {
@@ -50,17 +53,20 @@ export const getPermalink = (slug = '', type = 'page'): string => {
     case 'page':
     default:
       permalink = createPath(slug);
-      break;
+  }
+
+  if (locale) {
+    permalink = createPath(getPrefix(locale).localePrefix, permalink);
   }
 
   return definitivePermalink(permalink);
 };
 
 /** */
-export const getHomePermalink = (): string => getPermalink('/');
+export const getHomePermalink = (pathname = '/'): string => getPermalink(pathname, '/');
 
 /** */
-export const getBlogPermalink = (): string => getPermalink(BLOG_BASE);
+export const getBlogPermalink = (pathname = '/'): string => getPermalink(pathname, BLOG_BASE);
 
 /** */
 export const getAsset = (path: string): string =>
