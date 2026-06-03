@@ -114,7 +114,7 @@ const aboutContent = {
       }),
       cta: t({
         en: 'Check my projects',
-        'pt-BR': 'See my projects',
+        'pt-BR': 'Veja meus projetos',
       }),
     },
     nav: {
