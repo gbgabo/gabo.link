@@ -70,7 +70,7 @@ const { links, showToggleTheme = false } = Astro.props;
       })
     }
   </ul>
-  <div class="absolute right-2 bottom-2 flex flex-col gap-3 md:hidden">
+  <div class="absolute right-2 bottom-2 flex flex-col items-end gap-3 md:hidden">
     {showToggleTheme && <ToggleTheme iconClass="w-5 h-5" />}
     <LanguageSelector />
   </div>
