@@ -26,7 +26,7 @@ const localesDetails = locales.map((localeItem) => ({
 <div class="relative" aria-label="language menu">
   <details class="group relative">
     <div
-      class="animate-dropdown absolute right-0 bottom-[calc(100%+8px)] z-200 min-w-[220px] overflow-hidden rounded-2xl border border-white/10 bg-slate-900/90 p-1.5 shadow-[0_12px_40px_rgba(0,0,0,0.5),0_0_0_1px_rgba(255,255,255,0.05)] backdrop-blur-xl md:top-[calc(100%+8px)] md:bottom-auto"
+      class="animate-dropdown bg-pastel-purple dark:bg-dark-purple/90 absolute right-0 bottom-[calc(100%+8px)] z-200 min-w-55 overflow-hidden rounded-2xl border border-white/10 p-1.5 shadow-[0_12px_40px_rgba(0,0,0,0.5),0_0_0_1px_rgba(255,255,255,0.05)] backdrop-blur-xl md:top-[calc(100%+8px)] md:bottom-auto"
     >
       <ul class="flex flex-col gap-0.5">
         {
@@ -36,33 +36,34 @@ const localesDetails = locales.map((localeItem) => ({
                 href={url}
                 data-locale={localeItem}
                 class:list={[
-                  'flex items-center justify-between gap-4 rounded-[10px] border border-transparent px-3.5 py-2.5 transition-all duration-150 hover:border-white/5 hover:bg-white/6',
+                  'hover:bg-muted-purple/90 dark:hover:bg-muted-purple/10 grid grid-cols-[1fr_auto] items-center justify-between rounded-[10px] border border-transparent px-3.5 py-2.5 transition-all duration-150 hover:border-white/50 dark:hover:border-white/5',
                   {
                     'border-indigo-500/20 bg-indigo-500/15': isCurrent,
                   },
                 ]}
               >
-                <div class="flex flex-col gap-0.5">
+                <div class="flex flex-col gap-0.5 pr-4">
                   <span
                     dir={getHTMLTextDir(localeItem)}
                     lang={localeItem}
-                    class="text-[0.9375rem] leading-tight font-semibold text-white"
+                    class="text-[0.9375rem] leading-tight font-semibold dark:text-white"
                   >
                     {ownLocaleName}
                   </span>
 
-                  <span class="text-xs text-slate-400">{currentLocaleName}</span>
+                  <span class="text-xs text-slate-500">{currentLocaleName}</span>
                 </div>
 
                 <span
                   class:list={[
-                    'shrink-0 rounded bg-black/20 px-1.5 py-0.5 text-xs font-bold tracking-wider text-slate-500',
-                    {
-                      'bg-indigo-500/10 text-indigo-400': isCurrent,
-                    },
+                    'shrink-0 rounded px-1.5 py-0.5 text-xs font-bold tracking-wider whitespace-nowrap',
+                    isCurrent
+                      ? 'dark:bg-cherry dark:text-acid-green bg-grape text-white'
+                      : 'bg-light-purple text-darker-purple',
+                    ,
                   ]}
                 >
-                  {localeItem.toUpperCase()}
+                  {localeItem}
                 </span>
               </a>
             </li>
@@ -72,7 +73,7 @@ const localesDetails = locales.map((localeItem) => ({
     </div>
 
     <summary
-      class="flex cursor-pointer list-none items-center gap-2 rounded-xl border border-white/10 bg-white/5 px-3.5 py-2 text-sm font-semibold text-slate-50 backdrop-blur-md transition-all duration-200 select-none group-open:border-indigo-500/50 group-open:bg-indigo-500/15 group-open:shadow-[0_0_20px_rgba(99,102,241,0.2)] hover:border-indigo-500/50 hover:bg-indigo-500/15 hover:shadow-[0_0_20px_rgba(99,102,241,0.2)]"
+      class="dark:text-light-purple flex cursor-pointer list-none items-center gap-2 rounded-xl bg-white/5 px-3.5 py-2 text-sm font-semibold backdrop-blur-md transition-all duration-200 select-none group-open:border-indigo-500/50 group-open:bg-indigo-500/15 group-open:shadow-[0_0_20px_rgba(99,102,241,0.2)] hover:border-indigo-500/50 hover:bg-indigo-500/15 hover:shadow-[0_0_20px_rgba(99,102,241,0.2)]"
     >
       <span>{locale}</span>
 
