@@ -1,7 +1,7 @@
 {
-  "name": "@onwidget/astrowind",
-  "description": "A template to make your website using Astro + Tailwind CSS.",
-  "version": "0.9.8",
+  "name": "gabo-link",
+  "description": "A blog template using Astro + Tailwind CSS + intlayer and pagefind.",
+  "version": "0.9.9",
   "private": true,
   "scripts": {
     "dev": "astro dev",
@@ -15,10 +15,10 @@
   },
   "devDependencies": {
     "@astrojs/check": "^0.9.9",
-    "@astrojs/mdx": "^5.0.4",
+    "@astrojs/mdx": "^6.0.1",
     "@astrojs/partytown": "^2.1.7",
     "@astrojs/rss": "^4.0.18",
-    "@astrojs/sitemap": "^3.7.2",
+    "@astrojs/sitemap": "^3.7.3",
     "@iconify-json/devicon-plain": "^1.1.42",
     "@iconify-json/ep": "^1.1.14",
     "@iconify-json/eva": "^1.1.10",
@@ -31,7 +31,7 @@
     "@iconify-json/simple-icons": "^1.1.84",
     "@iconify-json/tabler": "^1.1.102",
     "@tailwindcss/typography": "^0.5.9",
-    "astro": "^6.3.1",
+    "astro": "^6.4.3",
     "limax": "^4.1.0",
     "mdast-util-to-string": "^4.0.0",
     "prettier": "^3.0.3",
