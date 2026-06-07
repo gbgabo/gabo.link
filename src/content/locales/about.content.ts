@@ -117,6 +117,120 @@ const aboutContent = {
         'pt-BR': 'Veja meus projetos',
       }),
     },
+    academics: {
+      title: t({
+        en: 'Degrees',
+        'pt-BR': 'Acadêmica',
+      }),
+      items: {
+        eng: [
+          {
+            type: 'text',
+            value: t({
+              en: '- 2016 ~ Dec/2022 ',
+              'pt-BR': '- 2016 ~ Dez/2022 ',
+            }),
+          },
+          {
+            type: 'chip',
+            value: t({
+              en: 'Computer Engineering',
+              'pt-BR': 'Engenharia da Computação',
+            }),
+          },
+        ],
+        engUni: [
+          {
+            type: 'text',
+            value: t({
+              en: 'Bachelor Degree - Universidade Positivo',
+              'pt-BR': 'Bacharelado - Universidade Positivo',
+            }),
+          },
+        ],
+        mech: [
+          {
+            type: 'text',
+            value: t({
+              en: '- 2012 ~ 2015 ',
+              'pt-BR': '- 2012 ~ 2015 ',
+            }),
+          },
+          {
+            type: 'chip',
+            value: t({
+              en: 'Mechatronics',
+              'pt-BR': 'Mecatrônica',
+            }),
+          },
+        ],
+        mechUni: [
+          {
+            type: 'text',
+            value: t({
+              en: 'Technician Degree - Ensitec',
+              'pt-BR': 'Curso Técnico - Ensitec',
+            }),
+          },
+        ],
+      },
+    },
+    languages: {
+      title: t({
+        en: 'Languages',
+        'pt-BR': 'Idiomas',
+      }),
+      items: {
+        br: [
+          {
+            type: 'chip',
+            value: t({
+              en: 'Brazilian Portuguese',
+              'pt-BR': 'Português Brasileiro',
+            }),
+          },
+          {
+            type: 'text',
+            value: t({
+              en: ' Native',
+              'pt-BR': ' Nativo',
+            }),
+          },
+        ],
+        en: [
+          {
+            type: 'chip',
+            value: t({
+              en: 'English',
+              'pt-BR': 'Inglês',
+            }),
+          },
+          {
+            type: 'text',
+            value: t({
+              en: ' Proficient',
+              'pt-BR': ' Proficiente',
+            }),
+          },
+        ],
+        ch: [
+          {
+            type: 'chip',
+            value: t({
+              en: 'Chinese',
+              'pt-BR': 'Chinês',
+            }),
+          },
+          {
+            type: 'text',
+            value: t({
+              en: ' Basic',
+              'pt-BR': ' Básico',
+            }),
+          },
+        ],
+      },
+    },
     nav: {
       cv: t({
         en: 'resume',

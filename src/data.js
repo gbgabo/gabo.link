@@ -69,8 +69,10 @@ export const categoryData = {
   },
 };
 
-export const bentoGrids = {
-  uses: [
+export const bentoGrids = (locale = '') => {
+  const { academics, languages } = getIntlayer('about', locale);
+  return {
+    uses: [
     {
       icon: 'tabler:app-window',
       title: 'The GUI',
@@ -241,37 +243,23 @@ export const bentoGrids = {
   academics: [
     {
       icon: 'fluent:hat-graduation-28-filled',
-      title: 'Degrees',
+      title: academics.title,
       span: 'md:col-span-2',
       items: [
-        [
-          { type: 'text', value: '- 2016 ~ Dec/2022 ' },
-          { type: 'chip', value: 'Computer Enginneering' },
-        ],
-        [{ type: 'text', value: 'Bachelor Degree - Universidade Positivo' }],
-        [
-          { type: 'text', value: '- 2012 ~ 2015 ' },
-          { type: 'chip', value: 'Mechatronics' },
-        ],
-        [{ type: 'text', value: 'Technician Degree - Ensitec' }],
+        [...academics.items.eng],
+        [...academics.items.engUni],
+        [...academics.items.mech],
+        [...academics.items.mechUni],
       ],
     },
     {
-      title: 'Languages',
+      title: languages.title,
       items: [
-        [
-          { type: 'chip', value: 'Brazilian Portuguese' },
-          { type: 'text', value: 'Native' },
-        ],
-        [
-          { type: 'chip', value: 'English' },
-          { type: 'text', value: 'Proficient' },
-        ],
-        [
-          { type: 'chip', value: 'Chinese' },
-          { type: 'text', value: 'Basic' },
-        ],
+        [...languages.items.br],
+        [...languages.items.en],
+        [...languages.items.ch]
       ],
     },
-  ],
+  ],}
+  
 };
