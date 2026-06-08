@@ -7,17 +7,19 @@ import { MetaSEO } from '~/types';
 import { getCanonical, getAsset } from '~/utils/permalinks';
 import { getRelativeUrlByFilePath } from '~/utils/directories';
 
-import CustomStyles from '~/components/CustomStyles.astro';
 import SplitbeeAnalytics from './SplitbeeAnalytics.astro';
+import { findImage } from '~/utils/images';
 
 export interface Props extends MetaSEO {
   dontUseTitleTemplate?: boolean;
 }
 
-const defaultImage = SITE.defaultImage
+const resolved = await findImage(SITE.defaultImage);
+
+const defaultImage = resolved
   ? (
       await getImage({
-        src: SITE.defaultImage,
+        src: resolved,
         alt: 'Default image',
         width: 1200,
         height: 628,

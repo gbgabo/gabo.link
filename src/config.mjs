@@ -6,7 +6,7 @@ const CONFIG = {
   basePathname: '/',
   trailingSlash: false,
 
-  defaultImage: '/assets/images/default.png',
+  defaultImage: '~/assets/images/default.png',
 
   defaultTheme: 'dark', // Values: "system" | "light" | "dark" | "light:only" | "dark:only"
 
