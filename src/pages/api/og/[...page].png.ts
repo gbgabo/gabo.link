@@ -37,6 +37,16 @@ const categoriesData = Array.from(categories).map((category: string) => {
 // instead of i18next because it appears not to work with .ts routes
 const pages = [
   {
+    slug: 'about',
+    title: '/about',
+    subtitle: '',
+  },
+  {
+    slug: 'pt-BR/about',
+    title: '/sobre',
+    subtitle: '',
+  },
+  {
     slug: 'projects',
     title: '/projects',
     subtitle: '',
