@@ -131,7 +131,7 @@ const links = [
 const meta = {
   title: metadata.title,
   description: metadata.description,
-  image: `/api/og/${locale}/about.png`,
+  image: `/api/og${Astro.url.pathname}.png`,
 };
 ---
 

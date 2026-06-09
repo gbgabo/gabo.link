@@ -41,7 +41,7 @@ const currentPage = page.currentPage ?? 1;
 const meta = {
   title: `Blog${currentPage > 1 ? ` — Page ${currentPage}` : ''}`,
   description: metadata.description,
-  image: `/api/og/${locale}/blog.png`,
+  image: `/api/og${Astro.url.pathname}.png`,
   noindex: BLOG?.list?.noindex || currentPage > 1,
   ogType: 'blog',
 };

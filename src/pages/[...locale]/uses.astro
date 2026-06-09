@@ -19,7 +19,7 @@ const { meta: aboutMeta } = getIntlayer('about', locale);
 const meta = {
   title: 'Uses',
   description: subtitle,
-  image: `/api/og/${locale}/uses.png`,
+  image: `/api/og${Astro.url.pathname}.png`,
 };
 ---
 
