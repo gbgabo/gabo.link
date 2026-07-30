@@ -44,7 +44,6 @@ export const footerData = (locale = '') => {
       { ariaLabel: 'Instagram', icon: 'tabler:brand-instagram', href: 'https://www.instagram.com/gb_gabo/' },
       { ariaLabel: 'Codepen', icon: 'tabler:brand-codepen', href: 'https://codepen.io/gb_gabo' },
       { ariaLabel: 'Mastodon', icon: 'tabler:brand-mastodon', href: 'https://mastodon.sdf.org/@gb_gabo' },
-      { ariaLabel: 'Twitter', icon: 'tabler:brand-twitter', href: 'https://twitter.com/gb_gabo' },
       { ariaLabel: 'Mail', icon: 'tabler:mail', href: 'mailto:contact@gabo.link' },
       { ariaLabel: 'RSS', icon: 'tabler:rss', href: getAsset('/rss.xml') },
     ],
