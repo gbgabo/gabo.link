@@ -7,6 +7,7 @@ import { defineConfig, fontProviders } from 'astro/config';
 import sitemap from '@astrojs/sitemap';
 import mdx from '@astrojs/mdx';
 import partytown from '@astrojs/partytown';
+import { unified } from "@astrojs/markdown-remark";
 import icon from 'astro-icon';
 import pagefind from 'astro-pagefind';
 import { readingTimeRemarkPlugin } from './src/utils/frontmatter.mjs';
@@ -52,7 +53,9 @@ export default defineConfig({
   ), intlayer()],
 
   markdown: {
-    remarkPlugins: [readingTimeRemarkPlugin],
+    processor: unified({
+      remarkPlugins: [readingTimeRemarkPlugin],
+    }),
     // Can be 'shiki' (default), 'prism' or false to disable highlighting
     syntaxHighlight: 'prism',
   },
