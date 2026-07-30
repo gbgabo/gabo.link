@@ -27,8 +27,7 @@ const { value, href, variant, class: className } = Astro.props;
   {
     href ? (
       <a href={href}>
-        {value}
-        {href[0] == 'h' && <Icon name={'eva:diagonal-arrow-right-up-fill'} class="-ml-2 inline h-4 w-5" />}
+        {value} {href[0] == 'h' && <Icon name={'eva:diagonal-arrow-right-up-fill'} class="-ml-2 inline h-4 w-5" />}
       </a>
     ) : (
       value
