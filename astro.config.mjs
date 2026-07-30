@@ -60,6 +60,8 @@ export default defineConfig({
     syntaxHighlight: 'prism',
   },
 
+  // Allows SVG source images to be processed by the image optimization pipeline (in this case, md files)
+  // https://docs.astro.build/en/reference/configuration-reference/#imagedangerouslyprocesssvg
   image: {
     dangerouslyProcessSVG: true,
   },
