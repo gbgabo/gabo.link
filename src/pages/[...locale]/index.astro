@@ -2,7 +2,7 @@
 import Layout from '~/layouts/PageLayout.astro';
 import Hero from '~/components/widgets/Hero.astro';
 import LatestPosts from '~/components/blog/LatestPosts.astro';
-import Web from '~/components/WebBackground.astro';
+import Web from '~/assets/images/svg/web.svg';
 import { getIntlayer, getLocaleFromPath, getPrefix, localeMap, getLocalizedUrl } from 'intlayer';
 import type { LocalesValues } from 'intlayer';
 
@@ -24,7 +24,11 @@ const meta = {
     callToAction={{ text: cta1, href: '#blog' }}
     callToAction2={{ text: cta2, href: getLocalizedUrl('/about', locale) }}
   >
-    <Fragment slot="background"><Web /></Fragment>
+    <Fragment slot="background">
+      <div class="fixed w-screen object-cover">
+        <Web />
+      </div>
+    </Fragment>
     <Fragment slot="title">{title}</Fragment>
     <Fragment slot="subtitle">{subtitle}</Fragment>
   </Hero>
