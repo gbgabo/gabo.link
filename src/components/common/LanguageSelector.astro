@@ -1,0 +1,138 @@
+---
+import { getPrefix } from 'intlayer';
+import {
+  getIntlayer,
+  getHTMLTextDir,
+  getLocaleName,
+  getLocalizedUrl,
+  getLocaleFromPath,
+  getPathWithoutLocale,
+  locales,
+  type LocalesValues,
+} from 'intlayer';
+
+const locale = getLocaleFromPath(Astro.url.pathname) as LocalesValues;
+const pathWithoutLocale = getPathWithoutLocale(Astro.url.pathname);
+
+const localesDetails = locales.map((localeItem) => ({
+  locale: localeItem,
+  ownLocaleName: getLocaleName(localeItem),
+  currentLocaleName: getLocaleName(localeItem, locale),
+  url: getLocalizedUrl(pathWithoutLocale, localeItem),
+  isCurrent: localeItem === locale,
+}));
+---
+
+<div class="relative" aria-label="language menu">
+  <details class="group relative">
+    <div
+      class="animate-dropdown bg-pastel-purple dark:bg-dark-purple/90 absolute right-0 bottom-[calc(100%+8px)] z-200 min-w-55 overflow-hidden rounded-2xl border border-white/10 p-1.5 shadow-[0_12px_40px_rgba(0,0,0,0.5),0_0_0_1px_rgba(255,255,255,0.05)] backdrop-blur-xl md:top-[calc(100%+8px)] md:bottom-auto"
+    >
+      <ul class="flex flex-col gap-0.5">
+        {
+          localesDetails.map(({ locale: localeItem, ownLocaleName, currentLocaleName, url, isCurrent }) => (
+            <li>
+              <a
+                href={url}
+                data-locale={localeItem}
+                class:list={[
+                  'hover:bg-muted-purple/90 dark:hover:bg-muted-purple/10 grid grid-cols-[1fr_auto] items-center justify-between rounded-[10px] border border-transparent px-3.5 py-2.5 transition-all duration-150 hover:border-white/50 dark:hover:border-white/5',
+                  {
+                    'border-indigo-500/20 bg-indigo-500/15': isCurrent,
+                  },
+                ]}
+              >
+                <div class="flex flex-col gap-0.5 pr-4">
+                  <span
+                    dir={getHTMLTextDir(localeItem)}
+                    lang={localeItem}
+                    class="text-[0.9375rem] leading-tight font-semibold dark:text-white"
+                  >
+                    {ownLocaleName}
+                  </span>
+
+                  <span class="text-xs text-slate-500">{currentLocaleName}</span>
+                </div>
+
+                <span
+                  class:list={[
+                    'shrink-0 rounded px-1.5 py-0.5 text-xs font-bold tracking-wider whitespace-nowrap',
+                    isCurrent
+                      ? 'dark:bg-cherry dark:text-acid-green bg-grape text-white'
+                      : 'bg-light-purple text-darker-purple',
+                    ,
+                  ]}
+                >
+                  {localeItem}
+                </span>
+              </a>
+            </li>
+          ))
+        }
+      </ul>
+    </div>
+
+    <summary
+      class="dark:text-light-purple flex cursor-pointer list-none items-center gap-2 rounded-xl bg-white/5 px-3.5 py-2 text-sm font-semibold backdrop-blur-md transition-all duration-200 select-none group-open:border-indigo-500/50 group-open:bg-indigo-500/15 group-open:shadow-[0_0_20px_rgba(99,102,241,0.2)] hover:border-indigo-500/50 hover:bg-indigo-500/15 hover:shadow-[0_0_20px_rgba(99,102,241,0.2)]"
+    >
+      <span>{locale}</span>
+
+      <svg
+        class="h-[11px] w-[11px] shrink-0 opacity-80 transition-transform duration-300 group-open:rotate-180"
+        viewBox="0 0 12 12"
+        fill="none"
+      >
+        <path d="M2 4L6 8L10 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"
+        ></path>
+      </svg>
+    </summary>
+  </details>
+</div>
+
+<style>
+  summary::-webkit-details-marker {
+    display: none;
+  }
+
+  @keyframes dropdown {
+    from {
+      opacity: 0;
+      transform: translateY(-8px);
+    }
+
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .animate-dropdown {
+    animation: dropdown 0.2s ease-out;
+  }
+</style>
+
+<script>
+  import { useLocale } from 'vanilla-intlayer';
+  import { getLocalizedUrl, type LocalesValues } from 'intlayer';
+
+  // Update the locale cookie when a language is selected
+  // This helps the middleware to remember the preference and prevents redirect loops
+  const { setLocale } = useLocale({
+    onLocaleChange: (newLocale) => {
+      window.location.href = getLocalizedUrl(window.location.pathname, newLocale);
+    },
+  });
+
+  const localeLinks = document.querySelectorAll('[data-locale]');
+
+  localeLinks.forEach((link) => {
+    link.addEventListener('click', (e) => {
+      const locale = link.getAttribute('data-locale') as LocalesValues;
+
+      if (locale) {
+        e.preventDefault();
+        setLocale(locale);
+      }
+    });
+  });
+</script>

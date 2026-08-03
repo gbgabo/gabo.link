@@ -1,0 +1,195 @@
+@import 'tailwindcss';
+@plugin '@tailwindcss/typography';
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+/*
+  The default border color has changed to `currentcolor` in Tailwind CSS v4,
+  so we've added these compatibility styles to make sure everything still
+  looks the same as it did with Tailwind CSS v3.
+
+  If we ever want to remove these styles, we need to add an explicit border
+  color utility to any element that depends on these defaults.
+*/
+
+@layer base {
+  *,
+  ::after,
+  ::before,
+  ::backdrop,
+  ::file-selector-button {
+    border-color: var(--color-gray-200, currentcolor);
+  }
+
+  a {
+    @apply wrap-break-word;
+  }
+
+  dialog::backdrop {
+    @apply bg-pastel-purple/95;
+  }
+
+  .dark dialog::backdrop {
+    @apply bg-darker-purple/90;
+  }
+
+  :modal {
+    @apply mx-auto flex h-full flex-col justify-center border-0 bg-transparent p-0;
+  }
+
+  :focus-visible {
+    outline: 0 !important;
+    box-shadow: none;
+  }
+
+  img {
+    content-visibility: auto;
+  }
+}
+
+:root {
+  --aw-color-primary: rgb(144, 0, 72);
+  --aw-color-secondary: rgb(199, 155, 255);
+  --aw-color-accent: rgb(0, 255, 183);
+  --aw-color-text-page: rgb(25, 0, 46);
+  --aw-color-text-muted: rgb(75 85 99);
+  --aw-color-bg-page: rgb(236, 222, 255);
+
+  --wb-dark-purple: oklch(0.2116 0.1111 302.92);
+  --wb-darker-purple: oklch(0.1715 0.0894 304.32);
+  --wb-acid-green: oklch(0.8852 0.1888 163.93);
+  --wb-cherry: oklch(0.4225 0.1709 1.09);
+  --wb-pink: oklch(0.6483 0.2578 2.13);
+  --wb-light-purple: oklch(0.7679 0.1456 303.42);
+  --wb-grape: oklch(0.494 0.2265 297.51);
+  --wb-pastel-purple: oklch(0.8988 0.0614 305.2);
+  --wb-muted-purple: oklch(0.9218 0.0467 304.67);
+}
+
+@theme {
+  --color-primary: var(--aw-color-primary);
+  --color-secondary: var(--aw-color-secondary);
+  --color-accent: var(--aw-color-accent);
+  --color-dark-purple: var(--wb-dark-purple);
+  --color-darker-purple: #19002e;
+  --color-acid-green: var(--wb-acid-green);
+  --color-cherry: var(--wb-cherry);
+  --color-pink: var(--wb-pink);
+  --color-light-purple: #c79bff;
+  --color-grape: var(--wb-grape);
+  --color-pastel-purple: #e7d4ff;
+  --color-muted-purple: var(--wb-muted-purple);
+
+  --font-sans: var(--font-jetbrains-mono);
+  --font-serif: var(--font-sans);
+  --font-heading: var(--font-sans);
+
+  --web-node-color: rgb(212, 187, 244);
+  --web-node-bg-color: rgba(198, 155, 255, 0.827);
+  --logo-up-color: var(--wb-light-purple);
+  --logo-down-color: var(--wb-grape);
+
+  --grid-main-left: min(100ch, 100%) 1fr;
+
+  @keyframes fade-up {
+    from {
+      opacity: 0;
+      transform: translateY(50%);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0%);
+    }
+  }
+
+  --animate-fade-up: fade-up 0.3s;
+}
+
+.dark {
+  --web-node-color: var(--wb-dark-purple);
+  --web-node-bg-color: var(--wb-cherry);
+  --logo-up-color: var(--wb-acid-green);
+  --logo-down-color: var(--wb-pink);
+}
+
+@utility text-page {
+  color: var(--aw-color-text-page);
+}
+
+@utility text-muted {
+  color: var(--aw-color-text-muted);
+}
+
+@utility bg-light {
+  background-color: var(--aw-color-bg-page);
+}
+
+@utility bg-dark {
+  @apply bg-darker-purple;
+}
+
+@utility btn {
+  @apply text-page dark:text-light-purple dark:border-light-purple dark:hover:text-darker-purple dark:hover:bg-light-purple dark:hover:border-light-purple inline-flex items-center justify-center rounded-full bg-white/20 px-6 py-3.5 text-center text-base leading-snug font-medium shadow-md transition duration-200 ease-in hover:border-gray-600 hover:bg-gray-100 focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:ring-offset-blue-200 md:px-8 dark:bg-white/10;
+}
+
+@utility btn-ghost {
+  @apply text-muted dark:text-light-purple dark:hover:text-darker-purple border-none shadow-none hover:text-gray-900;
+}
+
+@utility btn-primary {
+  @apply bg-grape hover:bg-light-purple hover:text-darker-purple dark:text-acid-green dark:bg-primary dark:border-primary dark:hover:border-acid-green dark:hover:bg-acid-green dark:hover:text-cherry font-semibold text-white;
+}
+
+@layer components {
+  [data-menu] {
+    @apply translate-y-96 opacity-0 transition-all md:translate-y-0 md:opacity-100;
+  }
+
+  .menu-item {
+    @apply translate-y-1/2 opacity-0 transition-all md:translate-y-0 md:opacity-100;
+  }
+
+  [data-menu].show .menu-item {
+    @apply translate-y-0 opacity-100;
+  }
+}
+
+@utility show {
+  @apply translate-y-0 opacity-100;
+}
+
+#header.scroll {
+  @apply bg-pastel-purple/90 dark:bg-darker-purple/90 block shadow-md md:shadow-lg md:backdrop-blur-xs;
+}
+
+.dropdown:hover .dropdown-menu {
+  display: block;
+}
+
+[astro-icon].icon-light > * {
+  stroke-width: 1.2;
+}
+
+[astro-icon].icon-bold > * {
+  stroke-width: 2.4;
+}
+
+[data-aw-toggle-menu] path {
+  @apply transition;
+}
+
+[data-aw-toggle-menu].expanded g > path:first-child {
+  @apply translate-x-[-3px] translate-y-[15px] -rotate-45;
+}
+
+[data-aw-toggle-menu].expanded g > path:last-child {
+  @apply translate-x-[14px] translate-y-[-8px] rotate-45;
+}
+
+[data-aw-toggle-toc].expanded {
+  @apply text-dark-purple bg-light-purple dark:text-cherry dark:bg-acid-green;
+}
+
+[data-toggle-filter].expanded {
+  @apply text-dark-purple bg-light-purple dark:text-cherry dark:bg-acid-green;
+}

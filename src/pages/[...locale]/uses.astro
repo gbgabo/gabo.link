@@ -1,0 +1,50 @@
+---
+import { Picture } from 'astro:assets';
+import { getIntlayer, getLocaleFromPath, getPrefix, localeMap } from 'intlayer';
+import type { LocalesValues } from 'intlayer';
+
+import Headline from '~/components/blog/Headline.astro';
+import Bento from '~/components/widgets/Bento.astro';
+import PageLayout from '~/layouts/PageLayout.astro';
+
+import { bentoGrids } from '~/data';
+import { getPermalink } from '~/utils/permalinks';
+
+export const getStaticPaths = () => localeMap(({ locale }) => ({ params: { locale: getPrefix(locale).localePrefix } }));
+
+const locale = getLocaleFromPath(Astro.url.pathname) as LocalesValues;
+const { subtitle, content } = getIntlayer('uses', locale);
+const { meta: aboutMeta } = getIntlayer('about', locale);
+
+const meta = {
+  title: 'Uses',
+  description: subtitle,
+  image: `/api/og${Astro.url.pathname}.png`,
+};
+---
+
+<PageLayout
+  breadcrumbs={[
+    { title: aboutMeta.title, href: getPermalink(Astro.url.pathname, 'about') },
+    { title: 'uses', href: '#top' },
+  ]}
+  meta={meta}
+>
+  <div
+    class="prose-md prose-headings:leading-tighter prose prose-lg dark:prose-invert prose-headings:font-heading prose-headings:font-bold prose-headings:tracking-tighter prose-a:text-grape prose-img:rounded-md prose-img:shadow-lg dark:prose-headings:text-slate-300 dark:prose-a:text-acid-green mx-auto my-8 max-w-3xl px-6"
+  >
+    <Headline left subtitle={subtitle}>/uses</Headline>
+    <Picture
+      class="mx-auto w-full rounded-md"
+      widths={[400, 768, 1024, 2040]}
+      sizes="(max-width: 767px) 400px, (max-width: 1023px) 768px, (max-width: 2039px) 1024px, 2040px"
+      aspectRatio={16 / 9}
+      loading="eager"
+      src={import('~/assets/images/dotfiles.png')}
+      alt="screenshot"
+    />
+
+    <p set:html={content} />
+  </div>
+  <Bento blocks={bentoGrids(locale).uses} />
+</PageLayout>

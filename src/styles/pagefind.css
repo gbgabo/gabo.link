@@ -1,0 +1,92 @@
+.pagefind-ui {
+  --pf-font: var(--font-sans);
+
+  --pf-input-height: 50px;
+  --pf-border-radius: 1rem;
+
+  --pf-text: var(--color-grape);
+  --pf-text-secondary: var(--color-darker-purple);
+  --pf-text-muted: var(--color-grape);
+  --pf-background: var(--color-muted-purple);
+  --pf-border: var(--color-grape);
+  --pf-border-focus: var(--color-grape);
+  --pf-skeleton: #f3f3f3;
+  --pf-skeleton-shine: #e5e5e5;
+  --pf-hover: #f8f8f8;
+  --pf-mark: var(--color-pastel-purple);
+  --pf-scroll-shadow: rgba(0, 0, 0, 0.08);
+  --pf-outline-focus: var(--color-grape);
+
+  --pf-shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.08);
+  --pf-shadow-md: 0 4px 12px rgba(0, 0, 0, 0.12);
+  --pf-shadow-lg: 0 16px 48px rgba(0, 0, 0, 0.16);
+
+  --pf-error-bg: #fef2f2;
+  --pf-error-border: #fecaca;
+  --pf-error-text: #dc2626;
+  --pf-error-text-secondary: #ef4444;
+
+  :is(*, #\#):is(*, #\#):is(*, #\#) .pf-result-excerpt mark,
+  :is(*, #\#):is(*, #\#):is(*, #\#) .pf-heading-excerpt mark,
+  :is(*, #\#):is(*, #\#):is(*, #\#) .pf-searchbox-result-excerpt mark {
+    background: var(--color-grape) !important;
+  }
+}
+
+.dark .pagefind-ui {
+  --pf-text: var(--color-acid-green);
+  --pf-text-secondary: var(--color-light-purple);
+  --pf-text-muted: var(--color-light-purple);
+  --pf-background: var(--color-dark-purple);
+  --pf-border: var(--color-cherry);
+  --pf-border-focus: var(--color-light-purple);
+  --pf-skeleton: #2a2a2a;
+  --pf-skeleton-shine: #333;
+  --pf-hover: var(--color-dark-purple);
+  --pf-mark: var(--color-darker-purple);
+  --pf-scroll-shadow: rgba(255, 255, 255, 0.1);
+  --pf-outline-focus: var(--color-cherry);
+
+  --pf-shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.3);
+  --pf-shadow-md: 0 4px 12px rgba(0, 0, 0, 0.4);
+  --pf-shadow-lg: 0 16px 48px rgba(0, 0, 0, 0.5);
+
+  --pf-error-bg: #2a1a1a;
+  --pf-error-border: #5c2828;
+  --pf-error-text: #f87171;
+  --pf-error-text-secondary: #ef4444;
+
+  :is(*, #\#):is(*, #\#):is(*, #\#) .pf-result-excerpt mark,
+  :is(*, #\#):is(*, #\#):is(*, #\#) .pf-heading-excerpt mark,
+  :is(*, #\#):is(*, #\#):is(*, #\#) .pf-searchbox-result-excerpt mark {
+    background: var(--color-light-purple) !important;
+  }
+
+  :is(*, #\#):is(*, #\#):is(*, #\#) .pf-input-wrapper::before,
+  :is(*, #\#):is(*, #\#):is(*, #\#) .pf-searchbox-input-wrapper::before {
+    background-color: var(--color-acid-green) !important;
+  }
+
+  .pf-input {
+    color: var(--color-light-purple) !important;
+  }
+}
+
+pagefind-results:not(:has(.pf-results > .pf-result)) + div {
+  display: block;
+}
+
+.pf-input {
+  border: 2px solid var(--pf-border) !important;
+  padding-inline-start: 38px !important;
+  padding-inline-end: 36px !important;
+}
+
+.pf-input-wrapper::before {
+  inset-inline-start: 16px !important;
+}
+
+.pf-input-clear {
+  font-family: var(--pf-font) !important;
+  border-radius: 2rem !important;
+}

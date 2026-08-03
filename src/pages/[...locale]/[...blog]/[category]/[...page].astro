@@ -1,0 +1,92 @@
+---
+import { getIntlayer, localeMap, getPrefix } from 'intlayer';
+import { BLOG } from '~/config.mjs';
+import { categoryData } from '~/data.js';
+
+import Layout from '~/layouts/PageLayout.astro';
+import PostLayout from '~/layouts/ListLayout.astro';
+import BlogList from '~/components/blog/List.astro';
+import Headline from '~/components/blog/Headline.astro';
+import Pagination from '~/components/blog/Pagination.astro';
+import Filter from '~/components/widgets/Filter.astro';
+
+import { fetchPosts } from '~/utils/blog';
+import { CATEGORY_BASE, getBlogPermalink } from '~/utils/permalinks';
+
+export const getStaticPaths = async ({ paginate }) => {
+  if (BLOG?.disabled || BLOG?.category?.disabled) return [];
+
+  const paths = await Promise.all(
+    localeMap(async ({ locale }) => {
+      const posts = await fetchPosts(locale);
+
+      const categories = new Set<string>();
+
+      posts.forEach((post) => {
+        if (typeof post.category === 'string') {
+          categories.add(post.category.toLowerCase());
+        }
+      });
+
+      return Array.from(categories).flatMap((category) =>
+        paginate(
+          posts.filter((post) => typeof post.category === 'string' && post.category.toLowerCase() === category),
+          {
+            params: {
+              locale: getPrefix(locale).localePrefix,
+              blog: CATEGORY_BASE || undefined,
+              category,
+            },
+            pageSize: BLOG.postsPerPage,
+            props: {
+              category,
+              locale,
+            },
+          }
+        )
+      );
+    })
+  );
+
+  return paths.flat();
+};
+
+const { page, category, locale } = Astro.props;
+const { categories } = getIntlayer('blog', locale);
+const { meta: metadata } = getIntlayer('app', locale);
+
+const currentPage = page.currentPage ?? 1;
+const meta = {
+  title: `${categories.title} '${categories[category.replaceAll('-', ' ')]}' ${
+    currentPage > 1 ? ` — Page ${currentPage}` : ''
+  }`,
+  description: metadata.description,
+  image: `/api/og/category/${category}.png`,
+  noindex: BLOG?.category?.noindex,
+};
+---
+
+<Layout
+  breadcrumbs={[
+    { title: 'blog', href: getBlogPermalink(Astro.url.pathname) },
+    { title: categories[category.replaceAll('-', ' ')], href: '#top' },
+  ]}
+  meta={meta}
+>
+  <PostLayout>
+    <Fragment slot="heading">
+      <Headline left>
+        <a class="text-2xl md:text-3xl" href={getBlogPermalink(Astro.url.pathname)}>blog</a><span
+          class={categoryData[category].classes.outline}>/{categories[category.replaceAll('-', ' ')]}</span
+        >
+      </Headline>
+    </Fragment>
+    <BlogList posts={page.data} />
+    <Fragment slot="floating-bar">
+      <Filter selected={category} />
+    </Fragment>
+    <Fragment slot="footer">
+      <Pagination prevUrl={page.url.prev} nextUrl={page.url.next} />
+    </Fragment>
+  </PostLayout>
+</Layout>

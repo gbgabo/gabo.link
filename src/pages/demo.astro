@@ -1,6 +1,6 @@
 ---
 import Announcement from '~/components/widgets/Announcement.astro';
-import PageLayout from '../layouts/PageLayout.astro';
+import PageLayout from '~/layouts/PageLayout.astro';
 import Bento from '~/components/widgets/Bento.astro';
 import CallToAction from '~/components/widgets/CallToAction.astro';
 import Chip from '~/components/widgets/Chip.astro';
@@ -60,7 +60,7 @@ import AltHero from '~/components/widgets/Hero2.astro';
 
     <Note />
     <Announcement />
-    <Bento blocks={bentoGrids.uses} />
+    <Bento blocks={bentoGrids('en').uses} />
     <div class="mx-auto max-w-6xl px-4 py-16 lg:px-8 lg:py-20">
       <Chip value="chip" />
       <Chip value="secondary chip " variant="secondary" />
@@ -140,7 +140,7 @@ import AltHero from '~/components/widgets/Hero2.astro';
       }}
     >
       <Fragment slot="content">
-        <h3 class="mb-2 text-2xl font-bold tracking-tight dark:text-white sm:text-3xl">Ad vix debet docendi</h3>
+        <h3 class="mb-2 text-2xl font-bold tracking-tight sm:text-3xl dark:text-white">Ad vix debet docendi</h3>
         Ne dicta praesent ocurreret has, diam theophrastus at pro. Eos etiam regione ut, persius eripuit quo id. Sit te euismod
         tacimates.
       </Fragment>

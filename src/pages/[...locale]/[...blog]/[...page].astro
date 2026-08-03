@@ -1,0 +1,63 @@
+---
+import { getIntlayer, localeMap, getPrefix } from 'intlayer';
+import type { GetStaticPaths } from 'astro';
+import { BLOG } from '~/config.mjs';
+
+import Layout from '~/layouts/PageLayout.astro';
+import PostLayout from '~/layouts/ListLayout.astro';
+import BlogList from '~/components/blog/List.astro';
+import Headline from '~/components/blog/Headline.astro';
+import Pagination from '~/components/blog/Pagination.astro';
+import Filter from '~/components/widgets/Filter.astro';
+
+import { fetchPosts } from '~/utils/blog';
+import { BLOG_BASE } from '~/utils/permalinks';
+
+export const getStaticPaths = (async ({ paginate }) => {
+  if (BLOG?.disabled || BLOG?.list?.disabled) return [];
+
+  const paths = await Promise.all(
+    localeMap(async ({ locale }) =>
+      paginate(await fetchPosts(locale), {
+        params: {
+          locale: getPrefix(locale).localePrefix,
+          blog: BLOG_BASE || undefined,
+        },
+        pageSize: BLOG.postsPerPage,
+        props: {
+          locale,
+        },
+      })
+    )
+  );
+
+  return paths.flat();
+}) satisfies GetStaticPaths;
+
+const { page, locale } = Astro.props;
+const { meta: metadata } = getIntlayer('app', locale);
+const currentPage = page.currentPage ?? 1;
+
+const meta = {
+  title: `Blog${currentPage > 1 ? ` — Page ${currentPage}` : ''}`,
+  description: metadata.description,
+  image: `/api/og${Astro.url.pathname}.png`,
+  noindex: BLOG?.list?.noindex || currentPage > 1,
+  ogType: 'blog',
+};
+---
+
+<Layout breadcrumbs={[{ title: 'blog', href: '#top' }]} {meta}>
+  <PostLayout>
+    <Fragment slot="heading">
+      <Headline left>/blog</Headline>
+    </Fragment>
+    <BlogList posts={page.data} />
+    <Fragment slot="floating-bar">
+      <Filter />
+    </Fragment>
+    <Fragment slot="footer">
+      <Pagination prevUrl={page.url.prev} nextUrl={page.url.next} />
+    </Fragment>
+  </PostLayout>
+</Layout>

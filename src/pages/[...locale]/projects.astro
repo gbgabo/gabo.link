@@ -1,0 +1,122 @@
+---
+import { Picture } from 'astro:assets';
+import { getIntlayer, getLocaleFromPath, getPrefix, localeMap } from 'intlayer';
+import type { LocalesValues } from 'intlayer';
+
+import Layout from '~/layouts/PageLayout.astro';
+import Headline from '~/components/blog/Headline.astro';
+import PostTags from '~/components/blog/Tags.astro';
+import ExternalLink from '~/components/blog/content/ExternalLink.astro';
+
+export const getStaticPaths = () => localeMap(({ locale }) => ({ params: { locale: getPrefix(locale).localePrefix } }));
+
+const locale = getLocaleFromPath(Astro.url.pathname) as LocalesValues;
+const { meta: metadata, items, title, ctaAbout, ctaVisit } = getIntlayer('projects', locale);
+
+const projects = [
+  {
+    title: items.chicotadas.title,
+    description: items.chicotadas.description,
+    technologies: ['Astro', 'Tailwind', 'Typescript', 'Strapi CMS'],
+    link: 'https://chicotadas.com.br',
+    linkText: ctaVisit,
+    image: import('~/assets/images/projects/chicotadas.png'),
+  },
+  {
+    title: items.blog.title,
+    description: items.blog.description,
+    technologies: ['Astro', 'Tailwind', 'Typescript', 'Progressive Enhancent', 'mdx'],
+    link: 'https://github.com/gbgabo/gabo.link',
+    linkText: ctaAbout,
+    image: import('~/assets/images/projects/gabolink.png'),
+  },
+  {
+    image: import('~/assets/images/projects/symbols.png'),
+    title: items.wash.title,
+    description: items.wash.description,
+    technologies: ['Astro', 'Tailwind', 'Typescript', 'Progressive Enhancement', 'Vanilla JS'],
+    link: 'https://laundry.gabo.link/',
+  },
+  {
+    image: import('~/assets/images/projects/wildberries.png'),
+    title: items.wildberries.title,
+    description: items.wildberries.description,
+    technologies: ['Astro', 'Tailwind', 'Typescript', '@vercel/og', 'Vanilla JS'],
+    link: 'https://wildberries.style/',
+  },
+  {
+    image: import('~/assets/images/projects/tinytools.svg'),
+    title: items.tinytools.title,
+    description: items.tinytools.description,
+    technologies: ['Bash', 'Linux'],
+    link: 'https://tinytoolsh.github.io/',
+    linkText: ctaAbout,
+  },
+  {
+    image: import('~/assets/images/projects/linky.png'),
+    title: items.linky.title,
+    description: items.linky.description,
+    technologies: ['React', 'MUI', 'React Context'],
+    link: 'https://linky-gbgabo.vercel.app/edit',
+  },
+];
+
+const meta = {
+  title: metadata.title,
+  description: metadata.description,
+  image: `/api/og${Astro.url.pathname}.png`,
+};
+---
+
+<Layout breadcrumbs={[{ title: metadata.title, href: '#top' }]} meta={meta}>
+  <section class="mx-auto max-w-7xl px-6 py-12 sm:px-6 sm:py-16 lg:py-20">
+    <Headline left>/{title}</Headline>
+
+    <ul data-pagefind-body>
+      {
+        projects.map((project) => (
+          <li class="mb-12 md:mb-20">
+            <div
+              class:list={['mx-auto grid max-w-md gap-3 md:max-w-none md:gap-8', project.image ? 'md:grid-cols-2' : '']}
+            >
+              {project.image && (
+                <a class="group relative block" href={project.link ?? 'javascript:void(0)'}>
+                  <div class="relative h-0 overflow-hidden rounded bg-transparent pb-[56.25%] md:h-72 md:pb-[75%] lg:pb-[56.25%]">
+                    {project.image && (
+                      <Picture
+                        src={project.image}
+                        class="absolute inset-0 m-auto w-full rounded bg-gray-400 object-cover shadow-lg dark:bg-slate-700"
+                        widths={[400, 900]}
+                        sizes="(max-width: 900px) 400px, 900px"
+                        alt={project.title}
+                        loading="lazy"
+                        decoding="async"
+                      />
+                    )}
+                  </div>
+                </a>
+              )}
+              <div class="my-auto">
+                <h2 class="font-heading mb-2 text-xl leading-tight font-bold sm:text-2xl dark:text-slate-300">
+                  {project.title}
+                </h2>
+
+                {project.description && (
+                  <p class="text-muted grow text-lg dark:text-slate-400">
+                    <Fragment set:html={project.description} />
+                  </p>
+                )}
+                <PostTags class="mt-4 text-sm" enableLink={false} tags={project.technologies} />
+                {project.link && (
+                  <ExternalLink class="mt-4 font-bold" href={project.link}>
+                    {project.linkText ? project.linkText : ctaVisit}
+                  </ExternalLink>
+                )}
+              </div>
+            </div>
+          </li>
+        ))
+      }
+    </ul>
+  </section>
+</Layout>

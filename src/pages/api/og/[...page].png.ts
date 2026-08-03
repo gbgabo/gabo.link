@@ -1,5 +1,5 @@
-import fs from 'fs';
-import path from 'path';
+import type { APIRoute } from 'astro';
+import { getFontSrc } from '~/utils/assets';
 import { ImageResponse } from '@vercel/og';
 import { fetchPosts } from '~/utils/blog';
 import { generateQR } from '~/utils/permalinks';
@@ -7,8 +7,6 @@ import { generateQR } from '~/utils/permalinks';
 export const config = {
   runtime: 'edge',
 };
-
-const font = fs.readFileSync(path.resolve('src/assets/jetbrains-mono-all-500-normal.woff'));
 
 const posts = await fetchPosts('en');
 const tags = new Set();
@@ -39,13 +37,23 @@ const categoriesData = Array.from(categories).map((category: string) => {
 // instead of i18next because it appears not to work with .ts routes
 const pages = [
   {
+    slug: 'about',
+    title: '/about',
+    subtitle: '',
+  },
+  {
+    slug: 'pt-BR/about',
+    title: '/sobre',
+    subtitle: '',
+  },
+  {
     slug: 'projects',
     title: '/projects',
     subtitle: '',
   },
   {
     slug: 'pt-BR/projects',
-    title: '/projects',
+    title: '/projetos',
     subtitle: '',
   },
   {
@@ -82,9 +90,10 @@ export function getStaticPaths() {
   });
 }
 
-export const GET = async ({ props }) => {
+export const GET: APIRoute = async ({ props, url }) => {
   const { page } = props;
   const { title, subtitle, slug } = page;
+  const fontSrc = await getFontSrc(url);
   // Astro doesn't support tsx endpoints so I'm using React-element objects
   const html = {
     type: 'div',
@@ -147,8 +156,8 @@ export const GET = async ({ props }) => {
     height: 630,
     fonts: [
       {
-        name: 'JetBrains MonoVariable',
-        data: font,
+        name: 'JetBrains Mono',
+        data: fontSrc,
       },
     ],
   });

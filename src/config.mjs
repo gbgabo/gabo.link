@@ -1,13 +1,12 @@
 const CONFIG = {
   name: "Gabo's Link",
+  description: "Gabo's corner on the web",
 
   origin: 'https://gabo.link',
   basePathname: '/',
   trailingSlash: false,
 
-  title: 'site.title',
-  description: 'site.description',
-  defaultImage: '/assets/images/default.png',
+  defaultImage: '~/assets/images/default.png',
 
   defaultTheme: 'dark', // Values: "system" | "light" | "dark" | "light:only" | "dark:only"
 
@@ -21,7 +20,7 @@ const CONFIG = {
   }),
 
   googleAnalyticsId: false, // or "G-XXXXXXXXXX",
-  googleSiteVerificationId: 'orcPxI47GSa-cRvY11tUe6iGg2IO_RPvnA1q95iEM3M',
+  googleSiteVerificationId: null,
 
   blog: {
     disabled: false,

@@ -1,18 +1,20 @@
+import { intlayer } from "astro-intlayer";
 import path from 'path';
 import { fileURLToPath } from 'url';
 
-import { defineConfig } from 'astro/config';
+import { defineConfig, fontProviders } from 'astro/config';
 
-import tailwind from '@astrojs/tailwind';
 import sitemap from '@astrojs/sitemap';
 import mdx from '@astrojs/mdx';
 import partytown from '@astrojs/partytown';
+import { unified } from "@astrojs/markdown-remark";
 import icon from 'astro-icon';
-import astroI18next from 'astro-i18next';
 import pagefind from 'astro-pagefind';
 import { readingTimeRemarkPlugin } from './src/utils/frontmatter.mjs';
 
 import { SITE } from './src/config.mjs';
+
+import tailwindcss from '@tailwindcss/vite';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
@@ -26,55 +28,59 @@ export default defineConfig({
 
   output: 'static',
 
-  integrations: [
-    tailwind({
-      config: {
-        applyBaseStyles: false,
-      },
-    }),
-    sitemap(),
-    mdx(),
-    pagefind({
-      indexConfig: {
-        excludeSelectors: ["[class^='language']", 'pre'],
-      },
-    }),
-    icon({
-      include: {
-        tabler: ['*'],
-        'material-symbols': ['filter-list-rounded'],
-        ep: ['arrow-left-bold', 'close-bold'],
-        eva: ['diagonal-arrow-right-up-fill'],
-        mdi: ['linux', 'web', 'language-javascript', 'language-typescript', 'laravel'],
-        ph: ['hand-fist-bold'],
-        'devicon-plain': ['livewire'],
-        fluent: ['play-32-filled', 'hat-graduation-28-filled'],
-        ic: ['round-code', 'outline-color-lens'],
-        'simple-icons': ['html5', 'css3', 'nextdotjs', 'tailwindcss', 'gnubash', 'astro', 'python', 'linux'],
-        ri: ['twitter-fill', 'facebook-box-fill', 'linkedin-box-fill', 'whatsapp-fill', 'mail-fill'],
-      },
-    }),
-
-    ...whenExternalScripts(() =>
-      partytown({
-        config: { forward: ['dataLayer.push'] },
-      })
-    ),
-
-    astroI18next(),
-  ],
+  integrations: [sitemap(), mdx(), pagefind({
+    indexConfig: {
+      excludeSelectors: ["[class^='language']", 'pre'],
+    },
+  }), icon({
+    include: {
+      tabler: ['*'],
+      'material-symbols': ['filter-list-rounded'],
+      ep: ['arrow-left-bold', 'close-bold'],
+      eva: ['diagonal-arrow-right-up-fill'],
+      mdi: ['linux', 'web', 'language-javascript', 'language-typescript', 'laravel'],
+      ph: ['hand-fist-bold'],
+      'devicon-plain': ['livewire'],
+      fluent: ['play-32-filled', 'hat-graduation-28-filled'],
+      ic: ['round-code', 'outline-color-lens'],
+      'simple-icons': ['html5', 'css3', 'nextdotjs', 'tailwindcss', 'gnubash', 'astro', 'python', 'linux'],
+      ri: ['twitter-fill', 'facebook-box-fill', 'linkedin-box-fill', 'whatsapp-fill', 'mail-fill'],
+    },
+  }), ...whenExternalScripts(() =>
+    partytown({
+      config: { forward: ['dataLayer.push'] },
+    })
+  ), intlayer()],
 
   markdown: {
-    remarkPlugins: [readingTimeRemarkPlugin],
+    processor: unified({
+      remarkPlugins: [readingTimeRemarkPlugin],
+    }),
     // Can be 'shiki' (default), 'prism' or false to disable highlighting
     syntaxHighlight: 'prism',
   },
 
+  // Allows SVG source images to be processed by the image optimization pipeline (in this case, md files)
+  // https://docs.astro.build/en/reference/configuration-reference/#imagedangerouslyprocesssvg
+  image: {
+    dangerouslyProcessSVG: true,
+  },
+
+  fonts: [{
+      provider: fontProviders.fontsource(),
+      name: "JetBrains Mono",
+      cssVariable: "--font-jetbrains-mono",
+      weights: [400, 500],
+      formats: ["ttf"]
+    }],
+  
   vite: {
     resolve: {
       alias: {
         '~': path.resolve(__dirname, './src'),
       },
     },
+
+    plugins: [tailwindcss()],
   },
 });

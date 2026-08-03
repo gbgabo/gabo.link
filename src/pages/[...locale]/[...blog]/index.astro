@@ -1,0 +1,60 @@
+---
+import { getIntlayer, localeMap, getPrefix } from 'intlayer';
+import { BLOG } from '~/config.mjs';
+import type { GetStaticPaths } from 'astro';
+
+import Layout from '~/layouts/PageLayout.astro';
+import SinglePost from '~/components/blog/SinglePost.astro';
+import ToBlogLink from '~/components/blog/ToBlogLink.astro';
+
+import { getBlogPermalink, getCanonical, getPermalink } from '~/utils/permalinks';
+import { fetchPosts } from '~/utils/blog';
+import { findImage } from '~/utils/images';
+
+export const getStaticPaths = (async () => {
+  if (BLOG?.disabled || BLOG?.post?.disabled) return [];
+
+  const paths = await Promise.all(
+    localeMap(async ({ locale }) => {
+      const posts = await fetchPosts(locale);
+
+      return posts.map((post) => ({
+        params: {
+          locale: getPrefix(locale).localePrefix,
+          blog: post.permalink,
+        },
+        props: {
+          post,
+          locale,
+        },
+      }));
+    })
+  );
+
+  return paths.flat();
+}) satisfies GetStaticPaths;
+
+const { post, locale } = Astro.props;
+const { categories } = getIntlayer('blog', locale);
+const url = getCanonical(getPermalink(Astro.url.pathname, post.permalink, 'post'));
+
+const meta = {
+  title: post.title,
+  description: post.description,
+  canonical: post.canonical || url,
+  image: await findImage(post.image),
+  noindex: BLOG?.post?.noindex,
+  ogType: 'article',
+};
+---
+
+<Layout
+  breadcrumbs={[
+    { title: 'blog', href: getBlogPermalink(Astro.url.pathname) },
+    { title: categories[post.category.replaceAll('-', ' ')], href: '#top' },
+  ]}
+  {meta}
+>
+  <SinglePost post={{ ...post, image: meta.image }} url={url} />
+  <ToBlogLink />
+</Layout>

@@ -19,7 +19,7 @@ export interface Props {
   background?: string | any;
 }
 
-const socialLinks = footerData.socialLinks;
+const socialLinks = footerData().socialLinks;
 
 const {
   title = await Astro.slots.render('title'),
@@ -32,7 +32,7 @@ const {
 } = Astro.props;
 ---
 
-<section class="relative h-auto md:-mt-[110px]">
+<section class="relative h-auto md:mt-[-110px]">
   <div class="pointer-events-none absolute inset-0" aria-hidden="true">
     {
       background && (
@@ -59,7 +59,7 @@ const {
     <div class="grid grid-cols-4 gap-4 py-12 md:py-20">
       <div class="relative col-span-4 m-auto md:col-span-1">
         <div
-          class="mx-auto mb-4 h-52 w-52 overflow-hidden rounded-full border-8 border-light-purple bg-gradient-to-br from-pastel-purple from-0% via-50% to-light-purple to-100% shadow-lg dark:border-cherry dark:from-cherry dark:via-dark-purple dark:to-darker-purple md:h-60 md:w-60"
+          class="border-light-purple from-pastel-purple to-light-purple dark:border-cherry dark:from-cherry dark:via-dark-purple dark:to-darker-purple mx-auto mb-4 h-52 w-52 overflow-hidden rounded-full border-8 bg-linear-to-br from-0% via-50% to-100% shadow-lg md:h-60 md:w-60"
         >
           <Picture
             class="mx-auto w-full rounded-md"
@@ -74,23 +74,23 @@ const {
           />
         </div>
         <p
-          class="absolute left-0 top-0 w-fit rounded bg-grape px-2 text-white dark:bg-light-purple dark:text-darker-purple"
+          class="bg-grape dark:bg-light-purple dark:text-darker-purple absolute top-0 left-0 w-fit rounded px-2 text-white"
         >
           Gabriel Gaboardi
         </p>
         <p
-          class="absolute bottom-0 right-0 w-fit rounded bg-grape px-2 text-white dark:bg-light-purple dark:text-darker-purple"
+          class="bg-grape dark:bg-light-purple dark:text-darker-purple absolute right-0 bottom-0 w-fit rounded px-2 text-white"
         >
           AKA Gabo
         </p>
       </div>
       <div
-        class="col-span-4 rounded-xl bg-pastel-purple/70 px-5 py-7 shadow-sm backdrop-blur-sm dark:bg-darker-purple/70 md:col-span-3 md:p-12"
+        class="bg-pastel-purple/70 dark:bg-darker-purple/70 col-span-4 rounded-xl px-5 py-7 shadow-sm backdrop-blur-sm md:col-span-3 md:p-12"
       >
         {
           title && (
             <h1
-              class="leading-tighter mb-4 font-heading text-3xl font-bold tracking-tighter dark:text-gray-200 md:text-6xl"
+              class="leading-tighter font-heading mb-4 text-3xl font-bold tracking-tighter md:text-6xl dark:text-gray-200"
               set:html={title}
             />
           )
@@ -99,7 +99,7 @@ const {
           {
             subtitle && (
               <p
-                class="text-muted mb-6 text-xl tracking-tighter dark:text-light-purple md:tracking-tight"
+                class="text-muted dark:text-light-purple mb-6 text-xl tracking-tighter md:tracking-tight"
                 set:html={subtitle}
               />
             )
@@ -114,7 +114,7 @@ const {
                     <a class="btn btn-primary w-full sm:mb-0" href={callToAction?.href} rel="noopener">
                       {callToAction?.icon && (
                         <>
-                          <Icon name={callToAction.icon} class="-ml-1.5 mr-2 h-5 w-5" />
+                          <Icon name={callToAction.icon} class="mr-2 -ml-1.5 h-5 w-5" />
                         </>
                       )}
                       {callToAction?.text}
@@ -132,7 +132,7 @@ const {
                     <a class="btn w-full" href={callToAction2?.href}>
                       {callToAction2?.icon && (
                         <>
-                          <Icon name={callToAction2.icon} class="-ml-1.5 mr-2 h-5 w-5" />{' '}
+                          <Icon name={callToAction2.icon} class="mr-2 -ml-1.5 h-5 w-5" />{' '}
                         </>
                       )}
                       {callToAction2.text}
@@ -148,7 +148,7 @@ const {
                     {socialLinks.map(({ ariaLabel, href, text, icon }) => (
                       <li>
                         <a
-                          class="inline-flex items-center rounded-lg p-2.5 text-sm text-grape hover:bg-gray-100 focus:outline-none focus:ring-4 focus:ring-gray-200 dark:text-acid-green dark:hover:bg-dark-purple dark:focus:ring-gray-700"
+                          class="text-grape dark:text-acid-green dark:hover:bg-dark-purple inline-flex items-center rounded-lg p-2.5 text-sm hover:bg-gray-100 focus:ring-4 focus:ring-gray-200 focus:outline-none dark:focus:ring-gray-700"
                           aria-label={ariaLabel}
                           href={href}
                         >

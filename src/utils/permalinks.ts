@@ -1,5 +1,5 @@
+import { getLocaleFromPath, getPrefix, type LocalesValues } from 'intlayer';
 import slugify from 'limax';
-import i18next from 'i18next';
 import QRCode from 'qrcode';
 
 import { SITE, BLOG } from '~/config.mjs';
@@ -15,9 +15,6 @@ const createPath = (...params: string[]) => {
 };
 
 const BASE_PATHNAME = SITE.basePathname;
-export const languageSlug = () => {
-  return i18next.language === 'en' ? '' : i18next.language;
-};
 
 export const cleanSlug = (text = '') =>
   trimSlash(text)
@@ -35,7 +32,9 @@ export const TAG_BASE = cleanSlug(BLOG?.tag?.pathname) || 'tag';
 export const getCanonical = (path = ''): string | URL => new URL(path, SITE.origin);
 
 /** */
-export const getPermalink = (slug = '', type = 'page'): string => {
+
+export const getPermalink = (pathname = '/', slug = '', type = 'page'): string => {
+  const locale = getLocaleFromPath(pathname) as LocalesValues;
   let permalink: string;
 
   switch (type) {
@@ -54,17 +53,20 @@ export const getPermalink = (slug = '', type = 'page'): string => {
     case 'page':
     default:
       permalink = createPath(slug);
-      break;
+  }
+
+  if (locale) {
+    permalink = createPath(getPrefix(locale).localePrefix, permalink);
   }
 
   return definitivePermalink(permalink);
 };
 
 /** */
-export const getHomePermalink = (): string => getPermalink('/');
+export const getHomePermalink = (pathname = '/'): string => getPermalink(pathname, '/');
 
 /** */
-export const getBlogPermalink = (): string => getPermalink(BLOG_BASE);
+export const getBlogPermalink = (pathname = '/'): string => getPermalink(pathname, BLOG_BASE);
 
 /** */
 export const getAsset = (path: string): string =>
@@ -94,4 +96,4 @@ export const generateQR = async (text: string) =>
       console.error(err);
     });
 
-const definitivePermalink = (permalink: string): string => createPath(languageSlug() + '/' + BASE_PATHNAME, permalink);
+const definitivePermalink = (permalink: string): string => createPath('/' + BASE_PATHNAME, permalink);

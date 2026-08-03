@@ -1,6 +1,5 @@
 ---
-import { AstroSeo } from '@astrolib/seo';
-import { GoogleAnalytics } from '@astrolib/analytics';
+import { SEO } from 'astro-seo';
 import { getImage } from 'astro:assets';
 
 import { SITE } from '~/config.mjs';
@@ -8,17 +7,19 @@ import { MetaSEO } from '~/types';
 import { getCanonical, getAsset } from '~/utils/permalinks';
 import { getRelativeUrlByFilePath } from '~/utils/directories';
 
-import CustomStyles from '~/components/CustomStyles.astro';
 import SplitbeeAnalytics from './SplitbeeAnalytics.astro';
+import { findImage } from '~/utils/images';
 
 export interface Props extends MetaSEO {
   dontUseTitleTemplate?: boolean;
 }
 
-const defaultImage = SITE.defaultImage
+const resolved = await findImage(SITE.defaultImage);
+
+const defaultImage = resolved
   ? (
       await getImage({
-        src: SITE.defaultImage,
+        src: resolved,
         alt: 'Default image',
         width: 1200,
         height: 628,
@@ -45,15 +46,15 @@ const image =
   typeof _image === 'string'
     ? new URL(_image, Astro.url)
     : _image && typeof _image['src'] !== 'undefined'
-    ? // @ts-ignore
-      new URL(getRelativeUrlByFilePath(_image.src), Astro.url)
-    : null;
+      ? // @ts-ignore
+        new URL(getRelativeUrlByFilePath(_image.src), Astro.url)
+      : null;
 ---
 
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-<AstroSeo
+<SEO
   title={title}
   titleTemplate={dontUseTitleTemplate ? '%s' : `%s — ${SITE.name}`}
   description={description}
@@ -61,19 +62,14 @@ const image =
   noindex={noindex}
   nofollow={nofollow}
   openGraph={{
-    url: String(canonical),
-    title: ogTitle,
-    description: description,
-    type: ogType,
-    images: image
-      ? [
-          {
-            url: image.toString(),
-            alt: ogTitle,
-          },
-        ]
-      : undefined,
-    // site_name: 'SiteName',
+    basic: {
+      url: String(canonical),
+      title: ogTitle,
+      description: description,
+      type: ogType,
+      image: image ? image.href : undefined,
+      // site_name: 'SiteName',
+    },
   }}
   twitter={{
     // handle: '@handle',
@@ -82,16 +78,15 @@ const image =
   }}
 />
 
-<CustomStyles />
-
-<!-- Google Site Verification -->
 {SITE.googleSiteVerificationId && <meta name="google-site-verification" content={SITE.googleSiteVerificationId} />}
-
-<!-- Google Analytics -->
-{SITE.googleAnalyticsId && <GoogleAnalytics id={String(SITE.googleAnalyticsId)} partytown={true} />}
 
 {SITE.splitbeeAnalytics?.enabled && <SplitbeeAnalytics {...SITE.splitbeeAnalytics} />}
 
-<link rel="shortcut icon" href={getAsset('/favicon.ico')} />
-<link rel="icon" type="image/svg+xml" href={getAsset('/favicon.svg')} />
-<link rel="mask-icon" href={getAsset('/favicon.svg')} color="#8D46E7" />
+<!-- Favicons -->
+<link rel="icon" type="image/png" href="/favicon/favicon-96x96.png" sizes="96x96" />
+<link rel="icon" type="image/svg+xml" href="/favicon/favicon.svg" />
+<link rel="shortcut icon" href="/favicon/favicon.ico" />
+<link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png" />
+<meta name="apple-mobile-web-app-title" content="Gabo's Link" />
+<link rel="manifest" href="/favicon/site.webmanifest" />
+<link rel="mask-icon" href="/favicon/favicon.svg" color="#19002e" />

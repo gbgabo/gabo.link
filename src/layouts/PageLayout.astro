@@ -1,4 +1,7 @@
 ---
+import { getLocaleFromPath } from 'intlayer';
+import type { LocalesValues } from 'intlayer';
+
 import Layout from '~/layouts/BaseLayout.astro';
 import Header from '~/components/widgets/Header.astro';
 import Footer from '~/components/widgets/Footer.astro';
@@ -14,18 +17,19 @@ export interface Props {
   home?: boolean;
 }
 
+const locale = getLocaleFromPath(Astro.url.pathname) as LocalesValues;
 const { meta, home, breadcrumbs } = Astro.props;
 ---
 
 <Layout {meta}>
   <slot name="header">
-    <Header {breadcrumbs} {...headerData} isSticky={home} showRssFeed showToggleTheme showSearch />
+    <Header {breadcrumbs} {...headerData(locale)} isSticky={home} showRssFeed showToggleTheme showSearch />
   </slot>
   <main>
     <ImageModal />
     <slot />
   </main>
   <slot name="footer">
-    <Footer {...footerData} />
+    <Footer {...footerData(locale)} />
   </slot>
 </Layout>

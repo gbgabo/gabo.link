@@ -1,25 +1,30 @@
 ---
+import { getLocaleFromPath, getIntlayer } from 'intlayer';
+import type { LocalesValues } from 'intlayer';
 import type { Post } from '~/types';
+
 import { Icon } from 'astro-icon/components';
-import i18next, { t } from 'i18next';
 
 export interface Props {
   headings: Post['headings'];
 }
 
+const locale = getLocaleFromPath(Astro.url.pathname) as LocalesValues;
+const { post } = getIntlayer('blog', locale);
+
 const { headings } = Astro.props;
 ---
 
 <button
-  class="fixed bottom-20 right-3 z-10 m-auto my-0 h-fit items-center rounded-2xl bg-grape p-3 text-white shadow-md dark:bg-cherry dark:text-acid-green md:sticky md:mb-2 md:flex md:w-fit md:p-2"
+  class="bg-grape dark:bg-cherry dark:text-acid-green fixed right-3 bottom-20 z-10 m-auto my-0 h-fit items-center rounded-2xl p-3 text-white shadow-md md:sticky md:mb-2 md:flex md:w-fit md:p-2"
   data-aw-toggle-toc
   aria-label="Table of content"
 >
   <Icon class="h-8 w-8 md:p-1" name="tabler:list" />
-  <p class="m-0 mx-2 hidden md:block">{t('post.toc')}</p>
+  <p class="m-0 mx-2 hidden md:block">{post.toc}</p>
 </button>
 <nav
-  class="not-prose fixed bottom-24 right-0 m-3 hidden max-h-96 animate-fade-up overflow-auto overscroll-contain rounded-md border-2 border-dark-purple border-light-purple bg-pastel-purple text-darker-purple shadow-md dark:border-cherry dark:bg-darker-purple dark:text-slate-300 md:absolute md:bottom-auto md:left-0 md:top-6 md:backdrop-blur-sm"
+  class="not-prose animate-fade-up border-light-purple bg-pastel-purple text-darker-purple dark:border-cherry dark:bg-darker-purple fixed right-0 bottom-24 m-3 hidden max-h-96 overflow-auto overscroll-contain rounded-md border-2 shadow-md md:absolute md:top-6 md:bottom-auto md:left-0 md:backdrop-blur-sm dark:text-slate-300"
 >
   <ul class="px-5 pt-5">
     {
@@ -27,7 +32,7 @@ const { headings } = Astro.props;
         <li class="px-3 py-1">
           <a class="" href={`#${slug}`}>
             {depth == 1 ? (
-              <b class="text-xl font-bold text-grape dark:text-acid-green">{`${text}`}</b>
+              <b class="text-grape dark:text-acid-green text-xl font-bold">{`${text}`}</b>
             ) : (
               <p style={{ 'margin-left': `${depth * 0.45}rem` }}>{`${text}`}</p>
             )}
@@ -37,11 +42,11 @@ const { headings } = Astro.props;
     }
   </ul>
   <div
-    class="sticky bottom-0 left-0 flex w-full justify-center bg-pastel-purple/90 text-grape backdrop-blur-sm dark:bg-darker-purple/90 dark:text-light-purple"
+    class="bg-pastel-purple/90 text-grape dark:bg-darker-purple/90 dark:text-light-purple sticky bottom-0 left-0 flex w-full justify-center backdrop-blur-sm"
   >
     <a class="inline-flex items-center justify-center p-2 font-bold" href="#">
       <Icon class="mr-1 h-5 w-5" name="tabler:caret-up-filled" />
-      {t('post.top')}
+      {post.top}
     </a>
   </div>
 </nav>

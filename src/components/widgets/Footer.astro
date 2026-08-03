@@ -1,8 +1,5 @@
 ---
 import { Icon } from 'astro-icon/components';
-import { SITE } from '~/config.mjs';
-import { getHomePermalink } from '~/utils/permalinks';
-import i18next, { t } from 'i18next';
 
 interface Link {
   text?: string;
@@ -17,19 +14,17 @@ interface Links {
 }
 
 export interface Props {
-  links: Array<Links>;
-  secondaryLinks: Array<Link>;
   socialLinks: Array<Link>;
   footNote?: string;
   theme?: string;
 }
 
-const { socialLinks = [], secondaryLinks = [], links = [], footNote = '', theme = 'light' } = Astro.props;
+const { socialLinks = [], footNote = '', theme = 'light' } = Astro.props;
 ---
 
 <footer class:list={[{ dark: theme === 'dark' }, 'relative border-t border-gray-200 dark:border-slate-800']}>
   <div class="pointer-events-none absolute inset-0" aria-hidden="true"></div>
-  <div class="relative mx-auto max-w-7xl px-4 dark:text-slate-300 sm:px-6">
+  <div class="relative mx-auto max-w-7xl px-4 sm:px-6 dark:text-slate-300">
     <div class="mb-32 flex flex-col items-center justify-center py-8 md:mb-12">
       {
         socialLinks?.length ? (
@@ -37,7 +32,7 @@ const { socialLinks = [], secondaryLinks = [], links = [], footNote = '', theme 
             {socialLinks.map(({ ariaLabel, href, text, icon }) => (
               <li>
                 <a
-                  class="inline-flex items-center rounded-lg p-2.5 text-sm text-grape hover:bg-gray-100 focus:outline-none focus:ring-4 focus:ring-gray-200 dark:text-light-purple dark:hover:bg-dark-purple dark:focus:ring-gray-700"
+                  class="text-grape dark:text-light-purple dark:hover:bg-dark-purple inline-flex items-center rounded-lg p-2.5 text-sm hover:bg-gray-100 focus:ring-4 focus:ring-gray-200 focus:outline-none dark:focus:ring-gray-700"
                   aria-label={ariaLabel}
                   href={href}
                 >
@@ -54,7 +49,7 @@ const { socialLinks = [], secondaryLinks = [], links = [], footNote = '', theme 
       {
         footNote && (
           <div class="text-center text-sm">
-            <Fragment set:html={t(footNote)} />
+            <Fragment set:html={footNote} />
           </div>
         )
       }

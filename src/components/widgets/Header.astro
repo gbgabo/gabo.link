@@ -1,14 +1,12 @@
 ---
+import { getHomePermalink, getAsset, getPermalink } from '~/utils/permalinks';
 import { Icon } from 'astro-icon/components';
 import Logo from '~/components/Logo.astro';
 import ToggleTheme from '~/components/common/ToggleTheme.astro';
 import ToggleMenu from '~/components/common/ToggleMenu.astro';
-
-import { LanguageSelector } from 'astro-i18next/components';
-
-import i18next, { t } from 'i18next';
-import { getHomePermalink, getAsset, getPermalink } from '~/utils/permalinks';
-import Breadcrumbs from './Breadcrumbs.astro';
+import Breadcrumbs from '~/components/widgets/Breadcrumbs.astro';
+import Navigation from '~/components/widgets/Navigation.astro';
+import LanguageSelector from '~/components/common/LanguageSelector.astro';
 
 interface Link {
   text: string;
@@ -21,7 +19,7 @@ interface ActionLink extends Link {
   type?: string;
 }
 
-interface MenuLink extends Link {
+export interface MenuLink extends Link {
   links?: Array<Link>;
 }
 
@@ -35,34 +33,6 @@ export interface Props {
   position?: string;
   breadcrumbs?: Array<{ title: string; href: string }>;
 }
-
-let menuIndex = 1;
-
-const pathname = Astro.url.pathname;
-
-const delayClasses = [
-  'delay-[100ms]',
-  'delay-[200ms]',
-  'delay-[300ms]',
-  'delay-[400ms]',
-  'delay-[500ms]',
-  'delay-[600ms]',
-  'delay-[700ms]',
-  'delay-[800ms]',
-  'delay-[900ms]',
-];
-
-const delayClassesMd = [
-  'md:delay-[100ms]',
-  'md:delay-[200ms]',
-  'md:delay-[300ms]',
-  'md:delay-[400ms]',
-  'md:delay-[500ms]',
-  'md:delay-[600ms]',
-  'md:delay-[700ms]',
-  'md:delay-[800ms]',
-  'md:delay-[900ms]',
-];
 
 const {
   links = [],
@@ -78,99 +48,15 @@ const {
 
 <header
   class:list={[
-    'fixed bottom-0 z-40 mx-auto w-full flex-none animate-fade-up bg-muted-purple transition-all duration-100 ease-in dark:bg-darker-purple md:sticky md:top-0 md:bg-transparent md:dark:bg-transparent',
+    'animate-fade-up bg-muted-purple dark:bg-darker-purple fixed bottom-0 z-40 mx-auto w-full flex-none transition-all ease-in md:sticky md:top-0 md:bg-transparent md:dark:bg-transparent',
     isSticky && 'hidden md:block',
   ]}
   id="header"
 >
   <div class="mx-auto w-full max-w-7xl px-3 py-3 md:flex md:justify-start md:px-4 md:py-3.5">
-    <nav
-      class="menu-list md:show absolute bottom-16 left-0 mx-auto h-fit w-full max-w-7xl overflow-hidden bg-pastel-purple/90 p-2 dark:bg-darker-purple/90 dark:text-slate-200 md:static md:mx-5 md:flex md:h-auto md:w-auto md:items-center md:justify-start md:overflow-visible md:bg-inherit md:dark:bg-inherit"
-      aria-label="Main navigation"
-    >
-      <ul
-        class="flex w-full flex-col text-xl md:w-auto md:flex-row md:items-center md:self-center md:pt-0 md:text-base"
-      >
-        {
-          links.map(({ text, href, links }, index) => {
-            const permalink = getPermalink(...href);
-            return (
-              <li class={links?.length ? 'dropdown' : ''}>
-                {links?.length ? (
-                  <>
-                    <button
-                      class:list={[
-                        'menu-item flex w-full items-center rounded-md px-4 py-3 font-medium hover:text-gray-900 dark:hover:bg-dark-purple dark:hover:text-white md:p-0 md:hover:bg-gray-200',
-                        delayClasses[menuIndex + index],
-                        delayClassesMd[index],
-                      ]}
-                    >
-                      {href ? (
-                        <a
-                          class={`w-full text-left lowercase md:px-4 md:py-2 ${permalink === pathname && 'font-extrabold text-grape dark:text-light-purple'}`}
-                          href={permalink}
-                        >
-                          {t(text)}
-                          <Icon name="tabler:chevron-down" class="ml-0.5 hidden h-3.5 w-3.5 md:inline" />
-                        </a>
-                      ) : (
-                        <span>
-                          {t(text)}
-                          <Icon name="tabler:chevron-down" class="ml-0.5 hidden h-3.5 w-3.5 md:inline" />
-                        </span>
-                      )}
-                    </button>
-                    <ul class="dropdown-menu rounded pl-4 font-medium drop-shadow-xl md:absolute md:hidden md:min-w-[200px] md:bg-white/90 md:pl-0 md:backdrop-blur-md dark:md:bg-dark-purple">
-                      {links.map(({ text: text2, href: href2 }, index2) => {
-                        menuIndex = index2 === 0 ? menuIndex + 1 : menuIndex + index2;
-                        const permalink2 = getPermalink(...href2);
-                        return (
-                          <li>
-                            <a
-                              class:list={[
-                                'menu-item whitespace-no-wrap block px-5 py-3 lowercase first:rounded-t last:rounded-b dark:hover:bg-darker-purple md:animate-fade-up md:py-2 md:hover:bg-gray-200',
-                                delayClasses[menuIndex],
-                                delayClassesMd[index2],
-                                permalink2 === pathname && 'font-extrabold text-grape dark:text-light-purple',
-                              ]}
-                              href={permalink2}
-                            >
-                              {t(text2)}
-                            </a>
-                          </li>
-                        );
-                      })}
-                    </ul>
-                  </>
-                ) : (
-                  <a
-                    class:list={[
-                      `menu-item flex items-center rounded-md px-4 py-3 lowercase hover:text-gray-900 dark:hover:bg-dark-purple dark:hover:text-white md:py-2 md:hover:bg-gray-200`,
-                      `${delayClasses[menuIndex + index]}`,
-                      `${delayClassesMd[index]}`,
-                      permalink === pathname ? 'font-extrabold text-grape dark:text-light-purple' : 'font-medium',
-                    ]}
-                    href={permalink}
-                  >
-                    {t(text)}
-                  </a>
-                )}
-              </li>
-            );
-          })
-        }
-      </ul>
-      <div class="absolute bottom-2 right-2 flex flex-col gap-3 md:hidden">
-        {showToggleTheme && <ToggleTheme iconClass="w-5 h-5" />}
-        <LanguageSelector
-          languageMapping={{ en: '', 'pt-BR': '' }}
-          showFlag={true}
-          class="inline-flex items-center rounded-lg bg-pastel-purple p-2.5 text-sm hover:bg-gray-100 dark:bg-dark-purple dark:text-light-purple dark:hover:bg-dark-purple"
-        />
-      </div>
-    </nav>
+    <Navigation links={links} showToggleTheme />
     <div class:list={[{ 'mr-auto': position === 'right' }, 'flex justify-between md:order-first']}>
-      <a class="flex items-center" href={getHomePermalink()}>
+      <a class="flex items-center" href={getHomePermalink(Astro.url.pathname)}>
         <Logo collapsable={breadcrumbs} />
       </a>
       <div class="my-auto flex w-full md:hidden">
@@ -181,7 +67,7 @@ const {
           showSearch && (
             <button
               type="button"
-              class="inline-flex items-center rounded-lg p-2.5 text-sm hover:bg-gray-100 focus:outline-none focus:ring-4 focus:ring-gray-200 dark:text-light-purple dark:hover:bg-dark-purple dark:focus:ring-cherry"
+              class="dark:text-light-purple dark:hover:bg-dark-purple dark:focus:ring-cherry inline-flex items-center rounded-lg p-2.5 text-sm hover:bg-gray-100 focus:ring-4 focus:ring-gray-200 focus:outline-none"
               aria-label="Search button"
               data-search-open
             >
@@ -198,7 +84,7 @@ const {
           showSearch && (
             <button
               type="button"
-              class="inline-flex items-center rounded-lg p-2.5 text-sm hover:bg-gray-100 focus:outline-none focus:ring-4 focus:ring-gray-200 dark:text-light-purple dark:hover:bg-dark-purple dark:focus:ring-cherry"
+              class="dark:text-light-purple dark:hover:bg-dark-purple dark:focus:ring-cherry inline-flex items-center rounded-lg p-2.5 text-sm hover:bg-gray-100 focus:ring-4 focus:ring-gray-200 focus:outline-none"
               aria-label="Search button"
               data-search-open
             >
@@ -210,7 +96,7 @@ const {
         {
           showRssFeed && (
             <a
-              class="inline-flex items-center rounded-lg p-2.5 text-sm hover:bg-gray-100 focus:outline-none focus:ring-4 focus:ring-gray-200 dark:text-light-purple dark:hover:bg-dark-purple dark:focus:ring-gray-700"
+              class="dark:text-light-purple dark:hover:bg-dark-purple inline-flex items-center rounded-lg p-2.5 text-sm hover:bg-gray-100 focus:ring-4 focus:ring-gray-200 focus:outline-none dark:focus:ring-gray-700"
               aria-label="RSS Feed"
               href={getAsset('/rss.xml')}
             >
@@ -224,10 +110,10 @@ const {
               {actions.map(({ text, href, type }) => (
                 <a
                   class:list={[
-                    'btn px-5.5 ml-2 py-2.5 text-sm font-semibold shadow-none md:px-6',
+                    'btn ml-2 px-5.5 py-2.5 text-sm font-semibold shadow-none md:px-6',
                     { 'btn-ghost': type === 'ghost', 'btn-primary': type === 'primary' },
                   ]}
-                  href={getPermalink(...href)}
+                  href={getPermalink(Astro.url.pathname, ...href)}
                 >
                   <Fragment set:html={text} />
                 </a>
@@ -237,7 +123,7 @@ const {
             ''
           )
         }
-        <LanguageSelector languageMapping={{ en: '', 'pt-BR': '' }} showFlag={true} class="ml-2 bg-transparent" />
+        <LanguageSelector />
       </div>
     </div>
   </div>
